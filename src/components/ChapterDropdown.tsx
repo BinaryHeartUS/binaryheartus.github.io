@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import chaptersData from '../data/chapters.json';
 
 interface Chapter {
@@ -22,14 +23,38 @@ interface ChapterDropdownProps {
 export default function ChapterDropdown({ mobile = false, onItemClick }: ChapterDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const chapters = chaptersData as ChaptersData;
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
+  // Close dropdown when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
   if (mobile) {
     return (
-      <div>
+      <div ref={dropdownRef}>
         <button
           type="button"
           className="-mx-3 flex w-full items-center justify-between rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
@@ -119,7 +144,7 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
   }
 
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       <button
         type="button"
         className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
