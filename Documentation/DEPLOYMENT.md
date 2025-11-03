@@ -1,55 +1,69 @@
 # Deploying to GitHub Pages
 
-This site is configured to automatically deploy to GitHub Pages.
+This site is configured to automatically deploy to GitHub Pages using GitHub Actions.
 
 ## Automatic Deployment (Recommended)
 
-The site will automatically deploy when you push to the `main` branch using GitHub Actions.
+The site will automatically deploy when you push to the `main` branch.
 
-### Setup Steps:
+### How It Works
 
-1. **Enable GitHub Pages in your repository:**
-   - Go to your repository on GitHub
-   - Navigate to **Settings** → **Pages**
-   - Under "Build and deployment":
-     - Source: Select **GitHub Actions**
-
-2. **Push your code:**
+1. **Push changes to main branch:**
    ```bash
    git add .
-   git commit -m "Configure GitHub Pages deployment"
+   git commit -m "Your descriptive commit message"
    git push origin main
    ```
 
-3. **Wait for deployment:**
+2. **GitHub Actions automatically:**
+   - Runs the build process
+   - Runs linting and checks
+   - Deploys to GitHub Pages
+
+3. **Monitor deployment:**
    - Go to the **Actions** tab in your repository
    - Watch the deployment workflow run
-   - Once complete, your site will be live at:
-     `https://binaryheartus.github.io/BinaryHeartBetaSites/`
+   - Once complete, your site will be live at: `https://binaryheart.org`
+
+### First Time Setup
+
+If deploying for the first time:
+
+1. **Enable GitHub Pages:**
+   - Go to your repository on GitHub
+   - Navigate to **Settings** → **Pages**
+   - Under "Build and deployment":
+     - **Source:** Select **GitHub Actions**
+
+2. **Push your code:**
+   ```bash
+   git push origin main
+   ```
 
 ## Manual Deployment (Alternative)
 
-If you prefer to deploy manually:
+If you need to deploy manually:
 
-1. **Install the gh-pages package:**
+1. **Install dependencies:**
    ```bash
    npm install
    ```
 
-2. **Deploy:**
+2. **Build and deploy:**
    ```bash
    npm run deploy
    ```
 
 This will build the site and push it to the `gh-pages` branch.
 
-## Configuration Files
+**Note:** Manual deployment is rarely needed since automatic deployment is configured.
 
-The following files have been configured for GitHub Pages:
+## Deployment Configuration
 
-- **`vite.config.ts`**: Sets the base URL to `/BinaryHeartBetaSites/`
-- **`package.json`**: Includes homepage URL and deploy scripts
-- **`.github/workflows/deploy.yml`**: GitHub Actions workflow for automatic deployment
+The deployment is configured in:
+- **`.github/workflows/deploy.yml`** - GitHub Actions workflow
+- **`vite.config.ts`** - Build configuration
+- **`package.json`** - Project scripts and homepage URL
 
 ## Troubleshooting
 
