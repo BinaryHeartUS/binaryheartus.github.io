@@ -221,7 +221,7 @@ export default function About() {
       </div>
 
       {/* What Makes Us Different */}
-      <div className="py-12 sm:py-16 bg-gradient-to-b from-blue-50/30 to-transparent">
+      <div className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8 text-center">What Makes Us Different</h2>
