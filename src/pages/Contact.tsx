@@ -1,5 +1,5 @@
 export default function Contact() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = () => {
     // Let the form submit naturally to Google Forms
     // The form will redirect or show a success message automatically
   };
