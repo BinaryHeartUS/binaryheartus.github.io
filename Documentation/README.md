@@ -1,92 +1,60 @@
-# BinaryHeart React
+# Documentation Index
 
-A modern React application for BinaryHeart - a student-run 501(c)(3) nonprofit organization dedicated to bridging the digital divide through technology recycling and refurbishment.
+Welcome to the BinaryHeart website documentation! This folder contains comprehensive guides for developing, maintaining, and contributing to the project.
 
-## Tech Stack
+## 📚 Documentation Overview
 
-- **React 18** with TypeScript
-- **Vite** for fast development and building
-- **Tailwind CSS** for styling
-- **React Router** for navigation
+### For Developers
 
-## Project Structure
+- **[Getting Started](./GETTING-STARTED.md)** - Set up your development environment and learn the project structure
+- **[Adding Pages](./ADDING-PAGES.md)** - Create new pages and routes in the application
+- **[Contributing](./CONTRIBUTING.md)** - Guidelines for contributing code and documentation
 
-```
-src/
-├── components/         # Reusable React components
-│   ├── Header.tsx      # Main navigation header
-│   ├── Footer.tsx      # Site footer
-│   └── ChapterDropdown.tsx  # Dynamic chapter dropdown
-├── pages/             # Page components
-│   ├── Home.tsx
-│   ├── About.tsx
-│   ├── Contact.tsx
-│   ├── FAQ.tsx
-│   ├── Donate.tsx
-│   ├── Request.tsx
-│   └── Join.tsx
-├── data/              # JSON data files
-│   └── chapters.json  # Chapter information
-├── App.tsx            # Main app component with routing
-├── main.tsx           # Application entry point
-└── index.css          # Global styles and Tailwind imports
+### For Content Managers
 
-public/
-└── assets/
-    └── images/        # Static images and icons
-```
+- **[Managing Chapters](./MANAGING-CHAPTERS.md)** - Add or update chapter information and statistics
+- **[Image Management](./IMAGE-MANAGEMENT.md)** - Organize and optimize images for the website
 
-## Getting Started
+### For Deployment
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+- **[Deployment](./DEPLOYMENT.md)** - Deploy the website to GitHub Pages (automatic and manual methods)
 
-2. **Start development server:**
-   ```bash
-   npm run dev
-   ```
+## 🚀 Quick Links
 
-3. **Build for production:**
-   ```bash
-   npm run build
-   ```
+**New to the project?** Start with [Getting Started](./GETTING-STARTED.md)
 
-4. **Preview production build:**
-   ```bash
-   npm run preview
-   ```
+**Need to add a chapter?** See [Managing Chapters](./MANAGING-CHAPTERS.md)
 
-## Features
+**Want to contribute?** Read [Contributing](./CONTRIBUTING.md)
 
-- ✅ Responsive design (mobile-first)
-- ✅ Component-based architecture
-- ✅ Dynamic chapter dropdown (loads from JSON)
-- ✅ React Router for client-side navigation
-- ✅ Tailwind CSS for consistent styling
-- ✅ TypeScript for type safety
+**Deployment issues?** Check [Deployment](./DEPLOYMENT.md)
 
-## Adding a New Chapter
+## 📖 Additional Resources
 
-Edit `src/data/chapters.json` and add your chapter to the appropriate section:
+- **Main README:** See the [root README.md](../README.md) for project overview
+- **GitHub Repository:** [BinaryHeartUS/binaryheartus.github.io](https://github.com/BinaryHeartUS/binaryheartus.github.io)
+- **Live Site:** [binaryheart.org](https://binaryheart.org)
 
-```json
-{
-  "higherEducation": [
-    {
-      "name": "Your University",
-      "shortName": "YU",
-      "url": "https://yu.binaryheart.org",
-      "icon": "/assets/images/chapters/yu-icon.svg"
-    }
-  ]
-}
-```
+## 💡 Common Tasks
 
-The chapter dropdown will automatically update across all pages!
+| Task | Documentation |
+|------|---------------|
+| Set up development environment | [Getting Started](./GETTING-STARTED.md) |
+| Add a new chapter | [Managing Chapters](./MANAGING-CHAPTERS.md) |
+| Update chapter statistics | [Managing Chapters](./MANAGING-CHAPTERS.md) |
+| Add chapter images | [Image Management](./IMAGE-MANAGEMENT.md) |
+| Create a new page | [Adding Pages](./ADDING-PAGES.md) |
+| Deploy to production | [Deployment](./DEPLOYMENT.md) |
+| Submit a pull request | [Contributing](./CONTRIBUTING.md) |
 
-## License
+## 🤝 Need Help?
+
+If you can't find what you're looking for:
+1. Search existing documentation files
+2. Check the GitHub Issues page
+3. Contact the BinaryHeart development team
+
+---
 
 © 2025 BinaryHeart™. All Rights Reserved.
 
