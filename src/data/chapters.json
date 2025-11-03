@@ -2,32 +2,32 @@
   "national": {
     "name": "National/501(c)(3)",
     "url": "https://binaryheart.org",
-    "icon": "/assets/images/binaryheart-icon.svg"
+    "icon": "/assets/images/chapters/national/icon.svg"
   },
   "higherEducation": [
     {
       "name": "Northwestern University",
       "shortName": "NU",
       "url": "https://binaryheart.nu",
-      "icon": "/assets/images/chapters/nu-icon.svg"
+      "icon": "/assets/images/chapters/nu/icon.svg"
     },
     {
       "name": "Indiana University",
       "shortName": "IU",
       "url": "https://iu.binaryheart.org",
-      "icon": "/assets/images/chapters/iu-icon.svg"
+      "icon": "/assets/images/chapters/iu/icon.svg"
     },
     {
       "name": "Purdue University",
       "shortName": "Purdue",
       "url": "https://purdue.binaryheart.org",
-      "icon": "/assets/images/chapters/purdue-icon.svg"
+      "icon": "/assets/images/chapters/purdue/icon.svg"
     },
     {
       "name": "Rose-Hulman Institute of Technology",
       "shortName": "Rose-Hulman",
       "url": "https://rose-hulman.binaryheart.org",
-      "icon": "/assets/images/chapters/rose-icon.svg"
+      "icon": "/assets/images/chapters/rose-hulman/icon.svg"
     }
   ],
   "highSchool": [
@@ -35,7 +35,7 @@
       "name": "New Trier",
       "shortName": "NT",
       "url": "https://nt.binaryheart.org",
-      "icon": "/assets/images/chapters/nt-icon.svg"
+      "icon": "/assets/images/chapters/nt/icon.svg"
     }
   ]
 }
