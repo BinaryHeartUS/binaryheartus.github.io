@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -12,6 +13,7 @@ import Join from './pages/Join';
 function App() {
   return (
     <BrowserRouter basename="/">
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen relative isolate overflow-hidden">
         {/* Global background gradients */}
         <div className="absolute inset-x-0 -top-40 z-0 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
