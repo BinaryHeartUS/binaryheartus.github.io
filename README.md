@@ -45,7 +45,7 @@ Comprehensive documentation is available in the [`Documentation/`](./Documentati
 
 - **[Getting Started](./Documentation/GETTING-STARTED.md)** - Development setup and project overview
 - **[Managing Chapters](./Documentation/MANAGING-CHAPTERS.md)** - Adding/updating chapter information and statistics.
-- **[Image Management](./Documentation/IMAGE-MANAGEMENT.md)** - Image organization and best practices. In short, only use your chapters assets folder.
+- **[Image Management](./Documentation/IMAGE-MANAGEMENT.md)** - Image organization and best practices.
 - **[Adding Pages](./Documentation/ADDING-PAGES.md)** - How to create new pages and routes
 - **[Deployment](./Documentation/DEPLOYMENT.md)** - Deploying to GitHub Pages
 - **[Contributing](./Documentation/CONTRIBUTING.md)** - Guidelines for contributing to the project and editing pages
