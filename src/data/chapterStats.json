@@ -1,0 +1,37 @@
+{
+  "nu": {
+    "chapterId": "nu",
+    "name": "Northwestern University",
+    "devicesValue": 8000,
+    "volunteerCount": 15,
+    "volunteerHours": 350
+  },
+  "iu": {
+    "chapterId": "iu",
+    "name": "Indiana University",
+    "devicesValue": 12000,
+    "volunteerCount": 20,
+    "volunteerHours": 450
+  },
+  "purdue": {
+    "chapterId": "purdue",
+    "name": "Purdue University",
+    "devicesValue": 4000,
+    "volunteerCount": 8,
+    "volunteerHours": 120
+  },
+  "rose-hulman": {
+    "chapterId": "rose-hulman",
+    "name": "Rose-Hulman Institute of Technology",
+    "devicesValue": 2000,
+    "volunteerCount": 25,
+    "volunteerHours": 200
+  },
+  "nt": {
+    "chapterId": "nt",
+    "name": "New Trier",
+    "devicesValue": 1000,
+    "volunteerCount": 4,
+    "volunteerHours": 40
+  }
+}
