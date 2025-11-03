@@ -36,7 +36,7 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
           onClick={handleClick}
         >
           <span className="flex items-center gap-x-2">
-            <img src="/assets/images/binaryheart-icon.svg" alt="" className="size-4" />
+            <img src="/assets/images/chapters/national/icon.svg" alt="" className="size-4" />
             Chapters
           </span>
           <svg
@@ -125,7 +125,7 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
         className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
         onClick={handleClick}
       >
-        <img src="/assets/images/binaryheart-icon.svg" alt="" className="size-4" />
+        <img src="/assets/images/chapters/national/icon.svg" alt="" className="size-4" />
         Chapters
         <svg
           className={`h-5 w-5 flex-none text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}

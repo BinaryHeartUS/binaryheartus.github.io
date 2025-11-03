@@ -14,7 +14,7 @@ export default function Header() {
             <span className="sr-only">BinaryHeart</span>
             <img
               className="h-8 w-auto"
-              src="/assets/images/binaryheart-icon.svg"
+              src="/assets/images/chapters/national/icon.svg"
               alt="BinaryHeart Logo"
             />
           </Link>

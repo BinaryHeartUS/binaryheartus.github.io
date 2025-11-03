@@ -9,7 +9,7 @@
   "iu": {
     "chapterId": "iu",
     "name": "Indiana University",
-    "devicesValue": 12000,
+    "devicesValue": 15000,
     "volunteerCount": 20,
     "volunteerHours": 450
   },
@@ -17,21 +17,21 @@
     "chapterId": "purdue",
     "name": "Purdue University",
     "devicesValue": 4000,
-    "volunteerCount": 8,
+    "volunteerCount": 4,
     "volunteerHours": 120
   },
   "rose-hulman": {
     "chapterId": "rose-hulman",
     "name": "Rose-Hulman Institute of Technology",
-    "devicesValue": 2000,
+    "devicesValue": 4000,
     "volunteerCount": 25,
     "volunteerHours": 200
   },
   "nt": {
     "chapterId": "nt",
     "name": "New Trier",
-    "devicesValue": 1000,
-    "volunteerCount": 4,
-    "volunteerHours": 40
+    "devicesValue": 10000,
+    "volunteerCount": 50,
+    "volunteerHours": 500
   }
 }
