@@ -49,24 +49,20 @@ export default function Home() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-              <Link
-                to="/donate"
-                className="rounded-full bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors"
-              >
-                Donate a Device
-              </Link>
+            <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
               <Link
                 to="/request"
-                className="rounded-full bg-rose-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600 transition-colors"
+                className="group relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-rose-500 hover:to-pink-600"
               >
-                Request a Device
+                <span className="relative z-10">Request a Device</span>
+                <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </Link>
-              <Link 
-                to="/join" 
-                className="rounded-full bg-gray-900 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-gray-700 transition-colors"
+              <Link
+                to="/donate"
+                className="group relative rounded-2xl bg-gradient-to-br from-blue-500/90 to-indigo-600/90 px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-blue-500 hover:to-indigo-600"
               >
-                Join Our Team
+                <span className="relative z-10">Donate a Device</span>
+                <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </Link>
             </div>
           </div>
@@ -195,30 +191,26 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Final CTA Section */}
+      {/* Join Us Section */}
       <div className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
-              Ready to Make a Difference?
+              Join Our Team
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Whether you have a device to donate or want to join our team of volunteers, we'd love to hear from you.
+              Become part of a student-led movement making real impact in your community. Gain hands-on tech experience while helping bridge the digital divide.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                to="/donate"
-                className="rounded-full bg-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all hover:scale-105"
-              >
-                Donate Now
-              </Link>
-              <Link
-                to="/join"
-                className="rounded-full bg-white/80 backdrop-blur-sm px-8 py-4 text-lg font-semibold text-gray-900 shadow-lg hover:bg-white transition-all hover:scale-105 ring-1 ring-gray-900/10"
-              >
-                Join Our Team
-              </Link>
-            </div>
+            <Link
+              to="/join"
+              className="group relative inline-flex items-center gap-2 rounded-2xl bg-white/60 backdrop-blur-md px-8 py-4 text-lg font-semibold text-gray-900 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:bg-white/80 hover:shadow-2xl hover:scale-105"
+            >
+              <span className="relative z-10">Get Involved</span>
+              <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            </Link>
           </div>
         </div>
       </div>
