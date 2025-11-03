@@ -1,6 +1,6 @@
 # BinaryHeart Website
 
-This repository contains the files and assets for the BinaryHeart website. Each chapter along with the national 501c3 has its own sections. Below are some instructions on how to start developing for it if you please to do so. Members, please reach out to your chapter leader on more info regarding contributions along with our pipeline.
+This repository contains the files and assets for the BinaryHeart website. Each chapter along with the national 501c3 has its own sections. Below are some instructions on how to start developing. Members, please reach out to your chapter leader on more info regarding contributions along with our pipeline.
 
 ## 🚀 Quick Start
 
@@ -44,7 +44,7 @@ Ask your chapter coordinator if you have any questions.
 Comprehensive documentation is available in the [`Documentation/`](./Documentation) folder:
 
 - **[Getting Started](./Documentation/GETTING-STARTED.md)** - Development setup and project overview
-- **[Managing Chapters](./Documentation/MANAGING-CHAPTERS.md)** - Adding/updating chapter information and statistics. This only applies to managers of the website as you will likely only be touching your chapter's site.
+- **[Managing Chapters](./Documentation/MANAGING-CHAPTERS.md)** - Adding/updating chapter information and statistics.
 - **[Image Management](./Documentation/IMAGE-MANAGEMENT.md)** - Image organization and best practices. In short, only use your chapters assets folder.
 - **[Adding Pages](./Documentation/ADDING-PAGES.md)** - How to create new pages and routes
 - **[Deployment](./Documentation/DEPLOYMENT.md)** - Deploying to GitHub Pages
