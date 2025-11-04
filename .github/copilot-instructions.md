@@ -60,7 +60,7 @@ When displaying "BinaryHeart" text, use color-coded spans:
 
 ### Images
 - Chapter images go in `public/assets/images/chapters/[chapter-name]/`
-- Use consistent naming: `logo.png`, `photos/gallery-1.jpg`, etc.
+- Use consistent naming: `icon.svg`, `photos/gallery-1.jpg`, etc.
 - Reference images with absolute paths from public: `/assets/images/...`
 
 ## Component Patterns
