@@ -67,6 +67,13 @@ The deployment is configured in:
 
 ## Troubleshooting
 
+### Direct URL Navigation (404 errors)
+This site uses React Router for client-side routing. To handle direct URL navigation on GitHub Pages:
+- **`public/404.html`** - Redirects 404s back to index.html with the route preserved
+- **`index.html`** - Contains script to restore the correct route from the redirect
+
+This allows users to directly visit routes like `/about` or `/purdue/donate` without getting a 404.
+
 ### Blank page or 404 errors
 - Make sure GitHub Pages is enabled in repository settings
 - Verify the base URL matches your repository name
