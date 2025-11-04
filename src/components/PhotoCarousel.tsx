@@ -14,7 +14,6 @@ export default function PhotoCarousel({
   autoPlayInterval = 5000 
 }: PhotoCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [lastInteraction, setLastInteraction] = useState(0);
 
   // Auto-advance slides
   useEffect(() => {
@@ -24,21 +23,18 @@ export default function PhotoCarousel({
       }, autoPlayInterval);
       return () => clearInterval(timer);
     }
-  }, [images.length, autoPlayInterval, lastInteraction]); // Re-create timer when lastInteraction changes
+  }, [images.length, autoPlayInterval, currentSlide]); // Reset timer when slide changes
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % images.length);
-    setLastInteraction(Date.now()); // Reset timer
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
-    setLastInteraction(Date.now()); // Reset timer
   };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
-    setLastInteraction(Date.now()); // Reset timer
   };
 
   return (
