@@ -1,3 +1,5 @@
+import BinaryHeartText from '../../components/BinaryHeartText';
+
 export default function Contact() {
   const handleSubmit = () => {
     // Let the form submit naturally to Google Forms
@@ -11,8 +13,7 @@ export default function Contact() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Get in touch with <span className="text-[#2F4A70]">Binary</span>
-              <span className="text-[#FF0040]">Heart</span> at Rose-Hulman
+              Get in touch with <BinaryHeartText /> at Rose-Hulman
             </h1>
             <p className="mt-4 text-lg text-gray-600">
               Have questions about our chapter? Want to get involved or donate equipment? We'd love to hear from you!
@@ -35,8 +36,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h2 className="text-2xl font-bold mb-2">
-                        <span className="text-[#2F4A70]">Binary</span>
-                        <span className="text-[#FF0040]">Heart</span> <span className="text-gray-900">at Rose-Hulman</span>
+                        <BinaryHeartText /> <span className="text-gray-900">at Rose-Hulman</span>
                       </h2>
                       <p className="text-sm text-gray-600">
                         Rose-Hulman Institute of Technology

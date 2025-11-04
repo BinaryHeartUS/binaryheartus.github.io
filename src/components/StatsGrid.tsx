@@ -3,7 +3,7 @@ import { getAggregateStats, getChapterCount, formatNumber } from '../utils/stats
 
 interface StatsGridProps {
   chapterId: string;
-  colorClass?: string; // e.g., 'text-blue-600', 'text-[#2F4A70]', 'text-red-600'
+  colorClass?: string; // e.g., BRAND_COLORS.HEART_TEXT, BRAND_COLORS.BINARY_TEXT, 'text-blue-600'
   columns?: 3 | 4; // Number of columns in the grid
 }
 

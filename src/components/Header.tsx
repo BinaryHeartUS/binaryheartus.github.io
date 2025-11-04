@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ChapterDropdown from './ChapterDropdown';
+import BinaryHeartText from './BinaryHeartText';
 import chaptersData from '../data/chapters.json';
 import type { ChaptersData } from '../types/chapters';
 import { getCurrentChapterInfo, getHomeLink, getNavLink, setPreferredChapter } from '../utils/urlHelpers';
@@ -92,7 +93,7 @@ export default function Header() {
             <div className="flex items-center justify-between">
               <Link to={getHomeLink(currentChapter)} className="-m-1.5 p-1.5 flex items-center gap-2">
                 <span className="text-xl font-semibold">
-                  <span className="binary">Binary</span><span className="heart">Heart</span>
+                  <BinaryHeartText />
                 </span>
               </Link>
               <button

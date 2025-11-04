@@ -1,6 +1,8 @@
 import StatsGrid from '../../components/StatsGrid';
 import FeatureCard from '../../components/FeatureCard';
 import InfoCard from '../../components/InfoCard';
+import BinaryHeartText from '../../components/BinaryHeartText';
+import PictureCard from '../../components/PictureCard';
 
 export default function About() {
   return (
@@ -10,7 +12,7 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-10 sm:pb-20 lg:px-8 lg:pt-20">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">
-              About Binary Heart
+              About <BinaryHeartText />
             </h1>
             <p className="text-xl leading-8 text-gray-700">
               A student-run 501(c)(3) nonprofit organization dedicated to bridging the digital divide through technology recycling and refurbishment.
@@ -311,57 +313,29 @@ export default function About() {
 
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {/* Jack Wilber */}
-              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5 text-center">
-                <div className="mb-4 mx-auto h-32 w-32 rounded-full overflow-hidden ring-4 ring-white shadow-lg">
-                  <img 
-                    src="/assets/images/chapters/national/people/JackWilber.jpg" 
-                    alt="Jack Wilber" 
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">Jack Wilber</h3>
-                <p className="text-sm text-gray-500">Executive Director</p>
-              </div>
+              <PictureCard
+                imageSrc="/assets/images/chapters/national/people/JackWilber.jpg"
+                name="Jack Wilber"
+                role="Executive Director"
+              />
 
-              {/* Enzo Caggiano */}
-              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5 text-center">
-                <div className="mb-4 mx-auto h-32 w-32 rounded-full overflow-hidden ring-4 ring-white shadow-lg">
-                  <img 
-                    src="/assets/images/chapters/national/people/EnzoCaggiano.png" 
-                    alt="Enzo Caggiano" 
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">Enzo Caggiano</h3>
-                <p className="text-sm text-gray-500">Executive Director</p>
-              </div>
+              <PictureCard
+                imageSrc="/assets/images/chapters/national/people/EnzoCaggiano.png"
+                name="Enzo Caggiano"
+                role="Executive Director"
+              />
 
-              {/* Henly Wolin */}
-              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5 text-center">
-                <div className="mb-4 mx-auto h-32 w-32 rounded-full overflow-hidden ring-4 ring-white shadow-lg">
-                  <img 
-                    src="/assets/images/chapters/national/people/HenlyWolin.jpeg" 
-                    alt="Henly Wolin" 
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">Henly Wolin</h3>
-                <p className="text-sm text-gray-500">Board Member</p>
-              </div>
+              <PictureCard
+                imageSrc="/assets/images/chapters/national/people/HenlyWolin.jpeg"
+                name="Henly Wolin"
+                role="Board Member"
+              />
 
-              {/* Tal Belkind */}
-              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5 text-center">
-                <div className="mb-4 mx-auto h-32 w-32 rounded-full overflow-hidden ring-4 ring-white shadow-lg">
-                  <img 
-                    src="/assets/images/chapters/national/people/TalBelkind.jpg" 
-                    alt="Tal Belkind" 
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">Tal Belkind</h3>
-                <p className="text-sm text-gray-500">Director of Technology</p>
-              </div>
+              <PictureCard
+                imageSrc="/assets/images/chapters/national/people/TalBelkind.jpg"
+                name="Tal Belkind"
+                role="Director of Technology"
+              />
             </div>
           </div>
         </div>

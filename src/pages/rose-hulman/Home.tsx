@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 import StatsGrid from '../../components/StatsGrid';
+import BinaryHeartText from '../../components/BinaryHeartText';
+import { BRAND_COLORS } from '../../utils/brandColors';
+import FeatureCard from '../../components/FeatureCard';
 
 export default function Home() {
 
@@ -15,14 +18,13 @@ export default function Home() {
               <Link to="/rose-hulman/about" className="inline-flex items-center space-x-2 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-gray-700 ring-1 ring-gray-900/10 hover:bg-white transition-colors">
                 <img src="/assets/images/chapters/rose-hulman/icon.svg" alt="" className="h-5 w-5" />
                 <span>Student-Run Electronics Recycling</span>
-                <span className="text-[#FF0040] font-semibold">Learn more →</span>
+                <span className={`${BRAND_COLORS.BINARY_TEXT} font-semibold`}>Learn more →</span>
               </Link>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl mb-6">
-              <span className="text-[#2F4A70]">Binary</span>
-              <span className="text-[#FF0040]">Heart</span> at Rose-Hulman
+              <BinaryHeartText /> at Rose-Hulman
             </h1>
 
             {/* Subheadline */}
@@ -50,7 +52,7 @@ export default function Home() {
           </div>
 
           {/* Impact Stats */}
-          <StatsGrid chapterId="rose-hulman" colorClass="text-[#2F4A70]" columns={3} />
+          <StatsGrid chapterId="rose-hulman" colorClass={BRAND_COLORS.HEART_TEXT} columns={3} />
         </div>
       </div>
 
@@ -66,44 +68,41 @@ export default function Home() {
 
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-8 md:grid-cols-3">
-              {/* Activity 1 */}
-              <div className="relative rounded-2xl bg-white/60 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
+              <FeatureCard
+                title="Refurbishment & Repair"
+                description="Apply engineering skills to diagnose, repair, and upgrade donated computers and electronics."
+                icon={
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
                   </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Refurbishment & Repair</h3>
-                <p className="text-gray-600">
-                  Apply engineering skills to diagnose, repair, and upgrade donated computers and electronics.
-                </p>
-              </div>
+                }
+                gradientFrom="from-blue-500"
+                gradientTo="to-indigo-600"
+              />
 
-              {/* Activity 2 */}
-              <div className="relative rounded-2xl bg-white/60 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 text-white">
+              <FeatureCard
+                title="Data Security"
+                description="Ensure complete data sanitization using professional-grade tools and best practices."
+                icon={
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                   </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Data Security</h3>
-                <p className="text-gray-600">
-                  Ensure complete data sanitization using professional-grade tools and best practices.
-                </p>
-              </div>
+                }
+                gradientFrom="from-purple-500"
+                gradientTo="to-violet-600"
+              />
 
-              {/* Activity 3 */}
-              <div className="relative rounded-2xl bg-white/60 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white">
+              <FeatureCard
+                title="Distribution"
+                description="Deliver refurbished devices to students and families in need throughout the Terre Haute community."
+                icon={
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
                   </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Distribution</h3>
-                <p className="text-gray-600">
-                  Deliver refurbished devices to students and families in need throughout the Terre Haute community.
-                </p>
-              </div>
+                }
+                gradientFrom="from-rose-500"
+                gradientTo="to-pink-600"
+              />
             </div>
           </div>
         </div>

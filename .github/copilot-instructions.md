@@ -25,11 +25,32 @@ This is a React + TypeScript + Vite website for Binary Heart, a student-run nonp
 
 ## Branding Guidelines
 
-### BinaryHeart Color Coding
-When displaying "BinaryHeart" text, use color-coded spans:
+### BinaryHeart Brand Colors
+Binary Heart has official brand colors defined in `src/utils/brandColors.ts`:
+- **Binary Red**: `#FF0040` - Used for "Binary" text and Donate buttons
+- **Heart Blue**: `#2F4A70` - Used for "Heart" text and Join buttons
+
+**Always use the brand constants**:
 ```tsx
-<span className="text-[#2F4A70]">Binary</span>
-<span className="text-[#FF0040]">Heart</span>
+import BinaryHeartText from '../../components/BinaryHeartText';
+import { BRAND_COLORS, getBrandGradient } from '../../utils/brandColors';
+
+// For "BinaryHeart" text
+<h1>Welcome to <BinaryHeartText /></h1>
+
+// For manual color application
+<span className={BRAND_COLORS.BINARY_TEXT}>Binary</span>
+<span className={BRAND_COLORS.HEART_TEXT}>Heart</span>
+
+// For buttons and gradients
+<button className={`bg-gradient-to-r ${BRAND_COLORS.BINARY_GRADIENT}`}>
+  Donate
+</button>
+
+// Or use the helper function
+<button className={`bg-gradient-to-r ${getBrandGradient('heart')}`}>
+  Join Us
+</button>
 ```
 
 ## Styling Conventions

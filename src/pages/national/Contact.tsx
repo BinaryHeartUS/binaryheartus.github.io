@@ -1,3 +1,5 @@
+import BinaryHeartText from '../../components/BinaryHeartText';
+
 export default function Contact() {
   const handleSubmit = () => {
     // Let the form submit naturally to Google Forms
@@ -34,7 +36,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h2 className="text-2xl font-bold mb-2">
-                        <span className="text-red-500">Binary</span><span className="text-blue-500">Heart</span> <span className="text-gray-900">Inc.</span>
+                        <BinaryHeartText /> <span className="text-gray-900">Inc.</span>
                       </h2>
                       <div className="space-y-1 text-sm text-gray-600">
                         <p className="font-semibold">EIN: 93-2078509</p>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import BinaryHeartText from './BinaryHeartText';
 
 export default function Footer() {
   return (
@@ -64,8 +65,7 @@ export default function Footer() {
         <p className="text-center text-xs text-gray-400">
           &copy; 2025{' '}
           <Link to="/" className="hover:text-gray-500">
-            <span className="binary">Binary</span>
-            <span className="heart">Heart</span>&trade;
+            <BinaryHeartText />&trade;
           </Link>
           . All Rights Reserved.
         </p>

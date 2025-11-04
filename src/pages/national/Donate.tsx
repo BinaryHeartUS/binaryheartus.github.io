@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getRelativePath, getAllChapters } from '../../utils/urlHelpers';
+import BinaryHeartText from '../../components/BinaryHeartText';
 
 export default function Donate() {
   const allChapters = getAllChapters();
@@ -21,7 +22,7 @@ export default function Donate() {
         <div className="mx-auto max-w-7xl px-6 pb-12 pt-10 sm:pb-16 lg:px-8 lg:pt-20">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">
-              Support <span className="text-blue-600">Binary</span><span className="text-rose-600">Heart</span>
+              Support <BinaryHeartText />
             </h1>
             <p className="text-xl leading-8 text-gray-700">
               Help us bridge the digital divide by donating devices or funds to support our mission.

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import FeatureCard from '../../components/FeatureCard';
 import InfoCard from '../../components/InfoCard';
+import BinaryHeartText from '../../components/BinaryHeartText';
 
 export default function Join() {
   return (
@@ -10,8 +11,7 @@ export default function Join() {
         <div className="mx-auto max-w-7xl px-6 pb-12 pt-10 sm:pb-16 lg:px-8 lg:pt-16">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">
-              Join <span className="text-[#2F4A70]">Binary</span>
-              <span className="text-[#FF0040]">Heart</span> at Rose-Hulman
+              Join <BinaryHeartText /> at Rose-Hulman
             </h1>
             <p className="text-xl leading-8 text-gray-700">
               Be part of a community making technology accessible while gaining valuable hands-on experience.
@@ -57,7 +57,7 @@ export default function Join() {
             </h2>
             <div className="prose prose-lg text-gray-600 space-y-4">
               <p>
-                Binary Heart at Rose-Hulman is open to <strong>all students</strong>, regardless of major, year, or technical experience. Whether you can rebuild a motherboard blindfolded or have never touched a screwdriver, there's a place for you here.
+                Binary Heart at Rose-Hulman is open to <strong>all students</strong>, regardless of major, year, or technical experience. Whether you can build a computer blindfolded or have never touched a screwdriver, there's a place for you here.
               </p>
               <p>
                 We welcome students from all engineering disciplines and experience levels. Our team includes computer engineers, mechanical engineers, software engineers, and students from every major—all united by a shared commitment to making technology accessible and giving back to our community.

@@ -1,3 +1,5 @@
+import BinaryHeartText from '../../components/BinaryHeartText';
+
 export default function Donate() {
   const handleSubmit = () => {
     // Let the form submit naturally to Google Forms
@@ -11,8 +13,7 @@ export default function Donate() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Donate to <span className="text-[#2F4A70]">Binary</span>
-              <span className="text-[#FF0040]">Heart</span> at Rose-Hulman
+              Donate to <BinaryHeartText /> at Rose-Hulman
             </h1>
             <p className="mt-4 text-lg text-gray-600">
               Help us bridge the digital divide by donating computers, electronics, or equipment
