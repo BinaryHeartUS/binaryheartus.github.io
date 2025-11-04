@@ -8,25 +8,25 @@
     {
       "name": "Northwestern University",
       "shortName": "NU",
-      "url": "https://binaryheart.nu",
+      "url": "https://binaryheart.org/nu",
       "icon": "/assets/images/chapters/nu/icon.svg"
     },
     {
       "name": "Indiana University",
       "shortName": "IU",
-      "url": "https://iu.binaryheart.org",
+      "url": "https://binaryheart.org/iu",
       "icon": "/assets/images/chapters/iu/icon.svg"
     },
     {
       "name": "Purdue University",
       "shortName": "Purdue",
-      "url": "https://purdue.binaryheart.org",
+      "url": "https://binaryheart.org/purdue",
       "icon": "/assets/images/chapters/purdue/icon.svg"
     },
     {
       "name": "Rose-Hulman Institute of Technology",
       "shortName": "Rose-Hulman",
-      "url": "https://rose-hulman.binaryheart.org",
+      "url": "https://binaryheart.org/rose-hulman",
       "icon": "/assets/images/chapters/rose-hulman/icon.svg"
     }
   ],
@@ -34,7 +34,7 @@
     {
       "name": "New Trier",
       "shortName": "NT",
-      "url": "https://nt.binaryheart.org",
+      "url": "https://binaryheart.org/nt",
       "icon": "/assets/images/chapters/nt/icon.svg"
     }
   ]

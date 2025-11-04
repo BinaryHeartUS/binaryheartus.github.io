@@ -1,42 +1,78 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import chaptersData from '../data/chapters.json';
-
-interface Chapter {
-  name: string;
-  shortName?: string;
-  url: string;
-  icon: string;
-}
-
-interface ChaptersData {
-  national: Chapter;
-  higherEducation: Chapter[];
-  highSchool: Chapter[];
-}
+import type { ChaptersData } from '../types/chapters';
+import { getChapterLink } from '../utils/urlHelpers';
 
 interface ChapterDropdownProps {
   mobile?: boolean;
   onItemClick?: () => void;
+  currentChapter?: string;
+  currentPage?: string;
+  currentChapterIcon?: string;
 }
 
-export default function ChapterDropdown({ mobile = false, onItemClick }: ChapterDropdownProps) {
+export default function ChapterDropdown({ 
+  mobile = false, 
+  onItemClick,
+  currentPage = '',
+  currentChapterIcon = '/assets/images/chapters/national/icon.svg'
+}: ChapterDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const chapters = chaptersData as ChaptersData;
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
+  // Preload all chapter icons on component mount
+  useEffect(() => {
+    const imagesToPreload = [
+      chapters.national.icon,
+      ...chapters.higherEducation.map(ch => ch.icon),
+      ...chapters.highSchool.map(ch => ch.icon)
+    ];
+
+    imagesToPreload.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [chapters]);
+
+  // Close dropdown when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
   if (mobile) {
     return (
-      <div>
+      <div ref={dropdownRef}>
         <button
           type="button"
           className="-mx-3 flex w-full items-center justify-between rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
           onClick={handleClick}
         >
           <span className="flex items-center gap-x-2">
-            <img src="/assets/images/chapters/national/icon.svg" alt="" className="size-4" />
+            <img src={currentChapterIcon} alt="" className="size-4" />
             Chapters
           </span>
           <svg
@@ -59,14 +95,14 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 px-3">
                 National
               </p>
-              <a
-                href={chapters.national.url}
+              <Link
+                to={getChapterLink(chapters.national.url, currentPage)}
                 className="flex items-center gap-x-3 rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
                 onClick={onItemClick}
               >
                 <img src={chapters.national.icon} alt="" className="h-5 w-5" />
                 {chapters.national.name}
-              </a>
+              </Link>
             </div>
 
             {/* Higher Education */}
@@ -77,15 +113,15 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
                 </p>
                 <div className="space-y-1">
                   {chapters.higherEducation.map((chapter) => (
-                    <a
+                    <Link
                       key={chapter.url}
-                      href={chapter.url}
+                      to={getChapterLink(chapter.url, currentPage)}
                       className="flex items-center gap-x-3 rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
                       onClick={onItemClick}
                     >
                       <img src={chapter.icon} alt="" className="h-5 w-5" />
                       {chapter.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -99,15 +135,15 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
                 </p>
                 <div className="space-y-1">
                   {chapters.highSchool.map((chapter) => (
-                    <a
+                    <Link
                       key={chapter.url}
-                      href={chapter.url}
+                      to={getChapterLink(chapter.url, currentPage)}
                       className="flex items-center gap-x-3 rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
                       onClick={onItemClick}
                     >
                       <img src={chapter.icon} alt="" className="h-5 w-5" />
                       {chapter.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -119,13 +155,13 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
   }
 
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       <button
         type="button"
         className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
         onClick={handleClick}
       >
-        <img src="/assets/images/chapters/national/icon.svg" alt="" className="size-4" />
+        <img src={currentChapterIcon} alt="" className="size-4" />
         Chapters
         <svg
           className={`h-5 w-5 flex-none text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
@@ -150,13 +186,13 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
                 <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 px-3">
                   National
                 </p>
-                <a
-                  href={chapters.national.url}
+                <Link
+                  to={getChapterLink(chapters.national.url, currentPage)}
                   className="group flex items-center gap-x-3 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                 >
                   <img src={chapters.national.icon} alt="" className="h-5 w-5 flex-none" />
                   <span className="font-medium text-gray-900">{chapters.national.name}</span>
-                </a>
+                </Link>
               </div>
 
               {/* Higher Education */}
@@ -167,14 +203,14 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
                   </p>
                   <div className="space-y-1">
                     {chapters.higherEducation.map((chapter) => (
-                      <a
+                      <Link
                         key={chapter.url}
-                        href={chapter.url}
+                        to={getChapterLink(chapter.url, currentPage)}
                         className="group flex items-center gap-x-3 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                       >
                         <img src={chapter.icon} alt="" className="h-5 w-5 flex-none" />
                         <span className="font-medium text-gray-900">{chapter.name}</span>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -188,14 +224,14 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
                   </p>
                   <div className="space-y-1">
                     {chapters.highSchool.map((chapter) => (
-                      <a
+                      <Link
                         key={chapter.url}
-                        href={chapter.url}
+                        to={getChapterLink(chapter.url, currentPage)}
                         className="group flex items-center gap-x-3 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                       >
                         <img src={chapter.icon} alt="" className="h-5 w-5 flex-none" />
                         <span className="font-medium text-gray-900">{chapter.name}</span>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
