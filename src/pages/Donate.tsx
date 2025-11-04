@@ -1,4 +1,33 @@
+import chaptersData from '../data/chapters.json';
+import { getRelativePath } from '../utils/urlHelpers';
+
+interface Chapter {
+  name: string;
+  shortName?: string;
+  url: string;
+  icon: string;
+}
+
+interface ChaptersData {
+  national: Chapter;
+  higherEducation: Chapter[];
+  highSchool: Chapter[];
+}
+
 export default function Donate() {
+  const chapters = chaptersData as ChaptersData;
+  const allChapters = [...chapters.higherEducation, ...chapters.highSchool];
+
+  // Color schemes for chapters
+  const colorSchemes = [
+    'from-purple-50 to-indigo-50 hover:from-purple-100 hover:to-indigo-100 group-hover:text-purple-700',
+    'from-red-50 to-orange-50 hover:from-red-100 hover:to-orange-100 group-hover:text-red-700',
+    'from-yellow-50 to-amber-50 hover:from-yellow-100 hover:to-amber-100 group-hover:text-yellow-800',
+    'from-rose-50 to-pink-50 hover:from-rose-100 hover:to-pink-100 group-hover:text-rose-700',
+    'from-blue-50 to-cyan-50 hover:from-blue-100 hover:to-cyan-100 group-hover:text-blue-700',
+    'from-emerald-50 to-teal-50 hover:from-emerald-100 hover:to-teal-100 group-hover:text-emerald-700',
+  ];
+
   return (
     <main className="grow relative z-10">
       {/* Hero Section */}
@@ -36,30 +65,20 @@ export default function Donate() {
 
               {/* Chapter Selection */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
-                <a href="#" className="flex flex-col items-center gap-2 p-4 rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50 hover:from-purple-100 hover:to-indigo-100 transition-all duration-300 group">
-                  <img src="/assets/images/chapters/nu/icon.svg" alt="Northwestern University" className="h-8 w-8" />
-                  <span className="text-sm font-medium text-gray-900 group-hover:text-purple-700">Northwestern University</span>
-                </a>
-
-                <a href="#" className="flex flex-col items-center gap-2 p-4 rounded-xl bg-gradient-to-br from-red-50 to-orange-50 hover:from-red-100 hover:to-orange-100 transition-all duration-300 group">
-                  <img src="/assets/images/chapters/iu/icon.svg" alt="Indiana University" className="h-8 w-8" />
-                  <span className="text-sm font-medium text-gray-900 group-hover:text-red-700">Indiana University</span>
-                </a>
-
-                <a href="#" className="flex flex-col items-center gap-2 p-4 rounded-xl bg-gradient-to-br from-yellow-50 to-amber-50 hover:from-yellow-100 hover:to-amber-100 transition-all duration-300 group">
-                  <img src="/assets/images/chapters/purdue/icon.svg" alt="Purdue University" className="h-8 w-8" />
-                  <span className="text-sm font-medium text-gray-900 group-hover:text-yellow-800">Purdue University</span>
-                </a>
-
-                <a href="#" className="flex flex-col items-center gap-2 p-4 rounded-xl bg-gradient-to-br from-rose-50 to-pink-50 hover:from-rose-100 hover:to-pink-100 transition-all duration-300 group">
-                  <img src="/assets/images/chapters/rose-hulman/icon.svg" alt="Rose-Hulman" className="h-8 w-8" />
-                  <span className="text-sm font-medium text-gray-900 group-hover:text-rose-700">Rose-Hulman</span>
-                </a>
-
-                <a href="#" className="flex flex-col items-center gap-2 p-4 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 hover:from-blue-100 hover:to-cyan-100 transition-all duration-300 group col-span-2 sm:col-span-1">
-                  <img src="/assets/images/chapters/nt/icon.svg" alt="New Trier High School" className="h-8 w-8" />
-                  <span className="text-sm font-medium text-gray-900 group-hover:text-blue-700">New Trier High School</span>
-                </a>
+                {allChapters.map((chapter, index) => {
+                  const isLastOdd = allChapters.length % 3 === 1 && index === allChapters.length - 1;
+                  const chapterPath = getRelativePath(chapter.url);
+                  return (
+                    <a
+                      key={chapter.url}
+                      href={`${chapterPath}/donate`}
+                      className={`flex flex-col items-center gap-2 p-4 rounded-xl bg-gradient-to-br ${colorSchemes[index % colorSchemes.length]} transition-all duration-300 group ${isLastOdd ? 'col-span-2 sm:col-span-1' : ''}`}
+                    >
+                      <img src={chapter.icon} alt={chapter.name} className="h-8 w-8" />
+                      <span className="text-sm font-medium text-gray-900">{chapter.name}</span>
+                    </a>
+                  );
+                })}
               </div>
 
               {/* Warning Note */}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import chaptersData from '../data/chapters.json';
+import { getRelativePath } from '../utils/urlHelpers';
 
 interface Chapter {
   name: string;
@@ -324,7 +325,7 @@ export default function Join() {
                       {chapters.higherEducation.map((chapter) => (
                         <a
                           key={chapter.url}
-                          href={`${chapter.url}/join`}
+                          href={`${getRelativePath(chapter.url)}/join`}
                           className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors group"
                         >
                           <img src={chapter.icon} alt="" className="h-6 w-6 flex-shrink-0" />
@@ -347,7 +348,7 @@ export default function Join() {
                         {chapters.highSchool.map((chapter) => (
                           <a
                             key={chapter.url}
-                            href={`${chapter.url}/join`}
+                            href={`${getRelativePath(chapter.url)}/join`}
                             className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors group"
                           >
                             <img src={chapter.icon} alt="" className="h-6 w-6 flex-shrink-0" />
