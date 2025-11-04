@@ -28,7 +28,7 @@ export default function Contact() {
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
                       <img 
-                        src="/public/assets/images/chapters/rose-hulman/icon.svg" 
+                        src="/assets/images/chapters/rose-hulman/icon.svg" 
                         alt="Rose-Hulman Binary Heart Logo" 
                         className="h-10 w-10"
                       />

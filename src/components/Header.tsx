@@ -1,9 +1,9 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ChapterDropdown from './ChapterDropdown';
 import chaptersData from '../data/chapters.json';
 import type { ChaptersData } from '../types/chapters';
-import { getCurrentChapterInfo, getHomeLink, getNavLink } from '../utils/urlHelpers';
+import { getCurrentChapterInfo, getHomeLink, getNavLink, setPreferredChapter } from '../utils/urlHelpers';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,6 +15,11 @@ export default function Header() {
     () => getCurrentChapterInfo(location.pathname, chapters),
     [location.pathname, chapters]
   );
+
+  // Store preferred chapter whenever we're on a chapter page
+  useEffect(() => {
+    setPreferredChapter(currentChapter);
+  }, [currentChapter]);
 
   return (
     <header className="sticky top-0 z-50 bg-transparent">

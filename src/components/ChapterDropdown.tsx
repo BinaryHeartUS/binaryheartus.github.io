@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import chaptersData from '../data/chapters.json';
 import type { ChaptersData } from '../types/chapters';
-import { getChapterLink } from '../utils/urlHelpers';
+import { getChapterLink, setPreferredChapter, getRelativePath } from '../utils/urlHelpers';
 
 interface ChapterDropdownProps {
   mobile?: boolean;
@@ -25,6 +25,17 @@ export default function ChapterDropdown({
 
   const handleClick = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleChapterClick = (chapterUrl: string) => {
+    // Extract chapter slug from URL and store preference
+    const path = getRelativePath(chapterUrl);
+    const chapterSlug = path === '/' ? '' : path.split('/').filter(Boolean)[0] || '';
+    setPreferredChapter(chapterSlug);
+    
+    if (onItemClick) {
+      onItemClick();
+    }
   };
 
   // Preload all chapter icons on component mount
@@ -98,7 +109,7 @@ export default function ChapterDropdown({
               <Link
                 to={getChapterLink(chapters.national.url, currentPage)}
                 className="flex items-center gap-x-3 rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
-                onClick={onItemClick}
+                onClick={() => handleChapterClick(chapters.national.url)}
               >
                 <img src={chapters.national.icon} alt="" className="h-5 w-5" />
                 {chapters.national.name}
@@ -117,7 +128,7 @@ export default function ChapterDropdown({
                       key={chapter.url}
                       to={getChapterLink(chapter.url, currentPage)}
                       className="flex items-center gap-x-3 rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
-                      onClick={onItemClick}
+                      onClick={() => handleChapterClick(chapter.url)}
                     >
                       <img src={chapter.icon} alt="" className="h-5 w-5" />
                       {chapter.name}
@@ -139,7 +150,7 @@ export default function ChapterDropdown({
                       key={chapter.url}
                       to={getChapterLink(chapter.url, currentPage)}
                       className="flex items-center gap-x-3 rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
-                      onClick={onItemClick}
+                      onClick={() => handleChapterClick(chapter.url)}
                     >
                       <img src={chapter.icon} alt="" className="h-5 w-5" />
                       {chapter.name}
@@ -189,6 +200,7 @@ export default function ChapterDropdown({
                 <Link
                   to={getChapterLink(chapters.national.url, currentPage)}
                   className="group flex items-center gap-x-3 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
+                  onClick={() => handleChapterClick(chapters.national.url)}
                 >
                   <img src={chapters.national.icon} alt="" className="h-5 w-5 flex-none" />
                   <span className="font-medium text-gray-900">{chapters.national.name}</span>
@@ -207,6 +219,7 @@ export default function ChapterDropdown({
                         key={chapter.url}
                         to={getChapterLink(chapter.url, currentPage)}
                         className="group flex items-center gap-x-3 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
+                        onClick={() => handleChapterClick(chapter.url)}
                       >
                         <img src={chapter.icon} alt="" className="h-5 w-5 flex-none" />
                         <span className="font-medium text-gray-900">{chapter.name}</span>
@@ -228,6 +241,7 @@ export default function ChapterDropdown({
                         key={chapter.url}
                         to={getChapterLink(chapter.url, currentPage)}
                         className="group flex items-center gap-x-3 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
+                        onClick={() => handleChapterClick(chapter.url)}
                       >
                         <img src={chapter.icon} alt="" className="h-5 w-5 flex-none" />
                         <span className="font-medium text-gray-900">{chapter.name}</span>

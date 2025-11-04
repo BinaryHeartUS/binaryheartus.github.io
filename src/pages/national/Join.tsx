@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import chaptersData from '../../data/chapters.json';
 import type { ChaptersData } from '../../types/chapters';
-import { getRelativePath } from '../../utils/urlHelpers';
+import { getRelativePath, getNavLink, getPreferredChapter } from '../../utils/urlHelpers';
 
 export default function Join() {
   const chapters = chaptersData as ChaptersData;
+  const preferredChapter = getPreferredChapter();
 
   return (
     <main className="grow relative z-10">
@@ -392,7 +393,7 @@ export default function Join() {
                 </ul>
 
                 <Link
-                  to="/contact"
+                  to={getNavLink(preferredChapter, 'contact')}
                   className="group relative inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-base font-semibold text-gray-900 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 >
                   <span>Contact Us to Start</span>

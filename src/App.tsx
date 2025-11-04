@@ -18,7 +18,6 @@ import IUHome from './pages/iu/Home';
 import IUAbout from './pages/iu/About';
 import IUContact from './pages/iu/Contact';
 import IUDonate from './pages/iu/Donate';
-import IURequest from './pages/iu/Request';
 import IUJoin from './pages/iu/Join';
 
 // Purdue pages
@@ -26,7 +25,6 @@ import PurdueHome from './pages/purdue/Home';
 import PurdueAbout from './pages/purdue/About';
 import PurdueContact from './pages/purdue/Contact';
 import PurdueDonate from './pages/purdue/Donate';
-import PurdueRequest from './pages/purdue/Request';
 import PurdueJoin from './pages/purdue/Join';
 
 // NT pages
@@ -34,7 +32,6 @@ import NTHome from './pages/nt/Home';
 import NTAbout from './pages/nt/About';
 import NTContact from './pages/nt/Contact';
 import NTDonate from './pages/nt/Donate';
-import NTRequest from './pages/nt/Request';
 import NTJoin from './pages/nt/Join';
 
 // Rose-Hulman pages
@@ -42,7 +39,6 @@ import RoseHulmanHome from './pages/rose-hulman/Home';
 import RoseHulmanAbout from './pages/rose-hulman/About';
 import RoseHulmanContact from './pages/rose-hulman/Contact';
 import RoseHulmanDonate from './pages/rose-hulman/Donate';
-import RoseHulmanRequest from './pages/rose-hulman/Request';
 import RoseHulmanJoin from './pages/rose-hulman/Join';
 
 // NU pages
@@ -50,7 +46,6 @@ import NUHome from './pages/nu/Home';
 import NUAbout from './pages/nu/About';
 import NUContact from './pages/nu/Contact';
 import NUDonate from './pages/nu/Donate';
-import NURequest from './pages/nu/Request';
 import NUJoin from './pages/nu/Join';
 
 function AppContent() {
@@ -83,7 +78,6 @@ function AppContent() {
         <Route path="/iu/about" element={<IUAbout />} />
         <Route path="/iu/contact" element={<IUContact />} />
         <Route path="/iu/donate" element={<IUDonate />} />
-        <Route path="/iu/request" element={<IURequest />} />
         <Route path="/iu/join" element={<IUJoin />} />
 
         {/* Purdue Chapter routes */}
@@ -91,7 +85,6 @@ function AppContent() {
         <Route path="/purdue/about" element={<PurdueAbout />} />
         <Route path="/purdue/contact" element={<PurdueContact />} />
         <Route path="/purdue/donate" element={<PurdueDonate />} />
-        <Route path="/purdue/request" element={<PurdueRequest />} />
         <Route path="/purdue/join" element={<PurdueJoin />} />
 
         {/* NT Chapter routes */}
@@ -99,7 +92,6 @@ function AppContent() {
         <Route path="/nt/about" element={<NTAbout />} />
         <Route path="/nt/contact" element={<NTContact />} />
         <Route path="/nt/donate" element={<NTDonate />} />
-        <Route path="/nt/request" element={<NTRequest />} />
         <Route path="/nt/join" element={<NTJoin />} />
 
         {/* Rose-Hulman Chapter routes */}
@@ -107,7 +99,6 @@ function AppContent() {
         <Route path="/rose-hulman/about" element={<RoseHulmanAbout />} />
         <Route path="/rose-hulman/contact" element={<RoseHulmanContact />} />
         <Route path="/rose-hulman/donate" element={<RoseHulmanDonate />} />
-        <Route path="/rose-hulman/request" element={<RoseHulmanRequest />} />
         <Route path="/rose-hulman/join" element={<RoseHulmanJoin />} />
 
         {/* NU Chapter routes */}
@@ -115,7 +106,6 @@ function AppContent() {
         <Route path="/nu/about" element={<NUAbout />} />
         <Route path="/nu/contact" element={<NUContact />} />
         <Route path="/nu/donate" element={<NUDonate />} />
-        <Route path="/nu/request" element={<NURequest />} />
         <Route path="/nu/join" element={<NUJoin />} />
       </Routes>
       <Footer />
