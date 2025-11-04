@@ -1,32 +1,22 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import chaptersData from '../data/chapters.json';
+import type { ChaptersData } from '../types/chapters';
 import { getChapterLink } from '../utils/urlHelpers';
-
-interface Chapter {
-  name: string;
-  shortName?: string;
-  url: string;
-  icon: string;
-}
-
-interface ChaptersData {
-  national: Chapter;
-  higherEducation: Chapter[];
-  highSchool: Chapter[];
-}
 
 interface ChapterDropdownProps {
   mobile?: boolean;
   onItemClick?: () => void;
   currentChapter?: string;
   currentPage?: string;
+  currentChapterIcon?: string;
 }
 
 export default function ChapterDropdown({ 
   mobile = false, 
   onItemClick,
-  currentPage = ''
+  currentPage = '',
+  currentChapterIcon = '/assets/images/chapters/national/icon.svg'
 }: ChapterDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const chapters = chaptersData as ChaptersData;
@@ -68,7 +58,7 @@ export default function ChapterDropdown({
           onClick={handleClick}
         >
           <span className="flex items-center gap-x-2">
-            <img src="/assets/images/chapters/national/icon.svg" alt="" className="size-4" />
+            <img src={currentChapterIcon} alt="" className="size-4" />
             Chapters
           </span>
           <svg
@@ -157,7 +147,7 @@ export default function ChapterDropdown({
         className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
         onClick={handleClick}
       >
-        <img src="/assets/images/chapters/national/icon.svg" alt="" className="size-4" />
+        <img src={currentChapterIcon} alt="" className="size-4" />
         Chapters
         <svg
           className={`h-5 w-5 flex-none text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}

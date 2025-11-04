@@ -1,3 +1,5 @@
+import type { ChaptersData } from '../types/chapters';
+
 /**
  * Extract relative path from a full URL
  * @param url - Full URL (e.g., "https://binaryheart.org/nu")
@@ -38,4 +40,47 @@ export const getChapterLink = (chapterUrl: string, currentPage?: string): string
   
   // Otherwise, just go to the chapter's home page
   return chapterPath;
+};
+
+/**
+ * Extract current chapter information from URL pathname
+ * @param pathname - Current URL pathname (from location.pathname)
+ * @param chaptersData - Chapters data from chapters.json
+ * @returns Object with currentChapter slug, currentPage name, and currentChapterIcon path
+ */
+export const getCurrentChapterInfo = (
+  pathname: string,
+  chaptersData: ChaptersData
+): {
+  currentChapter: string;
+  currentPage: string;
+  currentChapterIcon: string;
+} => {
+  const pathParts = pathname.split('/').filter(Boolean);
+  
+  // If path is empty or starts with a known page, we're on national
+  const knownPages = ['about', 'contact', 'faq', 'request', 'join', 'donate'];
+  if (pathParts.length === 0 || knownPages.includes(pathParts[0])) {
+    return {
+      currentChapter: '',
+      currentPage: pathParts[0] || '',
+      currentChapterIcon: chaptersData.national.icon
+    };
+  }
+  
+  // Otherwise, first part is chapter, second part (if exists) is page
+  const chapterSlug = pathParts[0];
+  
+  // Find the chapter in the data
+  const allChapters = [...chaptersData.higherEducation, ...chaptersData.highSchool];
+  const foundChapter = allChapters.find(ch => {
+    const chapterPath = new URL(ch.url).pathname.split('/').filter(Boolean)[0];
+    return chapterPath === chapterSlug;
+  });
+  
+  return {
+    currentChapter: chapterSlug,
+    currentPage: pathParts[1] || '',
+    currentChapterIcon: foundChapter?.icon || chaptersData.national.icon
+  };
 };

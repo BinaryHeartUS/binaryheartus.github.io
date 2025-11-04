@@ -1,27 +1,20 @@
 import { useState, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ChapterDropdown from './ChapterDropdown';
+import chaptersData from '../data/chapters.json';
+import type { ChaptersData } from '../types/chapters';
+import { getCurrentChapterInfo } from '../utils/urlHelpers';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const chapters = chaptersData as ChaptersData;
 
   // Extract current chapter and page from URL
-  const { currentChapter, currentPage } = useMemo(() => {
-    const pathParts = location.pathname.split('/').filter(Boolean);
-    
-    // If path is empty or starts with a known page, we're on national
-    const knownPages = ['about', 'contact', 'faq', 'request', 'join', 'donate'];
-    if (pathParts.length === 0 || knownPages.includes(pathParts[0])) {
-      return { currentChapter: '', currentPage: pathParts[0] || '' };
-    }
-    
-    // Otherwise, first part is chapter, second part (if exists) is page
-    return {
-      currentChapter: pathParts[0],
-      currentPage: pathParts[1] || ''
-    };
-  }, [location.pathname]);
+  const { currentChapter, currentPage, currentChapterIcon } = useMemo(
+    () => getCurrentChapterInfo(location.pathname, chapters),
+    [location.pathname, chapters]
+  );
 
   // Helper to build chapter-aware links
   const getNavLink = (page: string) => {
@@ -37,7 +30,7 @@ export default function Header() {
             <span className="sr-only">BinaryHeart</span>
             <img
               className="h-8 w-auto"
-              src="/assets/images/chapters/national/icon.svg"
+              src={currentChapterIcon}
               alt="BinaryHeart Logo"
             />
           </Link>
@@ -65,7 +58,7 @@ export default function Header() {
           <Link to={getNavLink('contact')} className="text-sm/6 font-semibold text-gray-900">
             Contact
           </Link>
-          <ChapterDropdown currentChapter={currentChapter} currentPage={currentPage} />
+          <ChapterDropdown currentChapter={currentChapter} currentPage={currentPage} currentChapterIcon={currentChapterIcon} />
           <Link to={getNavLink('faq')} className="text-sm/6 font-semibold text-gray-900">
             FAQs
           </Link>
@@ -130,7 +123,7 @@ export default function Header() {
                   >
                     Contact
                   </Link>
-                  <ChapterDropdown mobile currentChapter={currentChapter} currentPage={currentPage} onItemClick={() => setMobileMenuOpen(false)} />
+                  <ChapterDropdown mobile currentChapter={currentChapter} currentPage={currentPage} currentChapterIcon={currentChapterIcon} onItemClick={() => setMobileMenuOpen(false)} />
                   <Link
                     to={getNavLink('faq')}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
