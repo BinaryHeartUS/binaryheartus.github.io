@@ -27,6 +27,20 @@ export default function ChapterDropdown({
     setIsOpen(!isOpen);
   };
 
+  // Preload all chapter icons on component mount
+  useEffect(() => {
+    const imagesToPreload = [
+      chapters.national.icon,
+      ...chapters.higherEducation.map(ch => ch.icon),
+      ...chapters.highSchool.map(ch => ch.icon)
+    ];
+
+    imagesToPreload.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [chapters]);
+
   // Close dropdown when route changes
   useEffect(() => {
     setIsOpen(false);
