@@ -29,7 +29,7 @@ export default function StatsGrid({
     }
   }
 
-  const gridCols = columns === 3 ? 'sm:grid-cols-3' : 'grid-cols-2 gap-8 md:grid-cols-4';
+  const gridCols = columns === 3 ? 'sm:grid-cols-3' : 'grid-cols-2 md:grid-cols-4';
   const chapterCount = getChapterCount();
 
   return (
