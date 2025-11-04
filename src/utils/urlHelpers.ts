@@ -1,4 +1,5 @@
-import type { ChaptersData } from '../types/chapters';
+import type { ChaptersData, Chapter } from '../types/chapters';
+import chaptersData from '../data/chapters.json';
 
 /**
  * Extract relative path from a full URL
@@ -12,6 +13,15 @@ export const getRelativePath = (url: string): string => {
   } catch {
     return url;
   }
+};
+
+/**
+ * Get all chapters (higher education and high school) as a single array
+ * @returns Array of all chapters
+ */
+export const getAllChapters = (): Chapter[] => {
+  const chapters = chaptersData as ChaptersData;
+  return [...chapters.higherEducation, ...chapters.highSchool];
 };
 
 /**
@@ -71,8 +81,8 @@ export const getCurrentChapterInfo = (
   // Otherwise, first part is chapter, second part (if exists) is page
   const chapterSlug = pathParts[0];
   
-  // Find the chapter in the data
-  const allChapters = [...chaptersData.higherEducation, ...chaptersData.highSchool];
+  // Find the chapter in the data using the helper
+  const allChapters = getAllChapters();
   const foundChapter = allChapters.find(ch => {
     const chapterPath = new URL(ch.url).pathname.split('/').filter(Boolean)[0];
     return chapterPath === chapterSlug;

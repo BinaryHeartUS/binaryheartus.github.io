@@ -1,25 +1,8 @@
-import chapterStats from '../data/chapterStats.json';
+import { getAggregateStats, getChapterCount, formatNumber } from '../utils/statsHelpers';
 
 export default function About() {
-  // Aggregate stats from all chapters
-  const aggregateStats = Object.values(chapterStats).reduce(
-    (acc, chapter) => ({
-      devicesValue: acc.devicesValue + chapter.devicesValue,
-      volunteerCount: acc.volunteerCount + chapter.volunteerCount,
-      volunteerHours: acc.volunteerHours + chapter.volunteerHours,
-    }),
-    { devicesValue: 0, volunteerCount: 0, volunteerHours: 0 }
-  );
-
-  const chapterCount = Object.keys(chapterStats).length;
-
-  // Format large numbers with K suffix
-  const formatNumber = (num: number) => {
-    if (num >= 1000) {
-      return `${(num / 1000).toFixed(num % 1000 === 0 ? 0 : 1)}K`;
-    }
-    return num.toString();
-  };
+  const aggregateStats = getAggregateStats();
+  const chapterCount = getChapterCount();
 
   return (
     <main className="grow relative z-10">

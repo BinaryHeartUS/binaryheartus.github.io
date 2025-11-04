@@ -1,10 +1,7 @@
-import chaptersData from '../data/chapters.json';
-import type { ChaptersData } from '../types/chapters';
-import { getRelativePath } from '../utils/urlHelpers';
+import { getRelativePath, getAllChapters } from '../utils/urlHelpers';
 
 export default function Donate() {
-  const chapters = chaptersData as ChaptersData;
-  const allChapters = [...chapters.higherEducation, ...chapters.highSchool];
+  const allChapters = getAllChapters();
 
   // Color schemes for chapters
   const colorSchemes = [
