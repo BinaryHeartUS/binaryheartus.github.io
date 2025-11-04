@@ -208,7 +208,7 @@ export default function Request() {
                   disabled={isSubmitting}
                   className="w-full rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:from-rose-600 hover:to-pink-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit Donation Form'}
+                  {isSubmitting ? 'Submitting...' : 'Submit Request'}
                 </button>
               </div>
 
