@@ -63,8 +63,15 @@ export const getChapterLink = (chapterUrl: string, currentPage?: string): string
     }
     // If switching to a chapter, go to that chapter's home page
     return chapterPath;
+  } else if (currentPage === 'request') {
+    // Request page is always national, so when switching chapters from Request, go to chapter home
+    if (chapterPath === '/') {
+      return '/request';
+    }
+    // If switching to a chapter, go to that chapter's home page
+    return chapterPath;
   }
-  
+
   // If we're on a specific page (e.g., /purdue/about), navigate to same page in new chapter
   if (currentPage) {
     // Remove trailing slash from chapter path to avoid double slashes

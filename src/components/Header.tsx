@@ -62,7 +62,7 @@ export default function Header() {
           <Link to="/faq" className="text-sm/6 font-semibold text-gray-900">
             FAQs
           </Link>
-          <Link to={getNavLink(currentChapter, 'request')} className="text-sm/6 font-semibold text-gray-900">
+          <Link to="/request" className="text-sm/6 font-semibold text-gray-900">
             Request Device
           </Link>
         </div>
