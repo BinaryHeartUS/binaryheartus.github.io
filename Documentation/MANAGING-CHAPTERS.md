@@ -10,7 +10,25 @@ Chapter data is stored in two JSON files located in `src/data/`:
 
 ## Adding a New Chapter
 
-### Step 1: Add Chapter to `chapters.json`
+### Step 1: Create Chapter Page Folder
+
+Create a new folder for the chapter's pages in `src/pages/`:
+
+```
+src/pages/
+└── your-chapter/
+    ├── Home.tsx
+    ├── About.tsx
+    ├── Contact.tsx
+    ├── FAQ.tsx
+    ├── Donate.tsx
+    ├── Request.tsx
+    └── Join.tsx
+```
+
+You can start with placeholder pages or create custom content immediately.
+
+### Step 2: Add Chapter to `chapters.json`
 
 Open `src/data/chapters.json` and add your chapter to the appropriate section:
 
@@ -58,9 +76,53 @@ Open `src/data/chapterStats.json` and add an entry for your chapter:
 }
 ```
 
-**Important:** Use the same chapter ID (lowercase, hyphenated) in both files.
+**Important:** Use the same chapter ID (lowercase, hyphenated) in both files and as the folder name.
 
-### Step 3: Create Image Folder
+### Step 3: Add Chapter Statistics
+
+Open `src/data/chapterStats.json` and add an entry for your chapter:
+
+```json
+{
+  "yu": {
+    "chapterId": "yu",
+    "name": "Your University",
+    "devicesValue": 0,
+    "volunteerCount": 0,
+    "volunteerHours": 0
+  }
+}
+```
+
+### Step 4: Add Routes to App.tsx
+
+Open `src/App.tsx` and add imports and routes for your new chapter:
+
+1. **Add imports** at the top:
+```tsx
+// YU pages
+import YUHome from './pages/yu/Home';
+import YUAbout from './pages/yu/About';
+import YUContact from './pages/yu/Contact';
+import YUFAQ from './pages/yu/FAQ';
+import YUDonate from './pages/yu/Donate';
+import YURequest from './pages/yu/Request';
+import YUJoin from './pages/yu/Join';
+```
+
+2. **Add routes** in the Routes section:
+```tsx
+{/* YU Chapter routes */}
+<Route path="/yu" element={<YUHome />} />
+<Route path="/yu/about" element={<YUAbout />} />
+<Route path="/yu/contact" element={<YUContact />} />
+<Route path="/yu/faq" element={<YUFAQ />} />
+<Route path="/yu/donate" element={<YUDonate />} />
+<Route path="/yu/request" element={<YURequest />} />
+<Route path="/yu/join" element={<YUJoin />} />
+```
+
+### Step 5: Create Image Folder
 
 Create a folder for your chapter's images:
 
@@ -73,11 +135,13 @@ public/assets/images/chapters/
 
 See [Image Management](./IMAGE-MANAGEMENT.md) for details on image requirements.
 
-### Step 4: Test Locally
+### Step 6: Test Locally
 
 1. Start the development server: `npm run dev`
 2. Check that the chapter appears in the dropdown menu
-3. Verify the chapter statistics display correctly on the homepage
+3. Navigate to the chapter's pages (e.g., `/yu`, `/yu/about`, etc.)
+4. Verify the chapter statistics display correctly on the homepage
+5. Test navigation between pages within the chapter
 
 ## Updating Chapter Information
 
@@ -158,11 +222,13 @@ The homepage automatically:
 
 To remove a chapter:
 
-1. Remove the entry from `src/data/chapters.json`
-2. Remove the entry from `src/data/chapterStats.json`
-3. (Optional) Delete the chapter's image folder from `public/assets/images/chapters/`
+1. Remove the chapter's page folder from `src/pages/[chapter-id]/`
+2. Remove the entry from `src/data/chapters.json`
+3. Remove the entry from `src/data/chapterStats.json`
+4. Remove the chapter's routes from `src/App.tsx` (both imports and Route elements)
+5. (Optional) Delete the chapter's image folder from `public/assets/images/chapters/`
 
-**Warning:** Ensure you're removing the correct chapter from both files to avoid inconsistencies.
+**Warning:** Ensure you're removing the correct chapter from all locations to avoid inconsistencies and broken routes.
 
 ## Common Issues
 
@@ -170,6 +236,12 @@ To remove a chapter:
 - Verify the entry exists in `chapters.json`
 - Check that the JSON syntax is valid (no missing commas/brackets)
 - Ensure the icon path is correct
+
+### Chapter pages showing 404 or wrong content
+- Verify the page folder exists in `src/pages/[chapter-id]/`
+- Check that routes are added to `src/App.tsx`
+- Ensure component imports match the file names and paths
+- Verify the URL path matches the chapter ID (e.g., `/purdue` for Purdue)
 
 ### Statistics not displaying
 - Verify the entry exists in `chapterStats.json`
@@ -181,6 +253,11 @@ To remove a chapter:
 - Check that the path starts with `/assets/images/chapters/`
 - Ensure the file extension matches (`.svg` recommended)
 
+### Navigation not working between chapter pages
+- Verify all routes are defined in `src/App.tsx`
+- Check that the Header component uses `getNavLink` helper
+- Ensure React Router `Link` components are used (not `<a>` tags)
+
 ## Testing Changes
 
 After making changes:
@@ -190,7 +267,10 @@ After making changes:
    npm run dev
    ```
    - Check the chapter dropdown in the header
+   - Navigate to all chapter pages (Home, About, Contact, etc.)
    - Verify statistics on the homepage
+   - Test navigation between pages within the chapter
+   - Test chapter switching via dropdown
    - Test on mobile and desktop views
 
 2. **Build Test:**
@@ -200,9 +280,10 @@ After making changes:
    ```
    - Ensure no build errors
    - Test the production build
+   - Verify all routes work correctly
 
 3. **Deploy:**
-   - Push changes to the `main` branch
+   - Push changes to the appropriate branch
    - GitHub Actions will automatically deploy
    - Verify changes on the live site
 
@@ -211,5 +292,7 @@ After making changes:
 If you encounter issues:
 - Check that both JSON files have valid syntax
 - Verify all file paths are correct
+- Ensure page folders and routes are properly set up in `src/App.tsx`
 - Review the [Image Management](./IMAGE-MANAGEMENT.md) guide
+- See [Adding Pages](./ADDING-PAGES.md) for page creation details
 - Contact the development team

@@ -4,18 +4,70 @@ This guide explains how to add new pages to the BinaryHeart website.
 
 ## Overview
 
-The website uses React Router for navigation. Pages are React components located in `src/pages/` and routes are defined in `src/App.tsx`.
+The website uses React Router for navigation. Pages are React components located in `src/pages/` organized by chapter folders, and routes are defined in `src/App.tsx`.
+
+## Folder Structure
+
+Pages are organized by chapter:
+
+```
+src/pages/
+├── national/      # National/501(c)(3) pages
+│   ├── Home.tsx
+│   ├── About.tsx
+│   ├── Contact.tsx
+│   ├── FAQ.tsx
+│   ├── Donate.tsx
+│   ├── Request.tsx
+│   └── Join.tsx
+├── iu/            # Indiana University pages
+├── purdue/        # Purdue University pages
+├── nu/            # Northwestern University pages
+├── nt/            # New Trier pages
+└── rose-hulman/   # Rose-Hulman pages
+```
+
+Each chapter folder contains its own set of pages that are displayed when navigating to that chapter's routes.
 
 ## Steps to Add a New Page
 
-### Step 1: Create the Page Component
+### Option A: Adding a Page to an Existing Chapter
 
-1. **Create a new file** in `src/pages/`:
+1. **Navigate to the chapter's folder** in `src/pages/`:
    ```
-   src/pages/YourPageName.tsx
+   src/pages/[chapter-name]/YourPageName.tsx
    ```
+   Example: `src/pages/purdue/Events.tsx`
 
-2. **Basic page template:**
+2. **Create the page component** using this template:
+   ```tsx
+   export default function YourPageName() {
+     return (
+       <main className="grow relative z-10">
+         {/* Hero Section */}
+         <div className="py-12 sm:py-16">
+           <div className="mx-auto max-w-7xl px-6 lg:px-8">
+             <div className="mx-auto max-w-2xl text-center">
+               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                 Page Title
+               </h1>
+               <p className="mt-4 text-lg text-gray-600">
+                 Page description
+               </p>
+             </div>
+           </div>
+         </div>
+
+         {/* Content Section */}
+         <div className="py-12 sm:py-16">
+           <div className="mx-auto max-w-7xl px-6 lg:px-8">
+             {/* Your content here */}
+           </div>
+         </div>
+       </main>
+     );
+   }
+2. **Create the page component** using this template:
    ```tsx
    export default function YourPageName() {
      return (
@@ -45,13 +97,88 @@ The website uses React Router for navigation. Pages are React components located
    }
    ```
 
+3. **Add Route to App.tsx:**
+
+   Open `src/App.tsx` and:
+   
+   a. **Import your new page** at the top (use appropriate chapter prefix):
+   ```tsx
+   // For Purdue chapter
+   import PurdueEvents from './pages/purdue/Events';
+   ```
+
+   b. **Add a route** inside the appropriate chapter's routes section:
+   ```tsx
+   {/* Purdue Chapter routes */}
+   <Route path="/purdue" element={<PurdueHome />} />
+   <Route path="/purdue/about" element={<PurdueAbout />} />
+   {/* Add your new route */}
+   <Route path="/purdue/events" element={<PurdueEvents />} />
+   ```
+
+### Option B: Adding a Page to All Chapters
+
+If you want to add the same page to all chapters (e.g., a new "Events" page):
+
+1. **Create the page in each chapter folder:**
+   ```
+   src/pages/national/Events.tsx
+   src/pages/iu/Events.tsx
+   src/pages/purdue/Events.tsx
+   src/pages/nu/Events.tsx
+   src/pages/nt/Events.tsx
+   src/pages/rose-hulman/Events.tsx
+   ```
+
+2. **Import all versions in App.tsx:**
+   ```tsx
+   // National
+   import NationalEvents from './pages/national/Events';
+   
+   // IU
+   import IUEvents from './pages/iu/Events';
+   
+   // Purdue
+   import PurdueEvents from './pages/purdue/Events';
+   
+   // NU
+   import NUEvents from './pages/nu/Events';
+   
+   // NT
+   import NTEvents from './pages/nt/Events';
+   
+   // Rose-Hulman
+   import RoseHulmanEvents from './pages/rose-hulman/Events';
+   ```
+
+3. **Add routes for each chapter:**
+   ```tsx
+   {/* National routes */}
+   <Route path="/events" element={<NationalEvents />} />
+   
+   {/* IU Chapter routes */}
+   <Route path="/iu/events" element={<IUEvents />} />
+   
+   {/* Purdue Chapter routes */}
+   <Route path="/purdue/events" element={<PurdueEvents />} />
+   
+   {/* NU Chapter routes */}
+   <Route path="/nu/events" element={<NUEvents />} />
+   
+   {/* NT Chapter routes */}
+   <Route path="/nt/events" element={<NTEvents />} />
+   
+   {/* Rose-Hulman Chapter routes */}
+   <Route path="/rose-hulman/events" element={<RoseHulmanEvents />} />
+   ```
+
 ### Step 2: Add Route to App.tsx
 
 1. **Open** `src/App.tsx`
 
 2. **Import your new page** at the top:
    ```tsx
-   import YourPageName from './pages/YourPageName';
+   import YourPageName from './pages/national/YourPageName';
    ```
 
 3. **Add a route** inside the `<Routes>` component:
@@ -72,23 +199,25 @@ To add the page to the header navigation:
 
 1. **Open** `src/components/Header.tsx`
 
-2. **Add link to desktop navigation:**
+2. **Add link using the `getNavLink` helper function:**
    ```tsx
-   <a href="/your-page" className="text-sm/6 font-semibold text-gray-900">
-     Your Page
-   </a>
-   ```
-
-3. **Add link to mobile navigation:**
-   ```tsx
-   <a
-     href="/your-page"
-     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-     onClick={() => setMobileMenuOpen(false)}
+   <Link 
+     to={getNavLink(currentChapter, 'events')}
+     className="text-sm/6 font-semibold text-gray-900"
    >
-     Your Page
-   </a>
+     Events
+   </Link>
    ```
+   
+   The `getNavLink` function automatically generates the correct path for the current chapter:
+   - National: `/events`
+   - Purdue: `/purdue/events`
+   - NU: `/nu/events`
+   - etc.
+
+3. **For mobile navigation**, add the same pattern in the mobile menu section.
+
+**Note:** The navigation is chapter-aware, so it will automatically route to the correct chapter's version of the page.
 
 ### Step 4: Test Your Page
 
@@ -98,15 +227,51 @@ To add the page to the header navigation:
    ```
 
 2. **Navigate to your page:**
-   ```
-   http://localhost:5173/your-page
-   ```
+   - National: `http://localhost:5173/your-page`
+   - Purdue: `http://localhost:5173/purdue/your-page`
+   - NU: `http://localhost:5173/nu/your-page`
+   - etc.
 
 3. **Test:**
-   - Page loads correctly
-   - Navigation works
+   - Page loads correctly for each chapter
+   - Navigation works and maintains chapter context
    - Mobile responsive
    - No console errors
+
+## Chapter-Specific vs Shared Content
+
+### When to Create Chapter-Specific Pages
+
+Create separate pages for each chapter when:
+- Content is unique to that chapter (e.g., local events, chapter-specific contact info)
+- Different chapters need different layouts or features
+- You want to customize the experience per chapter
+
+### When to Use Shared Components
+
+Consider creating shared components in `src/components/` for:
+- Repeated UI elements across multiple pages
+- Common functionality used by multiple chapters
+- Reusable data visualization or charts
+
+Example:
+```tsx
+// src/components/EventCard.tsx
+export default function EventCard({ title, date, description }) {
+  return (
+    <div className="rounded-lg bg-white p-6 shadow-lg">
+      <h3 className="text-xl font-bold">{title}</h3>
+      <p className="text-gray-600">{date}</p>
+      <p>{description}</p>
+    </div>
+  );
+}
+```
+
+Then use it in any chapter's pages:
+```tsx
+import EventCard from '../../components/EventCard';
+```
 
 ## Page Styling Guidelines
 
@@ -193,8 +358,8 @@ Use existing components for consistency:
 If your page needs data from JSON files:
 
 ```tsx
-import chaptersData from '../data/chapters.json';
-import chapterStats from '../data/chapterStats.json';
+import chaptersData from '../../data/chapters.json';
+import chapterStats from '../../data/chapterStats.json';
 
 export default function YourPage() {
   // Use the data
@@ -207,6 +372,8 @@ export default function YourPage() {
   );
 }
 ```
+
+**Note:** Import paths will be relative to your page's location. From a chapter folder, use `../../data/` to access data files.
 
 ## TypeScript Types
 
@@ -306,12 +473,18 @@ Before deploying your new page:
 ## Need Help?
 
 Examples to reference:
-- **Simple page:** `src/pages/Contact.tsx`
-- **Complex layout:** `src/pages/Home.tsx`
-- **Data integration:** `src/pages/About.tsx`
-- **Multiple sections:** `src/pages/Join.tsx`
+- **Simple page:** `src/pages/national/Contact.tsx`
+- **Complex layout:** `src/pages/national/Home.tsx`
+- **Data integration:** `src/pages/national/About.tsx`
+- **Multiple sections:** `src/pages/national/Join.tsx`
+- **Chapter placeholder:** `src/pages/purdue/Home.tsx`
+
+For chapter management:
+- See [Managing Chapters](./MANAGING-CHAPTERS.md) for adding new chapters
+- See [Chapter Creation](./CHAPTER%20CREATION.md) for complete chapter setup
 
 If you have questions:
-- Review existing page components
+- Review existing page components in chapter folders
 - Check the React Router documentation
+- Review the `src/utils/urlHelpers.ts` for navigation utilities
 - Contact the development team
