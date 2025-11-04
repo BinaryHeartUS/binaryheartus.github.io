@@ -33,6 +33,11 @@ export const getAllChapters = (): Chapter[] => {
 export const getChapterLink = (chapterUrl: string, currentPage?: string): string => {
   const chapterPath = getRelativePath(chapterUrl);
   
+  // FAQ is always national, so stay on /faq when switching chapters
+  if (currentPage === 'faq') {
+    return '/faq';
+  }
+  
   // If we're on a specific page (e.g., /purdue/about), navigate to same page in new chapter
   if (currentPage) {
     // Remove trailing slash from chapter path to avoid double slashes

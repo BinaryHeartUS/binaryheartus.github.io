@@ -54,7 +54,7 @@ export default function Header() {
             Contact
           </Link>
           <ChapterDropdown currentChapter={currentChapter} currentPage={currentPage} currentChapterIcon={currentChapterIcon} />
-          <Link to={getNavLink(currentChapter, 'faq')} className="text-sm/6 font-semibold text-gray-900">
+          <Link to="/faq" className="text-sm/6 font-semibold text-gray-900">
             FAQs
           </Link>
           <Link to={getNavLink(currentChapter, 'request')} className="text-sm/6 font-semibold text-gray-900">
@@ -120,7 +120,7 @@ export default function Header() {
                   </Link>
                   <ChapterDropdown mobile currentChapter={currentChapter} currentPage={currentPage} currentChapterIcon={currentChapterIcon} onItemClick={() => setMobileMenuOpen(false)} />
                   <Link
-                    to={getNavLink(currentChapter, 'faq')}
+                    to="/faq"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
