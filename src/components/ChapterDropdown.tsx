@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import chaptersData from '../data/chapters.json';
+import { getChapterLink } from '../utils/urlHelpers';
 
 interface Chapter {
   name: string;
@@ -18,9 +19,15 @@ interface ChaptersData {
 interface ChapterDropdownProps {
   mobile?: boolean;
   onItemClick?: () => void;
+  currentChapter?: string;
+  currentPage?: string;
 }
 
-export default function ChapterDropdown({ mobile = false, onItemClick }: ChapterDropdownProps) {
+export default function ChapterDropdown({ 
+  mobile = false, 
+  onItemClick,
+  currentPage = ''
+}: ChapterDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const chapters = chaptersData as ChaptersData;
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -84,14 +91,14 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 px-3">
                 National
               </p>
-              <a
-                href={chapters.national.url}
+              <Link
+                to={getChapterLink(chapters.national.url, currentPage)}
                 className="flex items-center gap-x-3 rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
                 onClick={onItemClick}
               >
                 <img src={chapters.national.icon} alt="" className="h-5 w-5" />
                 {chapters.national.name}
-              </a>
+              </Link>
             </div>
 
             {/* Higher Education */}
@@ -102,15 +109,15 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
                 </p>
                 <div className="space-y-1">
                   {chapters.higherEducation.map((chapter) => (
-                    <a
+                    <Link
                       key={chapter.url}
-                      href={chapter.url}
+                      to={getChapterLink(chapter.url, currentPage)}
                       className="flex items-center gap-x-3 rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
                       onClick={onItemClick}
                     >
                       <img src={chapter.icon} alt="" className="h-5 w-5" />
                       {chapter.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -124,15 +131,15 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
                 </p>
                 <div className="space-y-1">
                   {chapters.highSchool.map((chapter) => (
-                    <a
+                    <Link
                       key={chapter.url}
-                      href={chapter.url}
+                      to={getChapterLink(chapter.url, currentPage)}
                       className="flex items-center gap-x-3 rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
                       onClick={onItemClick}
                     >
                       <img src={chapter.icon} alt="" className="h-5 w-5" />
                       {chapter.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -175,13 +182,13 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
                 <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 px-3">
                   National
                 </p>
-                <a
-                  href={chapters.national.url}
+                <Link
+                  to={getChapterLink(chapters.national.url, currentPage)}
                   className="group flex items-center gap-x-3 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                 >
                   <img src={chapters.national.icon} alt="" className="h-5 w-5 flex-none" />
                   <span className="font-medium text-gray-900">{chapters.national.name}</span>
-                </a>
+                </Link>
               </div>
 
               {/* Higher Education */}
@@ -192,14 +199,14 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
                   </p>
                   <div className="space-y-1">
                     {chapters.higherEducation.map((chapter) => (
-                      <a
+                      <Link
                         key={chapter.url}
-                        href={chapter.url}
+                        to={getChapterLink(chapter.url, currentPage)}
                         className="group flex items-center gap-x-3 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                       >
                         <img src={chapter.icon} alt="" className="h-5 w-5 flex-none" />
                         <span className="font-medium text-gray-900">{chapter.name}</span>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -213,14 +220,14 @@ export default function ChapterDropdown({ mobile = false, onItemClick }: Chapter
                   </p>
                   <div className="space-y-1">
                     {chapters.highSchool.map((chapter) => (
-                      <a
+                      <Link
                         key={chapter.url}
-                        href={chapter.url}
+                        to={getChapterLink(chapter.url, currentPage)}
                         className="group flex items-center gap-x-3 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                       >
                         <img src={chapter.icon} alt="" className="h-5 w-5 flex-none" />
                         <span className="font-medium text-gray-900">{chapter.name}</span>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
