@@ -53,6 +53,25 @@ export const getChapterLink = (chapterUrl: string, currentPage?: string): string
 };
 
 /**
+ * Get the home link based on current chapter context
+ * @param currentChapter - Current chapter slug (e.g., "purdue", "nu") or empty string for national
+ * @returns Home path (e.g., "/purdue" or "/")
+ */
+export const getHomeLink = (currentChapter: string): string => {
+  return currentChapter ? `/${currentChapter}` : '/';
+};
+
+/**
+ * Build a chapter-aware navigation link
+ * @param currentChapter - Current chapter slug or empty string for national
+ * @param page - Page name (e.g., "about", "contact")
+ * @returns Navigation path (e.g., "/purdue/about" or "/about")
+ */
+export const getNavLink = (currentChapter: string, page: string): string => {
+  return currentChapter ? `/${currentChapter}/${page}` : `/${page}`;
+};
+
+/**
  * Extract current chapter information from URL pathname
  * @param pathname - Current URL pathname (from location.pathname)
  * @param chaptersData - Chapters data from chapters.json

@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import ChapterDropdown from './ChapterDropdown';
 import chaptersData from '../data/chapters.json';
 import type { ChaptersData } from '../types/chapters';
-import { getCurrentChapterInfo } from '../utils/urlHelpers';
+import { getCurrentChapterInfo, getHomeLink, getNavLink } from '../utils/urlHelpers';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,17 +16,12 @@ export default function Header() {
     [location.pathname, chapters]
   );
 
-  // Helper to build chapter-aware links
-  const getNavLink = (page: string) => {
-    return currentChapter ? `/${currentChapter}/${page}` : `/${page}`;
-  };
-
   return (
     <header className="sticky top-0 z-50 bg-transparent">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         {/* Logo & Brand */}
         <div className="flex lg:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5">
+          <Link to={getHomeLink(currentChapter)} className="-m-1.5 p-1.5">
             <span className="sr-only">BinaryHeart</span>
             <img
               className="h-8 w-auto"
@@ -52,17 +47,17 @@ export default function Header() {
 
         {/* Desktop navigation */}
         <div className="hidden lg:flex lg:gap-x-12">
-          <Link to={getNavLink('about')} className="text-sm/6 font-semibold text-gray-900">
+          <Link to={getNavLink(currentChapter, 'about')} className="text-sm/6 font-semibold text-gray-900">
             About
           </Link>
-          <Link to={getNavLink('contact')} className="text-sm/6 font-semibold text-gray-900">
+          <Link to={getNavLink(currentChapter, 'contact')} className="text-sm/6 font-semibold text-gray-900">
             Contact
           </Link>
           <ChapterDropdown currentChapter={currentChapter} currentPage={currentPage} currentChapterIcon={currentChapterIcon} />
-          <Link to={getNavLink('faq')} className="text-sm/6 font-semibold text-gray-900">
+          <Link to={getNavLink(currentChapter, 'faq')} className="text-sm/6 font-semibold text-gray-900">
             FAQs
           </Link>
-          <Link to={getNavLink('request')} className="text-sm/6 font-semibold text-gray-900">
+          <Link to={getNavLink(currentChapter, 'request')} className="text-sm/6 font-semibold text-gray-900">
             Request Device
           </Link>
         </div>
@@ -70,13 +65,13 @@ export default function Header() {
         {/* CTA buttons */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-6">
           <Link
-            to={getNavLink('join')}
+            to={getNavLink(currentChapter, 'join')}
             className="rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           >
             Join Us
           </Link>
           <Link
-            to={getNavLink('donate')}
+            to={getNavLink(currentChapter, 'donate')}
             className="rounded-full bg-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
           >
             Donate
@@ -90,7 +85,7 @@ export default function Header() {
           <div className="fixed inset-0 z-50 bg-black/20"></div>
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <Link to="/" className="-m-1.5 p-1.5 flex items-center gap-2">
+              <Link to={getHomeLink(currentChapter)} className="-m-1.5 p-1.5 flex items-center gap-2">
                 <span className="text-xl font-semibold">
                   <span className="binary">Binary</span><span className="heart">Heart</span>
                 </span>
@@ -110,14 +105,14 @@ export default function Header() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   <Link
-                    to={getNavLink('about')}
+                    to={getNavLink(currentChapter, 'about')}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     About
                   </Link>
                   <Link
-                    to={getNavLink('contact')}
+                    to={getNavLink(currentChapter, 'contact')}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -125,14 +120,14 @@ export default function Header() {
                   </Link>
                   <ChapterDropdown mobile currentChapter={currentChapter} currentPage={currentPage} currentChapterIcon={currentChapterIcon} onItemClick={() => setMobileMenuOpen(false)} />
                   <Link
-                    to={getNavLink('faq')}
+                    to={getNavLink(currentChapter, 'faq')}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     FAQs
                   </Link>
                   <Link
-                    to={getNavLink('request')}
+                    to={getNavLink(currentChapter, 'request')}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -141,14 +136,14 @@ export default function Header() {
                 </div>
                 <div className="py-6 space-y-2">
                   <Link
-                    to={getNavLink('join')}
+                    to={getNavLink(currentChapter, 'join')}
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Join Us
                   </Link>
                   <Link
-                    to={getNavLink('donate')}
+                    to={getNavLink(currentChapter, 'donate')}
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
