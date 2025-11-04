@@ -1,4 +1,5 @@
-import { getRelativePath, getAllChapters } from '../utils/urlHelpers';
+import { Link } from 'react-router-dom';
+import { getRelativePath, getAllChapters } from '../../utils/urlHelpers';
 
 export default function Donate() {
   const allChapters = getAllChapters();
@@ -54,14 +55,14 @@ export default function Donate() {
                   const isLastOdd = allChapters.length % 3 === 1 && index === allChapters.length - 1;
                   const chapterPath = getRelativePath(chapter.url);
                   return (
-                    <a
+                    <Link
                       key={chapter.url}
-                      href={`${chapterPath}/donate`}
+                      to={`${chapterPath}/donate`}
                       className={`flex flex-col items-center gap-2 p-4 rounded-xl bg-gradient-to-br ${colorSchemes[index % colorSchemes.length]} transition-all duration-300 group ${isLastOdd ? 'col-span-2 sm:col-span-1' : ''}`}
                     >
                       <img src={chapter.icon} alt={chapter.name} className="h-8 w-8" />
                       <span className="text-sm font-medium text-gray-900">{chapter.name}</span>
-                    </a>
+                    </Link>
                   );
                 })}
               </div>

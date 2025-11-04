@@ -47,8 +47,17 @@ This guide will help you set up the BinaryHeart website project for local develo
 │   └── assets/         # Images and icons
 ├── src/                 # Source code
 │   ├── components/      # Reusable React components
-│   ├── pages/          # Page components (routes)
+│   ├── pages/          # Page components organized by chapter
+│   │   ├── national/   # National/501(c)(3) pages
+│   │   ├── iu/         # Indiana University chapter pages
+│   │   ├── purdue/     # Purdue University chapter pages
+│   │   ├── nu/         # Northwestern University chapter pages
+│   │   ├── nt/         # New Trier chapter pages
+│   │   └── rose-hulman/ # Rose-Hulman chapter pages
 │   ├── data/           # JSON data files
+│   ├── utils/          # Utility functions (URL helpers, stats, etc.)
+│   ├── hooks/          # Custom React hooks
+│   ├── types/          # TypeScript type definitions
 │   ├── App.tsx         # Main app with routing
 │   ├── main.tsx        # Entry point
 │   └── index.css       # Global styles
@@ -67,7 +76,9 @@ This guide will help you set up the BinaryHeart website project for local develo
 
 - ✅ Responsive design (mobile-first)
 - ✅ Component-based architecture
+- ✅ Chapter-specific pages with unique content per chapter
 - ✅ Dynamic chapter dropdown (loads from JSON)
+- ✅ Chapter-aware navigation and routing
 - ✅ React Router for client-side navigation
 - ✅ Tailwind CSS for consistent styling
 - ✅ TypeScript for type safety
