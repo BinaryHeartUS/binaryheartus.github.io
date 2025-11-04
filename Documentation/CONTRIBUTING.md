@@ -6,6 +6,7 @@ Thank you for your interest in contributing to the BinaryHeart website! This doc
 
 1. **Read the documentation:**
    - [Getting Started](./GETTING-STARTED.md) - Set up the development environment
+   - [Components Guide](./COMPONENTS.md) - Learn about reusable components and brand colors
    - [Managing Chapters](./MANAGING-CHAPTERS.md) - Update chapter data
    - [Image Management](./IMAGE-MANAGEMENT.md) - Add/update images
    - [Adding Pages](./ADDING-PAGES.md) - Create new pages
@@ -107,14 +108,32 @@ export default function MyComponent({ title, count }: MyComponentProps) {
 - Follow **mobile-first** responsive design
 - Use **consistent spacing** (multiples of 4: 4, 8, 12, 16)
 - Reference **existing components** for patterns
+- Use **BinaryHeart brand colors** via the `brandColors.ts` utility
+- Always use **BinaryHeartText component** for the organization name
 
-**Example:**
+**Brand Colors Example:**
+```tsx
+import BinaryHeartText from '../../components/BinaryHeartText';
+import { BRAND_COLORS, getBrandGradient } from '../../utils/brandColors';
+
+// For organization name
+<h1>Welcome to <BinaryHeartText /></h1>
+
+// For brand-colored buttons
+<button className={`bg-gradient-to-r ${BRAND_COLORS.BINARY_GRADIENT}`}>
+  Donate Now
+</button>
+```
+
+**Component Example:**
 ```tsx
 <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5">
   <h3 className="text-xl font-semibold text-gray-900 mb-4">Title</h3>
   <p className="text-gray-600">Content</p>
 </div>
 ```
+
+**See [Components Guide](./COMPONENTS.md) for detailed component documentation.**
 
 ### File Organization
 
@@ -123,15 +142,24 @@ src/
 ├── components/      # Reusable components
 │   ├── Header.tsx
 │   ├── Footer.tsx
+│   ├── BinaryHeartText.tsx    # Brand identity component
+│   ├── FeatureCard.tsx        # Card for features/values
+│   ├── InfoCard.tsx           # Card for detailed info
+│   ├── PictureCard.tsx        # Card for team profiles
 │   └── ...
 ├── pages/          # Page components (routes)
 │   ├── Home.tsx
 │   ├── About.tsx
 │   └── ...
-└── data/           # JSON data files
-    ├── chapters.json
-    └── chapterStats.json
+├── data/           # JSON data files
+│   ├── chapters.json
+│   └── chapterStats.json
+└── utils/          # Utility functions
+    ├── brandColors.ts         # Brand color constants
+    └── ...
 ```
+
+**See [Components Guide](./COMPONENTS.md) for component usage details.**
 
 ## Common Contribution Types
 
