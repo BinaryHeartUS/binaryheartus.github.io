@@ -376,7 +376,7 @@ export default function About() {
               <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5 text-center">
                 <div className="mb-4 mx-auto h-32 w-32 rounded-full overflow-hidden ring-4 ring-white shadow-lg">
                   <img 
-                    src="/assets/images/chapters/national/people/EnzoCaggiano.png" 
+                    src="/assets/images/chapters/national/people/EnzoCaggiano.jpg" 
                     alt="Enzo Caggiano" 
                     className="h-full w-full object-cover"
                   />
