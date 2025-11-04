@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import chaptersData from '../data/chapters.json';
-import type { ChaptersData } from '../types/chapters';
-import { getRelativePath } from '../utils/urlHelpers';
+import chaptersData from '../../data/chapters.json';
+import type { ChaptersData } from '../../types/chapters';
+import { getRelativePath } from '../../utils/urlHelpers';
 
 export default function Join() {
   const chapters = chaptersData as ChaptersData;

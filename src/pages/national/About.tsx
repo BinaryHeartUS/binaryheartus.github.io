@@ -1,4 +1,4 @@
-import { getAggregateStats, getChapterCount, formatNumber } from '../utils/statsHelpers';
+import { getAggregateStats, getChapterCount, formatNumber } from '../../utils/statsHelpers';
 
 export default function About() {
   const aggregateStats = getAggregateStats();
