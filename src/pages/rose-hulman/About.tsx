@@ -1,9 +1,7 @@
-import chapterStatsData from '../../data/chapterStats.json';
 import PhotoCarousel from '../../components/PhotoCarousel';
+import StatsGrid from '../../components/StatsGrid';
 
 export default function About() {
-  const stats = chapterStatsData['rose-hulman'];
-  
   const galleryImages = [
     '/assets/images/chapters/rose-hulman/photos/gallery-2.jpg',
     '/assets/images/chapters/rose-hulman/photos/gallery-3.jpg',
@@ -75,22 +73,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="mx-auto max-w-5xl">
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-              <div className="flex flex-col items-center text-center">
-                <div className="text-5xl font-bold text-red-600 mb-2">${stats.devicesValue.toLocaleString()}+</div>
-                <div className="text-sm text-gray-600">Value of Devices Donated</div>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <div className="text-5xl font-bold text-red-600 mb-2">{stats.volunteerCount}+</div>
-                <div className="text-sm text-gray-600">Student Volunteers</div>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <div className="text-5xl font-bold text-red-600 mb-2">{stats.volunteerHours}+</div>
-                <div className="text-sm text-gray-600">Volunteer Hours</div>
-              </div>
-            </div>
-          </div>
+          <StatsGrid chapterId="rose-hulman" colorClass="text-red-600" columns={3} />
         </div>
       </div>
 

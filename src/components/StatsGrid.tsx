@@ -1,0 +1,67 @@
+import chapterStatsData from '../data/chapterStats.json';
+import { getAggregateStats, getChapterCount, formatNumber } from '../utils/statsHelpers';
+
+interface StatsGridProps {
+  chapterId: string;
+  colorClass?: string; // e.g., 'text-blue-600', 'text-[#2F4A70]', 'text-red-600'
+  columns?: 3 | 4; // Number of columns in the grid
+}
+
+export default function StatsGrid({ 
+  chapterId, 
+  colorClass = 'text-blue-600',
+  columns = 3 
+}: StatsGridProps) {
+  // Check if this is a request for aggregate national stats
+  const isNational = chapterId === 'national' || chapterId === 'aggregate';
+  
+  let stats;
+  let showChapterCount = false;
+  
+  if (isNational) {
+    stats = getAggregateStats();
+    showChapterCount = true;
+  } else {
+    stats = chapterStatsData[chapterId as keyof typeof chapterStatsData];
+    if (!stats) {
+      console.error(`No stats found for chapter: ${chapterId}`);
+      return null;
+    }
+  }
+
+  const gridCols = columns === 3 ? 'sm:grid-cols-3' : 'grid-cols-2 gap-8 md:grid-cols-4';
+  const chapterCount = getChapterCount();
+
+  return (
+    <div className="mx-auto max-w-5xl">
+      <div className={`grid grid-cols-1 gap-8 ${gridCols}`}>
+        <div className="flex flex-col items-center text-center">
+          <div className={`text-5xl font-bold ${colorClass} mb-2`}>
+            ${isNational ? formatNumber(stats.devicesValue) : stats.devicesValue.toLocaleString()}+
+          </div>
+          <div className="text-sm text-gray-600">Value of Devices {isNational ? 'Donated' : 'Refurbished'}</div>
+        </div>
+        <div className="flex flex-col items-center text-center">
+          <div className={`text-5xl font-bold ${colorClass} mb-2`}>
+            {stats.volunteerCount}+
+          </div>
+          <div className="text-sm text-gray-600">{isNational ? 'Student Volunteers' : 'Active Student Members'}</div>
+        </div>
+        {showChapterCount && (
+          <div className="flex flex-col items-center text-center">
+            <div className={`text-5xl font-bold ${colorClass} mb-2`}>
+              {chapterCount}
+            </div>
+            <div className="text-sm text-gray-600">Active Chapters</div>
+          </div>
+        )}
+        <div className="flex flex-col items-center text-center">
+          <div className={`text-5xl font-bold ${colorClass} mb-2`}>
+            {isNational ? formatNumber(stats.volunteerHours) : stats.volunteerHours}+
+          </div>
+          <div className="text-sm text-gray-600">Volunteer Hours</div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
-import { getAggregateStats, getChapterCount, formatNumber } from '../../utils/statsHelpers';
 import { getNavLink, getPreferredChapter } from '../../utils/urlHelpers';
+import StatsGrid from '../../components/StatsGrid';
 
 export default function Home() {
-  const aggregateStats = getAggregateStats();
-  const chapterCount = getChapterCount();
   const preferredChapter = getPreferredChapter();
 
   return (
@@ -54,24 +52,7 @@ export default function Home() {
 
           {/* Impact Stats */}
           <div className="mx-auto max-w-5xl">
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-              <div className="flex flex-col items-center text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">${formatNumber(aggregateStats.devicesValue)}+</div>
-                <div className="text-sm text-gray-600">Value of Devices Donated</div>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">{aggregateStats.volunteerCount}+</div>
-                <div className="text-sm text-gray-600">Student Volunteers</div>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">{chapterCount}</div>
-                <div className="text-sm text-gray-600">Active Chapters</div>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">{formatNumber(aggregateStats.volunteerHours)}+</div>
-                <div className="text-sm text-gray-600">Volunteer Hours</div>
-              </div>
-            </div>
+            <StatsGrid chapterId="national" colorClass="text-blue-600" columns={4} />
           </div>
         </div>
       </div>

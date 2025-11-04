@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
-import chapterStatsData from '../../data/chapterStats.json';
+import StatsGrid from '../../components/StatsGrid';
 
 export default function Home() {
-  const stats = chapterStatsData['rose-hulman'];
 
   return (
     <main className="grow relative z-10">
@@ -51,22 +50,7 @@ export default function Home() {
           </div>
 
           {/* Impact Stats */}
-          <div className="mx-auto max-w-5xl">
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-              <div className="flex flex-col items-center text-center">
-                <div className="text-5xl font-bold text-[#2F4A70] mb-2">${stats.devicesValue.toLocaleString()}+</div>
-                <div className="text-sm text-gray-600">Value of Devices Refurbished</div>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <div className="text-5xl font-bold text-[#2F4A70] mb-2">{stats.volunteerCount}+</div>
-                <div className="text-sm text-gray-600">Active Student Members</div>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <div className="text-5xl font-bold text-[#2F4A70] mb-2">{stats.volunteerHours}+</div>
-                <div className="text-sm text-gray-600">Volunteer Hours</div>
-              </div>
-            </div>
-          </div>
+          <StatsGrid chapterId="rose-hulman" colorClass="text-[#2F4A70]" columns={3} />
         </div>
       </div>
 
