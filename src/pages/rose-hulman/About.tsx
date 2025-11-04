@@ -203,7 +203,7 @@ export default function About() {
               <PictureCard
                 imageSrc="/assets/images/chapters/rose-hulman/people/AnthonyFlores.jpg"
                 name="Anthony Flores"
-                role="Social Media Manager"
+                role="Director of Membership"
               />
             </div>
           </div>
