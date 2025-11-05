@@ -3,12 +3,11 @@ import InfoCard from '../../components/InfoCard';
 import PhotoCarousel from '../../components/PhotoCarousel';
 
 const galleryImages = [
-  '/public/assets/images/chapters/nt/photos/gallery-1.jpg',
-  '/public/assets/images/chapters/nt/photos/gallery-2.jpg',
-  '/public/assets/images/chapters/nt/photos/gallery-3.jpg',
-  '/public/assets/images/chapters/nt/photos/gallery-4.jpg',
-  '/public/assets/images/chapters/nt/photos/gallery-5.jpg',
-  '/public/assets/images/chapters/nt/photos/gallery-6.jpg',
+  '/assets/images/chapters/nt/photos/gallery-1.jpg',
+  '/assets/images/chapters/nt/photos/gallery-2.jpg',
+  '/assets/images/chapters/nt/photos/gallery-3.jpg',
+  '/assets/images/chapters/nt/photos/gallery-4.jpg',
+  '/assets/images/chapters/nt/photos/gallery-5.jpg',
 ];
 
 export default function About() {
