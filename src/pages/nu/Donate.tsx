@@ -1,4 +1,5 @@
 import BinaryHeartText from '../../components/BinaryHeartText';
+import { NORTHWESTERN_COLORS } from '../../utils/brandColors';
 
 export default function Donate() {
   const handleSubmit = () => {
@@ -71,7 +72,7 @@ export default function Donate() {
                 {/* Before You Donate */}
                 <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 text-white">
+                    <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY} text-white`}>
                       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
                       </svg>
@@ -80,19 +81,19 @@ export default function Donate() {
                   </div>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start gap-3">
-                      <svg className="h-5 w-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className={`h-5 w-5 ${NORTHWESTERN_COLORS.TEXT} mt-0.5 flex-shrink-0`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
                       <span>Factory reset your device if possible</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="h-5 w-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className={`h-5 w-5 ${NORTHWESTERN_COLORS.TEXT} mt-0.5 flex-shrink-0`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
                       <span>Remove all stickers and post-its</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="h-5 w-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className={`h-5 w-5 ${NORTHWESTERN_COLORS.TEXT} mt-0.5 flex-shrink-0`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
                       <span>We'll securely wipe all data</span>
@@ -101,9 +102,9 @@ export default function Donate() {
                 </div>
 
                 {/* Data Security */}
-                <div className="rounded-2xl bg-gradient-to-br from-purple-50 to-violet-50 p-6">
+                <div className={`rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_LIGHT} p-6`}>
                   <div className="flex items-start gap-3 mb-3">
-                    <svg className="h-6 w-6 text-purple-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <svg className={`h-6 w-6 ${NORTHWESTERN_COLORS.TEXT} flex-shrink-0`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                     </svg>
                     <div>
@@ -272,7 +273,7 @@ export default function Donate() {
                   <div>
                     <button
                       type="submit"
-                      className="w-full rounded-lg bg-gradient-to-r from-purple-600 to-violet-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-purple-700 hover:to-violet-700 transition-all duration-200"
+                      className={`w-full rounded-lg bg-gradient-to-r ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY} px-6 py-3 text-base font-semibold text-white shadow-lg ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_HOVER} transition-all duration-200`}
                     >
                       Submit Donation Request
                     </button>

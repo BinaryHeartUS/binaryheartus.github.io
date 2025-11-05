@@ -1,4 +1,5 @@
 import BinaryHeartText from '../../components/BinaryHeartText';
+import { NORTHWESTERN_COLORS } from '../../utils/brandColors';
 
 export default function Contact() {
   const handleSubmit = () => {
@@ -51,15 +52,15 @@ export default function Contact() {
                   <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5">
                     <div className="flex items-center gap-4">
                       <div className="flex-shrink-0">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100">
-                          <svg className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${NORTHWESTERN_COLORS.BG_LIGHT}`}>
+                          <svg className={`h-6 w-6 ${NORTHWESTERN_COLORS.TEXT}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                           </svg>
                         </div>
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900">Email</p>
-                        <a href="mailto:nu@binaryheart.org" className="text-purple-600 hover:text-purple-700">
+                        <a href="mailto:nu@binaryheart.org" className={`${NORTHWESTERN_COLORS.TEXT} ${NORTHWESTERN_COLORS.TEXT_HOVER}`}>
                           nu@binaryheart.org
                         </a>
                       </div>
@@ -70,8 +71,8 @@ export default function Contact() {
                   <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5">
                     <div className="flex items-center gap-4">
                       <div className="flex-shrink-0">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-pink-100">
-                          <svg className="h-6 w-6 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                        <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${NORTHWESTERN_COLORS.BG_LIGHT}`}>
+                          <svg className={`h-6 w-6 ${NORTHWESTERN_COLORS.TEXT}`} fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                           </svg>
                         </div>
@@ -82,7 +83,7 @@ export default function Contact() {
                           href="https://instagram.com/binaryheartatnu" 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="text-pink-600 hover:text-pink-700"
+                          className={`${NORTHWESTERN_COLORS.TEXT} ${NORTHWESTERN_COLORS.TEXT_HOVER}`}
                         >
                           @binaryheartatnu
                         </a>
@@ -94,8 +95,8 @@ export default function Contact() {
                   <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5">
                     <div className="flex items-center gap-4">
                       <div className="flex-shrink-0">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100">
-                          <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${NORTHWESTERN_COLORS.BG_LIGHT}`}>
+                          <svg className={`h-6 w-6 ${NORTHWESTERN_COLORS.TEXT}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                           </svg>
@@ -108,7 +109,7 @@ export default function Contact() {
                           href="https://maps.app.goo.gl/J3xPJzFdN3vJDWWZ9"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-700"
+                          className={`${NORTHWESTERN_COLORS.TEXT} ${NORTHWESTERN_COLORS.TEXT_HOVER}`}
                         >
                           1223 Hull Terrace, Evanston
                         </a>
@@ -119,22 +120,22 @@ export default function Contact() {
                 </div>
 
                 {/* Quick Links */}
-                <div className="rounded-2xl bg-gradient-to-br from-purple-50 to-violet-50 p-6">
+                <div className={`rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_LIGHT} p-6`}>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
                   <div className="space-y-2">
-                    <a href="/nu/join" className="flex items-center gap-2 text-purple-600 hover:text-purple-700">
+                    <a href="/nu/join" className={`flex items-center gap-2 ${NORTHWESTERN_COLORS.TEXT} ${NORTHWESTERN_COLORS.TEXT_HOVER}`}>
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
                       <span>Join Our Chapter</span>
                     </a>
-                    <a href="/nu/about" className="flex items-center gap-2 text-purple-600 hover:text-purple-700">
+                    <a href="/nu/about" className={`flex items-center gap-2 ${NORTHWESTERN_COLORS.TEXT} ${NORTHWESTERN_COLORS.TEXT_HOVER}`}>
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
                       <span>Learn About Us</span>
                     </a>
-                    <a href="/donate" className="flex items-center gap-2 text-purple-600 hover:text-purple-700">
+                    <a href="/donate" className={`flex items-center gap-2 ${NORTHWESTERN_COLORS.TEXT} ${NORTHWESTERN_COLORS.TEXT_HOVER}`}>
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
@@ -263,7 +264,7 @@ export default function Contact() {
                   <div>
                     <button
                       type="submit"
-                      className="w-full rounded-lg bg-gradient-to-r from-purple-600 to-violet-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-purple-700 hover:to-violet-700 transition-all duration-200"
+                      className={`w-full rounded-lg bg-gradient-to-r ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY} px-6 py-3 text-base font-semibold text-white shadow-lg ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_HOVER} transition-all duration-200`}
                     >
                       Send message
                     </button>

@@ -3,6 +3,7 @@ import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
 import PictureCard from '../../components/PictureCard';
+import { NORTHWESTERN_COLORS } from '../../utils/brandColors';
 
 export default function About() {
   // Placeholder for future gallery images - add photos to public/assets/images/chapters/nu/photos/
@@ -74,7 +75,7 @@ export default function About() {
             </p>
           </div>
 
-          <StatsGrid chapterId="nu" colorClass="text-purple-600" columns={3} />
+          <StatsGrid chapterId="nu" colorClass={NORTHWESTERN_COLORS.TEXT} columns={3} />
         </div>
       </div>
 
@@ -99,8 +100,8 @@ export default function About() {
                 }
                 title="Device Collection & Assessment"
                 description="We accept donations of laptops, desktops, tablets, and other electronics from individuals, businesses, and organizations. Each device is carefully assessed to determine if it can be refurbished or should be responsibly recycled."
-                bgColorClass="bg-purple-100"
-                iconColorClass="text-purple-600"
+                bgColorClass={NORTHWESTERN_COLORS.BG_LIGHT}
+                iconColorClass={NORTHWESTERN_COLORS.TEXT}
               />
 
               <InfoCard
@@ -111,8 +112,8 @@ export default function About() {
                 }
                 title="Expert Refurbishment"
                 description="Our student volunteers diagnose hardware issues, perform repairs, upgrade components when possible, securely wipe all data, and install fresh operating systems and essential software. Every device leaves our workspace in excellent working condition."
-                bgColorClass="bg-purple-100"
-                iconColorClass="text-purple-600"
+                bgColorClass={NORTHWESTERN_COLORS.BG_LIGHT}
+                iconColorClass={NORTHWESTERN_COLORS.TEXT}
               />
 
               <InfoCard
@@ -123,8 +124,8 @@ export default function About() {
                 }
                 title="Community Distribution"
                 description="Refurbished devices are distributed to students, families, and community organizations in need—both locally in Evanston and the greater Chicago area. Through partnerships with schools, nonprofits, and social service agencies, we ensure technology reaches those who need it most."
-                bgColorClass="bg-purple-100"
-                iconColorClass="text-purple-600"
+                bgColorClass={NORTHWESTERN_COLORS.BG_LIGHT}
+                iconColorClass={NORTHWESTERN_COLORS.TEXT}
               />
 
               <InfoCard
@@ -135,8 +136,8 @@ export default function About() {
                 }
                 title="Skills Development"
                 description="Our volunteers gain hands-on experience with hardware troubleshooting, software installation, data security, project management, and community outreach—skills that are invaluable for future careers in technology and beyond."
-                bgColorClass="bg-purple-100"
-                iconColorClass="text-purple-600"
+                bgColorClass={NORTHWESTERN_COLORS.BG_LIGHT}
+                iconColorClass={NORTHWESTERN_COLORS.TEXT}
               />
             </div>
           </div>
@@ -144,7 +145,7 @@ export default function About() {
       </div>
 
       {/* Leadership Team */}
-      <div className="py-8 sm:py-12 bg-gradient-to-b from-purple-50/30 to-transparent">
+      <div className={`py-8 sm:py-12 bg-gradient-to-b ${NORTHWESTERN_COLORS.GRADIENT_LIGHT_BR}`}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Leadership Team</h2>
@@ -188,7 +189,7 @@ export default function About() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="relative rounded-2xl bg-gradient-to-br from-purple-600 to-violet-700 p-8 sm:p-12 shadow-2xl overflow-hidden">
+            <div className={`relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY} p-8 sm:p-12 shadow-2xl overflow-hidden`}>
               <div className="absolute inset-0 bg-[url('/assets/images/grid.svg')] opacity-10"></div>
               <div className="relative">
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
@@ -200,7 +201,7 @@ export default function About() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
                     href="/nu/join"
-                    className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-purple-600 shadow-sm hover:bg-purple-50 transition-colors"
+                    className={`inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold ${NORTHWESTERN_COLORS.TEXT} shadow-sm hover:bg-purple-50 transition-colors`}
                   >
                     Become a Volunteer
                   </a>

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import FeatureCard from '../../components/FeatureCard';
 import InfoCard from '../../components/InfoCard';
 import BinaryHeartText from '../../components/BinaryHeartText';
+import { NORTHWESTERN_COLORS } from '../../utils/brandColors';
 
 export default function Join() {
   return (
@@ -24,7 +25,7 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="relative rounded-2xl bg-gradient-to-br from-purple-500/90 to-violet-600/90 backdrop-blur-sm p-8 sm:p-12 shadow-xl text-white">
+            <div className={`relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-8 sm:p-12 shadow-xl text-white`}>
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold mb-4">Weekly Meetings</h2>
                 <p className="text-lg text-white/90 mb-6">
@@ -77,7 +78,7 @@ export default function Join() {
       </div>
 
       {/* Transportation Section */}
-      <div className="py-8 sm:py-12 bg-gradient-to-b from-purple-50/30 to-transparent">
+      <div className={`py-8 sm:py-12 bg-gradient-to-b ${NORTHWESTERN_COLORS.GRADIENT_LIGHT_BR}`}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6 text-center">
@@ -313,7 +314,7 @@ export default function Join() {
       </div>
 
       {/* Get Connected Section */}
-      <div className="py-12 sm:py-16 bg-gray-50/50">
+      <div className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <div className="text-center mb-12">
@@ -327,7 +328,7 @@ export default function Join() {
 
             <div className="space-y-6">
               {/* Instagram Follow */}
-              <div className="relative rounded-2xl bg-gradient-to-br from-purple-500/90 to-violet-600/90 backdrop-blur-sm p-8 shadow-xl text-white">
+              <div className={`relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-8 shadow-xl text-white`}>
                 <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
                     <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
@@ -359,7 +360,7 @@ export default function Join() {
               </div>
 
               {/* Email Contact */}
-              <div className="relative rounded-2xl bg-gradient-to-br from-[#909090] to-[#707070] backdrop-blur-sm p-8 shadow-xl text-white">
+              <div className={`relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY} backdrop-blur-sm p-8 shadow-xl text-white`}>
                 <div className="text-center">
                   <h3 className="text-2xl font-semibold mb-3">Have Questions?</h3>
                   <p className="text-white/90 mb-6">
