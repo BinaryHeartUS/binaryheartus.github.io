@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import FeatureCard from '../../components/FeatureCard';
 import InfoCard from '../../components/InfoCard';
 import BinaryHeartText from '../../components/BinaryHeartText';
+import { ROSE_HULMAN_COLORS } from '../../utils/brandColors';
 
 export default function Join() {
   return (
@@ -24,7 +25,7 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="relative rounded-2xl bg-gradient-to-br from-[#a01010]/90 to-[#800000]/90 backdrop-blur-sm p-8 sm:p-12 shadow-xl text-white">
+            <div className={`relative rounded-2xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-8 sm:p-12 shadow-xl text-white`}>
               <div className="flex flex-col sm:flex-row items-center gap-8">
                 <div className="flex-shrink-0">
                   <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
@@ -177,8 +178,8 @@ export default function Join() {
                 }
                 title="Computer Refurbishment"
                 description="Learn to diagnose hardware issues, upgrade components, clean and test systems, and prepare computers for distribution."
-                bgColorClass="bg-[#a01010]/10"
-                iconColorClass="text-[#a01010]"
+                bgColorClass={ROSE_HULMAN_COLORS.BG_LIGHT}
+                iconColorClass={ROSE_HULMAN_COLORS.TEXT}
               />
 
               <InfoCard
@@ -189,8 +190,8 @@ export default function Join() {
                 }
                 title="Software Installation & Security"
                 description="Install operating systems, set up essential software, configure security settings, and ensure devices are ready to use."
-                bgColorClass="bg-[#a01010]/10"
-                iconColorClass="text-[#a01010]"
+                bgColorClass={ROSE_HULMAN_COLORS.BG_LIGHT}
+                iconColorClass={ROSE_HULMAN_COLORS.TEXT}
               />
 
               <InfoCard
@@ -201,8 +202,8 @@ export default function Join() {
                 }
                 title="Collection & Distribution"
                 description="Organize donation drives, coordinate with local organizations, and distribute refurbished devices to students and families in need."
-                bgColorClass="bg-[#a01010]/10"
-                iconColorClass="text-[#a01010]"
+                bgColorClass={ROSE_HULMAN_COLORS.BG_LIGHT}
+                iconColorClass={ROSE_HULMAN_COLORS.TEXT}
               />
             <InfoCard
               icon={
@@ -237,7 +238,7 @@ export default function Join() {
               <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-xl ring-1 ring-gray-900/5">
                 <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#a01010] to-[#800000] text-white">
+                    <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY} text-white`}>
                       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                       </svg>
@@ -254,7 +255,7 @@ export default function Join() {
                       href="https://rosehulman.campusgroups.com/BinaryHeart/club_signup"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#a01010] to-[#800000] px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                      className={`group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY} px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl`}
                     >
                       <span>Join on Campus Groups</span>
                       <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
@@ -293,7 +294,7 @@ export default function Join() {
               </div>
 
               {/* In-Person Info */}
-              <div className="relative rounded-2xl bg-gradient-to-br from-[#8a8a8a]/90 to-[#6a6a6a]/90 backdrop-blur-sm p-8 shadow-xl text-white">
+              <div className={`relative rounded-2xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_SECONDARY} backdrop-blur-sm p-8 shadow-xl text-white`}>
                 <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
                     <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
