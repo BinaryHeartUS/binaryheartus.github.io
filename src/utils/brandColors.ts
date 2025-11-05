@@ -25,6 +25,39 @@ export const BRAND_COLORS = {
 } as const;
 
 /**
+ * New Trier Chapter Brand Colors
+ * Official New Trier High School colors
+ */
+export const NEW_TRIER_COLORS = {
+  // Primary colors
+  PRIMARY_BLUE: '#2260b6',
+  PRIMARY_GREEN: '#159734',
+  
+  // Tailwind-compatible text classes
+  TEXT_BLUE: 'text-[#2260b6]',
+  TEXT_GREEN: 'text-[#159734]',
+  TEXT_HOVER: 'hover:text-[#1c4d85]',
+  
+  // Background classes
+  BG_BLUE: 'bg-[#2260b6]',
+  BG_GREEN: 'bg-[#159734]',
+  BG_BLUE_LIGHT: 'bg-[#2260b6]/10',
+  BG_GREEN_LIGHT: 'bg-[#159734]/10',
+  
+  // Gradient classes for banners and sections
+  GRADIENT_LIGHT: 'from-blue-50 to-green-50',
+  GRADIENT_LIGHT_BR: 'from-blue-50/30 to-transparent',
+  
+  // Gradient classes for buttons and prominent sections
+  GRADIENT_PRIMARY: 'from-[#2260b6] to-[#1c4d85]',
+  GRADIENT_PRIMARY_90: 'from-[#2260b6]/90 to-[#1c4d85]/90',
+  GRADIENT_PRIMARY_HOVER: 'hover:from-[#1c4d85] hover:to-[#153a6b]',
+  GRADIENT_SECONDARY: 'from-[#159734] to-[#0f6b25]',
+  GRADIENT_SECONDARY_90: 'from-[#159734]/90 to-[#0f6b25]/90',
+  GRADIENT_SECONDARY_HOVER: 'hover:from-[#0f6b25] hover:to-[#0a4e1a]',
+} as const;
+
+/**
  * Rose Hulman Chapter Brand Colors
  * Official Rose-Hulman Institute of Technology colors
  */
