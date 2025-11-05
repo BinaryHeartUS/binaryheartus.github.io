@@ -6,6 +6,9 @@ const galleryImages = [
   '/public/assets/images/chapters/nt/photos/gallery-1.jpg',
   '/public/assets/images/chapters/nt/photos/gallery-2.jpg',
   '/public/assets/images/chapters/nt/photos/gallery-3.jpg',
+  '/public/assets/images/chapters/nt/photos/gallery-4.jpg',
+  '/public/assets/images/chapters/nt/photos/gallery-5.jpg',
+  '/public/assets/images/chapters/nt/photos/gallery-6.jpg',
 ];
 
 export default function About() {
@@ -110,7 +113,7 @@ export default function About() {
       {/* Photo Gallery */}
       <div className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6 text-center">Photo Gallery</h2>
-        <PhotoCarousel images={galleryImages.map(img => img.src)} />
+        <PhotoCarousel images={galleryImages} />
       </div>
     </main>
   );
