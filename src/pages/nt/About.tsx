@@ -3,18 +3,9 @@ import InfoCard from '../../components/InfoCard';
 import PhotoCarousel from '../../components/PhotoCarousel';
 
 const galleryImages = [
-  {
-    src: '/public/assets/images/chapters/nt/photos/gallery-1.jpg',
-    
-  },
-  {
-    src: '/public/assets/images/chapters/nt/photos/gallery-2.jpg',
-    
-  },
-  {
-    src: '/public/assets/images/chapters/nt/photos/gallery-3.jpg',
-    
-  },
+  '/public/assets/images/chapters/nt/photos/gallery-1.jpg',
+  '/public/assets/images/chapters/nt/photos/gallery-2.jpg',
+  '/public/assets/images/chapters/nt/photos/gallery-3.jpg',
 ];
 
 export default function About() {
