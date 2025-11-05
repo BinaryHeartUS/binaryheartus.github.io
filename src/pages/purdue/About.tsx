@@ -168,13 +168,13 @@ export default function About() {
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/purdue/join"
-                className="rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-amber-600 hover:to-yellow-700 transition-all duration-200"
+                className="rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-amber-600 hover:to-yellow-700 transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
                 Join Our Chapter
               </a>
               <a
                 href="/purdue/donate"
-                className="rounded-xl bg-gradient-to-r from-slate-700 to-slate-900 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-slate-800 hover:to-black transition-all duration-200"
+                className="rounded-xl bg-gradient-to-r from-slate-700 to-slate-900 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-slate-800 hover:to-black transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
                 Donate Equipment
               </a>
