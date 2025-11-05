@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
-import { BRAND_COLORS } from '../../utils/brandColors';
+import { BRAND_COLORS, ROSE_HULMAN_COLORS } from '../../utils/brandColors';
 import FeatureCard from '../../components/FeatureCard';
 
 export default function Home() {
@@ -36,14 +36,14 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
               <Link
                 to="/rose-hulman/join"
-                className="group relative rounded-2xl bg-gradient-to-br from-blue-500/90 to-indigo-600/90 px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-blue-500 hover:to-indigo-600"
+                className={`group relative rounded-2xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY_90} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY}`}
               >
                 <span className="relative z-10">Join Our Team</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </Link>
               <Link
                 to="/rose-hulman/donate"
-                className="group relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-rose-500 hover:to-pink-600"
+                className={`group relative rounded-2xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_SECONDARY} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 ${ROSE_HULMAN_COLORS.GRADIENT_SECONDARY_HOVER}`}
               >
                 <span className="relative z-10">Donate Equipment</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
@@ -52,7 +52,7 @@ export default function Home() {
           </div>
 
           {/* Impact Stats */}
-          <StatsGrid chapterId="rose-hulman" colorClass={BRAND_COLORS.HEART_TEXT} columns={3} />
+          <StatsGrid chapterId="rose-hulman" colorClass={ROSE_HULMAN_COLORS.TEXT} columns={3} />
         </div>
       </div>
 
@@ -120,8 +120,8 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100">
-                    <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${ROSE_HULMAN_COLORS.BG_LIGHT}`}>
+                    <svg className={`h-6 w-6 ${ROSE_HULMAN_COLORS.TEXT}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                     </svg>
                   </div>
@@ -132,8 +132,8 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100">
-                    <svg className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${ROSE_HULMAN_COLORS.BG_LIGHT}`}>
+                    <svg className={`h-6 w-6 ${ROSE_HULMAN_COLORS.TEXT}`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                     </svg>
@@ -148,7 +148,7 @@ export default function Home() {
               <div className="flex justify-center">
                 <Link
                   to="/rose-hulman/join"
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
+                  className={`inline-flex items-center gap-2 rounded-xl bg-gradient-to-r ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY} px-6 py-3 text-base font-semibold text-white shadow-lg ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY_HOVER} transition-all duration-200`}
                 >
                   <span>Learn More & Join</span>
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
@@ -174,7 +174,7 @@ export default function Home() {
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-8 md:grid-cols-2">
               {/* Join as Member */}
-              <div className="relative rounded-2xl bg-gradient-to-br from-blue-500/90 to-indigo-600/90 backdrop-blur-sm p-8 shadow-xl text-white">
+              <div className={`relative rounded-2xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-8 shadow-xl text-white`}>
                 <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
                   <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
@@ -196,7 +196,7 @@ export default function Home() {
               </div>
 
               {/* Donate Equipment */}
-              <div className="relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 backdrop-blur-sm p-8 shadow-xl text-white">
+              <div className={`relative rounded-2xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_SECONDARY} backdrop-blur-sm p-8 shadow-xl text-white`}>
                 <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
                   <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
