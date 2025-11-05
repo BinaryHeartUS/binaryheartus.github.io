@@ -25,12 +25,14 @@ main {
 }
 
 /* BinaryHeart Custom Styles */
+/* Brand Colors: Binary Red (#FF0040), Heart Blue (#2F4A70) */
+/* See src/utils/brandColors.ts for Tailwind utility classes */
 @layer utilities {
   .binary {
-    color: #2F4A70;
+    color: #FF0040; /* Binary Red */
   }
   
   .heart {
-    color: #ff0040;
+    color: #2F4A70; /* Heart Blue */
   }
 }

@@ -1,9 +1,10 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ChapterDropdown from './ChapterDropdown';
+import BinaryHeartText from './BinaryHeartText';
 import chaptersData from '../data/chapters.json';
 import type { ChaptersData } from '../types/chapters';
-import { getCurrentChapterInfo, getHomeLink, getNavLink } from '../utils/urlHelpers';
+import { getCurrentChapterInfo, getHomeLink, getNavLink, setPreferredChapter } from '../utils/urlHelpers';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,6 +16,11 @@ export default function Header() {
     () => getCurrentChapterInfo(location.pathname, chapters),
     [location.pathname, chapters]
   );
+
+  // Store preferred chapter whenever we're on a chapter page
+  useEffect(() => {
+    setPreferredChapter(currentChapter);
+  }, [currentChapter]);
 
   return (
     <header className="sticky top-0 z-50 bg-transparent">
@@ -54,10 +60,10 @@ export default function Header() {
             Contact
           </Link>
           <ChapterDropdown currentChapter={currentChapter} currentPage={currentPage} currentChapterIcon={currentChapterIcon} />
-          <Link to={getNavLink(currentChapter, 'faq')} className="text-sm/6 font-semibold text-gray-900">
+          <Link to="/faq" className="text-sm/6 font-semibold text-gray-900">
             FAQs
           </Link>
-          <Link to={getNavLink(currentChapter, 'request')} className="text-sm/6 font-semibold text-gray-900">
+          <Link to="/request" className="text-sm/6 font-semibold text-gray-900">
             Request Device
           </Link>
         </div>
@@ -87,7 +93,7 @@ export default function Header() {
             <div className="flex items-center justify-between">
               <Link to={getHomeLink(currentChapter)} className="-m-1.5 p-1.5 flex items-center gap-2">
                 <span className="text-xl font-semibold">
-                  <span className="binary">Binary</span><span className="heart">Heart</span>
+                  <BinaryHeartText />
                 </span>
               </Link>
               <button
@@ -120,7 +126,7 @@ export default function Header() {
                   </Link>
                   <ChapterDropdown mobile currentChapter={currentChapter} currentPage={currentPage} currentChapterIcon={currentChapterIcon} onItemClick={() => setMobileMenuOpen(false)} />
                   <Link
-                    to={getNavLink(currentChapter, 'faq')}
+                    to="/faq"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >

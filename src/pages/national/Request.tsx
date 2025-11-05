@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import BinaryHeartText from '../../components/BinaryHeartText';
 
 export default function Request() {
   const [formData, setFormData] = useState({
@@ -74,7 +75,7 @@ export default function Request() {
         <div className="mx-auto max-w-7xl px-6 pb-12 pt-10 sm:pb-16 lg:px-8 lg:pt-20">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">
-              Request Tech from <span className="text-blue-600">Binary</span><span className="text-rose-600">Heart</span>
+              Request Tech from <BinaryHeartText />
             </h1>
             <p className="text-xl leading-8 text-gray-700">
               Fill out this form to request technology from the BinaryHeart network.

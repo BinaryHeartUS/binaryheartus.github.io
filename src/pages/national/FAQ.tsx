@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getNavLink, getPreferredChapter } from '../../utils/urlHelpers';
 
 interface FAQItem {
   question: string;
@@ -15,6 +16,7 @@ interface FAQSection {
 
 export default function FAQ() {
   const [openItems, setOpenItems] = useState<{ [key: string]: boolean }>({});
+  const preferredChapter = getPreferredChapter();
 
   const toggleItem = (sectionIndex: number, itemIndex: number) => {
     const key = `${sectionIndex}-${itemIndex}`;
@@ -58,7 +60,7 @@ export default function FAQ() {
           question: 'How do I donate?',
           answer: (
             <>
-              Head over to our <Link to="/donate" className="text-blue-600 hover:text-blue-700 font-semibold">donate page</Link>! We'll talk and schedule a drop-off date that works for you.
+              Head over to our <Link to={getNavLink(preferredChapter, 'donate')} className="text-blue-600 hover:text-blue-700 font-semibold">donate page</Link>! We'll talk and schedule a drop-off date that works for you.
             </>
           ),
         },
@@ -145,7 +147,7 @@ export default function FAQ() {
             </h1>
             <p className="mt-4 text-lg text-gray-600">
               Can't find the answer you're looking for?{' '}
-              <Link to="/contact" className="text-red-600 hover:text-red-700 font-semibold">
+              <Link to={getNavLink(preferredChapter, 'contact')} className="text-red-600 hover:text-red-700 font-semibold">
                 Contact us
               </Link>{' '}
               and we'll help you out.
@@ -222,7 +224,7 @@ export default function FAQ() {
                 We're here to help! Reach out to us and we'll get back to you as soon as possible.
               </p>
               <Link
-                to="/contact"
+                to={getNavLink(preferredChapter, 'contact')}
                 className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
               >
                 Contact us

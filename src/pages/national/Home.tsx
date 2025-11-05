@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { getAggregateStats, getChapterCount, formatNumber } from '../../utils/statsHelpers';
+import { getNavLink, getPreferredChapter } from '../../utils/urlHelpers';
+import StatsGrid from '../../components/StatsGrid';
 
 export default function Home() {
-  const aggregateStats = getAggregateStats();
-  const chapterCount = getChapterCount();
+  const preferredChapter = getPreferredChapter();
 
   return (
     <main className="grow relative z-10">
@@ -14,7 +14,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl text-center">
             {/* Badge */}
             <div className="mb-8">
-              <Link to="/about" className="inline-flex items-center space-x-2 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-gray-700 ring-1 ring-gray-900/10 hover:bg-white transition-colors">
+              <Link to={getNavLink(preferredChapter, 'about')} className="inline-flex items-center space-x-2 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-gray-700 ring-1 ring-gray-900/10 hover:bg-white transition-colors">
                 <img src="/assets/images/chapters/national/icon.svg" alt="" className="h-5 w-5" />
                 <span>Student-Run Electronics Recycling.</span>
                 <span className="text-rose-600 font-semibold">Learn more →</span>
@@ -34,14 +34,14 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
               <Link
-                to="/request"
+                to={getNavLink(preferredChapter, 'request')}
                 className="group relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-rose-500 hover:to-pink-600"
               >
                 <span className="relative z-10">Request a Device</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </Link>
               <Link
-                to="/donate"
+                to={getNavLink(preferredChapter, 'donate')}
                 className="group relative rounded-2xl bg-gradient-to-br from-blue-500/90 to-indigo-600/90 px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-blue-500 hover:to-indigo-600"
               >
                 <span className="relative z-10">Donate a Device</span>
@@ -52,24 +52,7 @@ export default function Home() {
 
           {/* Impact Stats */}
           <div className="mx-auto max-w-5xl">
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-              <div className="flex flex-col items-center text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">${formatNumber(aggregateStats.devicesValue)}+</div>
-                <div className="text-sm text-gray-600">Value of Devices Donated</div>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">{aggregateStats.volunteerCount}+</div>
-                <div className="text-sm text-gray-600">Student Volunteers</div>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">{chapterCount}</div>
-                <div className="text-sm text-gray-600">Active Chapters</div>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">{formatNumber(aggregateStats.volunteerHours)}+</div>
-                <div className="text-sm text-gray-600">Volunteer Hours</div>
-              </div>
-            </div>
+            <StatsGrid chapterId="national" colorClass="text-blue-600" columns={4} />
           </div>
         </div>
       </div>
@@ -185,7 +168,7 @@ export default function Home() {
               Become part of a student-led movement making real impact in your community. Gain hands-on tech experience while helping bridge the digital divide.
             </p>
             <Link
-              to="/join"
+              to={getNavLink(preferredChapter, 'join')}
               className="group relative inline-flex items-center gap-2 rounded-2xl bg-white/60 backdrop-blur-md px-8 py-4 text-lg font-semibold text-gray-900 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:bg-white/80 hover:shadow-2xl hover:scale-105"
             >
               <span className="relative z-10">Get Involved</span>

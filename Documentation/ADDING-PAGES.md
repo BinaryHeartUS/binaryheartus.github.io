@@ -2,6 +2,12 @@
 
 This guide explains how to add new pages to the BinaryHeart website.
 
+## Before You Start
+
+- **Read the [Components Guide](./COMPONENTS.md)** - Learn about reusable components and brand colors
+- **Review existing pages** - Look at similar pages for patterns and styling
+- **Use components** - Always use existing components instead of duplicating code
+
 ## Overview
 
 The website uses React Router for navigation. Pages are React components located in `src/pages/` organized by chapter folders, and routes are defined in `src/App.tsx`.
@@ -41,6 +47,8 @@ Each chapter folder contains its own set of pages that are displayed when naviga
 
 2. **Create the page component** using this template:
    ```tsx
+   import BinaryHeartText from '../../components/BinaryHeartText';
+   
    export default function YourPageName() {
      return (
        <main className="grow relative z-10">
@@ -49,7 +57,7 @@ Each chapter folder contains its own set of pages that are displayed when naviga
            <div className="mx-auto max-w-7xl px-6 lg:px-8">
              <div className="mx-auto max-w-2xl text-center">
                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                 Page Title
+                 Page Title for <BinaryHeartText />
                </h1>
                <p className="mt-4 text-lg text-gray-600">
                  Page description
@@ -62,40 +70,15 @@ Each chapter folder contains its own set of pages that are displayed when naviga
          <div className="py-12 sm:py-16">
            <div className="mx-auto max-w-7xl px-6 lg:px-8">
              {/* Your content here */}
-           </div>
-         </div>
-       </main>
-     );
-   }
-2. **Create the page component** using this template:
-   ```tsx
-   export default function YourPageName() {
-     return (
-       <main className="grow relative z-10">
-         {/* Hero Section */}
-         <div className="py-12 sm:py-16">
-           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-             <div className="mx-auto max-w-2xl text-center">
-               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                 Page Title
-               </h1>
-               <p className="mt-4 text-lg text-gray-600">
-                 Page description
-               </p>
-             </div>
-           </div>
-         </div>
-
-         {/* Content Section */}
-         <div className="py-12 sm:py-16">
-           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-             {/* Your content here */}
+             {/* See Components Guide for reusable components */}
            </div>
          </div>
        </main>
      );
    }
    ```
+   
+   **Important:** Always use `BinaryHeartText` component when displaying the organization name. See [Components Guide](./COMPONENTS.md) for details.
 
 3. **Add Route to App.tsx:**
 
@@ -469,6 +452,73 @@ Before deploying your new page:
 - ✅ No ESLint warnings
 - ✅ Consistent styling with other pages
 - ✅ Accessible (proper heading hierarchy, alt text)
+- ✅ **Brand colors used correctly** (via `BRAND_COLORS` utility)
+- ✅ **BinaryHeartText component used** for organization name
+- ✅ **Reusable components used** instead of duplicated code
+
+## Component Usage Guidelines
+
+When building your page content, use these reusable components:
+
+### For Organization Name
+✅ **Always use:** `<BinaryHeartText />`  
+❌ **Never use:** Manual coloring with `text-[#FF0040]` or `text-[#2F4A70]`
+
+### For Features/Values in Grids
+Use `FeatureCard` component:
+```tsx
+import FeatureCard from '../../components/FeatureCard';
+
+<FeatureCard
+  icon={<svg>...</svg>}
+  title="Feature Title"
+  description="Feature description"
+  gradientFrom="from-blue-500"
+  gradientTo="to-indigo-600"
+/>
+```
+
+### For Detailed Information Lists
+Use `InfoCard` component:
+```tsx
+import InfoCard from '../../components/InfoCard';
+
+<InfoCard
+  icon={<svg>...</svg>}
+  title="Info Title"
+  description="Detailed description"
+  bgColorClass="bg-blue-100"
+  iconColorClass="text-blue-600"
+/>
+```
+
+### For Team Member Profiles
+Use `PictureCard` component:
+```tsx
+import PictureCard from '../../components/PictureCard';
+
+<PictureCard
+  imageSrc="/assets/images/chapters/chapter-name/people/PersonName.jpg"
+  name="Person Name"
+  role="Their Role"
+  subtitle="Optional additional info"
+/>
+```
+
+### For Brand Colors
+```tsx
+import { BRAND_COLORS, getBrandGradient } from '../../utils/brandColors';
+
+// For text colors
+<h2 className={BRAND_COLORS.BINARY_TEXT}>Donate</h2>
+
+// For gradient backgrounds
+<button className={`bg-gradient-to-r ${getBrandGradient('binary')}`}>
+  Donate Now
+</button>
+```
+
+**See [Components Guide](./COMPONENTS.md) for complete documentation.**
 
 ## Need Help?
 
@@ -478,13 +528,16 @@ Examples to reference:
 - **Data integration:** `src/pages/national/About.tsx`
 - **Multiple sections:** `src/pages/national/Join.tsx`
 - **Chapter placeholder:** `src/pages/purdue/Home.tsx`
+- **Component usage:** `src/pages/rose-hulman/About.tsx`
 
-For chapter management:
-- See [Managing Chapters](./MANAGING-CHAPTERS.md) for adding new chapters
-- See [Chapter Creation](./CHAPTER%20CREATION.md) for complete chapter setup
+Documentation to review:
+- **[Components Guide](./COMPONENTS.md)** - Component usage and brand colors
+- **[Managing Chapters](./MANAGING-CHAPTERS.md)** - Adding new chapters
+- **[Contributing](./CONTRIBUTING.md)** - Development guidelines
 
 If you have questions:
 - Review existing page components in chapter folders
-- Check the React Router documentation
+- Check the [Components Guide](./COMPONENTS.md)
+- Review the React Router documentation
 - Review the `src/utils/urlHelpers.ts` for navigation utilities
 - Contact the development team

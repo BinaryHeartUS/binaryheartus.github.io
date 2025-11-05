@@ -7,6 +7,7 @@ Welcome to the BinaryHeart website documentation! This folder contains comprehen
 ### For Developers
 
 - **[Getting Started](./GETTING-STARTED.md)** - Set up your development environment and learn the project structure
+- **[Components Guide](./COMPONENTS.md)** - Learn about reusable components, brand colors, and best practices
 - **[Adding Pages](./ADDING-PAGES.md)** - Create new pages and routes in the application
 - **[Contributing](./CONTRIBUTING.md)** - Guidelines for contributing code and documentation
 
@@ -40,6 +41,7 @@ Welcome to the BinaryHeart website documentation! This folder contains comprehen
 | Task | Documentation |
 |------|---------------|
 | Set up development environment | [Getting Started](./GETTING-STARTED.md) |
+| Learn about components and brand colors | [Components Guide](./COMPONENTS.md) |
 | Add a new chapter | [Managing Chapters](./MANAGING-CHAPTERS.md) |
 | Update chapter statistics | [Managing Chapters](./MANAGING-CHAPTERS.md) |
 | Add chapter images | [Image Management](./IMAGE-MANAGEMENT.md) |
