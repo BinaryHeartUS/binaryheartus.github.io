@@ -200,8 +200,8 @@ export default function Join() {
               }
               title="Software Installation & Security"
               description="Install operating systems, set up essential software, configure security settings, and ensure devices are ready to use."
-              bgColorClass="bg-yellow-100"
-              iconColorClass="text-yellow-600"
+              bgColorClass="bg-amber-100"
+              iconColorClass="text-amber-600"
             />
 
             <InfoCard
