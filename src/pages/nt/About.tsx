@@ -1,5 +1,21 @@
 import InfoCard from '../../components/InfoCard';
 
+import PhotoCarousel from '../../components/PhotoCarousel';
+
+const galleryImages = [
+  {
+    src: '/public/assets/images/chapters/nt/photos/gallery-1.jpg',
+    
+  },
+  {
+    src: '/public/assets/images/chapters/nt/photos/gallery-2.jpg',
+    
+  },
+  {
+    src: '/public/assets/images/chapters/nt/photos/gallery-3.jpg',
+    
+  },
+];
 
 export default function About() {
   return (
@@ -99,6 +115,12 @@ export default function About() {
                 </div>
               </div>
             </div>
+
+      {/* Photo Gallery */}
+      <div className="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6 text-center">Photo Gallery</h2>
+        <PhotoCarousel images={galleryImages.map(img => img.src)} />
+      </div>
     </main>
   );
 }
