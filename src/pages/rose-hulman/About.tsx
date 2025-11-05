@@ -3,6 +3,7 @@ import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
 import PictureCard from '../../components/PictureCard';
+import { ROSE_HULMAN_COLORS } from '../../utils/brandColors';
 
 export default function About() {
   const galleryImages = [
@@ -75,7 +76,7 @@ export default function About() {
             </p>
           </div>
 
-          <StatsGrid chapterId="rose-hulman" colorClass="text-red-600" columns={3} />
+          <StatsGrid chapterId="rose-hulman" colorClass={ROSE_HULMAN_COLORS.TEXT} columns={3} />
         </div>
       </div>
 
@@ -94,7 +95,7 @@ export default function About() {
               href="https://www.instagram.com/binaryheartrhit"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-red-600 transition-colors"
+              className={`inline-flex items-center gap-2 text-gray-600 ${ROSE_HULMAN_COLORS.TEXT_HOVER} transition-colors`}
             >
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
@@ -119,8 +120,8 @@ export default function About() {
                 }
                 title="Device Collection & Assessment"
                 description="We accept donations of laptops, desktops, tablets, and other electronics from individuals, businesses, and organizations. Each device is carefully assessed to determine if it can be refurbished or should be responsibly recycled."
-                bgColorClass="bg-rose-100"
-                iconColorClass="text-rose-600"
+                bgColorClass={ROSE_HULMAN_COLORS.BG_LIGHT}
+                iconColorClass={ROSE_HULMAN_COLORS.TEXT}
               />
 
               <InfoCard
@@ -131,8 +132,8 @@ export default function About() {
                 }
                 title="Expert Refurbishment"
                 description="Our engineering students diagnose hardware issues, perform repairs, upgrade components when possible, securely wipe all data, and install fresh operating systems and essential software. Every device leaves our lab in excellent working condition."
-                bgColorClass="bg-rose-100"
-                iconColorClass="text-rose-600"
+                bgColorClass={ROSE_HULMAN_COLORS.BG_LIGHT}
+                iconColorClass={ROSE_HULMAN_COLORS.TEXT}
               />
 
               <InfoCard
@@ -143,8 +144,8 @@ export default function About() {
                 }
                 title="Community Distribution"
                 description="Refurbished devices are distributed to students, families, and community organizations in need—both locally in Terre Haute and internationally. Through partnerships with schools, nonprofits, and social service agencies, we ensure technology reaches those who need it most."
-                bgColorClass="bg-rose-100"
-                iconColorClass="text-rose-600"
+                bgColorClass={ROSE_HULMAN_COLORS.BG_LIGHT}
+                iconColorClass={ROSE_HULMAN_COLORS.TEXT}
               />
 
               <InfoCard
@@ -155,8 +156,8 @@ export default function About() {
                 }
                 title="Skills Development"
                 description="Our volunteers gain hands-on experience with hardware troubleshooting, software installation, data security, project management, and community outreach—skills that are invaluable for future careers in engineering and technology."
-                bgColorClass="bg-rose-100"
-                iconColorClass="text-rose-600"
+                bgColorClass={ROSE_HULMAN_COLORS.BG_LIGHT}
+                iconColorClass={ROSE_HULMAN_COLORS.TEXT}
               />
             </div>
           </div>
@@ -164,7 +165,7 @@ export default function About() {
       </div>
 
       {/* Leadership Team */}
-      <div className="py-8 sm:py-12 bg-gradient-to-b from-red-50/30 to-transparent">
+      <div className={`py-8 sm:py-12 bg-gradient-to-b ${ROSE_HULMAN_COLORS.BG_GRADIENT} to-transparent`}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Leadership Team</h2>
@@ -214,7 +215,7 @@ export default function About() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="relative rounded-2xl bg-gradient-to-br from-red-600 to-rose-700 p-8 sm:p-12 shadow-2xl overflow-hidden">
+            <div className={`relative rounded-2xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY} p-8 sm:p-12 shadow-2xl overflow-hidden`}>
               <div className="absolute inset-0 bg-[url('/assets/images/grid.svg')] opacity-10"></div>
               <div className="relative">
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
@@ -226,19 +227,19 @@ export default function About() {
                 <div className="flex flex-col sm:flex-row gap-4 mb-6">
                   <a
                     href="/rose-hulman/join"
-                    className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-red-600 shadow-sm hover:bg-red-50 transition-colors"
+                    className={`inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold ${ROSE_HULMAN_COLORS.TEXT} shadow-sm hover:bg-gray-50 transition-colors`}
                   >
                     Become a Volunteer
                   </a>
                   <a
                     href="/rose-hulman/donate"
-                    className="inline-flex items-center justify-center rounded-lg bg-red-800 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-red-900 transition-colors ring-1 ring-white/20"
+                    className="inline-flex items-center justify-center rounded-lg bg-[#700000] px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-[#600000] transition-colors ring-1 ring-white/20"
                   >
                     Donate Devices
                   </a>
                   <a
                     href="/rose-hulman/contact"
-                    className="inline-flex items-center justify-center rounded-lg bg-red-800 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-red-900 transition-colors ring-1 ring-white/20"
+                    className="inline-flex items-center justify-center rounded-lg bg-[#700000] px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-[#600000] transition-colors ring-1 ring-white/20"
                   >
                     Contact Us
                   </a>

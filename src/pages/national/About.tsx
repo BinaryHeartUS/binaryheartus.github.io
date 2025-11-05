@@ -320,7 +320,7 @@ export default function About() {
               />
 
               <PictureCard
-                imageSrc="/assets/images/chapters/national/people/EnzoCaggianojpg"
+                imageSrc="/assets/images/chapters/national/people/EnzoCaggiano.jpg"
                 name="Enzo Caggiano"
                 role="Executive Director"
               />
