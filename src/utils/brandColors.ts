@@ -25,6 +25,40 @@ export const BRAND_COLORS = {
 } as const;
 
 /**
+ * Rose Hulman Chapter Brand Colors
+ * Official Rose-Hulman Institute of Technology colors
+ */
+export const ROSE_HULMAN_COLORS = {
+  // Primary colors
+  PRIMARY: '#a01010',
+  PRIMARY_DARK: '#800000',
+  PRIMARY_HOVER: '#b01818',
+  PRIMARY_DARK_HOVER: '#900808',
+  
+  // Secondary colors
+  SECONDARY: '#8a8a8a',
+  SECONDARY_DARK: '#6a6a6a',
+  
+  // Tailwind-compatible text classes
+  TEXT: 'text-[#a01010]',
+  TEXT_DARK: 'text-[#800000]',
+  TEXT_HOVER: 'hover:text-[#800000]',
+  
+  // Background classes
+  BG: 'bg-[#a01010]',
+  BG_LIGHT: 'bg-[#a01010]/10',
+  BG_GRADIENT: 'from-[#a01010]/5',
+  BG_GRADIENT_END: 'to-[#800000]/5',
+  
+  // Gradient classes for buttons and cards
+  GRADIENT_PRIMARY: 'from-[#a01010] to-[#800000]',
+  GRADIENT_PRIMARY_90: 'from-[#a01010]/90 to-[#800000]/90',
+  GRADIENT_PRIMARY_HOVER: 'hover:from-[#b01818] hover:to-[#900808]',
+  GRADIENT_SECONDARY: 'from-[#8a8a8a]/90 to-[#6a6a6a]/90',
+  GRADIENT_SECONDARY_HOVER: 'hover:from-[#8a8a8a] hover:to-[#6a6a6a]',
+} as const;
+
+/**
  * Helper function to get gradient classes for CTA buttons
  * @param type - 'binary' for red donate buttons, 'heart' for blue join buttons
  * @returns Tailwind gradient classes

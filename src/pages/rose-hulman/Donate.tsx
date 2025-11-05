@@ -1,4 +1,5 @@
 import BinaryHeartText from '../../components/BinaryHeartText';
+import { ROSE_HULMAN_COLORS } from '../../utils/brandColors';
 
 export default function Donate() {
   const handleSubmit = () => {
@@ -272,7 +273,7 @@ export default function Donate() {
                   <div>
                     <button
                       type="submit"
-                      className="w-full rounded-lg bg-gradient-to-r from-[#a01010] to-[#800000] px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-[#b01818] hover:to-[#900808] transition-all duration-200"
+                      className={`w-full rounded-lg bg-gradient-to-r ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY} px-6 py-3 text-base font-semibold text-white shadow-lg ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY_HOVER} transition-all duration-200`}
                     >
                       Submit Donation Request
                     </button>
