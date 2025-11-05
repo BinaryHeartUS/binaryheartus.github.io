@@ -105,6 +105,37 @@ export default function Contact() {
                     </div>
                   </div>
                 </div>
+
+                {/* Quick Links */}
+                <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
+                  <div className="space-y-2">
+                    <a href="/about" className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                      <span>Learn About Us</span>
+                    </a>
+                    <a href="/join" className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                      <span>Start a Chapter</span>
+                    </a>
+                    <a href="/donate" className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                      <span>Donate</span>
+                    </a>
+                    <a href="/request" className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                      <span>Request Equipment</span>
+                    </a>
+                  </div>
+                </div>
               </div>
 
               {/* Contact Form */}

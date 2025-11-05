@@ -24,7 +24,7 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="relative rounded-2xl bg-gradient-to-br from-blue-500/90 to-indigo-600/90 backdrop-blur-sm p-8 sm:p-12 shadow-xl text-white">
+            <div className="relative rounded-2xl bg-gradient-to-br from-[#a01010]/90 to-[#800000]/90 backdrop-blur-sm p-8 sm:p-12 shadow-xl text-white">
               <div className="flex flex-col sm:flex-row items-center gap-8">
                 <div className="flex-shrink-0">
                   <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
@@ -169,43 +169,41 @@ export default function Join() {
           </div>
 
           <div className="mx-auto max-w-4xl space-y-6">
-            <InfoCard
-              icon={
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
-                </svg>
-              }
-              title="Computer Refurbishment"
-              description="Learn to diagnose hardware issues, upgrade components, clean and test systems, and prepare computers for distribution."
-              bgColorClass="bg-blue-100"
-              iconColorClass="text-blue-600"
-            />
+              <InfoCard
+                icon={
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
+                  </svg>
+                }
+                title="Computer Refurbishment"
+                description="Learn to diagnose hardware issues, upgrade components, clean and test systems, and prepare computers for distribution."
+                bgColorClass="bg-[#a01010]/10"
+                iconColorClass="text-[#a01010]"
+              />
 
-            <InfoCard
-              icon={
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-                </svg>
-              }
-              title="Software Installation & Security"
-              description="Install operating systems, set up essential software, configure security settings, and ensure devices are ready to use."
-              bgColorClass="bg-purple-100"
-              iconColorClass="text-purple-600"
-            />
+              <InfoCard
+                icon={
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                  </svg>
+                }
+                title="Software Installation & Security"
+                description="Install operating systems, set up essential software, configure security settings, and ensure devices are ready to use."
+                bgColorClass="bg-[#a01010]/10"
+                iconColorClass="text-[#a01010]"
+              />
 
-            <InfoCard
-              icon={
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-                </svg>
-              }
-              title="Collection & Distribution"
-              description="Organize donation drives, coordinate with local organizations, and distribute refurbished devices to students and families in need."
-              bgColorClass="bg-rose-100"
-              iconColorClass="text-rose-600"
-            />
-
-            <InfoCard
+              <InfoCard
+                icon={
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+                  </svg>
+                }
+                title="Collection & Distribution"
+                description="Organize donation drives, coordinate with local organizations, and distribute refurbished devices to students and families in need."
+                bgColorClass="bg-[#a01010]/10"
+                iconColorClass="text-[#a01010]"
+              />            <InfoCard
               icon={
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
@@ -238,7 +236,7 @@ export default function Join() {
               <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-xl ring-1 ring-gray-900/5">
                 <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#a01010] to-[#800000] text-white">
                       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                       </svg>
@@ -255,7 +253,7 @@ export default function Join() {
                       href="https://rosehulman.campusgroups.com/BinaryHeart/club_signup"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                      className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#a01010] to-[#800000] px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
                     >
                       <span>Join on Campus Groups</span>
                       <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
@@ -294,7 +292,7 @@ export default function Join() {
               </div>
 
               {/* In-Person Info */}
-              <div className="relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 backdrop-blur-sm p-8 shadow-xl text-white">
+              <div className="relative rounded-2xl bg-gradient-to-br from-[#8a8a8a]/90 to-[#6a6a6a]/90 backdrop-blur-sm p-8 shadow-xl text-white">
                 <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
                     <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
