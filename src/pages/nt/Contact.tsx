@@ -60,8 +60,8 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900">Email</p>
-                        <a href="mailto:newtrier@binaryheart.org" className={`${NEW_TRIER_COLORS.TEXT_BLUE} ${NEW_TRIER_COLORS.TEXT_HOVER}`}>
-                          newtrier@binaryheart.org
+                        <a href="mailto:nt@binaryheart.org" className={`${NEW_TRIER_COLORS.TEXT_BLUE} ${NEW_TRIER_COLORS.TEXT_HOVER}`}>
+                          nt@binaryheart.org
                         </a>
                       </div>
                     </div>

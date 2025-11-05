@@ -1,6 +1,8 @@
+import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
 
 import PhotoCarousel from '../../components/PhotoCarousel';
+import { NEW_TRIER_COLORS } from '../../utils/brandColors';
 
 const galleryImages = [
   '/assets/images/chapters/nt/photos/gallery-1.jpg',
@@ -14,16 +16,34 @@ export default function About() {
   return (
     <main className="grow relative z-10">
       <div className="relative isolate overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
+        <div className="mx-auto max-w-7xl px-6 pb-16 pt-10 sm:pb-24 lg:flex lg:px-8 lg:py-32">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              New Trier Chapter
+              About <BinaryHeartText /> at New Trier High School
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               A student-run organization empowering students worldwide through technology at New Trier High School.
             </p>
             </div>
+        </div>
+
+          {/* Our Chapter Section */}
+            <div className="py-8 sm:py-12">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6">Who We Are</h2>
+            <div className="prose prose-lg text-gray-600 space-y-4">
+              <p>
+                Founded in 2016, BinaryHeart at New Trier High School was the first chapter of a nationwide movement to make technology accessible to everyone. As students at one of the nation's top high schools, we bring unique expertise in hardware, software, and systems to our mission of refurbishing and redistributing technology.
+              </p>
+              <p>
+                We combine New Trier's culture of innovation and hands-on problem-solving with BinaryHeart's proven model of student-led community service. We work to ensure that students, families, and community organizations in the New Trier area and beyond have access to the technology they need to succeed in an increasingly digital world.
+              </p>
+            </div>
           </div>
+        </div>
+      </div>
+
 
           {/* Mission Section */}
           <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-24">
@@ -114,6 +134,61 @@ export default function About() {
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6 text-center">Photo Gallery</h2>
         <PhotoCarousel images={galleryImages} />
       </div>
+
+
+
+
+       {/* Get Involved CTA */}
+            <div className="py-8 sm:py-12">
+              <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="mx-auto max-w-4xl">
+                  <div className={`relative rounded-2xl bg-gradient-to-br ${NEW_TRIER_COLORS.GRADIENT_PRIMARY} p-8 sm:p-12 shadow-2xl overflow-hidden`}>
+                    <div className="absolute inset-0 bg-[url('/assets/images/grid.svg')] opacity-10"></div>
+                    <div className="relative">
+                      <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
+                        Join Our Mission
+                      </h2>
+                      <p className="text-lg text-red-100 mb-8">
+                        Whether you want to volunteer, donate devices, or support our work financially, there are many ways to get involved with Binary Heart at New Trier High School.
+                      </p>
+                        <div className="flex flex-col sm:flex-row gap-4 mb-6">
+                        <a
+                          href="/nt/join"
+                          className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-green-600 shadow-sm hover:bg-gray-50 transition-colors"
+                        >
+                          Join Us
+                        </a>
+                        <a
+                          href="/nt/donate"
+                          className="inline-flex items-center justify-center rounded-lg bg-green-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-green-700 transition-colors ring-1 ring-white/20"
+                        >
+                          Donate Devices
+                        </a>
+                        <a
+                          href="/nt/contact"
+                          className="inline-flex items-center justify-center rounded-lg bg-green-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-green-700 transition-colors ring-1 ring-white/20"
+                        >
+                          Contact Us
+                        </a>
+                        </div>
+                        <div className="border-t border-white/20 pt-6">
+                        <a
+                          href="https://www.instagram.com/binaryheartnt"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-3 text-white/90 hover:text-white transition-colors"
+                        >
+                          <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                          </svg>
+                          <span className="text-lg font-medium">Follow us @binaryheartnt</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
     </main>
   );
 }
