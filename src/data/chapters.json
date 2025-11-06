@@ -36,6 +36,12 @@
       "shortName": "NT",
       "url": "https://binaryheart.org/nt",
       "icon": "/assets/images/chapters/nt/icon.svg"
+    },
+    {
+      "name": "Walter Payton College Prep",
+      "shortName": "WP",
+      "url": "https://binaryheart.org/wp",
+      "icon": "/assets/images/chapters/wp/icon.svg"
     }
   ]
 }
