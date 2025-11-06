@@ -59,6 +59,47 @@ export const ROSE_HULMAN_COLORS = {
 } as const;
 
 /**
+ * Walter Payton Chapter Brand Colors
+ * Official Walter Payton College Prep colors
+ */
+export const WALTER_PAYTON_COLORS = {
+  // Primary colors
+  BLUE: '#113f62',
+  BLUE_DARK: '#0d2f4a',
+  BLUE_HOVER: '#154f7a',
+  BLUE_DARK_HOVER: '#102844',
+  
+  // Secondary colors
+  ORANGE: '#f27a24',
+  ORANGE_DARK: '#d96b1f',
+  ORANGE_HOVER: '#ff8a34',
+  ORANGE_DARK_HOVER: '#e06419',
+  
+  // Tailwind-compatible text classes
+  TEXT_BLUE: 'text-[#113f62]',
+  TEXT_BLUE_DARK: 'text-[#0d2f4a]',
+  TEXT_BLUE_HOVER: 'hover:text-[#0d2f4a]',
+  TEXT_ORANGE: 'text-[#f27a24]',
+  TEXT_ORANGE_HOVER: 'hover:text-[#d96b1f]',
+  
+  // Background classes
+  BG_BLUE: 'bg-[#113f62]',
+  BG_BLUE_LIGHT: 'bg-[#113f62]/10',
+  BG_BLUE_GRADIENT: 'from-[#113f62]/5',
+  BG_BLUE_GRADIENT_END: 'to-[#0d2f4a]/5',
+  BG_ORANGE: 'bg-[#f27a24]',
+  BG_ORANGE_LIGHT: 'bg-[#f27a24]/10',
+  
+  // Gradient classes for buttons and cards
+  GRADIENT_BLUE: 'from-[#113f62] to-[#0d2f4a]',
+  GRADIENT_BLUE_90: 'from-[#113f62]/90 to-[#0d2f4a]/90',
+  GRADIENT_BLUE_HOVER: 'hover:from-[#154f7a] hover:to-[#102844]',
+  GRADIENT_ORANGE: 'from-[#f27a24] to-[#d96b1f]',
+  GRADIENT_ORANGE_90: 'from-[#f27a24]/90 to-[#d96b1f]/90',
+  GRADIENT_ORANGE_HOVER: 'hover:from-[#ff8a34] hover:to-[#e06419]',
+} as const;
+
+/**
  * Helper function to get gradient classes for CTA buttons
  * @param type - 'binary' for red donate buttons, 'heart' for blue join buttons
  * @returns Tailwind gradient classes
