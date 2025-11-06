@@ -81,7 +81,7 @@ export default function About() {
       </div>
 
       {/* Photo Gallery Carousel */}
-      <PhotoCarousel 
+      <PhotoCarousel
         images={galleryImages}
         title="Our Chapter in Action"
         subtitle="See our team making an impact in the community"
