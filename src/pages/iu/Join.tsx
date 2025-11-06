@@ -3,124 +3,38 @@ import BinaryHeartText from '../../components/BinaryHeartText';
 import DepartmentCard from '../../components/DepartmentCard';
 import FeatureCard from '../../components/FeatureCard';
 import { IU_COLORS } from '../../utils/brandColors';
+import type { Department } from '../../types/departments';
+import departmentsData from '../../data/chapters/iu/departments.json';
 
-// Department data configuration
-const departments = [
-  {
-    id: 'finance',
-    name: 'Finance',
-    description: 'Manage our budget, secure funding through grants and sponsorships, and ensure financial sustainability.',
-    icon: (
-      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    responsibilities: [
-      'Budget planning and financial reporting',
-      'Grant writing and sponsorship outreach',
-      'Track expenses and revenue',
-    ],
-    requiresApplication: true,
-    learnMoreContent: {
-      whatYoullDo: [
-        'Create and manage the chapter budget, tracking all income and expenses',
-        'Research and apply for grants from foundations and corporate sponsors',
-        'Build relationships with local businesses for donations and partnerships',
-        'Present financial reports to the leadership team and national organization',
-      ],
-      skillsYoullGain:
-        'Financial analysis, grant writing, budget management, Excel/Google Sheets proficiency, professional communication, fundraising strategy, and nonprofit finance operations.',
-      idealFor:
-        'Students interested in business, accounting, nonprofit management, or anyone looking to develop strong analytical and organizational skills.',
-    },
-  },
-  {
-    id: 'marketing',
-    name: 'Marketing',
-    description: 'Spread the word about our mission through community outreach, social media, design graphics, create content, and organize awareness campaigns.',
-    icon: (
-      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46" />
-      </svg>
-    ),
-    responsibilities: [
-      'Social media content creation and management',
-      'Graphic design and visual communications',
-      'Event promotion and external relations',
-    ],
-    requiresApplication: true,
-    learnMoreContent: {
-      whatYoullDo: [
-        'Create engaging social media content for Instagram, Facebook, and other platforms',
-        'Design graphics, flyers, and promotional materials using Canva or Adobe Creative Suite',
-        'Coordinate with local media and campus organizations for PR opportunities',
-        'Plan and execute marketing campaigns for events and fundraising initiatives',
-      ],
-      skillsYoullGain:
-        'Social media marketing, graphic design, content creation, brand management, public relations, and digital communications. You\'ll learn industry-standard tools and build a portfolio of real work.',
-      idealFor:
-        'Creative students interested in marketing, communications, journalism, or design. Perfect for anyone who loves storytelling and connecting with audiences.',
-    },
-  },
-  {
-    id: 'operations',
-    name: 'Operations',
-    description: 'Work hands-on with computers—diagnose issues, replace parts, install operating systems, and prepare devices for donation.',
-    icon: (
-      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
-      </svg>
-    ),
-    responsibilities: [
-      'Computer refurbishment and repair',
-      'Device sourcing and donation coordination',
-      'Distribution to community members',
-      'Open to all—no application needed!',
-    ],
-    requiresApplication: false,
-    learnMoreContent: {
-      whatYoullDo: [
-        'Diagnose hardware and software issues in donated computers',
-        'Replace components, upgrade hardware, and perform repairs',
-        'Install operating systems and essential software on refurbished devices',
-        'Coordinate device distribution to community members in need',
-      ],
-      skillsYoullGain:
-        'Hardware troubleshooting, software installation, inventory management, quality control, and technical documentation. You\'ll develop practical IT skills that are directly applicable to careers in technology support, systems administration, and computer repair.',
-      idealFor:
-        'Hands-on learners, tech enthusiasts, and anyone wanting practical experience with computer hardware and software. No prior experience required—just curiosity and a willingness to learn! Perfect for students interested in IT, computer science, or anyone who wants to make a tangible impact in their community.',
-    },
-  },
-  {
-    id: 'membership',
-    name: 'Membership',
-    description: 'Foster chapter culture, organize events, manage member engagement, and ensure compliance with organizational policies.',
-    icon: (
-      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-      </svg>
-    ),
-    responsibilities: [
-      'Event planning and member engagement',
-      'Chapter development and training programs',
-      'Compliance and policy management',
-      'Open to all—no application needed!',
-    ],
-    requiresApplication: false,
-    learnMoreContent: {
-      whatYoullDo: [
-        'Plan and execute social events, workshops, and team-building activities',
-        'Track member engagement and ensure active participation across teams',
-        'Develop training programs and onboarding materials for new members',
-        'Maintain chapter compliance with national policies and university regulations',
-      ],
-      skillsYoullGain:
-        'Event management, community building, policy administration, leadership development, and organizational communication. You\'ll learn how to cultivate an inclusive chapter culture while ensuring operational excellence and regulatory compliance.',
-      idealFor:
-        'People-oriented students, aspiring leaders, and anyone interested in organizational development and community engagement. Perfect for those who want to shape chapter culture, build meaningful connections, and ensure Binary Heart at IU remains a welcoming, effective, and compliant organization.',
-    },
-  },
-];
+// Department icons
+const departmentIcons: Record<string, React.ReactNode> = {
+  finance: (
+    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  ),
+  marketing: (
+    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46" />
+    </svg>
+  ),
+  operations: (
+    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+    </svg>
+  ),
+  membership: (
+    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+    </svg>
+  ),
+};
+
+// Combine JSON data with icons
+const departments: Department[] = departmentsData.map(dept => ({
+  ...dept,
+  icon: departmentIcons[dept.id],
+}));
 
 export default function Join() {
   const [expandedTeam, setExpandedTeam] = useState<string | null>(null);

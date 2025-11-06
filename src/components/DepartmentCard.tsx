@@ -1,7 +1,13 @@
 import type { ReactNode } from 'react';
 
+interface Team {
+  name: string;
+  description: string;
+  responsibilities: string[];
+}
+
 interface LearnMoreContent {
-  whatYoullDo: string[];
+  teams: Team[];
   skillsYoullGain: string;
   idealFor: string;
 }
@@ -103,19 +109,25 @@ export default function DepartmentCard({
 
           {/* Expanded Content */}
           {isExpanded && (
-            <div className="mt-6 pt-6 border-t border-gray-200 space-y-4 animate-in slide-in-from-top">
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">What You'll Do:</h4>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  {learnMoreContent.whatYoullDo.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className={`${colorClasses.TEXT} mt-1`}>•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
+            <div className="mt-6 pt-6 border-t border-gray-200 space-y-6 animate-in slide-in-from-top">
+              {/* Teams within the department */}
+              {learnMoreContent.teams.map((team, teamIndex) => (
+                <div key={teamIndex}>
+                  <h4 className="font-semibold text-gray-900 mb-2">{team.name}:</h4>
+                  <p className="text-sm text-gray-600 mb-3">{team.description}</p>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    {team.responsibilities.map((responsibility, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className={`${colorClasses.TEXT} mt-1`}>•</span>
+                        <span>{responsibility}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+              
+              {/* Department-wide sections */}
+              <div className="pt-4 border-t border-gray-100">
                 <h4 className="font-semibold text-gray-900 mb-2">Skills You'll Gain:</h4>
                 <p className="text-sm text-gray-600">{learnMoreContent.skillsYoullGain}</p>
               </div>

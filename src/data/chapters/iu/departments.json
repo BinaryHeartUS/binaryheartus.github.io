@@ -1,0 +1,162 @@
+[
+  {
+    "id": "finance",
+    "name": "Finance",
+    "description": "Manage our budget, secure funding through grants and sponsorships, and ensure financial sustainability.",
+    "responsibilities": [
+      "Budget planning and financial reporting",
+      "Grant writing and sponsorship outreach",
+      "Track expenses and revenue"
+    ],
+    "requiresApplication": true,
+    "learnMoreContent": {
+      "teams": [
+        {
+          "name": "Budget Management Team",
+          "description": "Oversee chapter finances and maintain fiscal responsibility",
+          "responsibilities": [
+            "Create and manage the chapter budget, tracking all income and expenses",
+            "Monitor spending across all departments and ensure alignment with budget",
+            "Prepare monthly financial reports for leadership team"
+          ]
+        },
+        {
+          "name": "Fundraising & Grants Team",
+          "description": "Secure external funding and build donor relationships",
+          "responsibilities": [
+            "Research and apply for grants from foundations and corporate sponsors",
+            "Build relationships with local businesses for donations and partnerships",
+            "Organize fundraising campaigns and donor appreciation events"
+          ]
+        }
+      ],
+      "skillsYoullGain": "Financial analysis, grant writing, budget management, Excel/Google Sheets proficiency, professional communication, fundraising strategy, and nonprofit finance operations.",
+      "idealFor": "Students interested in business, accounting, nonprofit management, or anyone looking to develop strong analytical and organizational skills."
+    }
+  },
+  {
+    "id": "marketing",
+    "name": "Marketing",
+    "description": "Spread the word about our mission through community outreach, social media, design graphics, create content, and organize awareness campaigns.",
+    "responsibilities": [
+      "Social media content creation and management",
+      "Graphic design and visual communications",
+      "Event promotion and external relations"
+    ],
+    "requiresApplication": true,
+    "learnMoreContent": {
+      "teams": [
+        {
+          "name": "Social Media Team",
+          "description": "Manage our online presence and community engagement",
+          "responsibilities": [
+            "Create engaging content for Instagram, Facebook, and other platforms",
+            "Schedule posts and monitor engagement metrics",
+            "Respond to messages and build community connections"
+          ]
+        },
+        {
+          "name": "Design Team",
+          "description": "Create visual content and brand materials",
+          "responsibilities": [
+            "Design graphics, flyers, and promotional materials using Canva or Adobe Creative Suite",
+            "Maintain brand consistency across all visual communications",
+            "Create templates and design assets for events and campaigns"
+          ]
+        },
+        {
+          "name": "External Relations Team",
+          "description": "Build partnerships and manage public relations",
+          "responsibilities": [
+            "Coordinate with local media and campus organizations for PR opportunities",
+            "Plan and execute marketing campaigns for events and fundraising initiatives",
+            "Develop partnerships with student organizations and community groups"
+          ]
+        }
+      ],
+      "skillsYoullGain": "Social media marketing, graphic design, content creation, brand management, public relations, and digital communications. You'll learn industry-standard tools and build a portfolio of real work.",
+      "idealFor": "Creative students interested in marketing, communications, journalism, or design. Perfect for anyone who loves storytelling and connecting with audiences."
+    }
+  },
+  {
+    "id": "operations",
+    "name": "Operations",
+    "description": "Work hands-on with computers—diagnose issues, replace parts, install operating systems, and prepare devices for donation.",
+    "responsibilities": [
+      "Computer refurbishment and repair",
+      "Device sourcing and donation coordination",
+      "Distribution to community members",
+      "Open to all—no application needed!"
+    ],
+    "requiresApplication": false,
+    "learnMoreContent": {
+      "teams": [
+        {
+          "name": "Refurbishment Team",
+          "description": "Repair, upgrade, and prepare computers for distribution",
+          "responsibilities": [
+            "Diagnose hardware and software issues in donated computers",
+            "Replace components, upgrade hardware, and perform repairs",
+            "Install operating systems and essential software on refurbished devices"
+          ]
+        },
+        {
+          "name": "Distribution & Logistics Team",
+          "description": "Manage inventory and coordinate computer distributions",
+          "responsibilities": [
+            "Track inventory of computers, parts, and supplies",
+            "Coordinate device distribution to community members in need",
+            "Organize pickup/delivery logistics for donations"
+          ]
+        }
+      ],
+      "skillsYoullGain": "Hardware troubleshooting, software installation, inventory management, quality control, and technical documentation. You'll develop practical IT skills that are directly applicable to careers in technology support, systems administration, and computer repair.",
+      "idealFor": "Hands-on learners, tech enthusiasts, and anyone wanting practical experience with computer hardware and software. No prior experience required—just curiosity and a willingness to learn! Perfect for students interested in IT, computer science, or anyone who wants to make a tangible impact in their community."
+    }
+  },
+  {
+    "id": "membership",
+    "name": "Membership",
+    "description": "Foster chapter culture, organize events, manage member engagement, and ensure compliance with organizational policies.",
+    "responsibilities": [
+      "Event planning and member engagement",
+      "Chapter development and training programs",
+      "Compliance and policy management",
+      "Open to all—no application needed!"
+    ],
+    "requiresApplication": false,
+    "learnMoreContent": {
+      "teams": [
+        {
+          "name": "Events & Engagement Team",
+          "description": "Plan and execute social events and member engagement activities",
+          "responsibilities": [
+            "Plan and execute social events, workshops, and team-building activities",
+            "Track member engagement and ensure active participation across teams",
+            "Create fun and inclusive experiences that strengthen chapter bonds"
+          ]
+        },
+        {
+          "name": "Training & Development Team",
+          "description": "Develop onboarding programs and training resources",
+          "responsibilities": [
+            "Develop training programs and onboarding materials for new members",
+            "Conduct orientation sessions and mentorship programs",
+            "Create resources and documentation for skill development"
+          ]
+        },
+        {
+          "name": "Compliance & Policy Team",
+          "description": "Ensure organizational compliance and policy adherence",
+          "responsibilities": [
+            "Maintain chapter compliance with national policies and university regulations",
+            "Document and communicate policy updates to members",
+            "Coordinate with national organization and university administration"
+          ]
+        }
+      ],
+      "skillsYoullGain": "Event management, community building, policy administration, leadership development, and organizational communication. You'll learn how to cultivate an inclusive chapter culture while ensuring operational excellence and regulatory compliance.",
+      "idealFor": "People-oriented students, aspiring leaders, and anyone interested in organizational development and community engagement. Perfect for those who want to shape chapter culture, build meaningful connections, and ensure Binary Heart at IU remains a welcoming, effective, and compliant organization."
+    }
+  }
+]
