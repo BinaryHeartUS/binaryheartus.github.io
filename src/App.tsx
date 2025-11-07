@@ -51,9 +51,9 @@ import NUJoin from './pages/nu/Join';
 // WP pages
 import WPHome from './pages/wp/Home';
 import WPAbout from './pages/wp/About';
-//import WPContact from './pages/wp/Contact';
-//import WPDonate from './pages/wp/Donate';
-//import WPJoin from './pages/wp/Join';
+import WPContact from './pages/wp/Contact';
+import WPDonate from './pages/wp/Donate';
+import WPJoin from './pages/wp/Join';
 
 function AppContent() {
   // Update page title based on current route
@@ -118,9 +118,9 @@ function AppContent() {
         {/* WP Chapter routes */}
         <Route path="/wp" element={<WPHome />} />
         <Route path="/wp/about" element={<WPAbout />} />
-        {/*<Route path="/wp/contact" element={<WPContact />} />
+        <Route path="/wp/contact" element={<WPContact />} />
         <Route path="/wp/donate" element={<WPDonate />} />
-        <Route path="/wp/join" element={<WPJoin />} />*/}
+        <Route path="/wp/join" element={<WPJoin />} />
       </Routes>
       <Footer />
     </div>

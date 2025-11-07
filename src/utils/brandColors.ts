@@ -76,6 +76,7 @@ export const WALTER_PAYTON_COLORS = {
   ORANGE_DARK_HOVER: '#e06419',
   
   // Tailwind-compatible text classes
+  TEXT: 'text-[#113f62]', // Primary text
   TEXT_BLUE: 'text-[#113f62]',
   TEXT_BLUE_DARK: 'text-[#0d2f4a]',
   TEXT_BLUE_HOVER: 'hover:text-[#0d2f4a]',
@@ -83,6 +84,7 @@ export const WALTER_PAYTON_COLORS = {
   TEXT_ORANGE_HOVER: 'hover:text-[#d96b1f]',
   
   // Background classes
+  BG_LIGHT: 'bg-[#113f62]/10', // Light background
   BG_BLUE: 'bg-[#113f62]',
   BG_BLUE_LIGHT: 'bg-[#113f62]/10',
   BG_BLUE_GRADIENT: 'from-[#113f62]/5',
@@ -91,6 +93,9 @@ export const WALTER_PAYTON_COLORS = {
   BG_ORANGE_LIGHT: 'bg-[#f27a24]/10',
   
   // Gradient classes for buttons and cards
+  GRADIENT_PRIMARY: 'from-[#113f62] to-[#0d2f4a]', // Primary gradient
+  GRADIENT_PRIMARY_90: 'from-[#113f62]/90 to-[#0d2f4a]/90', // 90% opacity primary
+  GRADIENT_SECONDARY: 'from-[#f27a24]/90 to-[#d96b1f]/90', // Orange gradient
   GRADIENT_BLUE: 'from-[#113f62] to-[#0d2f4a]',
   GRADIENT_BLUE_90: 'from-[#113f62]/90 to-[#0d2f4a]/90',
   GRADIENT_BLUE_HOVER: 'hover:from-[#154f7a] hover:to-[#102844]',

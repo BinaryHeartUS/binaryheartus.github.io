@@ -147,7 +147,7 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8 text-center">Meet Our Leadership</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
               <PictureCard
                 name="Mo' Eneh"
                 role="President"
@@ -161,6 +161,11 @@ export default function About() {
               <PictureCard
                 name="Erin Chan"
                 role="Secretary"
+                imageSrc=""
+              />
+              <PictureCard
+                name="Sebastian Perez-Bernal"
+                role="Director of Operations"
                 imageSrc=""
               />
               <PictureCard
