@@ -213,8 +213,8 @@ export default function Join() {
               }
               title="Community Outreach"
               description="Build relationships with local schools, nonprofits, and community organizations to identify technology needs and maximize our impact."
-              bgColorClass="bg-amber-100"
-              iconColorClass="text-amber-600"
+              bgColorClass={ROSE_HULMAN_COLORS.BG_LIGHT}
+              iconColorClass={ROSE_HULMAN_COLORS.TEXT}
             />
           </div>
         </div>

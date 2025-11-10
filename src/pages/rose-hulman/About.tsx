@@ -7,6 +7,7 @@ import { ROSE_HULMAN_COLORS } from '../../utils/brandColors';
 
 export default function About() {
   const galleryImages = [
+    '/assets/images/chapters/rose-hulman/photos/gallery-1.jpg',
     '/assets/images/chapters/rose-hulman/photos/gallery-2.jpg',
     '/assets/images/chapters/rose-hulman/photos/gallery-3.jpg',
     '/assets/images/chapters/rose-hulman/photos/gallery-4.jpg',

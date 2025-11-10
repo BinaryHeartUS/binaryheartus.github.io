@@ -92,6 +92,86 @@ export const ROSE_HULMAN_COLORS = {
 } as const;
 
 /**
+ * Walter Payton Chapter Brand Colors
+ * Official Walter Payton College Prep colors
+ */
+export const WALTER_PAYTON_COLORS = {
+  // Primary colors
+  BLUE: '#113f62',
+  BLUE_DARK: '#0d2f4a',
+  BLUE_HOVER: '#154f7a',
+  BLUE_DARK_HOVER: '#102844',
+  
+  // Secondary colors
+  ORANGE: '#f27a24',
+  ORANGE_DARK: '#d96b1f',
+  ORANGE_HOVER: '#ff8a34',
+  ORANGE_DARK_HOVER: '#e06419',
+  
+  // Tailwind-compatible text classes
+  TEXT: 'text-[#113f62]', // Primary text
+  TEXT_BLUE: 'text-[#113f62]',
+  TEXT_BLUE_DARK: 'text-[#0d2f4a]',
+  TEXT_BLUE_HOVER: 'hover:text-[#0d2f4a]',
+  TEXT_ORANGE: 'text-[#f27a24]',
+  TEXT_ORANGE_HOVER: 'hover:text-[#d96b1f]',
+  
+  // Background classes
+  BG_LIGHT: 'bg-[#113f62]/10', // Light background
+  BG_BLUE: 'bg-[#113f62]',
+  BG_BLUE_LIGHT: 'bg-[#113f62]/10',
+  BG_BLUE_GRADIENT: 'from-[#113f62]/5',
+  BG_BLUE_GRADIENT_END: 'to-[#0d2f4a]/5',
+  BG_ORANGE: 'bg-[#f27a24]',
+  BG_ORANGE_LIGHT: 'bg-[#f27a24]/10',
+  
+  // Gradient classes for buttons and cards
+  GRADIENT_PRIMARY: 'from-[#113f62] to-[#0d2f4a]', // Primary gradient
+  GRADIENT_PRIMARY_90: 'from-[#113f62]/90 to-[#0d2f4a]/90', // 90% opacity primary
+  GRADIENT_SECONDARY: 'from-[#f27a24]/90 to-[#d96b1f]/90', // Orange gradient
+  GRADIENT_BLUE: 'from-[#113f62] to-[#0d2f4a]',
+  GRADIENT_BLUE_90: 'from-[#113f62]/90 to-[#0d2f4a]/90',
+  GRADIENT_BLUE_HOVER: 'hover:from-[#154f7a] hover:to-[#102844]',
+  GRADIENT_ORANGE: 'from-[#f27a24] to-[#d96b1f]',
+  GRADIENT_ORANGE_90: 'from-[#f27a24]/90 to-[#d96b1f]/90',
+  GRADIENT_ORANGE_HOVER: 'hover:from-[#ff8a34] hover:to-[#e06419]',
+} as const;
+
+/**
+ * Indiana University Bloomington Chapter Brand Colors
+ * Official Indiana University colors
+ */
+export const IU_COLORS = {
+  // Primary colors
+  PRIMARY: '#9a0202',
+  PRIMARY_DARK: '#7a0000',
+  PRIMARY_HOVER: '#aa0808',
+  PRIMARY_DARK_HOVER: '#8a0202',
+  
+  // Secondary colors
+  SECONDARY: '#808080',
+  SECONDARY_DARK: '#606060',
+  
+  // Tailwind-compatible text classes
+  TEXT: 'text-[#9a0202]',
+  TEXT_DARK: 'text-[#7a0000]',
+  TEXT_HOVER: 'hover:text-[#7a0000]',
+  
+  // Background classes
+  BG: 'bg-[#9a0202]',
+  BG_LIGHT: 'bg-[#9a0202]/10',
+  BG_GRADIENT: 'from-[#9a0202]/5',
+  BG_GRADIENT_END: 'to-[#7a0000]/5',
+  
+  // Gradient classes for buttons and cards
+  GRADIENT_PRIMARY: 'from-[#9a0202] to-[#7a0000]',
+  GRADIENT_PRIMARY_90: 'from-[#9a0202]/90 to-[#7a0000]/90',
+  GRADIENT_PRIMARY_HOVER: 'hover:from-[#aa0808] hover:to-[#8a0202]',
+  GRADIENT_SECONDARY: 'from-[#808080]/90 to-[#606060]/90',
+  GRADIENT_SECONDARY_HOVER: 'hover:from-[#808080] hover:to-[#606060]',
+} as const;
+
+/**
  * Helper function to get gradient classes for CTA buttons
  * @param type - 'binary' for red donate buttons, 'heart' for blue join buttons
  * @returns Tailwind gradient classes
