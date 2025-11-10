@@ -151,7 +151,7 @@ export default function About() {
               <PictureCard
                 name="Mo' Eneh"
                 role="President"
-                imageSrc=""
+                imageSrc="/assets/images/chapters/wp/people/moeneh.jpg"
               />
               <PictureCard
                 name="Yoltzin Morales Sanchez"

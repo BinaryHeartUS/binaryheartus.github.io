@@ -235,6 +235,38 @@ export default function Join() {
             </div>
 
             <div className="space-y-6">
+              {/* Selenium Signup Card */}
+              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-xl ring-1 ring-gray-900/5">
+                <div className="flex items-start gap-6">
+                  <div className="flex-shrink-0">
+                    <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${WALTER_PAYTON_COLORS.GRADIENT_PRIMARY} text-white`}>
+                      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM3 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 019.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                      Sign Up on Selenium
+                    </h3>
+                    <p className="text-gray-600 mb-6">
+                      Register for Binary Heart through Walter Payton's Selenium platform to officially join the club and stay updated on meetings and events!
+                    </p>
+                    <a
+                      href="https://selenium.wpcp.org/login"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r ${WALTER_PAYTON_COLORS.GRADIENT_PRIMARY} px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                    >
+                      <span>Join on Selenium</span>
+                      <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               {/* Email Contact Card */}
               <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-xl ring-1 ring-gray-900/5">
                 <div className="flex items-start gap-6">
