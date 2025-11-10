@@ -10,8 +10,8 @@
     "chapterId": "iu",
     "name": "Indiana University",
     "devicesValue": 15000,
-    "volunteerCount": 20,
-    "volunteerHours": 450
+    "volunteerCount": 30,
+    "volunteerHours": 700
   },
   "purdue": {
     "chapterId": "purdue",
