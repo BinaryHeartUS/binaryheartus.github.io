@@ -105,6 +105,40 @@ export const WALTER_PAYTON_COLORS = {
 } as const;
 
 /**
+ * Indiana University Bloomington Chapter Brand Colors
+ * Official Indiana University colors
+ */
+export const IU_COLORS = {
+  // Primary colors
+  PRIMARY: '#9a0202',
+  PRIMARY_DARK: '#7a0000',
+  PRIMARY_HOVER: '#aa0808',
+  PRIMARY_DARK_HOVER: '#8a0202',
+  
+  // Secondary colors
+  SECONDARY: '#808080',
+  SECONDARY_DARK: '#606060',
+  
+  // Tailwind-compatible text classes
+  TEXT: 'text-[#9a0202]',
+  TEXT_DARK: 'text-[#7a0000]',
+  TEXT_HOVER: 'hover:text-[#7a0000]',
+  
+  // Background classes
+  BG: 'bg-[#9a0202]',
+  BG_LIGHT: 'bg-[#9a0202]/10',
+  BG_GRADIENT: 'from-[#9a0202]/5',
+  BG_GRADIENT_END: 'to-[#7a0000]/5',
+  
+  // Gradient classes for buttons and cards
+  GRADIENT_PRIMARY: 'from-[#9a0202] to-[#7a0000]',
+  GRADIENT_PRIMARY_90: 'from-[#9a0202]/90 to-[#7a0000]/90',
+  GRADIENT_PRIMARY_HOVER: 'hover:from-[#aa0808] hover:to-[#8a0202]',
+  GRADIENT_SECONDARY: 'from-[#808080]/90 to-[#606060]/90',
+  GRADIENT_SECONDARY_HOVER: 'hover:from-[#808080] hover:to-[#606060]',
+} as const;
+
+/**
  * Helper function to get gradient classes for CTA buttons
  * @param type - 'binary' for red donate buttons, 'heart' for blue join buttons
  * @returns Tailwind gradient classes
