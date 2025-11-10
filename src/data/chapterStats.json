@@ -33,5 +33,12 @@
     "devicesValue": 10000,
     "volunteerCount": 50,
     "volunteerHours": 500
+  },
+  "wp": {
+    "chapterId": "wp",
+    "name": "Walter Payton College Prep",
+    "devicesValue": 100,
+    "volunteerCount": 16,
+    "volunteerHours": 30
   }
 }
