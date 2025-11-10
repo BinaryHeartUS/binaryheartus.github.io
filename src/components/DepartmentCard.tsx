@@ -118,7 +118,7 @@ export default function DepartmentCard({
                   <ul className="space-y-2 text-sm text-gray-600">
                     {team.responsibilities.map((responsibility, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <span className={`${colorClasses.TEXT} mt-1`}>•</span>
+                        <span className={`${colorClasses.TEXT} flex-shrink-0`}>•</span>
                         <span>{responsibility}</span>
                       </li>
                     ))}
