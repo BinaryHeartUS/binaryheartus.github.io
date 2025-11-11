@@ -18,9 +18,19 @@ export default function Header() {
   );
 
   // Store preferred chapter whenever we're on a chapter page
+  // Don't clear preference when on national-only pages (FAQ, Request)
   useEffect(() => {
-    setPreferredChapter(currentChapter);
-  }, [currentChapter]);
+    if (currentChapter) {
+      // On a chapter page - store the preference
+      setPreferredChapter(currentChapter);
+    } else {
+      // On a national page - only clear if it's a "real" national page, not FAQ/Request
+      const isNationalOnlyPage = currentPage === 'faq' || currentPage === 'request';
+      if (!isNationalOnlyPage) {
+        setPreferredChapter('');
+      }
+    }
+  }, [currentChapter, currentPage]);
 
   return (
     <header className="sticky top-0 z-50 bg-transparent">
@@ -133,7 +143,7 @@ export default function Header() {
                     FAQs
                   </Link>
                   <Link
-                    to={getNavLink(currentChapter, 'request')}
+                    to="/request"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
