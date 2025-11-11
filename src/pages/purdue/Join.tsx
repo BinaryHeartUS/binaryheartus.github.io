@@ -8,12 +8,12 @@ export default function Join() {
     <main className="grow relative z-10">
       {/* Hero Section */}
       <div className="relative isolate overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pb-12 pt-10 sm:pb-16 lg:px-8 lg:pt-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-8 sm:pb-12 pt-8 sm:pt-10 lg:px-8 lg:pb-16 lg:pt-16">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-6">
               Join <BinaryHeartText /> at Purdue
             </h1>
-            <p className="text-xl leading-8 text-gray-700">
+            <p className="text-base sm:text-lg md:text-xl leading-7 sm:leading-8 text-gray-700 px-2">
               Be part of a community making technology accessible while gaining valuable hands-on experience.
             </p>
           </div>
@@ -22,25 +22,25 @@ export default function Join() {
 
       {/* Get Involved CTA */}
       <div className="py-8 sm:py-12">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="relative rounded-2xl bg-gradient-to-br from-amber-500/90 to-yellow-600/90 backdrop-blur-sm p-8 sm:p-12 shadow-xl text-white">
+            <div className="relative rounded-2xl bg-gradient-to-br from-amber-500/90 to-yellow-600/90 backdrop-blur-sm p-6 sm:p-8 md:p-12 shadow-xl text-white">
               <div className="text-center">
-                <div className="flex justify-center mb-6">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                    <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                <div className="flex justify-center mb-4 sm:mb-6">
+                  <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                    <svg className="h-8 w-8 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                     </svg>
                   </div>
                 </div>
-                <h2 className="text-3xl font-bold mb-4">Ready to Get Involved?</h2>
-                <p className="text-xl text-white/90 mb-6">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 px-2">Ready to Get Involved?</h2>
+                <p className="text-base sm:text-lg md:text-xl text-white/90 mb-4 sm:mb-6 px-2">
                   Contact us to learn more about meeting times and how to join!
                 </p>
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-2">
                   <Link
                     to="/purdue/contact"
-                    className="rounded-xl bg-white px-6 py-3 text-base font-semibold text-amber-600 shadow-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    className="rounded-xl bg-white px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-amber-600 shadow-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 hover:shadow-xl whitespace-nowrap"
                   >
                     Contact Us
                   </Link>
@@ -48,7 +48,7 @@ export default function Join() {
                     href="https://boilerlink.purdue.edu/organization/binaryheart"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-xl bg-slate-700 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-slate-800 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    className="rounded-xl bg-slate-700 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-slate-800 transition-all duration-300 hover:scale-105 hover:shadow-xl whitespace-nowrap"
                   >
                     Join on BoilerLink
                   </a>
@@ -61,19 +61,19 @@ export default function Join() {
 
       {/* Who Can Join */}
       <div className="py-8 sm:py-12">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-6 text-center px-2">
               Everyone Is Welcome
             </h2>
-            <div className="prose prose-lg text-gray-600 space-y-4">
-              <p>
+            <div className="prose prose-sm sm:prose-base lg:prose-lg text-gray-600 space-y-4 px-2">
+              <p className="break-words">
                 Binary Heart at Purdue is open to <strong>all students</strong>, regardless of major, year, or technical experience. Whether you can build a computer blindfolded or have never touched a screwdriver, there's a place for you here.
               </p>
-              <p>
+              <p className="break-words">
                 We welcome students from all engineering disciplines and experience levels. Our team includes computer engineers, mechanical engineers, software engineers, and students from every major—all united by a shared commitment to making technology accessible and giving back to our community.
               </p>
-              <p>
+              <p className="break-words">
                 <strong>No prior experience required.</strong> We'll teach you everything you need to know about computer refurbishment, software installation, and hardware troubleshooting. All you need is enthusiasm and a willingness to learn!
               </p>
             </div>
@@ -221,15 +221,15 @@ export default function Join() {
 
       {/* Contact CTA */}
       <div className="py-8 sm:py-12">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6">Have Questions?</h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-6 px-2">Have Questions?</h2>
+            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-2">
               Reach out to learn more about our chapter, meeting times, and how to get involved!
             </p>
             <Link
               to="/purdue/contact"
-              className="inline-block rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:from-amber-600 hover:to-yellow-700 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="inline-block rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white shadow-lg hover:from-amber-600 hover:to-yellow-700 transition-all duration-300 hover:scale-105 hover:shadow-xl mx-2"
             >
               Contact Us
             </Link>

@@ -42,18 +42,18 @@ export default function DepartmentCard({
   colorClasses,
 }: DepartmentCardProps) {
   return (
-    <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-lg ring-1 ring-gray-900/5">
-      <div className="flex items-start gap-6">
+    <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-4 sm:p-6 md:p-8 shadow-lg ring-1 ring-gray-900/5">
+      <div className="flex items-start gap-3 sm:gap-4 md:gap-6">
         <div className="flex-shrink-0">
-          <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${colorClasses.GRADIENT_PRIMARY} text-white`}>
+          <div className={`flex h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-xl bg-gradient-to-br ${colorClasses.GRADIENT_PRIMARY} text-white`}>
             {icon}
           </div>
         </div>
-        <div className="flex-1">
-          <div className="flex items-start justify-between mb-2">
-            <h3 className="text-2xl font-semibold text-gray-900">{name}</h3>
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 break-words">{name}</h3>
             <span
-              className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ring-1 ring-inset ${
+              className={`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium ring-1 ring-inset whitespace-nowrap flex-shrink-0 ${
                 requiresApplication
                   ? 'bg-rose-50 text-rose-700 ring-rose-600/20'
                   : 'bg-green-50 text-green-700 ring-green-600/20'
@@ -62,7 +62,7 @@ export default function DepartmentCard({
               {requiresApplication ? 'Application Required' : 'Open to All'}
             </span>
           </div>
-          <p className="text-gray-600 mb-4">{description}</p>
+          <p className="text-sm sm:text-base text-gray-600 mb-4 break-words">{description}</p>
           <ul className="space-y-2 text-sm text-gray-600">
             {responsibilities.map((responsibility, index) => (
               <li key={index} className="flex items-start gap-2">
@@ -79,7 +79,7 @@ export default function DepartmentCard({
                     d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span>
+                <span className="break-words">
                   {index === responsibilities.length - 1 && !requiresApplication ? (
                     <strong>{responsibility}</strong>
                   ) : (
@@ -113,13 +113,13 @@ export default function DepartmentCard({
               {/* Teams within the department */}
               {learnMoreContent.teams.map((team, teamIndex) => (
                 <div key={teamIndex}>
-                  <h4 className="font-semibold text-gray-900 mb-2">{team.name}:</h4>
-                  <p className="text-sm text-gray-600 mb-3">{team.description}</p>
+                  <h4 className="font-semibold text-gray-900 mb-2 break-words">{team.name}:</h4>
+                  <p className="text-sm text-gray-600 mb-3 break-words">{team.description}</p>
                   <ul className="space-y-2 text-sm text-gray-600">
                     {team.responsibilities.map((responsibility, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className={`${colorClasses.TEXT} flex-shrink-0`}>•</span>
-                        <span>{responsibility}</span>
+                        <span className="break-words">{responsibility}</span>
                       </li>
                     ))}
                   </ul>
@@ -128,12 +128,12 @@ export default function DepartmentCard({
               
               {/* Department-wide sections */}
               <div className="pt-4 border-t border-gray-100">
-                <h4 className="font-semibold text-gray-900 mb-2">Skills You'll Gain:</h4>
-                <p className="text-sm text-gray-600">{learnMoreContent.skillsYoullGain}</p>
+                <h4 className="font-semibold text-gray-900 mb-2 break-words">Skills You'll Gain:</h4>
+                <p className="text-sm text-gray-600 break-words">{learnMoreContent.skillsYoullGain}</p>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Ideal For:</h4>
-                <p className="text-sm text-gray-600">{learnMoreContent.idealFor}</p>
+                <h4 className="font-semibold text-gray-900 mb-2 break-words">Ideal For:</h4>
+                <p className="text-sm text-gray-600 break-words">{learnMoreContent.idealFor}</p>
               </div>
             </div>
           )}

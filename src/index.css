@@ -9,10 +9,13 @@ html, body, #root {
   margin: 0;
   padding: 0;
   background: transparent;
+  overflow-x: hidden;
 }
 
 body {
   background-color: white !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 #root {
