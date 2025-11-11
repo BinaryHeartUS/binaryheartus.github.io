@@ -58,7 +58,9 @@ import { BRAND_COLORS, getBrandGradient } from '../../utils/brandColors';
 ### Section Structure
 - Hero sections: Large headings with colored BinaryHeart branding
 - Content sections: `max-w-7xl` or `max-w-3xl` containers centered with `mx-auto`
-- Cards: Use `rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5`
+- Cards: Use `rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg` (no ring borders to avoid visual dividers)
+- **IMPORTANT**: Sections should NOT have background colors (e.g., avoid `bg-gray-50`, `bg-blue-50`) to prevent visual dividers between sections. Keep backgrounds transparent unless there's a specific design reason.
+- Remove `ring-1 ring-gray-900/5` from cards to avoid unwanted borders/lines
 
 ## Routing & Navigation
 

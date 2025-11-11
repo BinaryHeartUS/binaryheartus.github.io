@@ -109,10 +109,10 @@ export default function Home() {
       </div>
 
       {/* Meeting Info Section */}
-      <div className="py-12 sm:py-16 bg-gradient-to-br from-gray-50 to-blue-50/30">
+      <div className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-xl ring-1 ring-gray-900/5">
+            <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-xl">
               <div className="text-center mb-6">
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Join Us This Week</h2>
                 <p className="text-lg text-gray-600">All Rose-Hulman students welcome—no experience required!</p>

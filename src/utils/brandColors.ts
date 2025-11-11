@@ -25,6 +25,40 @@ export const BRAND_COLORS = {
 } as const;
 
 /**
+ * Northwestern University Chapter Brand Colors
+ * Purple color scheme for Northwestern chapter
+ */
+export const NORTHWESTERN_COLORS = {
+  // Primary purple colors (Tailwind purple-500 to purple-600 range)
+  PRIMARY: '#a855f7', // purple-500
+  PRIMARY_DARK: '#9333ea', // purple-600
+  PRIMARY_DARKER: '#7e22ce', // purple-700
+  
+  // Violet accent colors
+  VIOLET: '#8b5cf6', // violet-500
+  VIOLET_DARK: '#7c3aed', // violet-600
+  
+  // Tailwind-compatible text classes
+  TEXT: 'text-purple-600',
+  TEXT_HOVER: 'hover:text-purple-700',
+  
+  // Background classes
+  BG: 'bg-purple-600',
+  BG_LIGHT: 'bg-purple-100',
+  BG_50: 'bg-purple-50',
+  
+  // Gradient classes for banners and sections
+  GRADIENT_LIGHT: 'from-purple-50 to-violet-50',
+  GRADIENT_LIGHT_BR: 'from-purple-50/30 to-transparent',
+  
+  // Gradient classes for buttons and prominent sections
+  GRADIENT_PRIMARY: 'from-purple-600 to-violet-600',
+  GRADIENT_PRIMARY_90: 'from-purple-500/90 to-violet-600/90',
+  GRADIENT_PRIMARY_HOVER: 'hover:from-purple-700 hover:to-violet-700',
+  GRADIENT_SECONDARY: 'from-[#909090] to-[#707070]',
+} as const;
+
+/**
  * Rose Hulman Chapter Brand Colors
  * Official Rose-Hulman Institute of Technology colors
  */

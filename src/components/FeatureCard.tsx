@@ -16,7 +16,7 @@ export default function FeatureCard({
   gradientTo = 'to-indigo-600'
 }: FeatureCardProps) {
   return (
-    <div className="relative rounded-2xl bg-white/60 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5">
+    <div className="relative rounded-2xl bg-white/60 backdrop-blur-sm p-6 shadow-lg">
       <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white`}>
         {icon}
       </div>
