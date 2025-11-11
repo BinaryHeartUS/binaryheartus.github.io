@@ -52,7 +52,7 @@ export default function Home() {
           </div>
 
           {/* Impact Stats */}
-          <StatsGrid chapterId="new-trier" colorClass={NEW_TRIER_COLORS.TEXT_BLUE} columns={3} />
+          <StatsGrid chapterId="nt" colorClass={NEW_TRIER_COLORS.TEXT_BLUE} columns={3} />
         </div>
       </div>
 
