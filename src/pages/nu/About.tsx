@@ -1,4 +1,3 @@
-import PhotoCarousel from '../../components/PhotoCarousel';
 import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
