@@ -15,7 +15,7 @@ export default function Join() {
               Join <BinaryHeartText /> at Northwestern
             </h1>
             <p className="text-xl leading-8 text-gray-700">
-              Be part of a community making technology accessible while gaining valuable hands-on experience.
+              Be part of a community making technnology accessible while gaining valuable hands-on experience.
             </p>
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function Join() {
       </div>
 
       {/* Transportation Section */}
-      <div className={`py-8 sm:py-12 bg-gradient-to-b ${NORTHWESTERN_COLORS.GRADIENT_LIGHT_BR}`}>
+      <div className={`py-8 sm:py-12`}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6 text-center">

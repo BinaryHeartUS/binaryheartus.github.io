@@ -6,11 +6,6 @@ import PictureCard from '../../components/PictureCard';
 import { NORTHWESTERN_COLORS } from '../../utils/brandColors';
 
 export default function About() {
-  // Placeholder for future gallery images - add photos to public/assets/images/chapters/nu/photos/
-  const galleryImages = [
-    // '/assets/images/chapters/nu/photos/gallery-1.jpg',
-    // '/assets/images/chapters/nu/photos/gallery-2.jpg',
-  ];
 
   return (
     <main className="grow relative z-10">
@@ -79,13 +74,6 @@ export default function About() {
         </div>
       </div>
 
-      {/* Photo Gallery Carousel - Only show if images exist */}
-      <PhotoCarousel 
-          images={galleryImages}
-          title="Our Chapter in Action"
-          subtitle="See our team making an impact in the community"
-      />
-
       {/* What We Do */}
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -145,7 +133,7 @@ export default function About() {
       </div>
 
       {/* Leadership Team */}
-      <div className={`py-8 sm:py-12 bg-gradient-to-b ${NORTHWESTERN_COLORS.GRADIENT_LIGHT_BR}`}>
+      <div className={`py-8 sm:py-12`}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Leadership Team</h2>
