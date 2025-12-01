@@ -283,12 +283,17 @@ export default function Join() {
                     <p className="text-gray-600 mb-6">
                       Connect with the team, ask questions, and stay up-to-date with our latest projects and events. Our Discord is where we coordinate activities and build community!
                     </p>
-                    <div className="rounded-xl bg-gray-100 px-6 py-4 text-center">
-                      <p className="text-sm text-gray-600 mb-2">Discord server coming soon!</p>
-                      <p className="text-xs text-gray-500">
-                        We're setting up our Discord community. Check back soon or ask at a meeting for the invite link.
-                      </p>
-                    </div>
+                    <a
+                      href="https://discord.gg/2d2wunRVSJ"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    >
+                      <span>Join Discord Server</span>
+                      <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
