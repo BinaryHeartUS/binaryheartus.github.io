@@ -185,7 +185,7 @@ export default function Home() {
                   Join our team of engineers making a difference. Gain hands-on experience while helping others in need.
                 </p>
                 <Link
-                  to="/rose-hulman/join"
+                  to="/nt/join"
                   className="group relative inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-base font-semibold text-gray-900 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 >
                   <span>Join Us</span>
@@ -207,7 +207,7 @@ export default function Home() {
                   Have unused computers or electronics? Your donation helps us provide technology to those in need.
                 </p>
                 <Link
-                  to="/rose-hulman/donate"
+                  to="/nt/donate"
                   className="group relative inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-base font-semibold text-gray-900 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 >
                   <span>Donate Now</span>

@@ -166,7 +166,7 @@ export default function About() {
       </div>
 
       {/* Leadership Team */}
-      <div className={`py-8 sm:py-12 bg-gradient-to-b ${ROSE_HULMAN_COLORS.BG_GRADIENT} to-transparent`}>
+      <div className={`py-8 sm:py-12`}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Leadership Team</h2>
