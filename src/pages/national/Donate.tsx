@@ -1,9 +1,205 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 import { getRelativePath, getAllChapters } from '../../utils/urlHelpers';
 import BinaryHeartText from '../../components/BinaryHeartText';
 
+// TypeScript declarations for AeroPay SDK
+declare global {
+  interface Window {
+    AeroPay: {
+      init: (config: { env: string }) => void;
+      button: (config: {
+        location: string;
+        type: string;
+        onSuccess: (uuid: string) => void;
+        onEvent: (event: any) => void;
+      }) => {
+        launch: (amount: string) => void;
+      };
+    };
+  }
+}
+
 export default function Donate() {
   const allChapters = getAllChapters();
+  const [paymentAmount, setPaymentAmount] = useState<string>('');
+  const [aeroPayReady, setAeroPayReady] = useState<boolean>(false);
+  const [isChrome, setIsChrome] = useState<boolean>(false);
+  const aeroPayButtonRef = useRef<{ launch: (amount: string) => void } | null>(null);
+
+  // Detect Chrome/Chromium browser
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isChromeOrChromium = (
+      userAgent.includes('chrome') || 
+      userAgent.includes('chromium') || 
+      userAgent.includes('edg') // Edge is Chromium-based
+    ) && !userAgent.includes('opr'); // Exclude Opera
+    
+    setIsChrome(isChromeOrChromium);
+  }, []);
+
+  // Initialize AeroPay SDK (only for Chrome/Chromium browsers)
+  useEffect(() => {
+    if (!isChrome) {
+      console.log('Non-Chrome browser detected, skipping AeroPay initialization');
+      return;
+    }
+    
+    // Wait for AeroPay SDK to load
+    const initAeroPay = () => {
+      if (typeof window !== 'undefined' && window.AeroPay) {
+        try {
+          window.AeroPay.init({
+            env: 'production'
+          });
+
+          const onSuccess = (uuid: string) => {
+            console.log('Payment successful:', uuid);
+            alert('Thank you for your donation! Your transaction ID: ' + uuid);
+            setPaymentAmount(''); // Reset amount after successful payment
+          };
+
+          const onEvent = (event: any) => {
+            console.log('AeroPay event:', event);
+            
+            // Firefox-specific fixes for modal rendering
+            if (event.type === 'open' || event.status === 'open') {
+              setTimeout(() => {
+                // Find all AeroPay iframes
+                const iframes = document.querySelectorAll('iframe[src*="aeropay"], iframe[src*="pay.aero"]');
+                iframes.forEach((iframe) => {
+                  const iframeElement = iframe as HTMLIFrameElement;
+                  
+                  // Force iframe to be visible and properly sized
+                  iframeElement.style.cssText = `
+                    position: fixed !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    width: 100vw !important;
+                    height: 100vh !important;
+                    z-index: 2147483647 !important;
+                    border: none !important;
+                    display: block !important;
+                    opacity: 1 !important;
+                    visibility: visible !important;
+                    background: white !important;
+                  `;
+                  
+                  // Try to fix content rendering inside iframe
+                  try {
+                    if (iframeElement.contentWindow) {
+                      iframeElement.contentWindow.focus();
+                    }
+                  } catch (e) {
+                    console.log('Cannot access iframe content (cross-origin)');
+                  }
+                });
+                
+                // Force repaint
+                document.body.style.transform = 'translateZ(0)';
+                setTimeout(() => {
+                  document.body.style.transform = '';
+                }, 10);
+              }, 100);
+            }
+          };
+
+          aeroPayButtonRef.current = window.AeroPay.button({
+            location: '78f1f1db44',
+            type: 'checkout',
+            onSuccess: onSuccess,
+            onEvent: onEvent
+          });
+          setAeroPayReady(true);
+          console.log('AeroPay initialized successfully');
+        } catch (error) {
+          console.error('Error initializing AeroPay:', error);
+        }
+      } else {
+        // Retry after a short delay if AeroPay hasn't loaded yet
+        setTimeout(initAeroPay, 100);
+      }
+    };
+
+    // Give the script time to load, especially on Firefox
+    const timer = setTimeout(initAeroPay, 50);
+    
+    // Set up a MutationObserver to watch for AeroPay iframes being added
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeName === 'IFRAME') {
+            const iframe = node as HTMLIFrameElement;
+            const src = iframe.src || '';
+            
+            if (src.includes('aeropay') || src.includes('pay.aero')) {
+              console.log('AeroPay iframe detected, applying Firefox fixes');
+              
+              // Apply aggressive styling to ensure visibility
+              iframe.style.cssText = `
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                z-index: 2147483647 !important;
+                border: none !important;
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                background: white !important;
+              `;
+              
+              // Force focus
+              setTimeout(() => {
+                try {
+                  iframe.focus();
+                  if (iframe.contentWindow) {
+                    iframe.contentWindow.focus();
+                  }
+                } catch (e) {
+                  console.log('Cannot focus iframe:', e);
+                }
+              }, 100);
+            }
+          }
+        });
+      });
+    });
+    
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [isChrome]);
+
+  const handleStripeCheckout = () => {
+    window.open('https://donate.stripe.com/dR6g0v7aF3Bhbuw4gg', '_blank');
+  };
+
+  const handleAeroPayCheckout = () => {
+    const amount = parseInt(paymentAmount, 10);
+    if (amount > 0 && aeroPayButtonRef.current) {
+      console.log('Launching AeroPay with amount:', amount);
+      
+      try {
+        aeroPayButtonRef.current.launch(amount.toString());
+      } catch (error) {
+        console.error('Error launching AeroPay:', error);
+        alert('There was an issue opening the payment window. Please try again or use card payment instead.');
+      }
+    } else if (amount <= 0 || !paymentAmount) {
+      alert('Please enter a valid donation amount.');
+    } else {
+      alert('Payment system is loading. Please try again in a moment.');
+    }
+  };
 
   // Color schemes for chapters
   const colorSchemes = [
@@ -105,8 +301,9 @@ export default function Donate() {
               </div>
 
               {/* Donation Options */}
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Donate by Bank */}
+              <div className={`grid gap-6 ${isChrome ? 'md:grid-cols-2' : 'md:grid-cols-1'}`}>
+                {/* Donate by Bank - Only show on Chrome/Chromium browsers */}
+                {isChrome && (
                 <div className="rounded-xl bg-gradient-to-br from-cyan-50 to-blue-50 p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-500 text-white">
@@ -119,29 +316,62 @@ export default function Donate() {
                   <p className="text-sm text-gray-600 mb-6">
                     Connect your bank account directly through AeroPay for lower processing fees, allowing more of your donation to support our mission.
                   </p>
-                  
-                  <div className="mb-4">
-                    <label htmlFor="bank-amount" className="block text-sm font-medium text-gray-700 mb-2">
-                      Donate to BinaryHeart
-                    </label>
-                    <input
-                      type="number"
-                      id="bank-amount"
-                      defaultValue="10"
-                      min="1"
-                      className="w-full rounded-lg border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 px-4 py-2"
-                    />
+
+                  {/* Amount Input */}
+                  <div className="flex flex-col items-center mb-4">
+                    <p className="text-gray-600 mb-2 font-medium">Donate to BinaryHeart</p>
+                    <div className="relative w-full max-w-[264px]">
+                      <input
+                        type="number"
+                        id="payment-amount"
+                        value={paymentAmount}
+                        onChange={(e) => setPaymentAmount(e.target.value)}
+                        className="w-full text-2xl font-semibold py-2 px-4 text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-center"
+                        placeholder="$0.00"
+                        min="1"
+                        step="1"
+                        onInput={(e) => {
+                          const target = e.target as HTMLInputElement;
+                          target.value = Math.floor(Number(target.value)).toString();
+                        }}
+                        style={{ fontFeatureSettings: '"tnum" on, "lnum" on' }}
+                      />
+                    </div>
                   </div>
 
-                  <button className="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300">
-                    Donate
+                  <button 
+                    onClick={handleAeroPayCheckout}
+                    disabled={!aeroPayReady}
+                    className={`w-full max-w-[264px] mx-auto block rounded-xl px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 ${
+                      aeroPayReady 
+                        ? 'bg-[#ff0040] hover:bg-[#ff1a57] cursor-pointer' 
+                        : 'bg-gray-400 cursor-not-allowed'
+                    }`}
+                  >
+                    {aeroPayReady ? 'Donate' : 'Loading...'}
                   </button>
 
-                  <p className="text-xs text-center text-gray-500 mt-3">$1.00 (+ 0.4%/mo max) fee</p>
+                  {/* Supported Banks */}
+                  <div className="mt-4 text-center">
+                    <p className="text-xs text-gray-500 mb-2">Supported payment methods:</p>
+                    <div className="flex items-center justify-center gap-2 flex-wrap">
+                      <span className="text-xs text-gray-600 font-medium">Chase</span>
+                      <span className="text-gray-300">•</span>
+                      <span className="text-xs text-gray-600 font-medium">Bank of America</span>
+                      <span className="text-gray-300">•</span>
+                      <span className="text-xs text-gray-600 font-medium">Citibank</span>
+                      <span className="text-gray-300">•</span>
+                      <span className="text-xs text-gray-600 font-medium">Wells Fargo</span>
+                      <span className="text-gray-300">•</span>
+                      <span className="text-xs text-gray-600 font-medium">US Bank</span>
+                      <span className="text-xs text-gray-500 ml-1">(+14,000 more)</span>
+                    </div>
+                  </div>
                 </div>
+                )}
 
                 {/* Donate by Card */}
-                <div className="rounded-xl bg-gradient-to-br from-violet-50 to-purple-50 p-6">
+                <div className={`rounded-xl bg-gradient-to-br from-violet-50 to-purple-50 p-6 ${!isChrome ? 'max-w-2xl mx-auto' : ''}`}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-violet-500 text-white">
                       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
@@ -150,26 +380,14 @@ export default function Donate() {
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900">Donate by Card</h3>
                   </div>
-                  <p className="text-sm text-gray-600 mb-6">
+                  <p className="text-sm text-gray-600 mb-8">
                     Make a secure donation using your credit or debit card through Stripe.
                   </p>
-                  
-                  <div className="mb-4">
-                    <label htmlFor="card-amount" className="block text-sm font-medium text-gray-700 mb-2">
-                      Donate to BinaryHeart
-                    </label>
-                    <div className="relative">
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
-                      <input
-                        type="text"
-                        id="card-amount"
-                        defaultValue="0.00"
-                        className="w-full rounded-lg border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 pl-8 pr-4 py-2"
-                      />
-                    </div>
-                  </div>
 
-                  <button className="w-full rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-violet-600 hover:to-purple-700 transition-all duration-300">
+                  <button 
+                    onClick={handleStripeCheckout}
+                    className="w-full rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-violet-600 hover:to-purple-700 transition-all duration-300"
+                  >
                     Donate
                   </button>
 
