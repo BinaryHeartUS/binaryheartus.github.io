@@ -53,13 +53,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Impact Stats */}
-      <div className="py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <StatsGrid chapterId="purdue" colorClass="text-amber-600" columns={3} />
-        </div>
-      </div>
-
       {/* What We Do Section */}
       <div className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -109,6 +102,13 @@ export default function Home() {
               />
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Impact Stats */}
+      <div className="py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <StatsGrid chapterId="purdue" colorClass="text-amber-600" columns={3} community="Greater Lafayette" />
         </div>
       </div>
 

@@ -206,10 +206,95 @@ export const IU_COLORS = {
 } as const;
 
 /**
+ * Purdue University Chapter Brand Colors
+ * Official Purdue University colors
+ */
+export const PURDUE_COLORS = {
+  // Primary colors
+  PRIMARY: '#ceb888', // Old Gold
+  PRIMARY_DARK: '#b39a6b',
+  PRIMARY_HOVER: '#d4c498',
+  PRIMARY_DARK_HOVER: '#a88a5b',
+  
+  // Secondary colors
+  SECONDARY: '#1f1f1f', // Black
+  SECONDARY_DARK: '#0a0a0a',
+  
+  // Tailwind-compatible text classes
+  TEXT: 'text-[#ceb888]',
+  TEXT_DARK: 'text-[#1f1f1f]',
+  TEXT_HOVER: 'hover:text-[#b39a6b]',
+  
+  // Background classes
+  BG: 'bg-[#ceb888]',
+  BG_LIGHT: 'bg-[#ceb888]/10',
+  BG_GRADIENT: 'from-[#ceb888]/5',
+  BG_GRADIENT_END: 'to-[#b39a6b]/5',
+  
+  // Gradient classes for buttons and cards
+  GRADIENT_PRIMARY: 'from-[#ceb888] to-[#b39a6b]',
+  GRADIENT_PRIMARY_90: 'from-[#ceb888]/90 to-[#b39a6b]/90',
+  GRADIENT_PRIMARY_HOVER: 'hover:from-[#d4c498] hover:to-[#a88a5b]',
+  GRADIENT_SECONDARY: 'from-[#1f1f1f]/90 to-[#0a0a0a]/90',
+  GRADIENT_SECONDARY_HOVER: 'hover:from-[#1f1f1f] hover:to-[#0a0a0a]',
+} as const;
+
+/**
  * Helper function to get gradient classes for CTA buttons
  * @param type - 'binary' for red donate buttons, 'heart' for blue join buttons
  * @returns Tailwind gradient classes
  */
 export const getBrandGradient = (type: 'binary' | 'heart'): string => {
   return type === 'binary' ? BRAND_COLORS.BINARY_GRADIENT : BRAND_COLORS.HEART_GRADIENT;
+};
+
+/**
+ * Chapter type definition
+ */
+export type ChapterType = 'national' | 'iu' | 'purdue' | 'nt' | 'nu' | 'rose-hulman' | 'wp';
+
+/**
+ * Get chapter-specific colors for BinaryHeart text
+ * @param chapter - The chapter identifier
+ * @returns Object with binary and heart color classes
+ */
+export const getChapterColors = (chapter: ChapterType) => {
+  switch (chapter) {
+    case 'nt':
+      return {
+        binary: NEW_TRIER_COLORS.TEXT_BLUE,
+        heart: NEW_TRIER_COLORS.TEXT_GREEN,
+      };
+    case 'nu':
+      return {
+        binary: NORTHWESTERN_COLORS.TEXT, // purple
+        heart: 'text-violet-500', // violet accent
+      };
+    case 'rose-hulman':
+      return {
+        binary: ROSE_HULMAN_COLORS.TEXT,
+        heart: ROSE_HULMAN_COLORS.TEXT_DARK,
+      };
+    case 'wp':
+      return {
+        binary: WALTER_PAYTON_COLORS.TEXT_BLUE,
+        heart: WALTER_PAYTON_COLORS.TEXT_ORANGE,
+      };
+    case 'iu':
+      return {
+        binary: IU_COLORS.TEXT,
+        heart: IU_COLORS.TEXT_DARK,
+      };
+    case 'purdue':
+      return {
+        binary: PURDUE_COLORS.TEXT,
+        heart: PURDUE_COLORS.TEXT_DARK,
+      };
+    case 'national':
+    default:
+      return {
+        binary: BRAND_COLORS.BINARY_TEXT,
+        heart: BRAND_COLORS.HEART_TEXT,
+      };
+  }
 };

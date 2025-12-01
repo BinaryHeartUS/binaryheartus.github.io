@@ -53,15 +53,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Impact Stats */}
-      <div className="py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-5xl">
-            <StatsGrid chapterId="national" colorClass={`${BRAND_COLORS.BINARY_TEXT}`} columns={4} />
-          </div>
-        </div>
-      </div>
-
       {/* How It Works Section */}
       <div className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -114,6 +105,13 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Impact Stats */}
+      <div className="py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <StatsGrid chapterId="national" colorClass={`${BRAND_COLORS.BINARY_TEXT}`} columns={4} community="national" />
         </div>
       </div>
 

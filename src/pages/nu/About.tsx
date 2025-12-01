@@ -62,14 +62,7 @@ export default function About() {
       {/* Chapter Impact */}
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Our Impact</h2>
-            <p className="text-lg text-gray-600">
-              Making a difference in the Evanston and Chicago communities
-            </p>
-          </div>
-
-          <StatsGrid chapterId="nu" colorClass={NORTHWESTERN_COLORS.TEXT} columns={3} />
+          <StatsGrid chapterId="nu" colorClass={NORTHWESTERN_COLORS.TEXT} columns={3} community="Evanston and Chicago"/>
         </div>
       </div>
 

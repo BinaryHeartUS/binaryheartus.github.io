@@ -70,14 +70,7 @@ export default function About() {
       {/* Chapter Impact */}
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Our Impact</h2>
-            <p className="text-lg text-gray-600">
-              Making a difference in the New Trier community
-            </p>
-          </div>
-
-          <StatsGrid chapterId="nt" colorClass={NEW_TRIER_COLORS.TEXT_BLUE} columns={3} />
+          <StatsGrid chapterId="nt" colorClass={NEW_TRIER_COLORS.TEXT_BLUE} columns={3} community="local" />
         </div>
       </div>
 
@@ -138,6 +131,7 @@ export default function About() {
           </div>
         </div>
       </div>
+
       {/* Photo Gallery */}
       <PhotoCarousel
         images={galleryImages}
