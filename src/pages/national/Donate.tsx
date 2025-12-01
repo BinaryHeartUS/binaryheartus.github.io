@@ -62,47 +62,6 @@ export default function Donate() {
 
           const onEvent = (event: any) => {
             console.log('AeroPay event:', event);
-            
-            // Firefox-specific fixes for modal rendering
-            if (event.type === 'open' || event.status === 'open') {
-              setTimeout(() => {
-                // Find all AeroPay iframes
-                const iframes = document.querySelectorAll('iframe[src*="aeropay"], iframe[src*="pay.aero"]');
-                iframes.forEach((iframe) => {
-                  const iframeElement = iframe as HTMLIFrameElement;
-                  
-                  // Force iframe to be visible and properly sized
-                  iframeElement.style.cssText = `
-                    position: fixed !important;
-                    top: 0 !important;
-                    left: 0 !important;
-                    width: 100vw !important;
-                    height: 100vh !important;
-                    z-index: 2147483647 !important;
-                    border: none !important;
-                    display: block !important;
-                    opacity: 1 !important;
-                    visibility: visible !important;
-                    background: white !important;
-                  `;
-                  
-                  // Try to fix content rendering inside iframe
-                  try {
-                    if (iframeElement.contentWindow) {
-                      iframeElement.contentWindow.focus();
-                    }
-                  } catch (e) {
-                    console.log('Cannot access iframe content (cross-origin)');
-                  }
-                });
-                
-                // Force repaint
-                document.body.style.transform = 'translateZ(0)';
-                setTimeout(() => {
-                  document.body.style.transform = '';
-                }, 10);
-              }, 100);
-            }
           };
 
           aeroPayButtonRef.current = window.AeroPay.button({
@@ -122,60 +81,11 @@ export default function Donate() {
       }
     };
 
-    // Give the script time to load, especially on Firefox
+    // Give the script time to load
     const timer = setTimeout(initAeroPay, 50);
-    
-    // Set up a MutationObserver to watch for AeroPay iframes being added
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node.nodeName === 'IFRAME') {
-            const iframe = node as HTMLIFrameElement;
-            const src = iframe.src || '';
-            
-            if (src.includes('aeropay') || src.includes('pay.aero')) {
-              console.log('AeroPay iframe detected, applying Firefox fixes');
-              
-              // Apply aggressive styling to ensure visibility
-              iframe.style.cssText = `
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100vw !important;
-                height: 100vh !important;
-                z-index: 2147483647 !important;
-                border: none !important;
-                display: block !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-                background: white !important;
-              `;
-              
-              // Force focus
-              setTimeout(() => {
-                try {
-                  iframe.focus();
-                  if (iframe.contentWindow) {
-                    iframe.contentWindow.focus();
-                  }
-                } catch (e) {
-                  console.log('Cannot focus iframe:', e);
-                }
-              }, 100);
-            }
-          }
-        });
-      });
-    });
-    
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
     
     return () => {
       clearTimeout(timer);
-      observer.disconnect();
     };
   }, [isChrome]);
 
