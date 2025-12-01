@@ -43,7 +43,7 @@ export default function Home() {
               </Link>
               <Link
                 to="/nu/donate"
-                className={`group relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-rose-500 hover:to-pink-600`}
+                className={`group relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY_HOVER}`}
               >
                 <span className="relative z-10">Donate Equipment</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
@@ -200,7 +200,7 @@ export default function Home() {
               </div>
 
               {/* Donate Equipment */}
-              <div className="relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 backdrop-blur-sm p-8 shadow-xl text-white">
+              <div className={`relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY} backdrop-blur-sm p-8 shadow-xl text-white`}>
                 <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
                   <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />

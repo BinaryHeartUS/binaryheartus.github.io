@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import FeatureCard from '../../components/FeatureCard';
 import InfoCard from '../../components/InfoCard';
 import BinaryHeartText from '../../components/BinaryHeartText';
+import { PURDUE_COLORS } from '../../utils/brandColors';
 
 export default function Join() {
   return (
@@ -24,7 +25,7 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className="relative rounded-2xl bg-gradient-to-br from-amber-500/90 to-yellow-600/90 backdrop-blur-sm p-8 sm:p-12 shadow-xl text-white">
+            <div className={`relative rounded-2xl bg-gradient-to-br ${PURDUE_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-8 sm:p-12 shadow-xl text-white`}>
               <div className="text-center">
                 <div className="flex justify-center mb-6">
                   <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
@@ -40,7 +41,7 @@ export default function Join() {
                 <div className="flex flex-wrap justify-center gap-4">
                   <Link
                     to="/purdue/contact"
-                    className="rounded-xl bg-white px-6 py-3 text-base font-semibold text-amber-600 shadow-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    className={`rounded-xl bg-white px-6 py-3 text-base font-semibold ${PURDUE_COLORS.TEXT} shadow-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 hover:shadow-xl`}
                   >
                     Contact Us
                   </Link>
@@ -48,7 +49,7 @@ export default function Join() {
                     href="https://boilerlink.purdue.edu/organization/binaryheart"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-xl bg-slate-700 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-slate-800 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    className={`rounded-xl bg-gradient-to-r ${PURDUE_COLORS.GRADIENT_SECONDARY} px-6 py-3 text-base font-semibold text-white shadow-lg ${PURDUE_COLORS.GRADIENT_SECONDARY_HOVER} transition-all duration-300 hover:scale-105 hover:shadow-xl`}
                   >
                     Join on BoilerLink
                   </a>
@@ -101,8 +102,8 @@ export default function Join() {
                 }
                 title="Hands-On Tech Skills"
                 description="Learn computer repair, operating system installation, hardware troubleshooting, and data security practices."
-                gradientFrom="from-amber-500"
-                gradientTo="to-yellow-600"
+                gradientFrom={`${PURDUE_COLORS.GRADIENT_PRIMARY.split(' ')[0]}`}
+                gradientTo={`${PURDUE_COLORS.GRADIENT_PRIMARY.split(' ')[1]}`}
               />
 
               <FeatureCard
@@ -188,8 +189,8 @@ export default function Join() {
               }
               title="Computer Refurbishment"
               description="Learn to diagnose hardware issues, upgrade components, clean and test systems, and prepare computers for distribution."
-              bgColorClass="bg-amber-100"
-              iconColorClass="text-amber-600"
+              bgColorClass={PURDUE_COLORS.BG_LIGHT}
+              iconColorClass={PURDUE_COLORS.TEXT}
             />
 
             <InfoCard
@@ -200,8 +201,8 @@ export default function Join() {
               }
               title="Software Installation & Security"
               description="Install operating systems, set up essential software, configure security settings, and ensure devices are ready to use."
-              bgColorClass="bg-amber-100"
-              iconColorClass="text-amber-600"
+              bgColorClass={PURDUE_COLORS.BG_LIGHT}
+              iconColorClass={PURDUE_COLORS.TEXT}
             />
 
             <InfoCard
@@ -212,8 +213,8 @@ export default function Join() {
               }
               title="Device Collection & Distribution"
               description="Organize donation drives, coordinate with community partners, and distribute refurbished technology to those in need."
-              bgColorClass="bg-amber-100"
-              iconColorClass="text-amber-600"
+              bgColorClass={PURDUE_COLORS.BG_LIGHT}
+              iconColorClass={PURDUE_COLORS.TEXT}
             />
           </div>
         </div>
@@ -229,7 +230,7 @@ export default function Join() {
             </p>
             <Link
               to="/purdue/contact"
-              className="inline-block rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:from-amber-600 hover:to-yellow-700 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className={`inline-block rounded-xl bg-gradient-to-r ${PURDUE_COLORS.GRADIENT_PRIMARY} px-8 py-4 text-lg font-semibold text-white shadow-lg ${PURDUE_COLORS.GRADIENT_PRIMARY_HOVER} transition-all duration-300 hover:scale-105 hover:shadow-xl`}
             >
               Contact Us
             </Link>
