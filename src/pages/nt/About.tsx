@@ -2,6 +2,7 @@ import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
 import StatsGrid from '../../components/StatsGrid';
 import PhotoCarousel from '../../components/PhotoCarousel';
+import PictureCard from '../../components/PictureCard';
 import { NEW_TRIER_COLORS } from '../../utils/brandColors';
 
 const galleryImages = [
@@ -137,7 +138,6 @@ export default function About() {
           </div>
         </div>
       </div>
-
       {/* Photo Gallery */}
       <PhotoCarousel
         images={galleryImages}
@@ -145,8 +145,45 @@ export default function About() {
         subtitle="See our team making an impact in the community"
       />
 
+      {/* Leadership Team */}
+      <div className="py-8 sm:py-12">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-8">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Leadership Team</h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Meet the students and advisors leading Binary Heart at New Trier
+            </p>
+          </div>
 
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              <PictureCard
+                imageSrc="/assets/images/chapters/nt/people/lukeTegel.jpeg"
+                name="Luke Tegel"
+                role="Executive Leader"
+              />
 
+              <PictureCard
+                imageSrc="/assets/images/chapters/nt/people/kristian.jpg"
+                name="Kristian Qirko"
+                role="Executive Leader"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/nt/people/byrne.jpg"
+                name="James Byrne"
+                role="Faculty Advisor"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/nt/people/caruthers.jpg"
+                name="Kristie Caruthers"
+                role="Faculty Advisor"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Get Involved CTA */}
       <div className="py-8 sm:py-12">
