@@ -4,23 +4,23 @@ import chaptersData from '../data/chapters.json';
 const CHAPTER_PREFERENCE_KEY = 'binaryheart_preferred_chapter';
 
 /**
- * Store the user's preferred chapter in localStorage
+ * Store the user's preferred chapter in sessionStorage (per-session, not persistent)
  * @param chapterSlug - Chapter slug (e.g., "rose-hulman", "purdue") or empty string for national
  */
 export const setPreferredChapter = (chapterSlug: string): void => {
   if (chapterSlug) {
-    localStorage.setItem(CHAPTER_PREFERENCE_KEY, chapterSlug);
+    sessionStorage.setItem(CHAPTER_PREFERENCE_KEY, chapterSlug);
   } else {
-    localStorage.removeItem(CHAPTER_PREFERENCE_KEY);
+    sessionStorage.removeItem(CHAPTER_PREFERENCE_KEY);
   }
 };
 
 /**
- * Get the user's preferred chapter from localStorage
+ * Get the user's preferred chapter from sessionStorage
  * @returns Chapter slug or empty string if no preference
  */
 export const getPreferredChapter = (): string => {
-  return localStorage.getItem(CHAPTER_PREFERENCE_KEY) || '';
+  return sessionStorage.getItem(CHAPTER_PREFERENCE_KEY) || '';
 };
 
 /**
