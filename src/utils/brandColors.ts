@@ -9,19 +9,19 @@
 export const BRAND_COLORS = {
   // Primary brand colors
   BINARY_RED: '#FF0040',
-  HEART_BLUE: '#2F4A70',
+  HEART_BLUE: '#193961',
   
   // Tailwind-compatible classes
   BINARY_TEXT: 'text-[#FF0040]',
-  HEART_TEXT: 'text-[#2F4A70]',
+  HEART_TEXT: 'text-[#193961]',
   
   // Background classes
   BINARY_BG: 'bg-[#FF0040]',
-  HEART_BG: 'bg-[#2F4A70]',
+  HEART_BG: 'bg-[#193961]',
   
   // Gradient classes for buttons/cards
-  BINARY_GRADIENT: 'from-rose-500 to-pink-600', // Approximates #FF0040
-  HEART_GRADIENT: 'from-blue-600 to-indigo-700', // Approximates #2F4A70
+  BINARY_GRADIENT: 'from-[#ff235a] to-[#d70036]', // Approximates #FF0040
+  HEART_GRADIENT: 'from-[#184374] to-[#112440]', // Custom blue gradient
 } as const;
 
 /**

@@ -7,7 +7,7 @@ interface BinaryHeartTextProps {
 /**
  * Reusable component for displaying "BinaryHeart" text with proper brand colors
  * Binary = #FF0040 (red)
- * Heart = #2F4A70 (blue)
+ * Heart = #193961 (blue)
  */
 export default function BinaryHeartText({ className = '' }: BinaryHeartTextProps) {
   return (

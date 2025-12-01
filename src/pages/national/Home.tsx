@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { getNavLink, getPreferredChapter } from '../../utils/urlHelpers';
 import StatsGrid from '../../components/StatsGrid';
+import { BRAND_COLORS } from '../../utils/brandColors';
 
 export default function Home() {
   const preferredChapter = getPreferredChapter();
@@ -35,14 +36,14 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
               <Link
                 to={getNavLink(preferredChapter, 'request')}
-                className="group relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-rose-500 hover:to-pink-600"
+                className={`group relative rounded-2xl bg-gradient-to-br ${BRAND_COLORS.BINARY_GRADIENT} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:brightness-110`}
               >
                 <span className="relative z-10">Request a Device</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </Link>
               <Link
                 to={getNavLink(preferredChapter, 'donate')}
-                className="group relative rounded-2xl bg-gradient-to-br from-blue-500/90 to-indigo-600/90 px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-blue-500 hover:to-indigo-600"
+                className={`group relative rounded-2xl bg-gradient-to-br ${BRAND_COLORS.HEART_GRADIENT} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:brightness-110`}
               >
                 <span className="relative z-10">Donate a Device</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
@@ -52,7 +53,7 @@ export default function Home() {
 
           {/* Impact Stats */}
           <div className="mx-auto max-w-5xl">
-            <StatsGrid chapterId="national" colorClass="text-blue-600" columns={4} />
+            <StatsGrid chapterId="national" colorClass={`${BRAND_COLORS.BINARY_TEXT}`} columns={4} />
           </div>
         </div>
       </div>
