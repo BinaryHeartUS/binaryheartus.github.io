@@ -24,7 +24,7 @@ export default function Home() {
 
             {/* Main Headline */}
             <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl mb-6">
-              Empowering Through Technology
+              Empowering Through Refurbished Technology
             </h1>
 
             {/* Subheadline */}

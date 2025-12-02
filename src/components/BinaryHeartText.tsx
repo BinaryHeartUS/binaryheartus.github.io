@@ -1,19 +1,40 @@
-import { BRAND_COLORS } from '../utils/brandColors';
+import { useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
+import { getChapterColors } from '../utils/brandColors';
+import { getCurrentChapterInfo } from '../utils/urlHelpers';
+import chaptersData from '../data/chapters.json';
 
 interface BinaryHeartTextProps {
   className?: string;
+  binaryColor?: string;
+  heartColor?: string;
 }
 
 /**
  * Reusable component for displaying "BinaryHeart" text with proper brand colors
- * Binary = #FF0040 (red)
- * Heart = #193961 (blue)
+ * Automatically detects the current chapter from the URL and applies chapter-specific colors
+ * Binary color = chapter primary, Heart color = chapter secondary
+ * Colors can be overridden using binaryColor and heartColor props
  */
-export default function BinaryHeartText({ className = '' }: BinaryHeartTextProps) {
+export default function BinaryHeartText({ 
+  className = '', 
+  binaryColor,
+  heartColor 
+}: BinaryHeartTextProps) {
+  const location = useLocation();
+  
+  const chapterColors = useMemo(() => {
+    const { currentChapter } = getCurrentChapterInfo(location.pathname, chaptersData);
+    return getChapterColors(currentChapter || 'national');
+  }, [location.pathname]);
+
+  const finalBinaryColor = binaryColor || chapterColors.binaryText;
+  const finalHeartColor = heartColor || chapterColors.heartText;
+
   return (
     <>
-      <span className={`${BRAND_COLORS.BINARY_TEXT} ${className}`}>Binary</span>
-      <span className={`${BRAND_COLORS.HEART_TEXT} ${className}`}>Heart</span>
+      <span className={`${finalBinaryColor} ${className}`}>Binary</span>
+      <span className={`${finalHeartColor} ${className}`}>Heart</span>
     </>
   );
 }

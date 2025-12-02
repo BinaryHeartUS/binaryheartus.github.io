@@ -43,7 +43,7 @@ export default function Home() {
               </Link>
               <Link
                 to="/nu/donate"
-                className={`group relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY_HOVER}`}
+                className={`group relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY}`}
               >
                 <span className="relative z-10">Donate Equipment</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>

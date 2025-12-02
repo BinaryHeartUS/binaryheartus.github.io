@@ -5,7 +5,7 @@ import BinaryHeartText from './BinaryHeartText';
 import chaptersData from '../data/chapters.json';
 import type { ChaptersData } from '../types/chapters';
 import { getCurrentChapterInfo, getHomeLink, getNavLink, setPreferredChapter } from '../utils/urlHelpers';
-import { BRAND_COLORS } from '../utils/brandColors';
+import { getChapterColors } from '../utils/brandColors';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,6 +16,12 @@ export default function Header() {
   const { currentChapter, currentPage, currentChapterIcon } = useMemo(
     () => getCurrentChapterInfo(location.pathname, chapters),
     [location.pathname, chapters]
+  );
+
+  // Get chapter-specific colors
+  const chapterColors = useMemo(
+    () => getChapterColors(currentChapter),
+    [currentChapter]
   );
 
   // Store preferred chapter whenever we're on a chapter page
@@ -83,13 +89,13 @@ export default function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-6">
           <Link
             to={getNavLink(currentChapter, 'join')}
-            className={`rounded-full ${BRAND_COLORS.BINARY_BG} px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600`}
+            className={`rounded-full ${chapterColors.binaryBg} px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
           >
             Join Us
           </Link>
           <Link
             to={getNavLink(currentChapter, 'donate')}
-            className={`rounded-full ${BRAND_COLORS.HEART_BG} px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600`}
+            className={`rounded-full ${chapterColors.heartBg} px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
           >
             Donate
           </Link>
@@ -104,7 +110,10 @@ export default function Header() {
             <div className="flex items-center justify-between">
               <Link to={getHomeLink(currentChapter)} className="-m-1.5 p-1.5 flex items-center gap-2">
                 <span className="text-xl font-semibold">
-                  <BinaryHeartText />
+                  <BinaryHeartText 
+                    binaryColor={chapterColors.binaryText}
+                    heartColor={chapterColors.heartText}
+                  />
                 </span>
               </Link>
               <button
