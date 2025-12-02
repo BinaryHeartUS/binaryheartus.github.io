@@ -1,7 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ChapterDropdown from './ChapterDropdown';
-import BinaryHeartText from './BinaryHeartText';
 import chaptersData from '../data/chapters.json';
 import type { ChaptersData } from '../types/chapters';
 import { getCurrentChapterInfo, getHomeLink, getNavLink, setPreferredChapter } from '../utils/urlHelpers';
