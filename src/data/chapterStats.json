@@ -10,14 +10,14 @@
     "chapterId": "iu",
     "name": "Indiana University",
     "devicesValue": 15000,
-    "volunteerCount": 30,
+    "volunteerCount": 50,
     "volunteerHours": 700
   },
   "purdue": {
     "chapterId": "purdue",
     "name": "Purdue University",
     "devicesValue": 4000,
-    "volunteerCount": 4,
+    "volunteerCount": 5,
     "volunteerHours": 120
   },
   "rose-hulman": {
