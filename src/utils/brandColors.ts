@@ -83,6 +83,7 @@ export const PURDUE_COLORS = {
   BG_LIGHT: 'bg-[#CEB888]/10',
   BG_GRADIENT: 'from-[#CEB888]/5',
   BG_GRADIENT_END: 'to-[#b5a279]/5',
+  BG_SECONDARY: 'bg-[#1a1a1a]',
   
   // Gradient classes for buttons and cards
   GRADIENT_PRIMARY: 'from-[#CEB888] to-[#b5a279]',
@@ -115,6 +116,7 @@ export const NORTHWESTERN_COLORS = {
   BG: 'bg-purple-600',
   BG_LIGHT: 'bg-purple-100',
   BG_50: 'bg-purple-50',
+  BG_SECONDARY: 'bg-[#808080]',
   
   // Gradient classes for banners and sections
   GRADIENT_LIGHT: 'from-purple-50 to-violet-50',
@@ -153,6 +155,7 @@ export const ROSE_HULMAN_COLORS = {
   BG_LIGHT: 'bg-[#a01010]/10',
   BG_GRADIENT: 'from-[#a01010]/5',
   BG_GRADIENT_END: 'to-[#800000]/5',
+  BG_SECONDARY: 'bg-[#8a8a8a]',
   
   // Gradient classes for buttons and cards
   GRADIENT_PRIMARY: 'from-[#a01010] to-[#800000]',
@@ -234,6 +237,7 @@ export const IU_COLORS = {
   BG_LIGHT: 'bg-[#9a0202]/10',
   BG_GRADIENT: 'from-[#9a0202]/5',
   BG_GRADIENT_END: 'to-[#7a0000]/5',
+  BG_SECONDARY: 'bg-[#808080]',
   
   // Gradient classes for buttons and cards
   GRADIENT_PRIMARY: 'from-[#9a0202] to-[#7a0000]',
@@ -253,13 +257,6 @@ export const getBrandGradient = (type: 'binary' | 'heart'): string => {
 };
 
 /**
- * Helper to convert text-[color] to bg-[color]
- */
-const textToBg = (textClass: string): string => {
-  return textClass.replace('text-', 'bg-');
-};
-
-/**
  * Get chapter-specific color scheme based on chapter slug
  * @param chapterSlug - Chapter identifier (e.g., 'nt', 'nu', 'rose-hulman', etc.)
  * @returns Minimal color scheme: binaryText, heartText, and derived bg colors
@@ -267,42 +264,58 @@ const textToBg = (textClass: string): string => {
 export const getChapterColors = (chapterSlug: string) => {
   let binaryText: string;
   let heartText: string;
+  let binaryBg: string;
+  let heartBg: string;
 
   switch (chapterSlug) {
     case 'nt':
       binaryText = NEW_TRIER_COLORS.TEXT_BLUE;
       heartText = NEW_TRIER_COLORS.TEXT_GREEN;
+      binaryBg = NEW_TRIER_COLORS.BG_BLUE;
+      heartBg = NEW_TRIER_COLORS.BG_GREEN;
       break;
     case 'nu':
       binaryText = NORTHWESTERN_COLORS.TEXT;
       heartText = NORTHWESTERN_COLORS.SECONDARY_TEXT;
+      binaryBg = NORTHWESTERN_COLORS.BG;
+      heartBg = NORTHWESTERN_COLORS.BG_SECONDARY;
       break;
     case 'rose-hulman':
       binaryText = ROSE_HULMAN_COLORS.TEXT;
       heartText = ROSE_HULMAN_COLORS.SECONDARY_TEXT;
+      binaryBg = ROSE_HULMAN_COLORS.BG;
+      heartBg = ROSE_HULMAN_COLORS.BG_SECONDARY;
       break;
     case 'wp':
       binaryText = WALTER_PAYTON_COLORS.TEXT_BLUE;
       heartText = WALTER_PAYTON_COLORS.TEXT_ORANGE;
+      binaryBg = WALTER_PAYTON_COLORS.BG_BLUE;
+      heartBg = WALTER_PAYTON_COLORS.BG_ORANGE;
       break;
     case 'iu':
       binaryText = IU_COLORS.TEXT;
       heartText = IU_COLORS.SECONDARY_TEXT;
+      binaryBg = IU_COLORS.BG;
+      heartBg = IU_COLORS.BG_SECONDARY;
       break;
     case 'purdue':
       binaryText = PURDUE_COLORS.TEXT;
       heartText = PURDUE_COLORS.SECONDARY_TEXT;
+      binaryBg = PURDUE_COLORS.BG;
+      heartBg = PURDUE_COLORS.BG_SECONDARY;
       break;
     default:
       // National/default colors
       binaryText = BRAND_COLORS.BINARY_TEXT;
       heartText = BRAND_COLORS.HEART_TEXT;
+      binaryBg = BRAND_COLORS.HEART_BG;
+      heartBg = BRAND_COLORS.BINARY_BG;
   }
 
   return {
     binaryText,
     heartText,
-    binaryBg: textToBg(binaryText),
-    heartBg: textToBg(heartText),
+    binaryBg,
+    heartBg,
   };
 };
