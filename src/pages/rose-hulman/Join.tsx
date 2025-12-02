@@ -11,10 +11,10 @@ export default function Join() {
       <div className="relative isolate overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 pb-12 pt-10 sm:pb-16 lg:px-8 lg:pt-16">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl mb-6">
               Join <BinaryHeartText /> at Rose-Hulman
             </h1>
-            <p className="text-xl leading-8 text-gray-700">
+            <p className="text-lg sm:text-xl leading-7 sm:leading-8 text-gray-700">
               Be part of a community making technology accessible while gaining valuable hands-on experience.
             </p>
           </div>
@@ -25,21 +25,21 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className={`relative rounded-2xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-8 sm:p-12 shadow-xl text-white`}>
-              <div className="flex flex-col sm:flex-row items-center gap-8">
+            <div className={`relative rounded-2xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-6 sm:p-8 lg:p-12 shadow-xl text-white`}>
+              <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
                 <div className="flex-shrink-0">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                    <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                    <svg className="h-8 w-8 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                     </svg>
                   </div>
                 </div>
                 <div className="flex-1 text-center sm:text-left">
-                  <h2 className="text-3xl font-bold mb-3">Weekly Meetings</h2>
-                  <p className="text-xl text-white/90 mb-2">
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-3">Weekly Meetings</h2>
+                  <p className="text-lg sm:text-xl text-white/90 mb-2">
                     <strong>Fridays at 5:00 PM</strong>
                   </p>
-                  <p className="text-lg text-white/90">
+                  <p className="text-base sm:text-lg text-white/90">
                     Olin Hall, Room 231
                   </p>
                 </div>
@@ -53,10 +53,10 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6 text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl mb-6 text-center">
               Everyone Is Welcome
             </h2>
-            <div className="prose prose-lg text-gray-600 space-y-4">
+            <div className="text-gray-600 space-y-4 text-sm sm:text-base">
               <p>
                 Binary Heart at Rose-Hulman is open to <strong>all students</strong>, regardless of major, year, or technical experience. Whether you can build a computer blindfolded or have never touched a screwdriver, there's a place for you here.
               </p>
@@ -75,8 +75,8 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why Join Binary Heart?</h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl">Why Join Binary Heart?</h2>
+            <p className="mt-4 text-base sm:text-lg text-gray-600">
               More than just volunteer hours—build skills, make connections, and create impact
             </p>
           </div>
@@ -163,8 +163,8 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">What We Do</h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl">What We Do</h2>
+            <p className="mt-4 text-base sm:text-lg text-gray-600">
               Our activities combine hands-on learning with community service
             </p>
           </div>
@@ -225,40 +225,40 @@ export default function Join() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl mb-4">
                 Ready to Get Involved?
               </h2>
-              <p className="text-lg text-gray-600">
+              <p className="text-base sm:text-lg text-gray-600">
                 Join us today and start making a difference
               </p>
             </div>
 
             <div className="space-y-6">
               {/* Campus Groups Card */}
-              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-xl ring-1 ring-gray-900/5">
-                <div className="flex items-start gap-6">
+              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-xl ring-1 ring-gray-900/5">
+                <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                   <div className="flex-shrink-0">
-                    <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY} text-white`}>
-                      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <div className={`flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY} text-white`}>
+                      <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                       </svg>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                  <div className="flex-1 w-full">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">
                       Join Our Campus Groups
                     </h3>
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-sm sm:text-base text-gray-600 mb-6">
                       Sign up through Rose-Hulman Campus Groups to get email updates, meeting reminders, and event notifications. This is the best way to stay connected with everything we're doing!
                     </p>
                     <a
                       href="https://rosehulman.campusgroups.com/BinaryHeart/club_signup"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY} px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                      className={`group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r ${ROSE_HULMAN_COLORS.GRADIENT_PRIMARY} px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl`}
                     >
                       <span>Join on Campus Groups</span>
-                      <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                       </svg>
                     </a>
@@ -267,65 +267,70 @@ export default function Join() {
               </div>
 
               {/* Discord Card */}
-              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-xl ring-1 ring-gray-900/5">
-                <div className="flex items-start gap-6">
+              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-xl ring-1 ring-gray-900/5">
+                <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                   <div className="flex-shrink-0">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white">
-                      <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white">
+                      <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
                       </svg>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                  <div className="flex-1 w-full">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">
                       Join Our Discord Server
                     </h3>
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-sm sm:text-base text-gray-600 mb-6">
                       Connect with the team, ask questions, and stay up-to-date with our latest projects and events. Our Discord is where we coordinate activities and build community!
                     </p>
-                    <div className="rounded-xl bg-gray-100 px-6 py-4 text-center">
-                      <p className="text-sm text-gray-600 mb-2">Discord server coming soon!</p>
-                      <p className="text-xs text-gray-500">
-                        We're setting up our Discord community. Check back soon or ask at a meeting for the invite link.
-                      </p>
-                    </div>
+                    <a
+                      href="https://discord.gg/2d2wunRVSJ"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    >
+                      <span>Join Discord Server</span>
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
 
               {/* In-Person Info */}
-              <div className={`relative rounded-2xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_SECONDARY} backdrop-blur-sm p-8 shadow-xl text-white`}>
-                <div className="flex items-start gap-6">
+              <div className={`relative rounded-2xl bg-gradient-to-br ${ROSE_HULMAN_COLORS.GRADIENT_SECONDARY} backdrop-blur-sm p-6 sm:p-8 shadow-xl text-white`}>
+                <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                   <div className="flex-shrink-0">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-                      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
+                      <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                       </svg>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-semibold mb-3">
+                  <div className="flex-1 w-full">
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-3">
                       Come to a Meeting
                     </h3>
-                    <p className="text-white/90 mb-4">
+                    <p className="text-sm sm:text-base text-white/90 mb-4">
                       Sign up on Campus Groups to get notifications about our next meeting and events. We meet Fridays at 5:00 PM in Olin 231—join Campus Groups to stay updated!
                     </p>
-                    <ul className="space-y-2 text-sm text-white/90">
+                    <ul className="space-y-2 text-xs sm:text-sm text-white/90">
                       <li className="flex items-start gap-2">
-                        <svg className="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <span>Get meeting reminders and updates</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <svg className="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <span>Stay informed about event details</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <svg className="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <span>No commitment! Attend as many or as few meetings as you like</span>
@@ -338,26 +343,26 @@ export default function Join() {
 
             {/* Questions Section */}
             <div className="mt-12 text-center">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Have Questions?</h3>
-              <p className="text-gray-600 mb-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">Have Questions?</h3>
+              <p className="text-sm sm:text-base text-gray-600 mb-4">
                 Reach out to our leadership team or check out our FAQ page
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
                 <Link
                   to="/rose-hulman/about"
-                  className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-md ring-1 ring-gray-900/5 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-gray-900 shadow-md ring-1 ring-gray-900/5 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
                   <span>Meet Our Team</span>
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </Link>
                 <Link
                   to="/faq"
-                  className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-md ring-1 ring-gray-900/5 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-gray-900 shadow-md ring-1 ring-gray-900/5 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
                   <span>View FAQ</span>
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </Link>

@@ -80,15 +80,8 @@ export default function About() {
       {/* Impact by the Numbers */}
       <div className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Our Impact</h2>
-            <p className="text-lg text-gray-600">
-              Together, we're making a real difference in communities across the country
-            </p>
-          </div>
-
           <div className="mx-auto max-w-5xl">
-            <StatsGrid chapterId="national" colorClass="text-blue-600" columns={4} />
+            <StatsGrid chapterId="national" colorClass="text-blue-600" columns={4} community="national" />
           </div>
         </div>
       </div>
@@ -302,7 +295,7 @@ export default function About() {
       </div>
 
       {/* Leadership Team */}
-      <div className="py-12 sm:py-16 bg-gradient-to-b from-blue-50/30 to-transparent">
+      <div className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Leadership Team</h2>

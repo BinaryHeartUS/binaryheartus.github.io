@@ -11,10 +11,10 @@ export default function Join() {
       <div className="relative isolate overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 pb-12 pt-10 sm:pb-16 lg:px-8 lg:pt-16">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl mb-6">
               Join <BinaryHeartText /> at Walter Payton
             </h1>
-            <p className="text-xl leading-8 text-gray-700">
+            <p className="text-lg sm:text-xl leading-7 sm:leading-8 text-gray-700">
               Be part of a community making technology accessible while gaining valuable hands-on experience.
             </p>
           </div>
@@ -25,21 +25,21 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
-            <div className={`relative rounded-2xl bg-gradient-to-br ${WALTER_PAYTON_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-8 sm:p-12 shadow-xl text-white`}>
-              <div className="flex flex-col sm:flex-row items-center gap-8">
+            <div className={`relative rounded-2xl bg-gradient-to-br ${WALTER_PAYTON_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-6 sm:p-8 lg:p-12 shadow-xl text-white`}>
+              <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
                 <div className="flex-shrink-0">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                    <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                    <svg className="h-8 w-8 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                     </svg>
                   </div>
                 </div>
                 <div className="flex-1 text-center sm:text-left">
-                  <h2 className="text-3xl font-bold mb-3">Weekly Meetings</h2>
-                  <p className="text-xl text-white/90 mb-2">
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-3">Weekly Meetings</h2>
+                  <p className="text-lg sm:text-xl text-white/90 mb-2">
                     <strong>Every Thursday, 2:30 PM - 3:30 PM</strong>
                   </p>
-                  <p className="text-lg text-white/90">
+                  <p className="text-base sm:text-lg text-white/90">
                     1034 N. Wells St., Chicago, IL
                   </p>
                 </div>
@@ -53,10 +53,10 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6 text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl mb-6 text-center">
               Everyone Is Welcome
             </h2>
-            <div className="prose prose-lg text-gray-600 space-y-4">
+            <div className="text-gray-600 space-y-4 text-sm sm:text-base">
               <p>
                 Binary Heart at Walter Payton is open to <strong>all students</strong>, regardless of grade level or technical experience. Whether you're a tech expert or have never touched a computer repair tool, there's a place for you here.
               </p>
@@ -75,8 +75,8 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why Join Binary Heart?</h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl">Why Join Binary Heart?</h2>
+            <p className="mt-4 text-base sm:text-lg text-gray-600">
               More than just volunteer hours—build skills, make connections, and create impact
             </p>
           </div>
@@ -163,8 +163,8 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">What We Do</h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl">What We Do</h2>
+            <p className="mt-4 text-base sm:text-lg text-gray-600">
               Our activities combine hands-on learning with community service
             </p>
           </div>
@@ -226,40 +226,40 @@ export default function Join() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl mb-4">
                 Ready to Get Involved?
               </h2>
-              <p className="text-lg text-gray-600">
+              <p className="text-base sm:text-lg text-gray-600">
                 Join us today and start making a difference
               </p>
             </div>
 
             <div className="space-y-6">
               {/* Selenium Signup Card */}
-              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-xl ring-1 ring-gray-900/5">
-                <div className="flex items-start gap-6">
+              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-xl ring-1 ring-gray-900/5">
+                <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                   <div className="flex-shrink-0">
-                    <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${WALTER_PAYTON_COLORS.GRADIENT_PRIMARY} text-white`}>
-                      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <div className={`flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-gradient-to-br ${WALTER_PAYTON_COLORS.GRADIENT_PRIMARY} text-white`}>
+                      <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM3 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 019.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
                       </svg>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                  <div className="flex-1 w-full">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">
                       Sign Up on Selenium
                     </h3>
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-sm sm:text-base text-gray-600 mb-6">
                       Register for Binary Heart through Walter Payton's Selenium platform to officially join the club and stay updated on meetings and events!
                     </p>
                     <a
                       href="https://selenium.wpcp.org/login"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r ${WALTER_PAYTON_COLORS.GRADIENT_PRIMARY} px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                      className={`group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r ${WALTER_PAYTON_COLORS.GRADIENT_PRIMARY} px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl`}
                     >
                       <span>Join on Selenium</span>
-                      <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                       </svg>
                     </a>
@@ -268,28 +268,28 @@ export default function Join() {
               </div>
 
               {/* Email Contact Card */}
-              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-xl ring-1 ring-gray-900/5">
-                <div className="flex items-start gap-6">
+              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-xl ring-1 ring-gray-900/5">
+                <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                   <div className="flex-shrink-0">
-                    <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${WALTER_PAYTON_COLORS.GRADIENT_PRIMARY} text-white`}>
-                      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <div className={`flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-gradient-to-br ${WALTER_PAYTON_COLORS.GRADIENT_PRIMARY} text-white`}>
+                      <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                       </svg>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                  <div className="flex-1 w-full">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">
                       Contact Us
                     </h3>
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-sm sm:text-base text-gray-600 mb-6">
                       Have questions? Reach out to our team via email to learn more about Binary Heart at Walter Payton or to get involved.
                     </p>
                     <a
                       href="mailto:walterpayton@binaryheart.org"
-                      className={`group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r ${WALTER_PAYTON_COLORS.GRADIENT_PRIMARY} px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                      className={`group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r ${WALTER_PAYTON_COLORS.GRADIENT_PRIMARY} px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl`}
                     >
                       <span>Email Us</span>
-                      <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
                     </a>
@@ -298,38 +298,38 @@ export default function Join() {
               </div>
 
               {/* In-Person Info */}
-              <div className={`relative rounded-2xl bg-gradient-to-br ${WALTER_PAYTON_COLORS.GRADIENT_SECONDARY} backdrop-blur-sm p-8 shadow-xl text-white`}>
-                <div className="flex items-start gap-6">
+              <div className={`relative rounded-2xl bg-gradient-to-br ${WALTER_PAYTON_COLORS.GRADIENT_SECONDARY} backdrop-blur-sm p-6 sm:p-8 shadow-xl text-white`}>
+                <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                   <div className="flex-shrink-0">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-                      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
+                      <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                       </svg>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-semibold mb-3">
+                  <div className="flex-1 w-full">
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-3">
                       Come to a Meeting
                     </h3>
-                    <p className="text-white/90 mb-4">
+                    <p className="text-sm sm:text-base text-white/90 mb-4">
                       Join us every Thursday from 2:30 PM to 3:30 PM at 1034 N. Wells St. No sign-up needed—just show up and meet the team!
                     </p>
-                    <ul className="space-y-2 text-sm text-white/90">
+                    <ul className="space-y-2 text-xs sm:text-sm text-white/90">
                       <li className="flex items-start gap-2">
-                        <svg className="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <span>Learn about our current projects and upcoming events</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <svg className="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <span>Meet our leadership team and fellow members</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <svg className="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <span>No commitment! Attend as many or as few meetings as you like</span>
@@ -342,26 +342,26 @@ export default function Join() {
 
             {/* Questions Section */}
             <div className="mt-12 text-center">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Have Questions?</h3>
-              <p className="text-gray-600 mb-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">Have Questions?</h3>
+              <p className="text-sm sm:text-base text-gray-600 mb-4">
                 Reach out to our leadership team or check out our FAQ page
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
                 <Link
                   to="/wp/about"
-                  className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-md ring-1 ring-gray-900/5 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-gray-900 shadow-md ring-1 ring-gray-900/5 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
                   <span>Meet Our Team</span>
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </Link>
                 <Link
                   to="/faq"
-                  className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-md ring-1 ring-gray-900/5 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-gray-900 shadow-md ring-1 ring-gray-900/5 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
                   <span>View FAQ</span>
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </Link>

@@ -1,4 +1,5 @@
 import BinaryHeartText from '../../components/BinaryHeartText';
+import { PURDUE_COLORS } from '../../utils/brandColors';
 
 export default function Donate() {
   const handleSubmit = () => {
@@ -71,7 +72,7 @@ export default function Donate() {
                 {/* Before You Donate */}
                 <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-yellow-600 text-white">
+                    <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${PURDUE_COLORS.GRADIENT_PRIMARY} text-white`}>
                       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
                       </svg>
@@ -80,19 +81,19 @@ export default function Donate() {
                   </div>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start gap-3">
-                      <svg className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className={`h-5 w-5 ${PURDUE_COLORS.TEXT} mt-0.5 flex-shrink-0`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
                       <span>Factory reset your device if possible</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className={`h-5 w-5 ${PURDUE_COLORS.TEXT} mt-0.5 flex-shrink-0`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
                       <span>Remove all stickers and post-its</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className={`h-5 w-5 ${PURDUE_COLORS.TEXT} mt-0.5 flex-shrink-0`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
                       <span>We'll securely wipe all data</span>
@@ -157,7 +158,7 @@ export default function Donate() {
                           type="text"
                           name="entry.1475264147"
                           id="firstName"
-                          className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600"
+                          className={`block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[${PURDUE_COLORS.PRIMARY}]`}
                           required
                         />
                       </div>
@@ -177,7 +178,7 @@ export default function Donate() {
                           type="text"
                           name="entry.307727203"
                           id="lastName"
-                          className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600"
+                          className={`block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[${PURDUE_COLORS.PRIMARY}]`}
                           required
                         />
                       </div>
@@ -199,7 +200,7 @@ export default function Donate() {
                         type="email"
                         name="entry.1302188399"
                         id="email"
-                        className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600"
+                        className={`block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[${PURDUE_COLORS.PRIMARY}]`}
                         required
                       />
                     </div>
@@ -220,7 +221,7 @@ export default function Donate() {
                         type="tel"
                         name="entry.1751717741"
                         id="phone"
-                        className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600"
+                        className={`block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[${PURDUE_COLORS.PRIMARY}]`}
                       />
                     </div>
                   </div>
@@ -241,7 +242,7 @@ export default function Donate() {
                         id="donationContents"
                         rows={4}
                         placeholder="e.g., 2 laptops, 1 monitor, keyboard and mouse"
-                        className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 resize-none"
+                        className={`block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[${PURDUE_COLORS.PRIMARY}] resize-none`}
                         required
                       />
                     </div>
@@ -263,7 +264,7 @@ export default function Donate() {
                         id="additionalNotes"
                         rows={3}
                         placeholder="Special pickup instructions, preferred times, etc."
-                        className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 resize-none"
+                        className={`block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[${PURDUE_COLORS.PRIMARY}] resize-none`}
                       />
                     </div>
                   </div>
@@ -272,7 +273,7 @@ export default function Donate() {
                   <div>
                     <button
                       type="submit"
-                      className="w-full rounded-lg bg-gradient-to-r from-amber-500 to-yellow-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-amber-600 hover:to-yellow-700 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                      className={`w-full rounded-lg bg-gradient-to-r ${PURDUE_COLORS.GRADIENT_PRIMARY} px-6 py-3 text-base font-semibold text-white shadow-lg ${PURDUE_COLORS.GRADIENT_PRIMARY_HOVER} transition-all duration-300 hover:scale-105 hover:shadow-xl`}
                     >
                       Submit Donation Request
                     </button>

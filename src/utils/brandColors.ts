@@ -9,19 +9,122 @@
 export const BRAND_COLORS = {
   // Primary brand colors
   BINARY_RED: '#FF0040',
-  HEART_BLUE: '#2F4A70',
+  HEART_BLUE: '#193961',
   
   // Tailwind-compatible classes
   BINARY_TEXT: 'text-[#FF0040]',
-  HEART_TEXT: 'text-[#2F4A70]',
+  HEART_TEXT: 'text-[#193961]',
   
   // Background classes
   BINARY_BG: 'bg-[#FF0040]',
-  HEART_BG: 'bg-[#2F4A70]',
+  HEART_BG: 'bg-[#193961]',
   
   // Gradient classes for buttons/cards
-  BINARY_GRADIENT: 'from-rose-500 to-pink-600', // Approximates #FF0040
-  HEART_GRADIENT: 'from-blue-600 to-indigo-700', // Approximates #2F4A70
+  BINARY_GRADIENT: 'from-[#ff235a] to-[#d70036]', // Approximates #FF0040
+  HEART_GRADIENT: 'from-[#184374] to-[#112440]', // Custom blue gradient
+} as const;
+
+/**
+ * New Trier Chapter Brand Colors
+ * Official New Trier High School colors
+ */
+export const NEW_TRIER_COLORS = {
+  // Primary colors
+  PRIMARY_BLUE: '#2260b6',
+  PRIMARY_GREEN: '#159734',
+  
+  // Tailwind-compatible text classes
+  TEXT_BLUE: 'text-[#2260b6]',
+  TEXT_GREEN: 'text-[#159734]',
+  TEXT_HOVER: 'hover:text-[#1c4d85]',
+  
+  // Background classes
+  BG_BLUE: 'bg-[#2260b6]',
+  BG_GREEN: 'bg-[#159734]',
+  BG_BLUE_LIGHT: 'bg-[#2260b6]/10',
+  BG_GREEN_LIGHT: 'bg-[#159734]/10',
+  
+  // Gradient classes for banners and sections
+  GRADIENT_LIGHT: 'from-blue-50 to-green-50',
+  GRADIENT_LIGHT_BR: 'from-blue-50/30 to-transparent',
+  
+  // Gradient classes for buttons and prominent sections
+  GRADIENT_PRIMARY: 'from-[#2260b6] to-[#1c4d85]',
+  GRADIENT_PRIMARY_90: 'from-[#2260b6]/90 to-[#1c4d85]/90',
+  GRADIENT_PRIMARY_HOVER: 'hover:from-[#1c4d85] hover:to-[#153a6b]',
+  GRADIENT_SECONDARY: 'from-[#159734] to-[#0f6b25]',
+  GRADIENT_SECONDARY_90: 'from-[#159734]/90 to-[#0f6b25]/90',
+  GRADIENT_SECONDARY_HOVER: 'hover:from-[#0f6b25] hover:to-[#0a4e1a]',
+} as const;
+
+/**
+ * Purdue University Chapter Brand Colors
+ * Official Purdue University colors: Old Gold and Black
+ */
+export const PURDUE_COLORS = {
+  // Primary colors
+  PRIMARY: '#CEB888', // Old Gold
+  PRIMARY_DARK: '#b5a279',
+  PRIMARY_HOVER: '#d8c494',
+  PRIMARY_DARK_HOVER: '#a89968',
+  
+  // Secondary colors (Black)
+  SECONDARY: '#1a1a1a',
+  SECONDARY_DARK: '#000000',
+  
+  // Tailwind-compatible text classes
+  TEXT: 'text-[#CEB888]',
+  TEXT_DARK: 'text-[#b5a279]',
+  TEXT_HOVER: 'hover:text-[#b5a279]',
+  SECONDARY_TEXT: 'text-[#1a1a1a]',
+  
+  // Background classes
+  BG: 'bg-[#CEB888]',
+  BG_LIGHT: 'bg-[#CEB888]/10',
+  BG_GRADIENT: 'from-[#CEB888]/5',
+  BG_GRADIENT_END: 'to-[#b5a279]/5',
+  
+  // Gradient classes for buttons and cards
+  GRADIENT_PRIMARY: 'from-[#CEB888] to-[#b5a279]',
+  GRADIENT_PRIMARY_90: 'from-[#CEB888]/90 to-[#b5a279]/90',
+  GRADIENT_PRIMARY_HOVER: 'hover:from-[#d8c494] hover:to-[#a89968]',
+  GRADIENT_SECONDARY: 'from-[#1a1a1a]/90 to-[#000000]/90',
+  GRADIENT_SECONDARY_HOVER: 'hover:from-[#1a1a1a] hover:to-[#000000]',
+} as const;
+
+/**
+ * Northwestern University Chapter Brand Colors
+ * Purple color scheme for Northwestern chapter
+ */
+export const NORTHWESTERN_COLORS = {
+  // Primary purple colors (Tailwind purple-500 to purple-600 range)
+  PRIMARY: '#a855f7', // purple-500
+  PRIMARY_DARK: '#9333ea', // purple-600
+  PRIMARY_DARKER: '#7e22ce', // purple-700
+  
+  // Violet accent colors
+  VIOLET: '#8b5cf6', // violet-500
+  VIOLET_DARK: '#7c3aed', // violet-600
+  
+  // Tailwind-compatible text classes
+  TEXT: 'text-purple-600',
+  TEXT_HOVER: 'hover:text-purple-700',
+  SECONDARY_TEXT: 'text-[#808080]',
+  
+  // Background classes
+  BG: 'bg-purple-600',
+  BG_LIGHT: 'bg-purple-100',
+  BG_50: 'bg-purple-50',
+  
+  // Gradient classes for banners and sections
+  GRADIENT_LIGHT: 'from-purple-50 to-violet-50',
+  GRADIENT_LIGHT_BR: 'from-purple-50/30 to-transparent',
+  
+  // Gradient classes for buttons and prominent sections
+  GRADIENT_PRIMARY: 'from-purple-600 to-violet-600',
+  GRADIENT_PRIMARY_90: 'from-purple-500/90 to-violet-600/90',
+  GRADIENT_PRIMARY_HOVER: 'hover:from-purple-700 hover:to-violet-700',
+  GRADIENT_SECONDARY: 'from-[#909090] to-[#707070]',
 } as const;
 
 /**
@@ -43,6 +146,7 @@ export const ROSE_HULMAN_COLORS = {
   TEXT: 'text-[#a01010]',
   TEXT_DARK: 'text-[#800000]',
   TEXT_HOVER: 'hover:text-[#800000]',
+  SECONDARY_TEXT: 'text-[#8a8a8a]',
   
   // Background classes
   BG: 'bg-[#a01010]',
@@ -123,6 +227,7 @@ export const IU_COLORS = {
   TEXT: 'text-[#9a0202]',
   TEXT_DARK: 'text-[#7a0000]',
   TEXT_HOVER: 'hover:text-[#7a0000]',
+  SECONDARY_TEXT: 'text-[#808080]',
   
   // Background classes
   BG: 'bg-[#9a0202]',
@@ -145,4 +250,59 @@ export const IU_COLORS = {
  */
 export const getBrandGradient = (type: 'binary' | 'heart'): string => {
   return type === 'binary' ? BRAND_COLORS.BINARY_GRADIENT : BRAND_COLORS.HEART_GRADIENT;
+};
+
+/**
+ * Helper to convert text-[color] to bg-[color]
+ */
+const textToBg = (textClass: string): string => {
+  return textClass.replace('text-', 'bg-');
+};
+
+/**
+ * Get chapter-specific color scheme based on chapter slug
+ * @param chapterSlug - Chapter identifier (e.g., 'nt', 'nu', 'rose-hulman', etc.)
+ * @returns Minimal color scheme: binaryText, heartText, and derived bg colors
+ */
+export const getChapterColors = (chapterSlug: string) => {
+  let binaryText: string;
+  let heartText: string;
+
+  switch (chapterSlug) {
+    case 'nt':
+      binaryText = NEW_TRIER_COLORS.TEXT_BLUE;
+      heartText = NEW_TRIER_COLORS.TEXT_GREEN;
+      break;
+    case 'nu':
+      binaryText = NORTHWESTERN_COLORS.TEXT;
+      heartText = NORTHWESTERN_COLORS.SECONDARY_TEXT;
+      break;
+    case 'rose-hulman':
+      binaryText = ROSE_HULMAN_COLORS.TEXT;
+      heartText = ROSE_HULMAN_COLORS.SECONDARY_TEXT;
+      break;
+    case 'wp':
+      binaryText = WALTER_PAYTON_COLORS.TEXT_BLUE;
+      heartText = WALTER_PAYTON_COLORS.TEXT_ORANGE;
+      break;
+    case 'iu':
+      binaryText = IU_COLORS.TEXT;
+      heartText = IU_COLORS.SECONDARY_TEXT;
+      break;
+    case 'purdue':
+      binaryText = PURDUE_COLORS.TEXT;
+      heartText = PURDUE_COLORS.SECONDARY_TEXT;
+      break;
+    default:
+      // National/default colors
+      binaryText = BRAND_COLORS.BINARY_TEXT;
+      heartText = BRAND_COLORS.HEART_TEXT;
+  }
+
+  return {
+    binaryText,
+    heartText,
+    binaryBg: textToBg(binaryText),
+    heartBg: textToBg(heartText),
+  };
 };

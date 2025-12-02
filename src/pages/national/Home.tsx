@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { getNavLink, getPreferredChapter } from '../../utils/urlHelpers';
 import StatsGrid from '../../components/StatsGrid';
+import { BRAND_COLORS } from '../../utils/brandColors';
 
 export default function Home() {
   const preferredChapter = getPreferredChapter();
@@ -8,8 +9,8 @@ export default function Home() {
   return (
     <main className="grow relative z-10">
       {/* Hero Section */}
-      <div className="relative isolate overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pb-12 pt-10 sm:pb-16 lg:px-8 lg:pt-20">
+      <div className="relative isolate overflow-hidden min-h-screen flex items-center">
+        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           {/* Hero Content - Centered */}
           <div className="mx-auto max-w-3xl text-center">
             {/* Badge */}
@@ -23,7 +24,7 @@ export default function Home() {
 
             {/* Main Headline */}
             <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl mb-6">
-              Empowering Through Technology
+              Empowering Through Refurbished Technology
             </h1>
 
             {/* Subheadline */}
@@ -35,24 +36,19 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
               <Link
                 to={getNavLink(preferredChapter, 'request')}
-                className="group relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-rose-500 hover:to-pink-600"
+                className={`group relative rounded-2xl bg-gradient-to-br ${BRAND_COLORS.BINARY_GRADIENT} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:brightness-110`}
               >
                 <span className="relative z-10">Request a Device</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </Link>
               <Link
                 to={getNavLink(preferredChapter, 'donate')}
-                className="group relative rounded-2xl bg-gradient-to-br from-blue-500/90 to-indigo-600/90 px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-blue-500 hover:to-indigo-600"
+                className={`group relative rounded-2xl bg-gradient-to-br ${BRAND_COLORS.HEART_GRADIENT} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:brightness-110`}
               >
                 <span className="relative z-10">Donate a Device</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </Link>
             </div>
-          </div>
-
-          {/* Impact Stats */}
-          <div className="mx-auto max-w-5xl">
-            <StatsGrid chapterId="national" colorClass="text-blue-600" columns={4} />
           </div>
         </div>
       </div>
@@ -109,6 +105,13 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Impact Stats */}
+      <div className="py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <StatsGrid chapterId="national" colorClass={`${BRAND_COLORS.BINARY_TEXT}`} columns={4} community="national" />
         </div>
       </div>
 

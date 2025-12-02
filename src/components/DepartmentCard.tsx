@@ -42,18 +42,18 @@ export default function DepartmentCard({
   colorClasses,
 }: DepartmentCardProps) {
   return (
-    <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-lg ring-1 ring-gray-900/5">
-      <div className="flex items-start gap-6">
+    <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-lg ring-1 ring-gray-900/5">
+      <div className="flex flex-col items-start gap-4">
         <div className="flex-shrink-0">
           <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${colorClasses.GRADIENT_PRIMARY} text-white`}>
             {icon}
           </div>
         </div>
-        <div className="flex-1">
-          <div className="flex items-start justify-between mb-2">
-            <h3 className="text-2xl font-semibold text-gray-900">{name}</h3>
+        <div className="flex-1 w-full">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+            <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">{name}</h3>
             <span
-              className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ring-1 ring-inset ${
+              className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ring-1 ring-inset shrink-0 w-fit ${
                 requiresApplication
                   ? 'bg-rose-50 text-rose-700 ring-rose-600/20'
                   : 'bg-green-50 text-green-700 ring-green-600/20'
@@ -62,7 +62,7 @@ export default function DepartmentCard({
               {requiresApplication ? 'Application Required' : 'Open to All'}
             </span>
           </div>
-          <p className="text-gray-600 mb-4">{description}</p>
+          <p className="text-sm sm:text-base text-gray-600 mb-4">{description}</p>
           <ul className="space-y-2 text-sm text-gray-600">
             {responsibilities.map((responsibility, index) => (
               <li key={index} className="flex items-start gap-2">

@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <main className="grow relative z-10">
       {/* Hero Section */}
-      <div className="relative isolate overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pb-12 pt-10 sm:pb-16 lg:px-8 lg:pt-20">
+      <div className="relative isolate overflow-hidden min-h-screen flex items-center">
+        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           {/* Hero Content - Centered */}
           <div className="mx-auto max-w-3xl text-center">
             {/* Badge */}
@@ -50,9 +50,6 @@ export default function Home() {
               </Link>
             </div>
           </div>
-
-          {/* Impact Stats */}
-          <StatsGrid chapterId="iu" colorClass={IU_COLORS.TEXT} columns={3} />
         </div>
       </div>
 
@@ -105,6 +102,13 @@ export default function Home() {
               />
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Impact Stats */}
+      <div className="py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <StatsGrid chapterId="iu" colorClass={IU_COLORS.TEXT} columns={3} community="Bloomington" />
         </div>
       </div>
 
