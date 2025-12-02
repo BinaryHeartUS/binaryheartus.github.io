@@ -149,22 +149,22 @@ export default function About() {
               <PictureCard
                 name="Yoltzin Morales Sanchez"
                 role="Vice President"
-                imageSrc=""
+                imageSrc="/assets/images/chapters/wp/people/yoltzinmoralessanchez.jpg"
               />
               <PictureCard
                 name="Erin Chan"
                 role="Secretary"
-                imageSrc=""
+                imageSrc="/assets/images/chapters/wp/people/erinchan.jpg"
               />
               <PictureCard
                 name="Sebastian Perez-Bernal"
                 role="Director of Operations"
-                imageSrc=""
+                imageSrc="/assets/images/chapters/wp/people/sebastianperezbernal.jpg"
               />
               <PictureCard
                 name="Isaac Castelaz"
                 role="Sponsor"
-                imageSrc=""
+                imageSrc="/assets/images/chapters/wp/people/isaaccastelaz.jpg"
               />
             </div>
           </div>
