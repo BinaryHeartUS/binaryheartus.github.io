@@ -12,10 +12,10 @@ export default function About() {
       <div className="relative isolate overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 pb-12 pt-10 sm:pb-16 lg:px-8 lg:pt-16">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl mb-6">
               About <BinaryHeartText /> at Northwestern University
             </h1>
-            <p className="text-xl leading-8 text-gray-700">
+            <p className="text-lg sm:text-xl leading-7 sm:leading-8 text-gray-700">
               Bridging the digital divide through technology recycling and student empowerment at Northwestern University.
             </p>
           </div>
@@ -62,14 +62,7 @@ export default function About() {
       {/* Chapter Impact */}
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Our Impact</h2>
-            <p className="text-lg text-gray-600">
-              Making a difference in the Evanston and Chicago communities
-            </p>
-          </div>
-
-          <StatsGrid chapterId="nu" colorClass={NORTHWESTERN_COLORS.TEXT} columns={3} />
+          <StatsGrid chapterId="nu" colorClass={NORTHWESTERN_COLORS.TEXT} columns={3} community="Evanston and Chicago"/>
         </div>
       </div>
 

@@ -2,6 +2,7 @@ import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
 import PictureCard from '../../components/PictureCard';
+import { PURDUE_COLORS } from '../../utils/brandColors';
 
 export default function About() {
   return (
@@ -60,14 +61,7 @@ export default function About() {
       {/* Chapter Impact */}
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Our Impact</h2>
-            <p className="text-lg text-gray-600">
-              Making a difference in the Greater Lafayette community
-            </p>
-          </div>
-
-          <StatsGrid chapterId="purdue" colorClass="text-amber-600" columns={3} />
+          <StatsGrid chapterId="purdue" colorClass={PURDUE_COLORS.TEXT} columns={3} community="Greater Lafayette" />
         </div>
       </div>
 
@@ -85,8 +79,8 @@ export default function About() {
                 }
                 title="Device Collection & Assessment"
                 description="We accept donations of laptops, desktops, tablets, and other electronics from individuals, businesses, and organizations. Each device is carefully assessed to determine if it can be refurbished or should be responsibly recycled."
-                bgColorClass="bg-amber-100"
-                iconColorClass="text-amber-600"
+                bgColorClass={PURDUE_COLORS.BG_LIGHT}
+                iconColorClass={PURDUE_COLORS.TEXT}
               />
 
               <InfoCard
@@ -97,8 +91,8 @@ export default function About() {
                 }
                 title="Expert Refurbishment"
                 description="Our students diagnose hardware issues, perform repairs, upgrade components when possible, securely wipe all data, and install fresh operating systems and essential software. Every device leaves our lab in excellent working condition."
-                bgColorClass="bg-amber-100"
-                iconColorClass="text-amber-600"
+                bgColorClass={PURDUE_COLORS.BG_LIGHT}
+                iconColorClass={PURDUE_COLORS.TEXT}
               />
 
               <InfoCard
@@ -109,8 +103,8 @@ export default function About() {
                 }
                 title="Community Distribution"
                 description="Refurbished devices are distributed to students, families, and community organizations in need—both locally in Greater Lafayette and internationally. Through partnerships with schools, nonprofits, and social service agencies, we ensure technology reaches those who need it most."
-                bgColorClass="bg-amber-100"
-                iconColorClass="text-amber-600"
+                bgColorClass={PURDUE_COLORS.BG_LIGHT}
+                iconColorClass={PURDUE_COLORS.TEXT}
               />
 
               <InfoCard
@@ -121,8 +115,8 @@ export default function About() {
                 }
                 title="Environmental Sustainability"
                 description="By refurbishing electronics instead of discarding them, we prevent e-waste from entering landfills. Devices that can't be refurbished are responsibly recycled through certified partners, ensuring hazardous materials are handled safely."
-                bgColorClass="bg-amber-100"
-                iconColorClass="text-amber-600"
+                bgColorClass={PURDUE_COLORS.BG_LIGHT}
+                iconColorClass={PURDUE_COLORS.TEXT}
               />
 
               <InfoCard
@@ -133,8 +127,8 @@ export default function About() {
                 }
                 title="Skills Development"
                 description="Members gain hands-on experience with hardware troubleshooting, software installation, data security protocols, and project management. These practical skills complement academic learning and prepare students for careers in technology."
-                bgColorClass="bg-amber-100"
-                iconColorClass="text-amber-600"
+                bgColorClass={PURDUE_COLORS.BG_LIGHT}
+                iconColorClass={PURDUE_COLORS.TEXT}
               />
             </div>
           </div>
@@ -168,13 +162,13 @@ export default function About() {
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/purdue/join"
-                className="rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-amber-600 hover:to-yellow-700 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                className={`rounded-xl bg-gradient-to-r ${PURDUE_COLORS.GRADIENT_PRIMARY} px-6 py-3 text-base font-semibold text-white shadow-lg ${PURDUE_COLORS.GRADIENT_PRIMARY_HOVER} transition-all duration-300 hover:scale-105 hover:shadow-xl`}
               >
                 Join Our Chapter
               </a>
               <a
                 href="/purdue/donate"
-                className="rounded-xl bg-gradient-to-r from-slate-700 to-slate-900 px-6 py-3 text-base font-semibold text-white shadow-lg hover:from-slate-800 hover:to-black transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                className={`rounded-xl bg-gradient-to-r ${PURDUE_COLORS.GRADIENT_SECONDARY} px-6 py-3 text-base font-semibold text-white shadow-lg ${PURDUE_COLORS.GRADIENT_SECONDARY_HOVER} transition-all duration-300 hover:scale-105 hover:shadow-xl`}
               >
                 Donate Equipment
               </a>

@@ -9,50 +9,48 @@ export default function Home() {
   return (
     <main className="grow relative z-10">
       {/* Hero Section */}
-      <div className="relative isolate overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pb-12 pt-10 sm:pb-16 lg:px-8 lg:pt-20">
+      <div className="relative isolate overflow-hidden min-h-screen flex items-center">
+        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           {/* Hero Content - Centered */}
           <div className="mx-auto max-w-3xl text-center">
             {/* Badge */}
             <div className="mb-8">
               <Link to="/nu/about" className="inline-flex items-center space-x-2 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-gray-700 ring-1 ring-gray-900/10 hover:bg-white transition-colors">
                 <img src="/assets/images/chapters/nu/icon.svg" alt="" className="h-5 w-5" />
-                <span>Student-Run Electronics Recycling</span>
+                <span className="hidden sm:inline">Student-Run Electronics Recycling</span>
+                <span className="sm:hidden">Electronics Recycling</span>
                 <span className={`${BRAND_COLORS.BINARY_TEXT} font-semibold`}>Learn more →</span>
               </Link>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl mb-6">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl mb-6">
               <BinaryHeartText /> at Northwestern
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl leading-8 text-gray-700 mb-10">
+            <p className="text-lg sm:text-xl leading-7 sm:leading-8 text-gray-700 mb-10">
               Northwestern students refurbishing technology to bridge the digital divide in Evanston and Chicago.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 sm:gap-6 mb-16 px-4 sm:px-0">
               <Link
                 to="/nu/join"
-                className={`group relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_90} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_HOVER}`}
+                className={`group relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_90} px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_HOVER} text-center`}
               >
                 <span className="relative z-10">Join Our Team</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </Link>
               <Link
                 to="/nu/donate"
-                className={`group relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-rose-500 hover:to-pink-600`}
+                className={`group relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY} px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY} text-center`}
               >
                 <span className="relative z-10">Donate Equipment</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </Link>
             </div>
           </div>
-
-          {/* Impact Stats */}
-          <StatsGrid chapterId="nu" colorClass={NORTHWESTERN_COLORS.TEXT} columns={3} />
         </div>
       </div>
 
@@ -105,6 +103,13 @@ export default function Home() {
               />
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Impact Stats */}
+      <div className="py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <StatsGrid chapterId="nu" colorClass={NORTHWESTERN_COLORS.TEXT} columns={3} community="Evanston and Chicago" />
         </div>
       </div>
 
@@ -196,7 +201,7 @@ export default function Home() {
               </div>
 
               {/* Donate Equipment */}
-              <div className="relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 backdrop-blur-sm p-8 shadow-xl text-white">
+              <div className={`relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY} backdrop-blur-sm p-8 shadow-xl text-white`}>
                 <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
                   <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
