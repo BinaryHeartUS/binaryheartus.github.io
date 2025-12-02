@@ -108,13 +108,13 @@ export default function Header() {
           <div className="fixed inset-0 z-50 bg-black/20"></div>
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <Link to={getHomeLink(currentChapter)} className="-m-1.5 p-1.5 flex items-center gap-2">
-                <span className="text-xl font-semibold">
-                  <BinaryHeartText 
-                    binaryColor={chapterColors.binaryText}
-                    heartColor={chapterColors.heartText}
-                  />
-                </span>
+              <Link to={getHomeLink(currentChapter)} className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
+                <span className="sr-only">BinaryHeart</span>
+                <img
+                  className="h-8 w-auto"
+                  src={currentChapterIcon}
+                  alt="BinaryHeart Logo"
+                />
               </Link>
               <button
                 type="button"
