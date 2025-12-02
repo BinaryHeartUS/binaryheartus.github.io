@@ -14,8 +14,8 @@ export default function Join() {
       <div className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why Join Binary Heart?</h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl">Why Join Binary Heart?</h2>
+            <p className="mt-4 text-base sm:text-lg text-gray-600">
               Volunteering with us offers more than just community service hours
             </p>
           </div>
@@ -102,31 +102,31 @@ export default function Join() {
       <div className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Ways to Get Involved</h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl">Ways to Get Involved</h2>
+            <p className="mt-4 text-base sm:text-lg text-gray-600">
               Choose the role that matches your interests and availability
             </p>
           </div>
 
           <div className="mx-auto max-w-4xl space-y-6">
             {/* Role 1 */}
-            <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-lg ring-1 ring-gray-900/5">
-              <div className="flex items-start gap-6">
+            <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-lg ring-1 ring-gray-900/5">
+              <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                 <div className="flex-shrink-0">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
-                    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
+                    <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
                     </svg>
                   </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">Tech Volunteer</h3>
-                  <p className="text-gray-600 mb-4">
+                <div className="flex-1 w-full">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">Tech Volunteer</h3>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4">
                     Work hands-on with computers and electronics. Learn to diagnose issues, replace parts, install operating systems, and prepare devices for donation.
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-600">
+                  <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
                     <li className="flex items-start gap-2">
-                      <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span>No prior experience required—we'll teach you everything</span>
@@ -143,29 +143,29 @@ export default function Join() {
             </div>
 
             {/* Role 2 */}
-            <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-lg ring-1 ring-gray-900/5">
-              <div className="flex items-start gap-6">
+            <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-lg ring-1 ring-gray-900/5">
+              <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                 <div className="flex-shrink-0">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white">
-                    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white">
+                    <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                     </svg>
                   </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">Chapter Leader</h3>
-                  <p className="text-gray-600 mb-4">
+                <div className="flex-1 w-full">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">Chapter Leader</h3>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4">
                     Start a Binary Heart chapter at your school or in your community. Lead a team, coordinate donations, and make an impact locally.
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-600">
+                  <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
                     <li className="flex items-start gap-2">
-                      <svg className="h-5 w-5 text-rose-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5 text-rose-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span>Full training and support from our national team</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <svg className="h-5 w-5 text-rose-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5 text-rose-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span>Access to resources, guides, and mentorship</span>
@@ -176,29 +176,29 @@ export default function Join() {
             </div>
 
             {/* Role 3 */}
-            <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-lg ring-1 ring-gray-900/5">
-              <div className="flex items-start gap-6">
+            <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-lg ring-1 ring-gray-900/5">
+              <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                 <div className="flex-shrink-0">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 text-white">
-                    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 text-white">
+                    <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                     </svg>
                   </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">Marketing & Outreach</h3>
-                  <p className="text-gray-600 mb-4">
+                <div className="flex-1 w-full">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">Marketing & Outreach</h3>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4">
                     Help spread the word about our mission. Create social media content, design graphics, write blog posts, or organize awareness campaigns.
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-600">
+                  <ul className="space-y-2 text-xs sm:text-sm text-gray-600">
                     <li className="flex items-start gap-2">
-                      <svg className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5 text-purple-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span>Perfect for creative students and communicators</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <svg className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5 text-purple-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span>Build your portfolio while helping the cause</span>
@@ -216,54 +216,54 @@ export default function Join() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">How to Join</h2>
-              <p className="text-lg text-gray-600">
-                Getting started is simple—just follow these steps
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl mb-4">How to Join</h2>
+              <p className="text-base sm:text-lg text-gray-600">
+                Getting started is simple—choose your chapter below
               </p>
             </div>
 
             <div className="space-y-8">
               {/* Step 1 */}
-              <div className="flex gap-6">
+              <div className="flex gap-4 sm:gap-6">
                 <div className="flex-shrink-0">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-xl font-bold">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-lg sm:text-xl font-bold">
                     1
                   </div>
                 </div>
                 <div className="flex-1 pt-1">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Fill Out Our Interest Form</h3>
-                  <p className="text-gray-600">
-                    Let us know which role interests you and a bit about yourself. Takes less than 5 minutes!
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Find Your Chapter</h3>
+                  <p className="text-sm sm:text-base text-gray-600">
+                    Visit the join page of your desired chapter below to see chapter-specific information and meeting times.
                   </p>
                 </div>
               </div>
 
               {/* Step 2 */}
-              <div className="flex gap-6">
+              <div className="flex gap-4 sm:gap-6">
                 <div className="flex-shrink-0">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-xl font-bold">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-lg sm:text-xl font-bold">
                     2
                   </div>
                 </div>
                 <div className="flex-1 pt-1">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Attend an Orientation</h3>
-                  <p className="text-gray-600">
-                    Join a virtual or in-person orientation session to learn more about our mission, meet the team, and ask questions.
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Connect with the Chapter</h3>
+                  <p className="text-sm sm:text-base text-gray-600">
+                    Each chapter has its own onboarding process. Reach out using the contact information on their join page to learn about meeting schedules and how to get involved.
                   </p>
                 </div>
               </div>
 
               {/* Step 3 */}
-              <div className="flex gap-6">
+              <div className="flex gap-4 sm:gap-6">
                 <div className="flex-shrink-0">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-xl font-bold">
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-lg sm:text-xl font-bold">
                     3
                   </div>
                 </div>
                 <div className="flex-1 pt-1">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Get Started</h3>
-                  <p className="text-gray-600">
-                    Jump into your role with full support from our team. You'll receive training, resources, and ongoing mentorship.
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Get Started</h3>
+                  <p className="text-sm sm:text-base text-gray-600">
+                    Attend your first meeting or event and start making an impact! Each chapter provides training, resources, and ongoing support.
                   </p>
                 </div>
               </div>
@@ -277,24 +277,24 @@ export default function Join() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl mb-4">
                 Ready to Make an Impact?
               </h2>
-              <p className="text-lg text-gray-600">
+              <p className="text-base sm:text-lg text-gray-600">
                 Join an existing chapter or start a new one at your school
               </p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
               {/* Join Existing Chapter */}
-              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-xl ring-1 ring-gray-900/5">
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
-                  <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-xl ring-1 ring-gray-900/5">
+                <div className="mb-4 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
+                  <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-3">Join an Existing Chapter</h3>
-                <p className="text-gray-600 mb-6">
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">Join an Existing Chapter</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-6">
                   Connect with an active chapter at your school or nearby
                 </p>
                 
@@ -302,7 +302,7 @@ export default function Join() {
                 <div className="space-y-2">
                   {/* Higher Education */}
                   <div className="mb-4">
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                    <p className="text-[0.625rem] sm:text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
                       Higher Education
                     </p>
                     <div className="space-y-2">
@@ -310,11 +310,11 @@ export default function Join() {
                         <a
                           key={chapter.url}
                           href={`${getRelativePath(chapter.url)}/join`}
-                          className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors group"
+                          className="flex items-center gap-2 sm:gap-3 rounded-lg px-2 sm:px-3 py-2 sm:py-2.5 text-xs sm:text-sm text-gray-700 hover:bg-gray-50 transition-colors group"
                         >
-                          <img src={chapter.icon} alt="" className="h-6 w-6 flex-shrink-0" />
+                          <img src={chapter.icon} alt="" className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
                           <span className="flex-1">{chapter.name}</span>
-                          <svg className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                          <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                           </svg>
                         </a>
@@ -325,7 +325,7 @@ export default function Join() {
                   {/* High School */}
                   {chapters.highSchool.length > 0 && (
                     <div>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                      <p className="text-[0.625rem] sm:text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
                         High School
                       </p>
                       <div className="space-y-2">
@@ -333,11 +333,11 @@ export default function Join() {
                           <a
                             key={chapter.url}
                             href={`${getRelativePath(chapter.url)}/join`}
-                            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors group"
+                            className="flex items-center gap-2 sm:gap-3 rounded-lg px-2 sm:px-3 py-2 sm:py-2.5 text-xs sm:text-sm text-gray-700 hover:bg-gray-50 transition-colors group"
                           >
-                            <img src={chapter.icon} alt="" className="h-6 w-6 flex-shrink-0" />
+                            <img src={chapter.icon} alt="" className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
                             <span className="flex-1">{chapter.name}</span>
-                            <svg className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                            <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gray-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                             </svg>
                           </a>
@@ -349,50 +349,50 @@ export default function Join() {
               </div>
 
               {/* Start New Chapter */}
-              <div className="relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 backdrop-blur-sm p-8 shadow-xl text-white">
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-                  <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+              <div className="relative rounded-2xl bg-gradient-to-br from-rose-500/90 to-pink-600/90 backdrop-blur-sm p-6 sm:p-8 shadow-xl text-white">
+                <div className="mb-4 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
+                  <svg className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-semibold mb-3">Start a New Chapter</h3>
-                <p className="text-white/90 mb-6">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-3">Start a New Chapter</h3>
+                <p className="text-sm sm:text-base text-white/90 mb-6">
                   Bring Binary Heart to your school and lead the change in your community
                 </p>
                 
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-2">
-                    <svg className="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span className="text-sm">Full training and resources provided</span>
+                    <span className="text-xs sm:text-sm">Full training and resources provided</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span className="text-sm">Ongoing mentorship from national team</span>
+                    <span className="text-xs sm:text-sm">Ongoing mentorship from national team</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span className="text-sm">Access to national partnerships</span>
+                    <span className="text-xs sm:text-sm">Access to national partnerships</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span className="text-sm">Stand out on college applications</span>
+                    <span className="text-xs sm:text-sm">Stand out on college applications</span>
                   </li>
                 </ul>
 
                 <Link
                   to={getNavLink(preferredChapter, 'contact')}
-                  className="group relative inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-base font-semibold text-gray-900 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                  className="group relative inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-gray-900 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 >
                   <span>Contact Us to Start</span>
-                  <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <svg className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </Link>

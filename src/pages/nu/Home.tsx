@@ -17,33 +17,34 @@ export default function Home() {
             <div className="mb-8">
               <Link to="/nu/about" className="inline-flex items-center space-x-2 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-gray-700 ring-1 ring-gray-900/10 hover:bg-white transition-colors">
                 <img src="/assets/images/chapters/nu/icon.svg" alt="" className="h-5 w-5" />
-                <span>Student-Run Electronics Recycling</span>
+                <span className="hidden sm:inline">Student-Run Electronics Recycling</span>
+                <span className="sm:hidden">Electronics Recycling</span>
                 <span className={`${BRAND_COLORS.BINARY_TEXT} font-semibold`}>Learn more →</span>
               </Link>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl mb-6">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl mb-6">
               <BinaryHeartText /> at Northwestern
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl leading-8 text-gray-700 mb-10">
+            <p className="text-lg sm:text-xl leading-7 sm:leading-8 text-gray-700 mb-10">
               Northwestern students refurbishing technology to bridge the digital divide in Evanston and Chicago.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 sm:gap-6 mb-16 px-4 sm:px-0">
               <Link
                 to="/nu/join"
-                className={`group relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_90} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_HOVER}`}
+                className={`group relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_90} px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_HOVER} text-center`}
               >
                 <span className="relative z-10">Join Our Team</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </Link>
               <Link
                 to="/nu/donate"
-                className={`group relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY}`}
+                className={`group relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY} px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 ${NORTHWESTERN_COLORS.GRADIENT_SECONDARY} text-center`}
               >
                 <span className="relative z-10">Donate Equipment</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>

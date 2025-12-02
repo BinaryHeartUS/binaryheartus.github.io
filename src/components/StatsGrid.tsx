@@ -45,30 +45,30 @@ export default function StatsGrid({
       {!community && <div className="mb-12" />}
       <div className={`grid grid-cols-1 gap-8 ${gridCols}`}>
         <div className="flex flex-col items-center text-center">
-          <div className={`text-5xl font-bold ${colorClass} mb-2`}>
+          <div className={`text-4xl sm:text-5xl font-bold ${colorClass} mb-2 break-words`}>
             ${isNational ? formatNumber(stats.devicesValue) : stats.devicesValue.toLocaleString()}+
           </div>
-          <div className="text-sm text-gray-600">Value of Devices {isNational ? 'Donated' : 'Refurbished'}</div>
+          <div className="text-sm text-gray-600 px-2">Value of Devices {isNational ? 'Donated' : 'Refurbished'}</div>
         </div>
         <div className="flex flex-col items-center text-center">
-          <div className={`text-5xl font-bold ${colorClass} mb-2`}>
+          <div className={`text-4xl sm:text-5xl font-bold ${colorClass} mb-2`}>
             {stats.volunteerCount}+
           </div>
-          <div className="text-sm text-gray-600">{isNational ? 'Student Volunteers' : 'Active Student Members'}</div>
+          <div className="text-sm text-gray-600 px-2">{isNational ? 'Student Volunteers' : 'Active Student Members'}</div>
         </div>
         {showChapterCount && (
           <div className="flex flex-col items-center text-center">
-            <div className={`text-5xl font-bold ${colorClass} mb-2`}>
+            <div className={`text-4xl sm:text-5xl font-bold ${colorClass} mb-2`}>
               {chapterCount}
             </div>
-            <div className="text-sm text-gray-600">Active Chapters</div>
+            <div className="text-sm text-gray-600 px-2">Active Chapters</div>
           </div>
         )}
         <div className="flex flex-col items-center text-center">
-          <div className={`text-5xl font-bold ${colorClass} mb-2`}>
+          <div className={`text-4xl sm:text-5xl font-bold ${colorClass} mb-2`}>
             {isNational ? formatNumber(stats.volunteerHours) : stats.volunteerHours}+
           </div>
-          <div className="text-sm text-gray-600">Volunteer Hours</div>
+          <div className="text-sm text-gray-600 px-2">Volunteer Hours</div>
         </div>
       </div>
     </div>
