@@ -74,7 +74,12 @@ export default function FAQ() {
         },
         {
           question: 'Do you provide tax deduction receipts for donations?',
-          answer: 'Yes, we do! As a registered 501(c)(3) nonprofit organization, your donations are tax-deductible. We\'ll provide you with a receipt for your records.',
+          answer: (
+            <>
+              Yes, we do! As a registered 501(c)(3) nonprofit organization, your donations are tax-deductible. We'll provide you with a receipt for your records.
+              <p className="mt-3 text-sm text-gray-600 italic">* Note: The New Trier chapter is unable to provide tax receipts.</p>
+            </>
+          ),
         },
       ],
     },

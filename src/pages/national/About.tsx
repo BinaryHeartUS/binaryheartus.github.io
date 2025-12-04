@@ -319,9 +319,15 @@ export default function About() {
               />
 
               <PictureCard
+                imageSrc="/assets/images/chapters/national/people/MaryDinkha.jpg"
+                name="Mary Dinkha"
+                role="Executive Director"
+              />
+              
+              <PictureCard
                 imageSrc="/assets/images/chapters/national/people/HenlyWolin.jpeg"
                 name="Henly Wolin"
-                role="Board Member"
+                role="Executive Director"
               />
 
               <PictureCard

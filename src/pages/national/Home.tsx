@@ -9,12 +9,12 @@ export default function Home() {
   return (
     <main className="grow relative z-10">
       {/* Hero Section */}
-      <div className="relative isolate overflow-hidden min-h-screen flex items-center">
-        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+      <div className="relative isolate overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 py-8 sm:py-20 lg:px-8">
           {/* Hero Content - Centered */}
           <div className="mx-auto max-w-3xl text-center">
             {/* Badge */}
-            <div className="mb-8">
+            <div className="mb-6">
               <Link to={getNavLink(preferredChapter, 'about')} className="inline-flex items-center space-x-2 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-gray-700 ring-1 ring-gray-900/10 hover:bg-white transition-colors">
                 <img src="/assets/images/chapters/national/icon.svg" alt="" className="h-5 w-5" />
                 <span>Student-Run Electronics Recycling.</span>
@@ -23,17 +23,17 @@ export default function Home() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl mb-6">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-4">
               Empowering Through Refurbished Technology
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl leading-8 text-gray-700 mb-10">
+            <p className="text-lg leading-7 text-gray-700 mb-8">
               We refurbish donated computers and electronics to bridge the digital divide—one device at a time.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
+            <div className="flex flex-wrap items-center justify-center gap-6">
               <Link
                 to={getNavLink(preferredChapter, 'request')}
                 className={`group relative rounded-2xl bg-gradient-to-br ${BRAND_COLORS.BINARY_GRADIENT} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:brightness-110`}
@@ -45,7 +45,7 @@ export default function Home() {
                 to={getNavLink(preferredChapter, 'donate')}
                 className={`group relative rounded-2xl bg-gradient-to-br ${BRAND_COLORS.HEART_GRADIENT} px-8 py-4 text-base font-semibold text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:brightness-110`}
               >
-                <span className="relative z-10">Donate a Device</span>
+                <span className="relative z-10">Donate</span>
                 <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               </Link>
             </div>
