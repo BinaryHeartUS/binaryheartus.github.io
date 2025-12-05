@@ -15,7 +15,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl text-center">
             {/* Badge */}
             <div className="mb-6">
-              <Link to={getNavLink(preferredChapter, 'about')} className="inline-flex items-center space-x-2 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-gray-700 ring-1 ring-gray-900/10 hover:bg-white transition-colors">
+              <Link to={getNavLink(preferredChapter, 'about')} className="hidden sm:inline-flex items-center space-x-2 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-gray-700 ring-1 ring-gray-900/10 hover:bg-white transition-colors">
                 <img src="/assets/images/chapters/national/icon.svg" alt="" className="h-5 w-5" />
                 <span>Student-Run Electronics Recycling.</span>
                 <span className="text-rose-600 font-semibold">Learn more →</span>
