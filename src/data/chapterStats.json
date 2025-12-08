@@ -30,9 +30,9 @@
   "nt": {
     "chapterId": "nt",
     "name": "New Trier",
-    "devicesValue": 10000,
-    "volunteerCount": 50,
-    "volunteerHours": 500
+    "devicesValue": 55000,
+    "volunteerCount": 20,
+    "volunteerHours": 1500
   },
   "wp": {
     "chapterId": "wp",
