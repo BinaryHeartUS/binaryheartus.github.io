@@ -197,7 +197,7 @@ export default function About() {
               />
 
               <PictureCard
-                imageSrc="/assets/images/chapters/rose-hulman/people/AnthonyFlores.jpg"
+                imageSrc="/assets/images/chapters/rose-hulman/people/AnthonyFlores.JPG"
                 name="Anthony Flores"
                 role="Director of Membership"
               />
