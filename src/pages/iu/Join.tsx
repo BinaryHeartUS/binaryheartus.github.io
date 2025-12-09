@@ -117,16 +117,16 @@ export default function Join() {
             {/* Navigation Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center">
               <a
-                href="#membership-tracks"
-                className={`inline-flex items-center justify-center rounded-lg bg-gradient-to-r ${IU_COLORS.GRADIENT_PRIMARY} px-6 sm:px-8 py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105`}
-              >
-                Membership Tracks
-              </a>
-              <a
                 href="#departments"
                 className={`inline-flex items-center justify-center rounded-lg bg-gradient-to-r ${IU_COLORS.GRADIENT_PRIMARY} px-6 sm:px-8 py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105`}
               >
                 Our Departments
+              </a>
+              <a
+                href="#membership-tracks"
+                className={`inline-flex items-center justify-center rounded-lg bg-gradient-to-r ${IU_COLORS.GRADIENT_PRIMARY} px-6 sm:px-8 py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105`}
+              >
+                Membership Tracks
               </a>
               <a
                 href="#how-join"
@@ -134,6 +134,38 @@ export default function Join() {
               >
                 How to Join
               </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Departments Section */}
+      <div id="departments" className="py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Departments</h2>
+            <p className="mt-4 text-base sm:text-lg text-gray-600">
+              Three departments working together to create a seamless supply chain
+            </p>
+          </div>
+
+          <div className="mx-auto max-w-4xl">
+            <div className="space-y-6">
+              {departments.map((dept) => (
+                <DepartmentCard
+                  key={dept.id}
+                  name={dept.name}
+                  description={dept.description}
+                  icon={dept.icon}
+                  responsibilities={dept.responsibilities}
+                  requiresApplication={dept.requiresApplication}
+                  teamId={dept.id}
+                  isExpanded={expandedDept === dept.id}
+                  onToggle={toggleDept}
+                  learnMoreContent={dept.learnMoreContent}
+                  colorClasses={IU_COLORS}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -286,38 +318,6 @@ export default function Join() {
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Departments Section */}
-      <div id="departments" className="py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Departments</h2>
-            <p className="mt-4 text-base sm:text-lg text-gray-600">
-              Three departments working together to create a seamless supply chain
-            </p>
-          </div>
-
-          <div className="mx-auto max-w-4xl">
-            <div className="space-y-6">
-              {departments.map((dept) => (
-                <DepartmentCard
-                  key={dept.id}
-                  name={dept.name}
-                  description={dept.description}
-                  icon={dept.icon}
-                  responsibilities={dept.responsibilities}
-                  requiresApplication={dept.requiresApplication}
-                  teamId={dept.id}
-                  isExpanded={expandedDept === dept.id}
-                  onToggle={toggleDept}
-                  learnMoreContent={dept.learnMoreContent}
-                  colorClasses={IU_COLORS}
-                />
-              ))}
             </div>
           </div>
         </div>
