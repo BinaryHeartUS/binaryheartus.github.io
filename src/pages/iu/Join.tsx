@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import DepartmentCard from '../../components/DepartmentCard';
 import { IU_COLORS } from '../../utils/brandColors';
 import type { Department } from '../../types/departments';
+import gbmData from '../../data/chapters/iu/generalBodyMeetings.json';
 
 // Department icons
 const departmentIcons: Record<string, React.ReactNode> = {
@@ -101,6 +102,20 @@ export default function Join() {
     setExpandedDept(expandedDept === deptId ? null : deptId);
   };
 
+  // Calculate next meeting
+  const nextMeeting = useMemo(() => {
+    const today = new Date();
+    
+    for (const meeting of gbmData.meetings) {
+      const meetingDate = new Date(meeting.date);
+      
+      if (meetingDate >= today) {
+        return meeting;
+      }
+    }
+    return null;
+  }, []);
+
   return (
     <main className="grow relative z-10">
       {/* Hero Section */}
@@ -138,6 +153,36 @@ export default function Join() {
           </div>
         </div>
       </div>
+
+      {/* Next Meeting Information - Prominent Section */}
+      {nextMeeting && (
+        <div className="py-8 sm:py-12">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-4xl">
+              <div className={`relative rounded-2xl bg-gradient-to-br ${IU_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-6 sm:p-8 lg:p-12 shadow-xl text-white`}>
+                <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+                  <div className="flex-shrink-0">
+                    <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                      <svg className="h-8 w-8 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="flex-1 text-center sm:text-left">
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-3">Next General Body Meeting</h2>
+                    <p className="text-lg sm:text-xl text-white/90 mb-2">
+                      <strong>{nextMeeting.displayDate} - {gbmData.dayOfWeek} at {gbmData.time}</strong>
+                    </p>
+                    <p className="text-base sm:text-lg text-white/90">
+                      {gbmData.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Departments Section */}
       <div id="departments" className="py-12 sm:py-16">
@@ -436,22 +481,22 @@ export default function Join() {
           <div className="mx-auto max-w-3xl">
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl mb-4">
-                General Body Meeting Schedule (Spring 2026)
+                General Body Meeting Schedule ({gbmData.semester})
               </h2>
               <p className="text-base sm:text-lg text-gray-600">
-                Thursdays, 7-8pm at Hodge Hall/on campus
+                {gbmData.dayOfWeek}, {gbmData.time} at {gbmData.location}
               </p>
             </div>
 
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-lg">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {['1/29', '2/12', '2/26', '3/12', '3/26', '4/9', '4/23', '4/30'].map((date, index) => (
+                {gbmData.meetings.map((meeting, index) => (
                   <div
                     key={index}
                     className={`flex items-center justify-center rounded-lg ${IU_COLORS.BG_LIGHT} px-4 py-3 text-center`}
                   >
                     <span className={`text-base sm:text-lg font-semibold ${IU_COLORS.TEXT}`}>
-                      {date}
+                      {meeting.displayDate}
                     </span>
                   </div>
                 ))}

@@ -40,7 +40,7 @@ export default function Join() {
                     <strong>Fridays at 5:00 PM</strong>
                   </p>
                   <p className="text-base sm:text-lg text-white/90">
-                    Olin Hall, Room 231
+                    Percopo Classroom (Basement of Percopo Hall)
                   </p>
                 </div>
               </div>
