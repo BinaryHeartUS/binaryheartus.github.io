@@ -1,13 +1,8 @@
 import type { ReactNode } from 'react';
 
-export interface Team {
-  name: string;
-  description: string;
-  responsibilities: string[];
-}
-
 export interface LearnMoreContent {
-  teams: Team[];
+  kpi: string;
+  projects: string[];
   skillsYoullGain: string;
   idealFor: string;
 }

@@ -1,13 +1,8 @@
 import type { ReactNode } from 'react';
 
-interface Team {
-  name: string;
-  description: string;
-  responsibilities: string[];
-}
-
 interface LearnMoreContent {
-  teams: Team[];
+  kpi: string;
+  projects: string[];
   skillsYoullGain: string;
   idealFor: string;
 }
@@ -79,13 +74,7 @@ export default function DepartmentCard({
                     d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span>
-                  {index === responsibilities.length - 1 && !requiresApplication ? (
-                    <strong>{responsibility}</strong>
-                  ) : (
-                    responsibility
-                  )}
-                </span>
+                <span>{responsibility}</span>
               </li>
             ))}
           </ul>
@@ -110,23 +99,26 @@ export default function DepartmentCard({
           {/* Expanded Content */}
           {isExpanded && (
             <div className="mt-6 pt-6 border-t border-gray-200 space-y-6 animate-in slide-in-from-top">
-              {/* Teams within the department */}
-              {learnMoreContent.teams.map((team, teamIndex) => (
-                <div key={teamIndex}>
-                  <h4 className="font-semibold text-gray-900 mb-2">{team.name}:</h4>
-                  <p className="text-sm text-gray-600 mb-3">{team.description}</p>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    {team.responsibilities.map((responsibility, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className={`${colorClasses.TEXT} flex-shrink-0`}>•</span>
-                        <span>{responsibility}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              {/* KPI */}
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">Key Performance Indicator:</h4>
+                <p className="text-sm text-gray-600">{learnMoreContent.kpi}</p>
+              </div>
+
+              {/* Projects */}
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">Key Projects & Initiatives:</h4>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  {learnMoreContent.projects.map((project, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className={`${colorClasses.TEXT} flex-shrink-0`}>•</span>
+                      <span>{project}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               
-              {/* Department-wide sections */}
+              {/* Skills & Ideal For */}
               <div className="pt-4 border-t border-gray-100">
                 <h4 className="font-semibold text-gray-900 mb-2">Skills You'll Gain:</h4>
                 <p className="text-sm text-gray-600">{learnMoreContent.skillsYoullGain}</p>
