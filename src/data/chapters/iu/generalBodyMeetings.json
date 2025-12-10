@@ -1,0 +1,40 @@
+{
+  "semester": "Spring 2026",
+  "time": "7-8pm",
+  "dayOfWeek": "Thursday",
+  "location": "Hodge Hall/on campus",
+  "meetings": [
+    {
+      "date": "2026-01-29",
+      "displayDate": "1/29"
+    },
+    {
+      "date": "2026-02-12",
+      "displayDate": "2/12"
+    },
+    {
+      "date": "2026-02-26",
+      "displayDate": "2/26"
+    },
+    {
+      "date": "2026-03-12",
+      "displayDate": "3/12"
+    },
+    {
+      "date": "2026-03-26",
+      "displayDate": "3/26"
+    },
+    {
+      "date": "2026-04-09",
+      "displayDate": "4/9"
+    },
+    {
+      "date": "2026-04-23",
+      "displayDate": "4/23"
+    },
+    {
+      "date": "2026-04-30",
+      "displayDate": "4/30"
+    }
+  ]
+}

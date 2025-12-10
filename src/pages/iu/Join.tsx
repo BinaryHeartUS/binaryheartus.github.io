@@ -1,47 +1,120 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import DepartmentCard from '../../components/DepartmentCard';
-import FeatureCard from '../../components/FeatureCard';
 import { IU_COLORS } from '../../utils/brandColors';
 import type { Department } from '../../types/departments';
-import departmentsData from '../../data/chapters/iu/departments.json';
+import gbmData from '../../data/chapters/iu/generalBodyMeetings.json';
 
 // Department icons
 const departmentIcons: Record<string, React.ReactNode> = {
-  finance: (
+  inbound: (
     <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
     </svg>
   ),
-  marketing: (
-    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46" />
-    </svg>
-  ),
-  operations: (
+  internal: (
     <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
     </svg>
   ),
-  membership: (
+  outbound: (
     <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
     </svg>
   ),
 };
 
-// Combine JSON data with icons
-const departments: Department[] = departmentsData.map(dept => ({
-  ...dept,
-  icon: departmentIcons[dept.id],
-}));
+// Define departments with new structure
+const departments: Department[] = [
+  {
+    id: 'inbound',
+    name: 'Inbound Logistics',
+    description: 'Collection and Financial Acquisition',
+    icon: departmentIcons.inbound,
+    responsibilities: [
+      'Donation Acquisition: Regular business outreach, securing drop-off times',
+      'Inbound Logistics: Focus on collecting computers',
+      'Financial Flows: Maintaining consistent financial flows and discretionary funding',
+      'Fundraising: Procuring donors, corporate sponsors, and fundraising methods',
+    ],
+    requiresApplication: false,
+    learnMoreContent: {
+      kpi: 'Tech Collected (Number of Devices) & Money Raised',
+      projects: [
+        'Corporate Donor Pipeline: Developing strategy to onboard new large-scale corporate donors',
+        'Dine & Donate: Procurement and execution of fundraisers (including marketing)',
+        'Large-Scale Drives: Planning, marketing, and execution of major donation drives',
+      ],
+      skillsYoullGain: 'Partnership development, fundraising strategy, donor relations, financial planning, and event coordination.',
+      idealFor: 'Students interested in business development, finance, nonprofit management, or building relationships with corporate partners.',
+    },
+  },
+  {
+    id: 'internal',
+    name: 'Internal Logistics',
+    description: 'Refurbishment and Process Management',
+    icon: departmentIcons.internal,
+    responsibilities: [
+      'Refurbishment Events: Present at 2-hour weekly refurbishment meetings',
+      'Internal Logistics: Focus on creating donation-ready computers',
+      'Volunteer Management: Communicating hours and tracking attendance',
+    ],
+    requiresApplication: false,
+    learnMoreContent: {
+      kpi: 'Devices refurbished/Week',
+      projects: [
+        'Procedure Documentation: Developing standardized documentation for secure data wiping (NIST standards) and refurbishment',
+        'Lab Optimization: Reorganizing the refurbishment space for maximum efficiency',
+        'Device Refurbishment: Leading specialized refurbishment projects (e.g., laptop repairs, software installation)',
+      ],
+      skillsYoullGain: 'Computer hardware expertise, process optimization, volunteer coordination, technical documentation, and quality assurance.',
+      idealFor: 'Students interested in technical operations, process improvement, computer science, or hands-on technology work.',
+    },
+  },
+  {
+    id: 'outbound',
+    name: 'Outbound Logistics',
+    description: 'Distribution and Impact Measurement',
+    icon: departmentIcons.outbound,
+    responsibilities: [
+      'Distribution: Focus on distributing computers',
+      'Support: Delivering maintenance and service',
+      'Impact Measurement: Validating target consumers and conducting follow-ups',
+    ],
+    requiresApplication: false,
+    learnMoreContent: {
+      kpi: 'Tech Donated (Number of Distributed Devices) & Attendance (for Outbound-led events)',
+      projects: [
+        'Communications: Developing marketing materials and monthly newsletter',
+        'Event Management: Planning two social events and securing guest speakers/panelists',
+        'Targeted Distribution Campaigns: Leading targeted campaigns (e.g., desktop distribution to homeless shelters)',
+      ],
+      skillsYoullGain: 'Community outreach, impact measurement, event planning, marketing communications, and social impact assessment.',
+      idealFor: 'Students interested in nonprofit work, community engagement, marketing, event management, or measuring social impact.',
+    },
+  },
+];
 
 export default function Join() {
-  const [expandedTeam, setExpandedTeam] = useState<string | null>(null);
+  const [expandedDept, setExpandedDept] = useState<string | null>(null);
 
-  const toggleTeam = (team: string) => {
-    setExpandedTeam(expandedTeam === team ? null : team);
+  const toggleDept = (deptId: string) => {
+    setExpandedDept(expandedDept === deptId ? null : deptId);
   };
+
+  // Calculate next meeting
+  const nextMeeting = useMemo(() => {
+    const today = new Date();
+    
+    for (const meeting of gbmData.meetings) {
+      const meetingDate = new Date(meeting.date);
+      
+      if (meetingDate >= today) {
+        return meeting;
+      }
+    }
+    return null;
+  }, []);
 
   return (
     <main className="grow relative z-10">
@@ -59,16 +132,16 @@ export default function Join() {
             {/* Navigation Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center">
               <a
-                href="#our-teams"
+                href="#departments"
                 className={`inline-flex items-center justify-center rounded-lg bg-gradient-to-r ${IU_COLORS.GRADIENT_PRIMARY} px-6 sm:px-8 py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105`}
               >
-                Our Departments & Teams
+                Our Departments
               </a>
               <a
-                href="#why-join"
+                href="#membership-tracks"
                 className={`inline-flex items-center justify-center rounded-lg bg-gradient-to-r ${IU_COLORS.GRADIENT_PRIMARY} px-6 sm:px-8 py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105`}
               >
-                Why Join?
+                Membership Tracks
               </a>
               <a
                 href="#how-join"
@@ -81,13 +154,43 @@ export default function Join() {
         </div>
       </div>
 
-      {/* Our Teams Section */}
-      <div id="our-teams" className="py-12 sm:py-16">
+      {/* Next Meeting Information - Prominent Section */}
+      {nextMeeting && (
+        <div className="py-8 sm:py-12">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-4xl">
+              <div className={`relative rounded-2xl bg-gradient-to-br ${IU_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-6 sm:p-8 lg:p-12 shadow-xl text-white`}>
+                <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+                  <div className="flex-shrink-0">
+                    <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                      <svg className="h-8 w-8 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="flex-1 text-center sm:text-left">
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-3">Next General Body Meeting</h2>
+                    <p className="text-lg sm:text-xl text-white/90 mb-2">
+                      <strong>{nextMeeting.displayDate} - {gbmData.dayOfWeek} at {gbmData.time}</strong>
+                    </p>
+                    <p className="text-base sm:text-lg text-white/90">
+                      {gbmData.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Departments Section */}
+      <div id="departments" className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Departments & Teams</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Departments</h2>
             <p className="mt-4 text-base sm:text-lg text-gray-600">
-              We have four core departments, each with teams playing a vital role in our mission
+              Three departments working together to create a seamless supply chain
             </p>
           </div>
 
@@ -102,8 +205,8 @@ export default function Join() {
                   responsibilities={dept.responsibilities}
                   requiresApplication={dept.requiresApplication}
                   teamId={dept.id}
-                  isExpanded={expandedTeam === dept.id}
-                  onToggle={toggleTeam}
+                  isExpanded={expandedDept === dept.id}
+                  onToggle={toggleDept}
                   learnMoreContent={dept.learnMoreContent}
                   colorClasses={IU_COLORS}
                 />
@@ -113,95 +216,159 @@ export default function Join() {
         </div>
       </div>
 
-      {/* Why Join Section */}
-      <div id="why-join" className="py-12 sm:py-16">
+      {/* Membership Tracks Section */}
+      <div id="membership-tracks" className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why Join Binary Heart?</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Membership Tracks</h2>
             <p className="mt-4 text-base sm:text-lg text-gray-600">
-              More than just volunteer hours—build skills, make connections, and create impact
+              Choose the commitment level that works best for you
             </p>
           </div>
 
-          <div className="mx-auto max-w-5xl">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <FeatureCard
-                icon={
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+          <div className="mx-auto max-w-5xl grid gap-8 lg:grid-cols-2">
+            {/* Committee Members */}
+            <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-lg">
+              <div className="flex items-center gap-4 mb-6">
+                <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${IU_COLORS.GRADIENT_PRIMARY} text-white`}>
+                  <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" />
                   </svg>
-                }
-                title="Real-World Skills"
-                description="Learn computer repair, digital marketing, financial management, or event planning—skills that look great on resumes."
-                gradientFrom="from-blue-500"
-                gradientTo="to-indigo-600"
-              />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Committee Members</h3>
+                  <p className={`text-sm font-semibold ${IU_COLORS.TEXT}`}>28–30 hours/semester</p>
+                </div>
+              </div>
+              
+              <p className="text-gray-600 mb-6">
+                Operational leadership (3-4 members per department) responsible for developing, executing, and leading all continuous work and high-impact projects.
+              </p>
 
-              <FeatureCard
-                icon={
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                  </svg>
-                }
-                title="Community Impact"
-                description="Make a tangible difference in Bloomington by helping students and families access essential technology."
-                gradientFrom="from-purple-500"
-                gradientTo="to-violet-600"
-              />
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Core Responsibilities:</h4>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <svg className={`h-5 w-5 ${IU_COLORS.TEXT} flex-shrink-0 mt-0.5`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Lead 1–2 key high-impact projects per semester</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className={`h-5 w-5 ${IU_COLORS.TEXT} flex-shrink-0 mt-0.5`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Manage daily, weekly, and monthly departmental workflow</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className={`h-5 w-5 ${IU_COLORS.TEXT} flex-shrink-0 mt-0.5`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Attend weekly Committee Meetings (1 hour/week)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className={`h-5 w-5 ${IU_COLORS.TEXT} flex-shrink-0 mt-0.5`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Lead Refurbishment Events and Open Houses</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className={`h-5 w-5 ${IU_COLORS.TEXT} flex-shrink-0 mt-0.5`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Plan and execute 8 General Body Meetings</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className={`h-5 w-5 ${IU_COLORS.TEXT} flex-shrink-0 mt-0.5`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Delegate tasks and mentor Operating Members</span>
+                    </li>
+                  </ul>
+                </div>
 
-              <FeatureCard
-                icon={
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-                  </svg>
-                }
-                title="Build Your Network"
-                description="Connect with passionate students, mentors, and professionals who care about technology access and social good."
-                gradientFrom="from-rose-500"
-                gradientTo="to-pink-600"
-              />
+                <div className={`rounded-lg ${IU_COLORS.BG_LIGHT} p-4`}>
+                  <h4 className="font-semibold text-gray-900 mb-2 text-sm">Time Breakdown:</h4>
+                  <ul className="space-y-1 text-sm text-gray-600">
+                    <li>• GBMs: 6–8 hours (6–8 meetings × 1 hour)</li>
+                    <li>• Committee Meetings: 12 hours (12 meetings × 1 hour)</li>
+                    <li>• Operations/Project Work: ~10 hours</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-              <FeatureCard
-                icon={
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+            {/* Operations Members */}
+            <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-8 shadow-lg">
+              <div className="flex items-center gap-4 mb-6">
+                <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${IU_COLORS.GRADIENT_SECONDARY} text-white`}>
+                  <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
                   </svg>
-                }
-                title="Leadership Opportunities"
-                description="Take on meaningful roles, lead projects, and develop leadership skills that employers value."
-                gradientFrom="from-amber-500"
-                gradientTo="to-orange-600"
-              />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Operations Members</h3>
+                  <p className="text-sm font-semibold text-gray-600">20–22 hours/semester</p>
+                </div>
+              </div>
+              
+              <p className="text-gray-600 mb-6">
+                The primary volunteer workforce, contributing to both continuous operations and project-based work within their chosen department.
+              </p>
 
-              <FeatureCard
-                icon={
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-                  </svg>
-                }
-                title="Resume Builder"
-                description="Stand out in internship and job applications with meaningful volunteer work and demonstrated technical or professional skills."
-                gradientFrom="from-emerald-500"
-                gradientTo="to-teal-600"
-              />
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Core Responsibilities:</h4>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <svg className="h-5 w-5 text-gray-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Aid assigned department in continuous operations</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="h-5 w-5 text-gray-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Attend two 2-hour Open Refurbishment Events</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="h-5 w-5 text-gray-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Attend majority of General Body Meetings</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="h-5 w-5 text-gray-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Complete tasks assigned by Committee Members</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="h-5 w-5 text-gray-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Flexible cross-departmental project support</span>
+                    </li>
+                  </ul>
+                </div>
 
-              <FeatureCard
-                icon={
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                }
-                title="Flexible Commitment"
-                description="Balance Binary Heart with your classes and other commitments. We value quality over quantity!"
-                gradientFrom="from-cyan-500"
-                gradientTo="to-blue-600"
-              />
+                <div className="rounded-lg bg-gray-50 p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2 text-sm">Time Breakdown:</h4>
+                  <ul className="space-y-1 text-sm text-gray-600">
+                    <li>• GBMs: 6–8 hours (6–8 meetings × 1 hour)</li>
+                    <li>• Refurbishment Events: 4 hours (2 events × 2 hours)</li>
+                    <li>• Operations/Project Work: ~10 hours</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Recruitment Information */}
+      {/* How to Join Section */}
       <div id="how-join" className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
@@ -209,99 +376,130 @@ export default function Join() {
               <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl mb-4">
                 How to Join
               </h2>
+              <p className="text-lg text-gray-600">
+                Different joining timelines for each membership track
+              </p>
             </div>
 
             <div className="space-y-6">
-              {/* Application-Based Teams */}
-              <div className="relative rounded-2xl bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-lg ring-1 ring-gray-900/5">
-                <div className="flex flex-col items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${IU_COLORS.GRADIENT_PRIMARY} text-white`}>
-                      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="flex-1 w-full">
-                    <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3">
-                      Finance & Marketing Teams
-                    </h3>
-                    <p className="text-sm sm:text-base text-gray-600 mb-4">
-                      These teams operate on a <strong>Fall/Spring application cycle</strong>. Applications open at the beginning of each semester.
-                    </p>
-                    <div className={`rounded-xl ${IU_COLORS.BG_LIGHT} p-4 sm:p-6`}>
-                      <div className="flex items-start gap-3 mb-4">
-                        <svg className={`h-5 w-5 sm:h-6 sm:w-6 ${IU_COLORS.TEXT} flex-shrink-0 mt-0.5`} fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
-                        </svg>
-                        <div className="min-w-0">
-                          <p className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Follow us on Instagram for application announcements:</p>
-                          <a
-                            href="https://www.instagram.com/binaryheartatiu/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`group inline-flex items-center gap-2 text-sm sm:text-base font-medium ${IU_COLORS.TEXT_HOVER} transition-colors`}
-                          >
-                            <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                            <span>@binaryheartatiu</span>
-                            <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                            </svg>
-                          </a>
-                        </div>
-                      </div>
-                      <p className="text-sm text-gray-600">
-                        We'll post when applications open and share details about each role, timeline, and selection process.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Operations & Membership - Open Recruitment */}
+              {/* Committee Members */}
               <div className={`relative rounded-2xl bg-gradient-to-br ${IU_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-6 sm:p-8 shadow-xl text-white`}>
                 <div className="flex flex-col items-start gap-4">
                   <div className="flex-shrink-0">
                     <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
                       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" />
                       </svg>
                     </div>
                   </div>
                   <div className="flex-1 w-full">
                     <h3 className="text-xl sm:text-2xl font-semibold mb-3">
-                      Operations & Membership Teams
+                      Committee Members
                     </h3>
                     <p className="text-white/90 mb-6 text-sm sm:text-base">
-                      <strong>Open to all—no application needed!</strong> Whether you want to work hands-on with computers (Operations) or help build our community through events and engagement (Membership), you can join anytime.
+                      Committee Member positions are recruited at the end of each semester.
                     </p>
-                    <ul className="space-y-3 mb-6 text-sm sm:text-base">
+                    <ul className="space-y-3 mb-4 text-sm sm:text-base">
                       <li className="flex items-start gap-2">
                         <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <span>No prior experience needed—we'll teach you!</span>
+                        <span>Follow our Instagram for recruitment announcements</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <span>Flexible schedule—come when you can</span>
+                        <span>Apply for your preferred department during recruitment period</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <span>Choose between hands-on tech work or community building</span>
+                        <span>Lead high-impact projects from day one</span>
                       </li>
                     </ul>
-                    <p className="text-white/90 text-sm sm:text-base">
-                      Reach out on Instagram <a href="https://www.instagram.com/binaryheartatiu/" target="_blank" rel="noopener noreferrer" className="underline hover:text-white font-semibold">@binaryheartatiu</a> to get started or to learn more!
-                    </p>
                   </div>
                 </div>
+              </div>
+
+              {/* Operations Members */}
+              <div className={`relative rounded-2xl bg-gradient-to-br ${IU_COLORS.GRADIENT_SECONDARY} backdrop-blur-sm p-6 sm:p-8 shadow-xl text-white`}>
+                <div className="flex flex-col items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
+                      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="flex-1 w-full">
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-3">
+                      Operations Members
+                    </h3>
+                    <p className="text-white/90 mb-6 text-sm sm:text-base">
+                      Operations Members can join at any point during the semester—we welcome new volunteers year-round!
+                    </p>
+                    <ul className="space-y-3 mb-4 text-sm sm:text-base">
+                      <li className="flex items-start gap-2">
+                        <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Reach out anytime via Instagram DM or email</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Choose your preferred department</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Start volunteering immediately with flexible commitment</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Info */}
+              <div className="text-center pt-4">
+                <p className="text-gray-600 text-sm sm:text-base">
+                  Questions about joining? DM us on Instagram <a href="https://www.instagram.com/binaryheartatiu/" target="_blank" rel="noopener noreferrer" className={`${IU_COLORS.TEXT} underline hover:opacity-80 font-semibold`}>@binaryheartatiu</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* General Body Meeting Schedule */}
+      <div className="py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl mb-4">
+                General Body Meeting Schedule ({gbmData.semester})
+              </h2>
+              <p className="text-base sm:text-lg text-gray-600">
+                {gbmData.dayOfWeek}, {gbmData.time} at {gbmData.location}
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-6 sm:p-8 shadow-lg">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {gbmData.meetings.map((meeting, index) => (
+                  <div
+                    key={index}
+                    className={`flex items-center justify-center rounded-lg ${IU_COLORS.BG_LIGHT} px-4 py-3 text-center`}
+                  >
+                    <span className={`text-base sm:text-lg font-semibold ${IU_COLORS.TEXT}`}>
+                      {meeting.displayDate}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
