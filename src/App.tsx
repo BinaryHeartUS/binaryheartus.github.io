@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { usePageTitle } from './hooks/usePageTitle';
+import { useGoogleAnalytics } from './hooks/useGoogleAnalytics';
 
 // National pages
 import NationalHome from './pages/national/Home';
@@ -58,6 +59,9 @@ import WPJoin from './pages/wp/Join';
 function AppContent() {
   // Update page title based on current route
   usePageTitle();
+  
+  // Track pageviews with Google Analytics on route changes
+  useGoogleAnalytics();
 
   return (
     <div className="flex flex-col min-h-screen relative isolate overflow-hidden">

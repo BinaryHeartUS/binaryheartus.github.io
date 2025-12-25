@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BinaryHeart</title>
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0NMX89D74W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0NMX89D74W', {
+        send_page_view: false // We'll manually send pageviews on route changes
+      });
+    </script>
+    
     <!-- AeroPay SDK -->
     <script src='https://sdk.aeropay.com/ap/aeropay.js'></script>
     
