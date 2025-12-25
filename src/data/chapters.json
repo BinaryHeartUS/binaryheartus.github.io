@@ -2,32 +2,37 @@
   "national": {
     "name": "National/501(c)(3)",
     "url": "https://binaryheart.org",
-    "icon": "/assets/images/chapters/national/icon.svg"
+    "icon": "/assets/images/chapters/national/icon.svg",
+    "measurementId": "G-0NMX89D74W"
   },
   "higherEducation": [
     {
       "name": "Northwestern University",
       "shortName": "NU",
       "url": "https://binaryheart.org/nu",
-      "icon": "/assets/images/chapters/nu/icon.svg"
+      "icon": "/assets/images/chapters/nu/icon.svg",
+      "measurementId": "G-T9G5MJG9ED"
     },
     {
       "name": "Indiana University",
       "shortName": "IU",
       "url": "https://binaryheart.org/iu",
-      "icon": "/assets/images/chapters/iu/icon.svg"
+      "icon": "/assets/images/chapters/iu/icon.svg",
+      "measurementId": "G-4TKS3F7H35"
     },
     {
       "name": "Purdue University",
       "shortName": "Purdue",
       "url": "https://binaryheart.org/purdue",
-      "icon": "/assets/images/chapters/purdue/icon.svg"
+      "icon": "/assets/images/chapters/purdue/icon.svg",
+      "measurementId": "G-BX0RR1NKQM"
     },
     {
       "name": "Rose-Hulman Institute of Technology",
       "shortName": "Rose-Hulman",
       "url": "https://binaryheart.org/rose-hulman",
-      "icon": "/assets/images/chapters/rose-hulman/icon.svg"
+      "icon": "/assets/images/chapters/rose-hulman/icon.svg",
+      "measurementId": "G-GXS59DXDNS"
     }
   ],
   "highSchool": [
@@ -35,13 +40,15 @@
       "name": "New Trier",
       "shortName": "NT",
       "url": "https://binaryheart.org/nt",
-      "icon": "/assets/images/chapters/nt/icon.svg"
+      "icon": "/assets/images/chapters/nt/icon.svg",
+      "measurementId": "G-EKEJYNWWFS"
     },
     {
       "name": "Walter Payton College Prep",
       "shortName": "WP",
       "url": "https://binaryheart.org/wp",
-      "icon": "/assets/images/chapters/wp/icon.svg"
+      "icon": "/assets/images/chapters/wp/icon.svg",
+      "measurementId": "G-6XN6EF8T0G"
     }
   ]
 }
