@@ -16,11 +16,16 @@ declare global {
 /**
  * Custom hook to track pageviews with Google Analytics on route changes
  * Sends pageviews to main property AND chapter-specific property (if on a chapter page)
+ * Disabled on localhost to prevent skewing production data
  */
 export const useGoogleAnalytics = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Don't track on localhost
+    const hostname = window.location.hostname;
+    if (hostname === 'localhost' || hostname === '127.0.0.1') return;
+    
     // Check if gtag is available (it should be loaded from index.html)
     if (typeof window.gtag !== 'function') return;
     
