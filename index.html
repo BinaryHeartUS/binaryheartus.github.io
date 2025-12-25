@@ -12,6 +12,9 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      
+      // Main organization-wide tracking
+      // Chapter-specific IDs are loaded dynamically from chapters.json
       gtag('config', 'G-0NMX89D74W', {
         send_page_view: false // We'll manually send pageviews on route changes
       });
