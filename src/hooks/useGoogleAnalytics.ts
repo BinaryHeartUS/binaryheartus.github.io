@@ -29,10 +29,14 @@ export const useGoogleAnalytics = () => {
       // Get all measurement IDs that should receive this pageview
       const measurementIds = getMeasurementIds(location.pathname);
       
-      // Send pageview to each relevant property
+      // Send pageview event explicitly to each measurement ID
+      // Using 'event' with 'send_to' ensures proper targeting
       measurementIds.forEach(id => {
-        window.gtag!('config', id, {
+        window.gtag!('event', 'page_view', {
           page_path: fullPath,
+          page_location: window.location.href,
+          page_title: document.title,
+          send_to: id, // Critical: Only send to this specific measurement ID
         });
       });
     }
