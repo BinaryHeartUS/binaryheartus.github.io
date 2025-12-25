@@ -24,25 +24,8 @@ chaptersData.highSchool.forEach(chapter => {
   }
 });
 
-// Track if we've initialized chapter measurement IDs
-let isInitialized = false;
-
-/**
- * Initialize all chapter-specific measurement IDs with gtag
- * This should be called once when the app loads
- */
-export function initializeAnalytics() {
-  if (isInitialized || typeof window.gtag !== 'function') return;
-  
-  // Initialize each chapter measurement ID
-  Object.values(chapterMeasurementIds).forEach(measurementId => {
-    window.gtag!('config', measurementId, {
-      send_page_view: false
-    });
-  });
-  
-  isInitialized = true;
-}
+// Get the main (national) measurement ID
+export const MAIN_MEASUREMENT_ID = chaptersData.national.measurementId;
 
 /**
  * Extract chapter slug from URL path
@@ -63,17 +46,14 @@ export function getChapterFromPath(pathname: string): string | null {
 }
 
 /**
- * Get all measurement IDs that should receive tracking data for a given path
+ * Get the chapter-specific measurement ID for a given path
  * @param pathname - The URL pathname
- * @returns Array of measurement IDs to track
+ * @returns Chapter measurement ID or null if not a chapter page
  */
-export function getMeasurementIds(pathname: string): string[] {
-  const ids: string[] = [chaptersData.national.measurementId];
-  
+export function getChapterMeasurementId(pathname: string): string | null {
   const chapter = getChapterFromPath(pathname);
   if (chapter && chapterMeasurementIds[chapter]) {
-    ids.push(chapterMeasurementIds[chapter]);
+    return chapterMeasurementIds[chapter];
   }
-  
-  return ids;
+  return null;
 }

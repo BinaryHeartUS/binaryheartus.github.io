@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getMeasurementIds } from '../utils/analyticsConfig';
+import { MAIN_MEASUREMENT_ID, getChapterMeasurementId } from '../utils/analyticsConfig';
 
 // Extend Window interface to include gtag
 declare global {
@@ -15,29 +15,39 @@ declare global {
 
 /**
  * Custom hook to track pageviews with Google Analytics on route changes
- * Automatically sends pageviews to both the main property and chapter-specific
- * properties based on the current URL path
+ * Sends pageviews to main property AND chapter-specific property (if on a chapter page)
+ * Disabled on localhost to prevent skewing production data
  */
 export const useGoogleAnalytics = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Don't track on localhost
+    const hostname = window.location.hostname;
+    if (hostname === 'localhost' || hostname === '127.0.0.1') return;
+    
     // Check if gtag is available (it should be loaded from index.html)
-    if (typeof window.gtag === 'function') {
-      const fullPath = location.pathname + location.search + location.hash;
-      
-      // Get all measurement IDs that should receive this pageview
-      const measurementIds = getMeasurementIds(location.pathname);
-      
-      // Send pageview event explicitly to each measurement ID
-      // Using 'event' with 'send_to' ensures proper targeting
-      measurementIds.forEach(id => {
-        window.gtag!('event', 'page_view', {
-          page_path: fullPath,
-          page_location: window.location.href,
-          page_title: document.title,
-          send_to: id, // Critical: Only send to this specific measurement ID
-        });
+    if (typeof window.gtag !== 'function') return;
+    
+    const fullPath = location.pathname + location.search + location.hash;
+    const pageData = {
+      page_path: fullPath,
+      page_location: window.location.href,
+      page_title: document.title,
+    };
+    
+    // Always send to main property (national)
+    window.gtag('event', 'page_view', {
+      ...pageData,
+      send_to: MAIN_MEASUREMENT_ID,
+    });
+    
+    // If on a chapter page, also send to chapter-specific property
+    const chapterMeasurementId = getChapterMeasurementId(location.pathname);
+    if (chapterMeasurementId) {
+      window.gtag('event', 'page_view', {
+        ...pageData,
+        send_to: chapterMeasurementId,
       });
     }
   }, [location]);
