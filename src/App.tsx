@@ -1,11 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { usePageTitle } from './hooks/usePageTitle';
 import { useGoogleAnalytics } from './hooks/useGoogleAnalytics';
-import { initializeAnalytics } from './utils/analyticsConfig';
 
 // National pages
 import NationalHome from './pages/national/Home';
@@ -59,12 +57,6 @@ import WPDonate from './pages/wp/Donate';
 import WPJoin from './pages/wp/Join';
 
 function AppContent() {
-  // Initialize Google Analytics with all chapter measurement IDs
-  // This runs once when the component mounts
-  React.useEffect(() => {
-    initializeAnalytics();
-  }, []);
-  
   // Update page title based on current route
   usePageTitle();
   
