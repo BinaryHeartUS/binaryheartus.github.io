@@ -41,8 +41,8 @@ export default function Join() {
                     </svg>
                   </div>
                   <div className="text-center">
-                    <p className="text-base sm:text-lg font-bold mb-1">Tuesday & Wednesday</p>
-                    <p className="text-sm sm:text-base text-white/90">4:00 PM - 6:00 PM</p>
+                    <p className="text-base sm:text-lg font-bold mb-1">Monday, Wednesday, and Friday</p>
+                    <p className="text-sm sm:text-base text-white/90">3:30 PM - 5:00 PM</p>
                   </div>
                 </div>
 
@@ -61,7 +61,7 @@ export default function Join() {
                       rel="noopener noreferrer"
                       className="text-sm sm:text-base text-white/90 hover:text-white underline"
                     >
-                      1223 Hull Terrace, Evanston
+                      1910 Orrington Ave, Evanston
                     </a>
                   </div>
                 </div>
