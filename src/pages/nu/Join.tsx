@@ -77,58 +77,6 @@ export default function Join() {
         </div>
       </div>
 
-      {/* Transportation Section */}
-      <div className={`py-8 sm:py-12`}>
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl mb-6 text-center">
-              Getting There
-            </h2>
-            <p className="text-center text-base sm:text-lg text-gray-600 mb-8">
-              Our space is about a 10-minute drive from campus. We offer multiple transportation options:
-            </p>
-
-            <div className="space-y-6">
-              <InfoCard
-                icon={
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
-                  </svg>
-                }
-                title="BH Ride (Free!)"
-                description="Message us on Instagram/Slack or email nu@binaryheart.org before or during our open hours. Regular pick-up at 1910 Orrington Ave (across from Foster), or request a custom pick-up location."
-                bgColorClass="bg-purple-100"
-                iconColorClass="text-purple-600"
-              />
-
-              <InfoCard
-                icon={
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
-                  </svg>
-                }
-                title="Uber/Lyft (We'll Pay!)"
-                description="We reimburse transportation costs! Either let us order you an Uber, or order one yourself and send the receipt to nu@binaryheart.org with your Venmo/Zelle for reimbursement within 24 hours."
-                bgColorClass="bg-blue-100"
-                iconColorClass="text-blue-600"
-              />
-
-              <InfoCard
-                icon={
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
-                  </svg>
-                }
-                title="Public Transportation"
-                description="Bus: Take CTA 201 Line to Ridge & Hull Terrace stop (5 min walk). Train: Take Purple Line to South Boulevard, then message us for a pick-up (4 min drive, 25 min walk)."
-                bgColorClass="bg-emerald-100"
-                iconColorClass="text-emerald-600"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Who Can Join */}
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -138,7 +86,7 @@ export default function Join() {
             </h2>
             <div className="text-gray-600 space-y-4 text-sm sm:text-base">
               <p>
-                Binary Heart at Northwestern is open to <strong>all students</strong>, regardless of major, year, or technical experience. Whether you're a CS major or studying humanities, there's a place for you here.
+                BinaryHeart at Northwestern is open to <strong>all students</strong>, regardless of major, year, or technical experience. Whether you're a CS major or studying humanities, there's a place for you here.
               </p>
               <p>
                 We welcome students from all backgrounds and experience levels—from complete beginners to tech enthusiasts. Our team includes engineers, designers, business students, and students from every school at Northwestern, all united by a shared commitment to making technology accessible.
@@ -155,7 +103,7 @@ export default function Join() {
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-8">
-            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl">Why Join Binary Heart?</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl">Why Join BinaryHeart?</h2>
             <p className="mt-4 text-base sm:text-lg text-gray-600">
               More than just volunteer hours—build skills, make connections, and create impact
             </p>

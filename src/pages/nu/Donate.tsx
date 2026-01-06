@@ -125,7 +125,7 @@ export default function Donate() {
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">Tax-Deductible Donation</h3>
                       <p className="text-sm text-gray-700">
-                        Binary Heart is a registered 501(c)(3) nonprofit. We'll provide a receipt for your tax-deductible donation.
+                        BinaryHeart is a registered 501(c)(3) nonprofit. We'll provide a receipt for your tax-deductible donation.
                       </p>
                     </div>
                   </div>
