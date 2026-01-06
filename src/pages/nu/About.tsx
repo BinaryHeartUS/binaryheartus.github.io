@@ -29,30 +29,30 @@ export default function About() {
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6">Who We Are</h2>
             <div className="prose prose-lg text-gray-600 space-y-4">
               <p>
-                Founded in 2024, Binary Heart at Northwestern represents the expansion of a nationwide movement to make technology accessible to everyone. As students at one of the nation's top research universities, we bring diverse expertise and perspectives to our mission of refurbishing and redistributing technology.
+                Founded in 2024, BinaryHeart at Northwestern represents the expansion of a nationwide movement to make technology accessible to everyone. As students at one of the nation's top research universities, we bring diverse expertise and perspectives to our mission of refurbishing and redistributing technology.
               </p>
               <p>
-                We combine Northwestern's culture of innovation, collaboration, and service with Binary Heart's proven model of student-led community impact. We work to ensure that students, families, and community organizations in the Evanston and Chicago area have access to the technology they need to succeed in an increasingly digital world.
+                We combine Northwestern's culture of innovation, collaboration, and service with BinaryHeart's proven model of student-led community impact. We work to ensure that students, families, and community organizations in the Evanston and Chicago area have access to the technology they need to succeed in an increasingly digital world.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* About Binary Heart */}
+      {/* About BinaryHeart */}
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6">About Binary Heart</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6">About BinaryHeart</h2>
             <div className="prose prose-lg text-gray-600 space-y-4">
               <p>
-                Binary Heart is a student-run 501(c)(3) nonprofit organization that was founded at New Trier High School in 2016. Since then, we've grown into a nationwide network of chapters, each working to address the digital divide in their local communities.
+                BinaryHeart is a student-run 501(c)(3) nonprofit organization that was founded at New Trier High School in 2016. Since then, we've grown into a nationwide network of chapters, each working to address the digital divide in their local communities.
               </p>
               <p>
                 Our mission is simple but powerful: collect unwanted computers and electronics, refurbish them to like-new condition, and distribute them to students and families who need them. In the process, we keep thousands of pounds of e-waste out of landfills and provide students with hands-on technical skills that prepare them for careers in technology.
               </p>
               <p>
-                As a 501(c)(3) organization, donations to Binary Heart are tax-deductible, and we operate with full transparency about our impact and operations.
+                As a 501(c)(3) organization, donations to BinaryHeart are tax-deductible, and we operate with full transparency about our impact and operations.
               </p>
             </div>
           </div>
@@ -130,7 +130,7 @@ export default function About() {
           <div className="mx-auto max-w-3xl text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Leadership Team</h2>
             <p className="mt-4 text-lg text-gray-600">
-              Meet the students leading Binary Heart at Northwestern
+              Meet the students leading BinaryHeart at Northwestern
             </p>
           </div>
 
@@ -144,9 +144,15 @@ export default function About() {
               />
 
               <PictureCard
-                imageSrc="/assets/images/chapters/nu/people/LuciaMcConnell.png"
-                name="Lucia McConnell"
-                role="Vice President"
+                imageSrc="/assets/images/chapters/nu/people/CoreyZhang.jpeg"
+                name="Corey Zhang"
+                role="Technical Director"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/nu/people/BreannaLu.jpeg"
+                name="Breanna Lu"
+                role="Director of Operations"
               />
 
               <PictureCard
@@ -159,6 +165,12 @@ export default function About() {
                 imageSrc="/assets/images/chapters/nu/people/MichaelGeohas.jpg"
                 name="Michael Geohas"
                 role="Chief Marketing Officer"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/nu/people/LuciaMcConnell.png"
+                name="Lucia McConnell"
+                role="Advisor"
               />
             </div>
           </div>
@@ -176,7 +188,7 @@ export default function About() {
                   Join Our Mission
                 </h2>
                 <p className="text-lg text-purple-100 mb-8">
-                  Whether you want to volunteer, donate devices, or support our work financially, there are many ways to get involved with Binary Heart at Northwestern.
+                  Whether you want to volunteer, donate devices, or support our work financially, there are many ways to get involved with BinaryHeart at Northwestern.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
