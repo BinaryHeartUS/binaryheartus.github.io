@@ -79,6 +79,21 @@ export default function Join() {
 
   return (
     <main className="grow relative z-10">
+      {/* Global gradient blobs for all sections */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
+        {/* Blob for Operational Areas section */}
+        <div className="absolute left-[calc(50%-20rem)] top-[100vh] aspect-[1155/678] w-[50rem] -translate-x-1/2 rotate-[15deg] bg-gradient-to-tr from-[#9a0202]/20 to-[#c41e1e]/20 opacity-70 blur-3xl"></div>
+        
+        {/* Blob for Responsibilities section */}
+        <div className="absolute right-[calc(50%-15rem)] top-[220vh] aspect-[1155/678] w-[45rem] translate-x-1/2 rotate-[-25deg] bg-gradient-to-tr from-[#808080]/20 to-[#a0a0a0]/20 opacity-70 blur-3xl"></div>
+        
+        {/* Blob for GBM Schedule section - right side */}
+        <div className="absolute left-[calc(50%+10rem)] top-[340vh] aspect-[1155/678] w-[40rem] -translate-x-1/2 rotate-[40deg] bg-gradient-to-tr from-[#9a0202]/20 to-[#808080]/20 opacity-70 blur-3xl"></div>
+        
+        {/* Blob for GBM Schedule section - center left */}
+        <div className="absolute left-[calc(50%-25rem)] top-[350vh] aspect-[1155/678] w-[38rem] -translate-x-1/2 rotate-[-20deg] bg-gradient-to-tr from-[#808080]/20 to-[#9a0202]/20 opacity-70 blur-3xl"></div>
+      </div>
+      
       {/* First Section: Operations Manager Expectations */}
       <div className="relative isolate overflow-hidden h-screen flex flex-col items-center justify-center py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 flex-1 flex items-center">
@@ -111,7 +126,7 @@ export default function Join() {
       </div>
 
       {/* Second Section: Operational Areas */}
-      <div className="py-12 sm:py-16 bg-gray-50/50">
+      <div className="relative py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Operational Areas</h2>
@@ -257,7 +272,7 @@ export default function Join() {
       </div>
 
       {/* Fourth Section: Responsibilities */}
-      <div className="py-12 sm:py-16 bg-gray-50/50">
+      <div className="relative py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <div className="text-center mb-12">
@@ -386,7 +401,7 @@ export default function Join() {
       </div>
 
       {/* General Body Meeting Schedule */}
-      <div className="py-12 sm:py-16 bg-gray-50/50">
+      <div className="relative py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <div className="text-center mb-8">
