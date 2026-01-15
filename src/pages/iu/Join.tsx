@@ -45,7 +45,7 @@ const operationalAreas = [
     exampleProjects: [
       'Device Refurbishment: Wipe, refurbish, and prepare devices to be distributed to our community',
       'Procedure Development: Develop standardized and optimized refurbishment documentation to help other volunteers and chapters',
-      'Specialized IT Projects: Work on projects with unique equipment donated, like GPUs, networking equipment, or servers',
+      'Specialized IT Projects: Work on unique projects with donated equipment, across areas like AI, networking, and more',
     ],
   },
   {
@@ -94,45 +94,31 @@ export default function Join() {
         <div className="absolute left-[calc(50%-25rem)] top-[350vh] aspect-[1155/678] w-[38rem] -translate-x-1/2 rotate-[-20deg] bg-gradient-to-tr from-[#808080]/20 to-[#9a0202]/20 opacity-70 blur-3xl"></div>
       </div>
       
-      {/* First Section: Project Manager/Technician Expectations */}
-      <div className="relative isolate overflow-hidden h-screen flex flex-col items-center justify-center py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 flex-1 flex items-center">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl mb-4">
-              Join <BinaryHeartText /> at Indiana University as an Project Manager/Technician!
-            </h1>
-            <p className="text-base sm:text-lg leading-6 sm:leading-7 text-gray-700 mb-3">
-              Take part in the processes that power our donation pipeline by helping collect, process, or distribute technology. Learn about our different operational areas below, and how you can get involved!
-            </p>
-            <p className="text-sm sm:text-base text-gray-600 italic mb-8">
-              Regardless of where you apply to work, you will have the chance to work on any project we offer across all operational areas!
-            </p>
-            
-            {/* Next Meeting Card */}
-            {nextMeeting && (
-              <div className={`relative rounded-2xl bg-gradient-to-br ${IU_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-6 sm:p-8 lg:p-12 shadow-xl text-white`}>
-                <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
-                  <div className="flex-shrink-0">
-                    <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                      <svg className="h-8 w-8 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="flex-1 text-center sm:text-left">
-                    <h2 className="text-2xl sm:text-3xl font-bold mb-3">Next General Body Meeting</h2>
-                    <p className="text-lg sm:text-xl text-white/90 mb-2">
-                      <strong>{nextMeeting.displayDate} • {gbmData.dayOfWeek} at {gbmData.time}</strong>
-                    </p>
-                    <p className="text-base sm:text-lg text-white/90">
-                      {gbmData.location}
-                    </p>
-                  </div>
+        {/* First Section: Community Manager or Technician Expectations */}
+        <div className="relative isolate overflow-hidden h-screen flex flex-col items-center justify-center py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 flex-1 flex items-center">
+            <div className="mx-auto max-w-4xl text-center">
+              {/* Next Meeting Tag */}
+              {nextMeeting && (
+                <div className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${IU_COLORS.GRADIENT_PRIMARY} px-4 py-2 text-sm font-semibold text-white shadow-lg mb-6`}>
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                  </svg>
+                  <span>Next General Body Meeting: {nextMeeting.displayDate} • {gbmData.time} • {gbmData.location}</span>
                 </div>
-              </div>
-            )}
+              )}
+              
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl mb-4">
+                Join <BinaryHeartText /> at Indiana University as an Community Manager or Technician!
+              </h1>
+              <p className="text-base sm:text-lg leading-6 sm:leading-7 text-gray-700 mb-3">
+                Take part in the processes that power our donation pipeline by helping collect, process, or distribute technology. Learn about our different operational areas below, and how you can get involved!
+              </p>
+              <p className="text-sm sm:text-base text-gray-600 italic">
+                Regardless of where you apply to work, you will have the chance to work on any project we offer across all operational areas!
+              </p>
+            </div>
           </div>
-        </div>
         
         {/* Scroll Indicator */}
         <div className="flex-shrink-0 flex flex-col items-center gap-2 pb-4" style={{ animation: 'bounce 2s infinite' }}>
@@ -148,36 +134,6 @@ export default function Join() {
           </svg>
         </div>
       </div>
-
-      {/* Next Meeting Information Section */}
-      {nextMeeting && (
-        <div className="py-8 sm:py-12">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-4xl">
-              <div className={`relative rounded-2xl bg-gradient-to-br ${IU_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-6 sm:p-8 lg:p-12 shadow-xl text-white`}>
-                <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
-                  <div className="flex-shrink-0">
-                    <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                      <svg className="h-8 w-8 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="flex-1 text-center sm:text-left">
-                    <h2 className="text-2xl sm:text-3xl font-bold mb-3">Next General Body Meeting</h2>
-                    <p className="text-lg sm:text-xl text-white/90 mb-2">
-                      <strong>{nextMeeting.displayDate} • {gbmData.dayOfWeek} at {gbmData.time}</strong>
-                    </p>
-                    <p className="text-base sm:text-lg text-white/90">
-                      {gbmData.location}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Second Section: Operational Areas */}
       <div className="relative py-12 sm:py-16">
@@ -233,10 +189,10 @@ export default function Join() {
                 How to Get Involved
               </h2>
               <p className="text-base sm:text-lg text-gray-600 mb-4">
-                At the start of every semester, BHIU offers a volunteer recruitment schedule to onboard a large number of volunteers at once. However, if you missed it, no worries! We offer recruitment all year round. Follow the steps below to get involved!
+                At the start of every semester, BHIU offers a volunteer recruitment schedule to onboard a large number of volunteers at once. However, if you missed it, no worries! We offer recruitment all year round. See below how to get involved!
               </p>
               <p className={`text-base sm:text-lg font-semibold ${IU_COLORS.TEXT}`}>
-                Note: We ask our members for 22 hours per semester to contribute to BinaryHeart. The formal breakdown is below!
+                Note: We ask our members for at least 22 hours per semester to contribute to BinaryHeart. The formal breakdown is below!
               </p>
             </div>
 
@@ -333,7 +289,7 @@ export default function Join() {
           <div className="mx-auto max-w-4xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
-                Project Manager/Technician Responsibilities
+                Community Manager or Technician Responsibilities
               </h2>
               <p className="text-base sm:text-lg text-gray-600">
                 Collaborate with and contribute to a fast-paced, execution-focused operational team pushing to get devices into the hands of people in need.
@@ -345,7 +301,7 @@ export default function Join() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">What You'll Do:</h3>
                   <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                    Our Directors offer projects during General Body Meetings that you, as an Project Manager/Technician, can contribute to. At most of our General Body Meetings, you can choose which projects you want to work on across the operational areas we have.
+                    Our Directors offer projects during General Body Meetings that you, as a Community Manager or Technician, can contribute to. At most of our General Body Meetings, you can get experience across all three of our operational areas.
                   </p>
                   <ul className="space-y-3 text-sm sm:text-base text-gray-600">
                     <li className="flex items-start gap-2">
@@ -376,7 +332,7 @@ export default function Join() {
                 </div>
 
                 <div className={`rounded-lg ${IU_COLORS.BG_LIGHT} p-6`}>
-                  <h4 className="font-semibold text-gray-900 mb-3">Time Commitment (22 hours/semester):</h4>
+                  <h4 className="font-semibold text-gray-900 mb-3">Time Commitment (at least 22 hours/semester):</h4>
                   <ul className="space-y-2 text-sm sm:text-base text-gray-600">
                     <li className="flex items-start gap-2">
                       <span className={`${IU_COLORS.TEXT} flex-shrink-0 font-bold`}>•</span>

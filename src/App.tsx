@@ -6,9 +6,6 @@ import ScrollToTop from './components/ScrollToTop';
 import { usePageTitle } from './hooks/usePageTitle';
 import { useGoogleAnalytics } from './hooks/useGoogleAnalytics';
 import { getBackgroundGradients } from './utils/brandColors';
-import chaptersData from './data/chapters.json';
-import type { ChaptersData } from './types/chapters';
-import { getCurrentChapterInfo } from './utils/urlHelpers';
 
 // National pages
 import NationalHome from './pages/national/Home';
@@ -63,7 +60,6 @@ import WPJoin from './pages/wp/Join';
 
 function AppContent() {
   const location = useLocation();
-  const chapters = chaptersData as ChaptersData;
   
   // Update page title based on current route
   usePageTitle();
@@ -71,14 +67,22 @@ function AppContent() {
   // Track pageviews with Google Analytics on route changes
   useGoogleAnalytics();
 
-  // Get current chapter and determine gradient colors
-  const { currentChapter } = useMemo(
-    () => getCurrentChapterInfo(location.pathname, chapters),
-    [location.pathname, chapters]
-  );
+  // Get current chapter slug from pathname
+  const currentChapter = useMemo(() => {
+    const pathParts = location.pathname.split('/').filter(Boolean);
+    const knownPages = ['about', 'contact', 'faq', 'request', 'join', 'donate'];
+    
+    // If path is empty or starts with a known page, we're on national (return empty string)
+    if (pathParts.length === 0 || knownPages.includes(pathParts[0])) {
+      return '';
+    }
+    
+    // Otherwise, first part is the chapter slug
+    return pathParts[0];
+  }, [location.pathname]);
 
-  // Get background gradient colors from brandColors utility
-  const gradientColors = useMemo(
+  // Get background gradient colors based on current chapter
+  const { top, middle } = useMemo(
     () => getBackgroundGradients(currentChapter),
     [currentChapter]
   );
@@ -87,10 +91,10 @@ function AppContent() {
     <div className="flex flex-col min-h-screen relative isolate overflow-hidden">
       {/* Global background gradients */}
       <div className="absolute inset-x-0 -top-40 z-0 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-        <div className={`relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr ${gradientColors.top} opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]`}></div>
+        <div className={`relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr ${top} opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]`}></div>
       </div>
       <div className="absolute inset-x-0 top-[calc(50%-13rem)] z-0 transform-gpu overflow-hidden blur-3xl sm:top-[calc(50%-30rem)]" aria-hidden="true">
-        <div className={`relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr ${gradientColors.middle} opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]`}></div>
+        <div className={`relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr ${middle} opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]`}></div>
       </div>
 
       <Header />
