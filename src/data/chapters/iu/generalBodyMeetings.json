@@ -2,8 +2,12 @@
   "semester": "Spring 2026",
   "time": "7-8pm",
   "dayOfWeek": "Thursday",
-  "location": "Hodge Hall/On Campus",
+  "location": "Myles Brand Hall E150",
   "meetings": [
+    {
+      "date": "2026-01-15",
+      "displayDate": "1/15"
+    },
     {
       "date": "2026-01-29",
       "displayDate": "1/29"
