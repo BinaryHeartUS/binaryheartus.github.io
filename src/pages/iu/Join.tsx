@@ -94,7 +94,7 @@ export default function Join() {
         <div className="absolute left-[calc(50%-25rem)] top-[350vh] aspect-[1155/678] w-[38rem] -translate-x-1/2 rotate-[-20deg] bg-gradient-to-tr from-[#808080]/20 to-[#9a0202]/20 opacity-70 blur-3xl"></div>
       </div>
       
-        {/* First Section: Technician Expectations */}
+        {/* First Section: General Member or Technician Expectations */}
         <div className="relative isolate overflow-hidden h-screen flex flex-col items-center justify-center py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8 flex-1 flex items-center">
             <div className="mx-auto max-w-4xl text-center">
@@ -109,7 +109,7 @@ export default function Join() {
               )}
               
               <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl mb-4">
-                Join <BinaryHeartText /> at Indiana University as a Technician!
+                Join <BinaryHeartText /> at Indiana University as a General Member or Technician!
               </h1>
               <p className="text-base sm:text-lg leading-6 sm:leading-7 text-gray-700 mb-3">
                 Take part in the processes that power our donation pipeline by helping collect, process, or distribute technology. Learn about our different operational areas below, and how you can get involved!
@@ -289,7 +289,7 @@ export default function Join() {
           <div className="mx-auto max-w-4xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
-                Technician Responsibilities
+                General Member or Technician Responsibilities
               </h2>
               <p className="text-base sm:text-lg text-gray-600">
                 Collaborate with and contribute to a fast-paced, execution-focused operational team pushing to get devices into the hands of people in need.
@@ -301,7 +301,7 @@ export default function Join() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">What You'll Do:</h3>
                   <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                    Our Directors offer projects during General Body Meetings that you, as a Technician, can contribute to. At most of our General Body Meetings, you can get experience across all three of our operational areas.
+                    Our Directors offer projects during General Body Meetings that you, as a General Member or Technician, can contribute to. At most of our General Body Meetings, you can get experience across all three of our operational areas.
                   </p>
                   <ul className="space-y-3 text-sm sm:text-base text-gray-600">
                     <li className="flex items-start gap-2">
