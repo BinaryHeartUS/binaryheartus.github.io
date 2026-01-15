@@ -6,6 +6,9 @@ import ScrollToTop from './components/ScrollToTop';
 import { usePageTitle } from './hooks/usePageTitle';
 import { useGoogleAnalytics } from './hooks/useGoogleAnalytics';
 import { getBackgroundGradients } from './utils/brandColors';
+import { getCurrentChapterInfo } from './utils/urlHelpers';
+import chaptersData from './data/chapters.json';
+import type { ChaptersData } from './types/chapters';
 
 // National pages
 import NationalHome from './pages/national/Home';
@@ -60,6 +63,7 @@ import WPJoin from './pages/wp/Join';
 
 function AppContent() {
   const location = useLocation();
+  const chapters = chaptersData as ChaptersData;
   
   // Update page title based on current route
   usePageTitle();
@@ -67,19 +71,11 @@ function AppContent() {
   // Track pageviews with Google Analytics on route changes
   useGoogleAnalytics();
 
-  // Get current chapter slug from pathname
-  const currentChapter = useMemo(() => {
-    const pathParts = location.pathname.split('/').filter(Boolean);
-    const knownPages = ['about', 'contact', 'faq', 'request', 'join', 'donate'];
-    
-    // If path is empty or starts with a known page, we're on national (return empty string)
-    if (pathParts.length === 0 || knownPages.includes(pathParts[0])) {
-      return '';
-    }
-    
-    // Otherwise, first part is the chapter slug
-    return pathParts[0];
-  }, [location.pathname]);
+  // Get current chapter slug from pathname using urlHelpers
+  const { currentChapter } = useMemo(
+    () => getCurrentChapterInfo(location.pathname, chapters),
+    [location.pathname, chapters]
+  );
 
   // Get background gradient colors based on current chapter
   const { top, middle } = useMemo(
