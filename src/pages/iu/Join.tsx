@@ -27,13 +27,13 @@ const operationalAreas = [
   {
     id: 'inbound',
     name: 'Inbound Logistics',
-    description: 'Collection and Financial Acquisition',
+    description: 'Device Collection and Financial Acquisition',
     icon: areaIcons.inbound,
-    idealFor: 'Students interested in business development, finance, nonprofit management, or building relationships with corporate partners.',
+    idealFor: 'Students interested in business development, sales, nonprofit management, or building relationships with corporate partners.',
     exampleProjects: [
-      'Corporate Donor Pipeline: Develop strategy to onboard large-scale donors',
-      'Dine & Donate: Procure and execute fundraisers',
-      'Large-Scale Drives: Plan and market major donation drives',
+      'Community Collection Events: Organize donation drives in collaboration with local organizations like farmers markets or libraries',
+      'Corporate Donor Pipeline: Develop strategy to acquire local businesses as donors of technology or funds',
+      'Kirkwood Fundraiser: Organize a fundraiser with businesses on Kirkwood to raise awareness and funds for our organization, with the business that converts the most donations receiving good PR and a portfion of winnings',
     ],
   },
   {
@@ -66,11 +66,11 @@ export default function Join() {
   // Calculate next meeting
   const nextMeeting = useMemo(() => {
     const today = new Date();
+    const todayStr = today.toISOString().split('T')[0]; // Get YYYY-MM-DD format
     
     for (const meeting of gbmData.meetings) {
-      const meetingDate = new Date(meeting.date);
-      
-      if (meetingDate >= today) {
+      // Compare date strings directly to avoid timezone issues
+      if (meeting.date >= todayStr) {
         return meeting;
       }
     }
@@ -102,7 +102,7 @@ export default function Join() {
               Join <BinaryHeartText /> at Indiana University as an Operations Manager!
             </h1>
             <p className="text-base sm:text-lg leading-6 sm:leading-7 text-gray-700 mb-3">
-              Have the chance to work on projects that span our operational areas and contribute to our technology donation service. Learn about our different operational areas below, and how you can get involved!
+              Take part in the processes that power our donation pipeline by helping collect, process, or distribute technology. Learn about our different operational areas below, and how you can get involved!
             </p>
             <p className="text-sm sm:text-base text-gray-600 italic">
               You aren't applying for a specific area—you'll have the chance to work on any project we offer across all operational areas!
@@ -182,7 +182,7 @@ export default function Join() {
                 At the start of every semester, BHIU offers a volunteer recruitment schedule to onboard a large number of volunteers at once. However, if you missed it, no worries! We offer recruitment all year round. Follow the steps below to get involved!
               </p>
               <p className={`text-base sm:text-lg font-semibold ${IU_COLORS.TEXT}`}>
-                Note: We ask our members for 20 hours per semester to contribute to BinaryHeart. The formal breakdown is below!
+                Note: We ask our members for 22 hours per semester to contribute to BinaryHeart. The formal breakdown is below!
               </p>
             </div>
 
@@ -232,15 +232,17 @@ export default function Join() {
                     <p className="text-white/90 mb-4 text-sm sm:text-base">
                       If you missed our recruitment cycle, fill out this survey and send an email to <a href="mailto:iu@binaryheart.org" className="underline font-semibold hover:opacity-80">iu@binaryheart.org</a>—we will get back to you with a time to chat!
                     </p>
-                    <button
-                      onClick={() => alert('Survey link coming soon! For now, please email iu@binaryheart.org')}
+                    <a
+                      href="https://forms.gle/uATD5UBrR3U9Ch6CA"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 rounded-lg bg-white/20 hover:bg-white/30 px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105"
                     >
                       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
                       </svg>
                       Fill Out Survey
-                    </button>
+                    </a>
                     <p className="text-white/90 mt-3 text-xs sm:text-sm italic">
                       Note: You must complete this step to be formally considered a member of BinaryHeart.
                     </p>
@@ -335,64 +337,6 @@ export default function Join() {
                       <span><strong>Project Work:</strong> ~8–10 hours (flexible based on projects chosen)</span>
                     </li>
                   </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Fifth Section: Vertical Progressions */}
-      <div className="py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
-                Vertical Progressions
-              </h2>
-              <p className="text-base sm:text-lg text-gray-600">
-                Grow your leadership skills and take on more responsibility
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div className={`relative rounded-2xl bg-gradient-to-br ${IU_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-6 sm:p-8 shadow-xl text-white`}>
-                <div className="flex flex-col sm:flex-row items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-                      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-semibold mb-3">
-                      Become a Director
-                    </h3>
-                    <p className="text-white/90 mb-4 text-sm sm:text-base">
-                      At the end of each semester, Operations Managers will have an opportunity to apply to be Directors for these operational areas. By completing the responsibilities above, you will be eligible for these positions!
-                    </p>
-                    <div className="space-y-3 mb-6">
-                      <p className="text-white/90 text-sm sm:text-base">
-                        <strong>Think you have what it takes to be a Director, without prior BinaryHeart experience?</strong>
-                      </p>
-                      <p className="text-white/90 text-sm sm:text-base">
-                        Apply using the form below and send an email to <a href="mailto:iu@binaryheart.org" className="underline font-semibold hover:opacity-80">iu@binaryheart.org</a>.
-                      </p>
-                      <p className="text-white/90 text-xs sm:text-sm italic">
-                        Note: Successful applicants will have prior experience in leadership and unique experiences in their sought-upon area. More information is included at the link!
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => alert('Director application link coming soon! For now, please email iu@binaryheart.org')}
-                      className="inline-flex items-center gap-2 rounded-lg bg-white/20 hover:bg-white/30 px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105"
-                    >
-                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                      </svg>
-                      Director Application
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>
