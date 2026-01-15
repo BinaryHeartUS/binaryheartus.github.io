@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { usePageTitle } from './hooks/usePageTitle';
 import { useGoogleAnalytics } from './hooks/useGoogleAnalytics';
+import { getBackgroundGradients } from './utils/brandColors';
 import chaptersData from './data/chapters.json';
 import type { ChaptersData } from './types/chapters';
 import { getCurrentChapterInfo } from './utils/urlHelpers';
@@ -76,20 +77,11 @@ function AppContent() {
     [location.pathname, chapters]
   );
 
-  // Define gradient colors based on chapter
-  const gradientColors = useMemo(() => {
-    if (currentChapter === 'iu') {
-      return {
-        top: 'from-[#9a0202] to-[#c41e1e]',
-        middle: 'from-[#808080] to-[#a0a0a0]'
-      };
-    }
-    // Default colors for other chapters
-    return {
-      top: 'from-blue-400 to-blue-600',
-      middle: 'from-red-400 to-pink-600'
-    };
-  }, [currentChapter]);
+  // Get background gradient colors from brandColors utility
+  const gradientColors = useMemo(
+    () => getBackgroundGradients(currentChapter),
+    [currentChapter]
+  );
 
   return (
     <div className="flex flex-col min-h-screen relative isolate overflow-hidden">

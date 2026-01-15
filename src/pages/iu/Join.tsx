@@ -33,7 +33,7 @@ const operationalAreas = [
     exampleProjects: [
       'Community Collection Events: Organize donation drives in collaboration with local organizations like farmers markets or libraries',
       'Corporate Donor Pipeline: Develop strategy to acquire local businesses as donors of technology or funds',
-      'Kirkwood Fundraiser: Organize a fundraiser with businesses on Kirkwood to raise awareness and funds for our organization, with the business that converts the most donations receiving good PR and a portfion of winnings',
+      'Community Fundraiser: Organize a fundraiser with businesses to raise awareness and funds for our organization',
     ],
   },
   {
@@ -41,11 +41,11 @@ const operationalAreas = [
     name: 'Internal Logistics',
     description: 'Refurbishment and Process Management',
     icon: areaIcons.internal,
-    idealFor: 'Students interested in technical operations, process improvement, computer science, or hands-on technology work.',
+    idealFor: 'Technical students interested in technical operations, process improvement, computer science, or hands-on technology work.',
     exampleProjects: [
-      'Procedure Documentation: Develop standardized refurbishment documentation',
-      'Lab Optimization: Reorganize refurbishment space for efficiency',
-      'Device Refurbishment: Lead specialized repair projects',
+      'Device Refurbishment: Wipe, refurbish, and prepare devices to be distributed to our community',
+      'Procedure Development: Develop standardized and optimized refurbishment documentation to help other volunteers and chapters',
+      'Specialized IT Projects: Work on projects with unique equipment donated, like GPUs, networking equipment, or servers',
     ],
   },
   {
@@ -66,11 +66,11 @@ export default function Join() {
   // Calculate next meeting
   const nextMeeting = useMemo(() => {
     const today = new Date();
-    const todayStr = today.toISOString().split('T')[0]; // Get YYYY-MM-DD format
+    today.setHours(0, 0, 0, 0);
     
     for (const meeting of gbmData.meetings) {
-      // Compare date strings directly to avoid timezone issues
-      if (meeting.date >= todayStr) {
+      const meetingDate = new Date(meeting.date + "T00:00:00");
+      if (meetingDate >= today) {
         return meeting;
       }
     }
@@ -94,19 +94,43 @@ export default function Join() {
         <div className="absolute left-[calc(50%-25rem)] top-[350vh] aspect-[1155/678] w-[38rem] -translate-x-1/2 rotate-[-20deg] bg-gradient-to-tr from-[#808080]/20 to-[#9a0202]/20 opacity-70 blur-3xl"></div>
       </div>
       
-      {/* First Section: Operations Manager Expectations */}
+      {/* First Section: Project Manager/Technician Expectations */}
       <div className="relative isolate overflow-hidden h-screen flex flex-col items-center justify-center py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 flex-1 flex items-center">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl mb-4">
-              Join <BinaryHeartText /> at Indiana University as an Operations Manager!
+              Join <BinaryHeartText /> at Indiana University as an Project Manager/Technician!
             </h1>
             <p className="text-base sm:text-lg leading-6 sm:leading-7 text-gray-700 mb-3">
               Take part in the processes that power our donation pipeline by helping collect, process, or distribute technology. Learn about our different operational areas below, and how you can get involved!
             </p>
-            <p className="text-sm sm:text-base text-gray-600 italic">
-              You aren't applying for a specific area—you'll have the chance to work on any project we offer across all operational areas!
+            <p className="text-sm sm:text-base text-gray-600 italic mb-8">
+              Regardless of where you apply to work, you will have the chance to work on any project we offer across all operational areas!
             </p>
+            
+            {/* Next Meeting Card */}
+            {nextMeeting && (
+              <div className={`relative rounded-2xl bg-gradient-to-br ${IU_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-6 sm:p-8 lg:p-12 shadow-xl text-white`}>
+                <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+                  <div className="flex-shrink-0">
+                    <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                      <svg className="h-8 w-8 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="flex-1 text-center sm:text-left">
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-3">Next General Body Meeting</h2>
+                    <p className="text-lg sm:text-xl text-white/90 mb-2">
+                      <strong>{nextMeeting.displayDate} • {gbmData.dayOfWeek} at {gbmData.time}</strong>
+                    </p>
+                    <p className="text-base sm:text-lg text-white/90">
+                      {gbmData.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         
@@ -124,6 +148,36 @@ export default function Join() {
           </svg>
         </div>
       </div>
+
+      {/* Next Meeting Information Section */}
+      {nextMeeting && (
+        <div className="py-8 sm:py-12">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-4xl">
+              <div className={`relative rounded-2xl bg-gradient-to-br ${IU_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-6 sm:p-8 lg:p-12 shadow-xl text-white`}>
+                <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+                  <div className="flex-shrink-0">
+                    <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                      <svg className="h-8 w-8 sm:h-10 sm:w-10" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="flex-1 text-center sm:text-left">
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-3">Next General Body Meeting</h2>
+                    <p className="text-lg sm:text-xl text-white/90 mb-2">
+                      <strong>{nextMeeting.displayDate} • {gbmData.dayOfWeek} at {gbmData.time}</strong>
+                    </p>
+                    <p className="text-base sm:text-lg text-white/90">
+                      {gbmData.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Second Section: Operational Areas */}
       <div className="relative py-12 sm:py-16">
@@ -279,10 +333,10 @@ export default function Join() {
           <div className="mx-auto max-w-4xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
-                Operations Manager Responsibilities
+                Project Manager/Technician Responsibilities
               </h2>
               <p className="text-base sm:text-lg text-gray-600">
-                Collaborate and contribute to a fast-paced, lean operational team pushing to get devices into the hands of people in need.
+                Collaborate with and contribute to a fast-paced, execution-focused operational team pushing to get devices into the hands of people in need.
               </p>
             </div>
 
@@ -291,7 +345,7 @@ export default function Join() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">What You'll Do:</h3>
                   <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                    Our Directors offer projects during General Body Meetings that you, as an Operations Manager, can contribute to. At most of our General Body Meetings, you can choose which projects you want to work on across the operational areas we have.
+                    Our Directors offer projects during General Body Meetings that you, as an Project Manager/Technician, can contribute to. At most of our General Body Meetings, you can choose which projects you want to work on across the operational areas we have.
                   </p>
                   <ul className="space-y-3 text-sm sm:text-base text-gray-600">
                     <li className="flex items-start gap-2">
