@@ -322,11 +322,11 @@ export default function Join() {
                 </div>
 
                 <div className={`rounded-lg ${IU_COLORS.BG_LIGHT} p-6`}>
-                  <h4 className="font-semibold text-gray-900 mb-3">Time Commitment (20 hours/semester):</h4>
+                  <h4 className="font-semibold text-gray-900 mb-3">Time Commitment (22 hours/semester):</h4>
                   <ul className="space-y-2 text-sm sm:text-base text-gray-600">
                     <li className="flex items-start gap-2">
                       <span className={`${IU_COLORS.TEXT} flex-shrink-0 font-bold`}>•</span>
-                      <span><strong>General Body Meetings:</strong> 6–8 hours (6–8 meetings × 1 hour)</span>
+                      <span><strong>General Body Meetings:</strong> 8 hours (8 meetings × 1 hour)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className={`${IU_COLORS.TEXT} flex-shrink-0 font-bold`}>•</span>
@@ -334,7 +334,7 @@ export default function Join() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className={`${IU_COLORS.TEXT} flex-shrink-0 font-bold`}>•</span>
-                      <span><strong>Project Work:</strong> ~8–10 hours (flexible based on projects chosen)</span>
+                      <span><strong>Project Work:</strong> 10 hours (flexible based on projects chosen)</span>
                     </li>
                   </ul>
                 </div>
