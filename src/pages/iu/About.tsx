@@ -169,7 +169,7 @@ export default function About() {
           </div>
 
           <div className="mx-auto max-w-2xl">
-            <PictureCardGrid columns={2}>
+            <PictureCardGrid>
               <PictureCard
                 imageSrc="/assets/images/chapters/iu/people/JackWilber.jpg"
                 name="Jack Wilber"

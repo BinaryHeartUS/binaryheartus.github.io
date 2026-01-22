@@ -8,8 +8,8 @@ interface PictureCardGridProps {
  * A flex container for PictureCard components that automatically centers
  * items and wraps them into rows. Incomplete rows are centered automatically.
  * 
- * PictureCard components inside will have a natural width and the container
- * will fit as many as possible per row, centering any overflow.
+ * Cards have a min-width of 240px and grow to fill available space,
+ * reducing whitespace while maintaining responsive behavior.
  * 
  * @param children - PictureCard components to display
  */

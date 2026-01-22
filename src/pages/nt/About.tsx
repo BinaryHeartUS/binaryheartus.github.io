@@ -151,7 +151,7 @@ export default function About() {
           </div>
 
           <div className="mx-auto max-w-6xl">
-            <PictureCardGrid columns={4}>
+            <PictureCardGrid>
               <PictureCard
                 imageSrc="/assets/images/chapters/nt/people/lukeTegel.jpeg"
                 name="Luke Tegel"

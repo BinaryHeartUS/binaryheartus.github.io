@@ -136,12 +136,11 @@ export default function About() {
           </div>
 
           <div className="mx-auto max-w-6xl">
-            <PictureCardGrid columns={4}>
+            <PictureCardGrid>
               <PictureCard
                 imageSrc="/assets/images/chapters/nu/people/EnzoCaggiano.jpg"
                 name="Enzo Caggiano"
                 role="President"
-                subtitle="Executive Director of National 501(c)(3)"
               />
 
               <PictureCard

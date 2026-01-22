@@ -176,7 +176,6 @@ export default function About() {
                 imageSrc="/assets/images/chapters/rose-hulman/people/TalBelkind.jpg"
                 name="Tal Belkind"
                 role="President"
-                subtitle="Technology Director of National 501(c)(3)"
               />
 
               <PictureCard
