@@ -75,6 +75,13 @@ export default function About() {
         </div>
       </div>
 
+      {/* Photo Gallery */}
+      <PhotoCarousel
+        images={galleryImages}
+        title="Our Chapter in Action"
+        subtitle="See our team making an impact in the community"
+      />
+
       {/* What We Do */}
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -132,13 +139,6 @@ export default function About() {
           </div>
         </div>
       </div>
-
-      {/* Photo Gallery */}
-      <PhotoCarousel
-        images={galleryImages}
-        title="Our Chapter in Action"
-        subtitle="See our team making an impact in the community"
-      />
 
       {/* Leadership Team */}
       <div className="py-8 sm:py-12">
