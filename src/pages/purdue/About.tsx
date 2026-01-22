@@ -2,6 +2,7 @@ import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
 import PictureCard from '../../components/PictureCard';
+import PictureCardGrid from '../../components/PictureCardGrid';
 import { PURDUE_COLORS } from '../../utils/brandColors';
 
 export default function About() {
@@ -140,13 +141,13 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8 text-center">Meet Our Leadership</h2>
-            <div className="flex justify-center">
+            <PictureCardGrid columns={2}>
               <PictureCard
                 name="Jacob Doreski"
                 role="President"
                 imageSrc="/assets/images/chapters/purdue/people/JacobDoreski.png"
               />
-            </div>
+            </PictureCardGrid>
           </div>
         </div>
       </div>

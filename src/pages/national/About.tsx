@@ -3,6 +3,7 @@ import FeatureCard from '../../components/FeatureCard';
 import InfoCard from '../../components/InfoCard';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import PictureCard from '../../components/PictureCard';
+import PictureCardGrid from '../../components/PictureCardGrid';
 
 export default function About() {
   return (
@@ -305,7 +306,7 @@ export default function About() {
           </div>
 
           <div className="mx-auto max-w-6xl">
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <PictureCardGrid>
               <PictureCard
                 imageSrc="/assets/images/chapters/national/people/JackWilber.jpg"
                 name="Jack Wilber"
@@ -335,7 +336,7 @@ export default function About() {
                 name="Tal Belkind"
                 role="Director of Technology"
               />
-            </div>
+            </PictureCardGrid>
           </div>
         </div>
       </div>

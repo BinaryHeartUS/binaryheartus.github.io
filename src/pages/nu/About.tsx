@@ -2,6 +2,7 @@ import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
 import PictureCard from '../../components/PictureCard';
+import PictureCardGrid from '../../components/PictureCardGrid';
 import { NORTHWESTERN_COLORS } from '../../utils/brandColors';
 
 export default function About() {
@@ -135,7 +136,7 @@ export default function About() {
           </div>
 
           <div className="mx-auto max-w-6xl">
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <PictureCardGrid columns={4}>
               <PictureCard
                 imageSrc="/assets/images/chapters/nu/people/EnzoCaggiano.jpg"
                 name="Enzo Caggiano"
@@ -160,7 +161,7 @@ export default function About() {
                 name="Michael Geohas"
                 role="Chief Marketing Officer"
               />
-            </div>
+            </PictureCardGrid>
           </div>
         </div>
       </div>

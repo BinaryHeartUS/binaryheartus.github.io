@@ -3,6 +3,7 @@ import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
 import PictureCard from '../../components/PictureCard';
+import PictureCardGrid from '../../components/PictureCardGrid';
 import { ROSE_HULMAN_COLORS } from '../../utils/brandColors';
 
 export default function About() {
@@ -170,7 +171,7 @@ export default function About() {
           </div>
 
           <div className="mx-auto max-w-6xl">
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            <PictureCardGrid>
               <PictureCard
                 imageSrc="/assets/images/chapters/rose-hulman/people/TalBelkind.jpg"
                 name="Tal Belkind"
@@ -199,9 +200,15 @@ export default function About() {
               <PictureCard
                 imageSrc="/assets/images/chapters/rose-hulman/people/AnthonyFlores.jpg"
                 name="Anthony Flores"
-                role="Director of Membership"
+                role="Director of Internal Affairs"
               />
-            </div>
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/rose-hulman/people/KatieCotellesso.jpg"
+                name="Katie Cotellesso"
+                role="Director of Outreach"
+              />
+            </PictureCardGrid>
           </div>
         </div>
       </div>
