@@ -31,7 +31,7 @@ export default function Contact() {
                     <div className="flex-shrink-0">
                       <img 
                         src="/assets/images/chapters/nu/icon.svg" 
-                        alt="Northwestern Binary Heart Logo" 
+                        alt="Northwestern BinaryHeart Logo" 
                         className="h-10 w-10"
                       />
                     </div>
@@ -104,14 +104,14 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900">Weekly Meetings</p>
-                        <p className="text-gray-600">Tuesday & Wednesday, 4-6 PM</p>
+                        <p className="text-gray-600">Monday, Wednesday, and Friday, 3:30-5:00 PM</p>
                         <a
                           href="https://maps.app.goo.gl/J3xPJzFdN3vJDWWZ9"
                           target="_blank"
                           rel="noopener noreferrer"
                           className={`${NORTHWESTERN_COLORS.TEXT} ${NORTHWESTERN_COLORS.TEXT_HOVER}`}
                         >
-                          1223 Hull Terrace, Evanston
+                          1910 Orrington Ave, Evanston
                         </a>
                       </div>
                     </div>
