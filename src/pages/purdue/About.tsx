@@ -141,7 +141,7 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8 text-center">Meet Our Leadership</h2>
-            <PictureCardGrid columns={2}>
+            <PictureCardGrid>
               <PictureCard
                 name="Jacob Doreski"
                 role="President"
