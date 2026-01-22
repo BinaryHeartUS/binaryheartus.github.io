@@ -2,6 +2,7 @@ import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
 import PictureCard from '../../components/PictureCard';
+import PictureCardGrid from '../../components/PictureCardGrid';
 import { NORTHWESTERN_COLORS } from '../../utils/brandColors';
 
 export default function About() {
@@ -135,12 +136,11 @@ export default function About() {
           </div>
 
           <div className="mx-auto max-w-6xl">
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <PictureCardGrid>
               <PictureCard
                 imageSrc="/assets/images/chapters/nu/people/EnzoCaggiano.jpg"
                 name="Enzo Caggiano"
                 role="President"
-                subtitle="Executive Director of National 501(c)(3)"
               />
 
               <PictureCard
@@ -172,7 +172,7 @@ export default function About() {
                 name="Lucia McConnell"
                 role="Advisor"
               />
-            </div>
+            </PictureCardGrid>
           </div>
         </div>
       </div>

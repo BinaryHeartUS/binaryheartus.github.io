@@ -501,7 +501,6 @@ import PictureCard from '../../components/PictureCard';
   imageSrc="/assets/images/chapters/chapter-name/people/PersonName.jpg"
   name="Person Name"
   role="Their Role"
-  subtitle="Optional additional info"
 />
 ```
 

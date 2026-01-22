@@ -214,7 +214,6 @@ import PictureCard from '../../components/PictureCard';
   imageSrc="/assets/images/chapters/national/people/JackWilber.jpg"
   name="Jack Wilber"
   role="Executive Director"
-  subtitle="Optional additional title"  // Optional
 />
 ```
 

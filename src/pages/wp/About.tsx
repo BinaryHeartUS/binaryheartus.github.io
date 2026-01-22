@@ -2,6 +2,7 @@ import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
 import PictureCard from '../../components/PictureCard';
+import PictureCardGrid from '../../components/PictureCardGrid';
 import { WALTER_PAYTON_COLORS } from '../../utils/brandColors';
 
 export default function About() {
@@ -140,7 +141,7 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8 text-center">Meet Our Leadership</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+            <PictureCardGrid>
               <PictureCard
                 name="Mo' Eneh"
                 role="President"
@@ -166,7 +167,7 @@ export default function About() {
                 role="Sponsor"
                 imageSrc="/assets/images/chapters/wp/people/isaaccastelaz.jpg"
               />
-            </div>
+            </PictureCardGrid>
           </div>
         </div>
       </div>

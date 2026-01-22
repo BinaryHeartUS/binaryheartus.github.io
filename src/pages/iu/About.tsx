@@ -3,6 +3,7 @@ import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
 import PictureCard from '../../components/PictureCard';
+import PictureCardGrid from '../../components/PictureCardGrid';
 import { IU_COLORS } from '../../utils/brandColors';
 
 export default function About() {
@@ -168,7 +169,7 @@ export default function About() {
           </div>
 
           <div className="mx-auto max-w-2xl">
-            <div className="flex flex-wrap justify-center gap-8">
+            <PictureCardGrid>
               <PictureCard
                 imageSrc="/assets/images/chapters/iu/people/JackWilber.jpg"
                 name="Jack Wilber"
@@ -180,7 +181,7 @@ export default function About() {
                 name="Mary Dinkha"
                 role="Vice President"
               />
-            </div>
+            </PictureCardGrid>
           </div>
         </div>
       </div>

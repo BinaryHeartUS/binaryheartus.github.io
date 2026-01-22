@@ -3,6 +3,7 @@ import InfoCard from '../../components/InfoCard';
 import StatsGrid from '../../components/StatsGrid';
 import PhotoCarousel from '../../components/PhotoCarousel';
 import PictureCard from '../../components/PictureCard';
+import PictureCardGrid from '../../components/PictureCardGrid';
 import { NEW_TRIER_COLORS } from '../../utils/brandColors';
 
 const galleryImages = [
@@ -74,6 +75,13 @@ export default function About() {
         </div>
       </div>
 
+      {/* Photo Gallery */}
+      <PhotoCarousel
+        images={galleryImages}
+        title="Our Chapter in Action"
+        subtitle="See our team making an impact in the community"
+      />
+
       {/* What We Do */}
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -132,13 +140,6 @@ export default function About() {
         </div>
       </div>
 
-      {/* Photo Gallery */}
-      <PhotoCarousel
-        images={galleryImages}
-        title="Our Chapter in Action"
-        subtitle="See our team making an impact in the community"
-      />
-
       {/* Leadership Team */}
       <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -150,7 +151,7 @@ export default function About() {
           </div>
 
           <div className="mx-auto max-w-6xl">
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <PictureCardGrid>
               <PictureCard
                 imageSrc="/assets/images/chapters/nt/people/lukeTegel.jpeg"
                 name="Luke Tegel"
@@ -174,7 +175,7 @@ export default function About() {
                 name="Kristie Caruthers"
                 role="Faculty Advisor"
               />
-            </div>
+            </PictureCardGrid>
           </div>
         </div>
       </div>
