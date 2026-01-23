@@ -165,7 +165,7 @@ export default function About() {
               />
 
               <PictureCard
-                imageSrc="/assets/images/chapters/nt/people/KristianQirko.jpg"
+                imageSrc="/assets/images/chapters/nt/people/kristianQirko.jpg"
                 name="Kristian Qirko"
                 role="Executive Leader"
               />
