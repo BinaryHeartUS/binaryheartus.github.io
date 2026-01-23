@@ -249,7 +249,7 @@ export default function Contact() {
                         name="entry.1800868177"
                         id="message"
                         rows={5}
-                        className={`block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[${NEW_TRIER_COLORS.PRIMARY_BLUE}] resize-none`}
+                        className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 resize-none"
                         required
                       />
                     </div>
