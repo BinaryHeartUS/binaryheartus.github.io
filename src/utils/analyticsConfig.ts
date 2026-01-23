@@ -33,7 +33,7 @@ export const MAIN_MEASUREMENT_ID = chaptersData.national.measurementId;
  * @returns Chapter slug (e.g., 'iu') or null if not a chapter page
  */
 export function getChapterFromPath(pathname: string): string | null {
-  const match = pathname.match(/^\/([^\/]+)/);
+  const match = pathname.match(/^\/([^/]+)/);
   if (!match) return null;
   
   const slug = match[1];
