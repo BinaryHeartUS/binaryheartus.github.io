@@ -163,7 +163,7 @@ export default function Contact() {
                           type="text"
                           name="entry.1475264147"
                           id="firstName"
-                          className={`block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[${PURDUE_COLORS.PRIMARY}]`}
+                          className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                           required
                         />
                       </div>
@@ -183,7 +183,7 @@ export default function Contact() {
                           type="text"
                           name="entry.307727203"
                           id="lastName"
-                          className={`block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[${PURDUE_COLORS.PRIMARY}]`}
+                          className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                           required
                         />
                       </div>
@@ -205,7 +205,7 @@ export default function Contact() {
                         type="email"
                         name="entry.1302188399"
                         id="email"
-                        className={`block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[${PURDUE_COLORS.PRIMARY}]`}
+                        className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                         required
                       />
                     </div>
@@ -226,7 +226,7 @@ export default function Contact() {
                         type="tel"
                         name="entry.1751717741"
                         id="phone"
-                        className={`block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[${PURDUE_COLORS.PRIMARY}]`}
+                        className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                       />
                     </div>
                   </div>
@@ -246,7 +246,7 @@ export default function Contact() {
                         name="entry.1800868177"
                         id="message"
                         rows={5}
-                        className={`block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[${PURDUE_COLORS.PRIMARY}] resize-none`}
+                        className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 resize-none"
                         required
                       />
                     </div>

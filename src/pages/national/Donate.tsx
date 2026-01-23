@@ -12,7 +12,7 @@ declare global {
         location: string;
         type: string;
         onSuccess: (uuid: string) => void;
-        onEvent: (event: any) => void;
+        onEvent: (event: Record<string, unknown>) => void;
       }) => {
         launch: (amount: string) => void;
       };
@@ -60,7 +60,7 @@ export default function Donate() {
             setPaymentAmount(''); // Reset amount after successful payment
           };
 
-          const onEvent = (event: any) => {
+          const onEvent = (event: Record<string, unknown>) => {
             console.log('AeroPay event:', event);
           };
 

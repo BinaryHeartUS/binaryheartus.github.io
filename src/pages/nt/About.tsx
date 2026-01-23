@@ -159,7 +159,13 @@ export default function About() {
               />
 
               <PictureCard
-                imageSrc="/assets/images/chapters/nt/people/kristian.jpg"
+                imageSrc="/assets/images/chapters/nt/people/HenryFiely.jpg"
+                name="Henry Fiely"
+                role="Executive Leader"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/nt/people/kristianQirko.jpg"
                 name="Kristian Qirko"
                 role="Executive Leader"
               />
@@ -185,7 +191,6 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <div className={`relative rounded-2xl bg-gradient-to-br ${NEW_TRIER_COLORS.GRADIENT_PRIMARY} p-8 sm:p-12 shadow-2xl overflow-hidden`}>
-              <div className="absolute inset-0 bg-[url('/assets/images/grid.svg')] opacity-10"></div>
               <div className="relative">
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
                   Join Our Mission
