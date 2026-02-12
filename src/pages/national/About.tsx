@@ -301,7 +301,7 @@ export default function About() {
           <div className="mx-auto max-w-3xl text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Leadership Team</h2>
             <p className="mt-4 text-lg text-gray-600">
-              Meet the students leading Binary Heart's mission
+              Meet the group leading Binary Heart's mission
             </p>
           </div>
 
@@ -326,16 +326,29 @@ export default function About() {
               />
               
               <PictureCard
+                imageSrc="/assets/images/chapters/national/people/TalBelkind.jpg"
+                name="Tal Belkind"
+                role="Director of Technology"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/national/people/SabrinaLin.jpeg"
+                name="Sabrina Lin"
+                role="Director of Education"
+              />
+
+              <PictureCard
                 imageSrc="/assets/images/chapters/national/people/HenlyWolin.jpeg"
                 name="Henly Wolin"
                 role="Executive Director"
               />
 
               <PictureCard
-                imageSrc="/assets/images/chapters/national/people/TalBelkind.jpg"
-                name="Tal Belkind"
-                role="Director of Technology"
+                imageSrc="/assets/images/chapters/national/people/AmyKemper.jpeg"
+                name="Amy Kemper"
+                role="Board Member"
               />
+
             </PictureCardGrid>
           </div>
         </div>
