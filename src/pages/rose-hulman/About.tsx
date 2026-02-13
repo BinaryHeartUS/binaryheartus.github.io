@@ -195,6 +195,7 @@ export default function About() {
                 name="Hunter Snyder"
                 role="Secretary"
                 linkedin="https://www.linkedin.com/in/hunter-snyder-ba834032b/"
+                github="https://github.com/hsnyder342"
                 email="snyderh1@rose-hulman.edu"
               />
 
