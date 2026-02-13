@@ -310,7 +310,7 @@ export default function About() {
               <PictureCard
                 imageSrc="/assets/images/chapters/national/people/JackWilber.jpg"
                 name="Jack Wilber"
-                role="Executive Director"
+                role="President"
                 linkedin="https://www.linkedin.com/in/jackwilber/"
                 email="jackwilber@binaryheart.org"
               />
@@ -330,6 +330,14 @@ export default function About() {
                 linkedin="https://www.linkedin.com/in/marykaitlyndinkha/"
                 email="marydinkha@binaryheart.org"
               />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/national/people/HenlyWolin.jpeg"
+                name="Henly Wolin"
+                role="Executive Director"
+                linkedin="https://www.linkedin.com/in/henlywolin/"
+                email="henlywolin@binaryheart.org"
+              />
               
               <PictureCard
                 imageSrc="/assets/images/chapters/national/people/TalBelkind.jpg"
@@ -346,14 +354,6 @@ export default function About() {
                 role="Director of Education"
                 linkedin="https://www.linkedin.com/in/sabrinaslin/"
                 email="sabrinalin@iu.binaryheart.org"
-              />
-
-              <PictureCard
-                imageSrc="/assets/images/chapters/national/people/HenlyWolin.jpeg"
-                name="Henly Wolin"
-                role="Executive Director"
-                linkedin="https://www.linkedin.com/in/henlywolin/"
-                email="henlywolin@binaryheart.org"
               />
 
               <PictureCard
