@@ -2,13 +2,12 @@ interface PictureCardProps {
   imageSrc: string;
   name: string;
   role: string;
-  subtitle?: string;
   linkedin?: string;
   github?: string;
   email?: string;
 }
 
-export default function PictureCard({ imageSrc, name, role, subtitle, linkedin, github, email }: PictureCardProps) {
+export default function PictureCard({ imageSrc, name, role, linkedin, github, email }: PictureCardProps) {
   const hasSocialLinks = linkedin || github || email;
 
   return (
@@ -22,7 +21,6 @@ export default function PictureCard({ imageSrc, name, role, subtitle, linkedin, 
       </div>
       <h3 className="text-lg font-semibold text-gray-900 mb-1">{name}</h3>
       <p className="text-sm text-gray-600">{role}</p>
-      {subtitle && <p className="text-xs text-gray-500 mt-1">{subtitle}</p>}
       
       {hasSocialLinks && (
         <div className="flex justify-center gap-3 mt-3 pt-3 border-t border-gray-200">
