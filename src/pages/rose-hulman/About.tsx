@@ -199,11 +199,11 @@ export default function About() {
               />
 
               <PictureCard
-                imageSrc="/assets/images/chapters/rose-hulman/people/JackLucas.jpg"
-                name="Jack Lucas"
+                imageSrc="/assets/images/chapters/rose-hulman/people/BryceHuey.jpeg"
+                name="Bryce Huey"
                 role="Treasurer"
-                linkedin="https://www.linkedin.com/in/jack-lucas-82087a328/"
-                email="lucasja@rose-hulman.edu"
+                linkedin="https://www.linkedin.com/in/bryce-huey-858ba628b/"
+                email="hueybm@rose-hulman.edu"
               />
 
               <PictureCard
