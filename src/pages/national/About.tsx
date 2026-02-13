@@ -311,44 +311,58 @@ export default function About() {
                 imageSrc="/assets/images/chapters/national/people/JackWilber.jpg"
                 name="Jack Wilber"
                 role="Executive Director"
+                linkedin="https://www.linkedin.com/in/jackwilber/"
+                email="jackwilber@binaryheart.org"
               />
 
               <PictureCard
                 imageSrc="/assets/images/chapters/national/people/EnzoCaggiano.jpg"
                 name="Enzo Caggiano"
                 role="Executive Director"
+                linkedin="https://www.linkedin.com/in/enzocaggiano/"
+                email="enzocaggiano@binaryheart.org"
               />
 
               <PictureCard
                 imageSrc="/assets/images/chapters/national/people/MaryDinkha.jpg"
                 name="Mary Dinkha"
                 role="Executive Director"
+                linkedin="https://www.linkedin.com/in/marykaitlyndinkha/"
+                email="marydinkha@binaryheart.org"
               />
               
               <PictureCard
                 imageSrc="/assets/images/chapters/national/people/TalBelkind.jpg"
                 name="Tal Belkind"
                 role="Director of Technology"
+                linkedin="https://www.linkedin.com/in/tal-belkind-4a2a752aa/"
+                github="https://github.com/2tmb2"
+                email="talbelkind@binaryheart.org"
               />
 
               <PictureCard
                 imageSrc="/assets/images/chapters/national/people/SabrinaLin.jpeg"
                 name="Sabrina Lin"
                 role="Director of Education"
+                linkedin="https://www.linkedin.com/in/sabrinaslin/"
+                email="sabrinalin@iu.binaryheart.org"
               />
 
               <PictureCard
                 imageSrc="/assets/images/chapters/national/people/HenlyWolin.jpeg"
                 name="Henly Wolin"
                 role="Executive Director"
+                linkedin="https://www.linkedin.com/in/henlywolin/"
+                email="henlywolin@binaryheart.org"
               />
 
               <PictureCard
                 imageSrc="/assets/images/chapters/national/people/AmyKemper.jpeg"
                 name="Amy Kemper"
                 role="Board Member"
+                linkedin="https://www.linkedin.com/in/amy-kemper-068706/"
+                email="amykemper@binaryheart.org"
               />
-
             </PictureCardGrid>
           </div>
         </div>
