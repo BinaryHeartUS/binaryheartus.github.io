@@ -59,6 +59,17 @@
           "phone": "entry.1751717741",
           "message": "entry.1800868177"
         }
+      },
+      "donateForm": {
+        "formUrl": "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeyuUXizQWZwenT6xFTK_uJBxYlCgfhma1uEiFvtl41ARA25Q/formResponse",
+        "fieldIds": {
+          "firstName": "entry.1475264147",
+          "lastName": "entry.307727203",
+          "email": "entry.1302188399",
+          "phone": "entry.1751717741",
+          "donationContents": "entry.1800868177",
+          "additionalNotes": "entry.659377643"
+        }
       }
     },
     {
@@ -91,6 +102,17 @@
           "phone": "entry.1751717741",
           "message": "entry.1800868177"
         }
+      },
+      "donateForm": {
+        "formUrl": "https://docs.google.com/forms/u/0/d/e/1FAIpQLScDIyzaVkdTpoTg3pCZOjGwpm2vVLiG2uwWtF9afiN5dTPBFg/formResponse",
+        "fieldIds": {
+          "firstName": "entry.1475264147",
+          "lastName": "entry.307727203",
+          "email": "entry.1302188399",
+          "phone": "entry.1751717741",
+          "donationContents": "entry.1800868177",
+          "additionalNotes": "entry.659377643"
+        }
       }
     },
     {
@@ -110,6 +132,17 @@
           "email": "entry.1302188399",
           "phone": "entry.1751717741",
           "message": "entry.1800868177"
+        }
+      },
+      "donateForm": {
+        "formUrl": "https://docs.google.com/forms/u/0/d/e/1FAIpQLSck6mRjIfR4qZPGQE4JNzbeZ14lte3ia-AE4cmsstXTCX-Mng/formResponse",
+        "fieldIds": {
+          "firstName": "entry.1475264147",
+          "lastName": "entry.307727203",
+          "email": "entry.1302188399",
+          "phone": "entry.1751717741",
+          "donationContents": "entry.1800868177",
+          "additionalNotes": "entry.659377643"
         }
       }
     },
@@ -142,6 +175,17 @@
           "email": "entry.1302188399",
           "phone": "entry.1751717741",
           "message": "entry.1800868177"
+        }
+      },
+      "donateForm": {
+        "formUrl": "https://docs.google.com/forms/u/0/d/e/1FAIpQLSexTRlJ0dWzO8UQgK0RMwueknvY3SEUqXCjl53z07kA_Q4BTw/formResponse",
+        "fieldIds": {
+          "firstName": "entry.1475264147",
+          "lastName": "entry.307727203",
+          "email": "entry.1302188399",
+          "phone": "entry.1751717741",
+          "donationContents": "entry.1800868177",
+          "additionalNotes": "entry.659377643"
         }
       }
     }
@@ -177,6 +221,17 @@
           "phone": "entry.1751717741",
           "message": "entry.1800868177"
         }
+      },
+      "donateForm": {
+        "formUrl": "https://docs.google.com/forms/u/6/d/e/1FAIpQLSdbmal7MkIn5rSH5fEh5MghICRhM1Lc-70wjaNaUDAhWT8aZA/formResponse",
+        "fieldIds": {
+          "firstName": "entry.1475264147",
+          "lastName": "entry.307727203",
+          "email": "entry.1302188399",
+          "phone": "entry.1751717741",
+          "donationContents": "entry.1800868177",
+          "additionalNotes": "entry.659377643"
+        }
       }
     },
     {
@@ -196,6 +251,17 @@
           "email": "entry.1302188399",
           "phone": "entry.1751717741",
           "message": "entry.1800868177"
+        }
+      },
+      "donateForm": {
+        "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSerS4FbCTq9bVtzZ-YrwRmsdjbHeYFz8SuB2KMD4uxKQf5v9Q/formResponse",
+        "fieldIds": {
+          "firstName": "entry.1475264147",
+          "lastName": "entry.307727203",
+          "email": "entry.1302188399",
+          "phone": "entry.1751717741",
+          "donationContents": "entry.1800868177",
+          "additionalNotes": "entry.659377643"
         }
       }
     }
