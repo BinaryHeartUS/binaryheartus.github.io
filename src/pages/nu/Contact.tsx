@@ -4,7 +4,8 @@ import { NORTHWESTERN_COLORS } from '../../utils/brandColors';
 import chaptersData from '../../data/chapters.json';
 
 export default function Contact() {
-  const contactFormConfig = chaptersData.higherEducation.find(ch => ch.shortName === 'NU')?.contactForm;
+  const chapterData = chaptersData.higherEducation.find(ch => ch.shortName === 'NU');
+  const contactFormConfig = chapterData?.contactForm;
 
   return (
     <main className="grow relative z-10">
@@ -59,8 +60,8 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900">Email</p>
-                        <a href="mailto:nu@binaryheart.org" className={`${NORTHWESTERN_COLORS.TEXT} ${NORTHWESTERN_COLORS.TEXT_HOVER}`}>
-                          nu@binaryheart.org
+                        <a href={`mailto:${chapterData?.email}`} className={`${NORTHWESTERN_COLORS.TEXT} ${NORTHWESTERN_COLORS.TEXT_HOVER}`}>
+                          {chapterData?.email}
                         </a>
                       </div>
                     </div>

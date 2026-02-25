@@ -59,8 +59,8 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900">Email</p>
-                        <a href="mailto:contact@binaryheart.org" className="text-blue-600 hover:text-blue-700">
-                          contact@binaryheart.org
+                        <a href={`mailto:${chaptersData.national.email}`} className="text-blue-600 hover:text-blue-700">
+                          {chaptersData.national.email}
                         </a>
                       </div>
                     </div>

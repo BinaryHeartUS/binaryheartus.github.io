@@ -4,7 +4,8 @@ import { WALTER_PAYTON_COLORS } from '../../utils/brandColors';
 import chaptersData from '../../data/chapters.json';
 
 export default function Contact() {
-  const contactFormConfig = chaptersData.highSchool.find(ch => ch.shortName === 'WP')?.contactForm;
+  const chapterData = chaptersData.highSchool.find(ch => ch.shortName === 'WP');
+  const contactFormConfig = chapterData?.contactForm;
 
   return (
     <main className="grow relative z-10">
@@ -59,8 +60,8 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900">Email</p>
-                        <a href="mailto:walterpayton@binaryheart.org" className="text-blue-600 hover:text-blue-700">
-                          walterpayton@binaryheart.org
+                        <a href={`mailto:${chapterData?.email}`} className="text-blue-600 hover:text-blue-700">
+                          {chapterData?.email}
                         </a>
                       </div>
                     </div>

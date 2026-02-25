@@ -4,7 +4,8 @@ import { NEW_TRIER_COLORS } from '../../utils/brandColors';
 import chaptersData from '../../data/chapters.json';
 
 export default function Contact() {
-  const contactFormConfig = chaptersData.highSchool.find(ch => ch.shortName === 'NT')?.contactForm;
+  const chapterData = chaptersData.highSchool.find(ch => ch.shortName === 'NT');
+  const contactFormConfig = chapterData?.contactForm;
 
   return (
     <main className="grow relative z-10">
@@ -59,8 +60,8 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900">Email</p>
-                        <a href="mailto:nt@binaryheart.org" className={`${NEW_TRIER_COLORS.TEXT_BLUE} ${NEW_TRIER_COLORS.TEXT_HOVER}`}>
-                          nt@binaryheart.org
+                        <a href={`mailto:${chapterData?.email}`} className={`${NEW_TRIER_COLORS.TEXT_BLUE} ${NEW_TRIER_COLORS.TEXT_HOVER}`}>
+                          {chapterData?.email}
                         </a>
                       </div>
                     </div>

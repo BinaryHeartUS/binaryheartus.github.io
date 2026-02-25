@@ -4,7 +4,8 @@ import { PURDUE_COLORS } from '../../utils/brandColors';
 import chaptersData from '../../data/chapters.json';
 
 export default function Contact() {
-  const contactFormConfig = chaptersData.higherEducation.find(ch => ch.shortName === 'Purdue')?.contactForm;
+  const chapterData = chaptersData.higherEducation.find(ch => ch.shortName === 'Purdue');
+  const contactFormConfig = chapterData?.contactForm;
 
   return (
     <main className="grow relative z-10">
@@ -59,8 +60,8 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900">Email</p>
-                        <a href="mailto:purdue@binaryheart.org" className={`${PURDUE_COLORS.TEXT} ${PURDUE_COLORS.TEXT_HOVER}`}>
-                          purdue@binaryheart.org
+                        <a href={`mailto:${chapterData?.email}`} className={`${PURDUE_COLORS.TEXT} ${PURDUE_COLORS.TEXT_HOVER}`}>
+                          {chapterData?.email}
                         </a>
                       </div>
                     </div>

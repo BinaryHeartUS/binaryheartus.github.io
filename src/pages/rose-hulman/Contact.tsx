@@ -4,7 +4,8 @@ import { ROSE_HULMAN_COLORS } from '../../utils/brandColors';
 import chaptersData from '../../data/chapters.json';
 
 export default function Contact() {
-  const contactFormConfig = chaptersData.higherEducation.find(ch => ch.shortName === 'Rose-Hulman')?.contactForm;
+  const chapterData = chaptersData.higherEducation.find(ch => ch.shortName === 'Rose-Hulman');
+  const contactFormConfig = chapterData?.contactForm;
 
   return (
     <main className="grow relative z-10">
@@ -59,8 +60,8 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900">Email</p>
-                        <a href="mailto:rose-hulman@binaryheart.org" className={`${ROSE_HULMAN_COLORS.TEXT} ${ROSE_HULMAN_COLORS.TEXT_HOVER}`}>
-                          rose-hulman@binaryheart.org
+                        <a href={`mailto:${chapterData?.email}`} className={`${ROSE_HULMAN_COLORS.TEXT} ${ROSE_HULMAN_COLORS.TEXT_HOVER}`}>
+                          {chapterData?.email}
                         </a>
                       </div>
                     </div>
