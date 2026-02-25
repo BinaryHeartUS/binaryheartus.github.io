@@ -246,7 +246,7 @@ export default function Request() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     Routing to {nearestChapter.name}
-                    {!nearestChapter.requestForm && <span className="text-gray-600 ml-1">(via national form)</span>}
+                    {!nearestChapter.requestForm && <span className="text-gray-600 ml-1">(via national chapter)</span>}
                   </p>
                 )}
                 {!isLookingUpZip && zipLookupFailed && (
