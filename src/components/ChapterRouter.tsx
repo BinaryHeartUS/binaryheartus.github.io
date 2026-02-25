@@ -33,6 +33,13 @@ export default function ChapterRouter() {
   // Determine which page to load (default to Home if none specified)
   const pageName = page || 'home';
   
+  // Validate page name against allowlist to prevent path traversal
+  const ALLOWED_PAGES = ['home', 'about', 'contact', 'donate', 'join'] as const;
+  if (!ALLOWED_PAGES.includes(pageName.toLowerCase() as typeof ALLOWED_PAGES[number])) {
+    // Invalid page name, redirect to chapter home
+    return <Navigate to={`/${chapterSlug}`} replace />;
+  }
+  
   // Capitalize first letter for component filename
   const componentName = pageName.charAt(0).toUpperCase() + pageName.slice(1);
   
