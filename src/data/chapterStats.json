@@ -23,9 +23,9 @@
   "rose-hulman": {
     "chapterId": "rose-hulman",
     "name": "Rose-Hulman Institute of Technology",
-    "devicesValue": 4000,
-    "volunteerCount": 25,
-    "volunteerHours": 200
+    "devicesValue": 10000,
+    "volunteerCount": 30,
+    "volunteerHours": 450
   },
   "nt": {
     "chapterId": "nt",

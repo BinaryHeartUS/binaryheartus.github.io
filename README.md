@@ -75,4 +75,4 @@ Visit [binaryheart.org](binaryheartus.github.io) to see the live site
 
 ## 📄 License
 
-© 2025 BinaryHeart™. All Rights Reserved.
+© 2026 BinaryHeart™. All Rights Reserved.

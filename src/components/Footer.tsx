@@ -57,7 +57,7 @@ export default function Footer() {
       </div>
       <div className="mx-auto max-w-7xl px-6 pb-6 lg:px-8">
         <p className="text-center text-xs text-gray-400">
-          &copy; 2025{' '}
+          &copy; {new Date().getFullYear()}{' '}
           <Link to="/" className="hover:text-gray-500">
             <BinaryHeartText />&trade;
           </Link>
