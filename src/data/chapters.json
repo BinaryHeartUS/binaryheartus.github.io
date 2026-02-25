@@ -15,6 +15,16 @@
         "location": "entry.2093919836",
         "details": "entry.870310054"
       }
+    },
+    "contactForm": {
+      "formUrl": "https://docs.google.com/forms/u/6/d/e/1FAIpQLSfMkhmG9LDTKS5mQ2JF-ZOPsr0ChiuK3KP_6ZOwAwo4jvbcjQ/formResponse",
+      "fieldIds": {
+        "firstName": "entry.1475264147",
+        "lastName": "entry.307727203",
+        "email": "entry.1302188399",
+        "phone": "entry.1751717741",
+        "message": "entry.1800868177"
+      }
     }
   },
   "higherEducation": [
@@ -37,6 +47,16 @@
           "location": "entry.1948021502",
           "details": "entry.1048459198"
         }
+      },
+      "contactForm": {
+        "formUrl": "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdNmZ8IqrwFW4TE8OlmctiWeXUtgqTiLZkHTPN32TvREEYYyw/formResponse",
+        "fieldIds": {
+          "firstName": "entry.1475264147",
+          "lastName": "entry.307727203",
+          "email": "entry.1302188399",
+          "phone": "entry.1751717741",
+          "message": "entry.1800868177"
+        }
       }
     },
     {
@@ -58,6 +78,16 @@
           "location": "entry.572480570",
           "details": "entry.1516049223"
         }
+      },
+      "contactForm": {
+        "formUrl": "https://docs.google.com/forms/u/0/d/e/1FAIpQLSefJr0tyjQmx_MlXwZ09VUjb3DBW71wfWTXNvRTuGg0szlMng/formResponse",
+        "fieldIds": {
+          "firstName": "entry.1475264147",
+          "lastName": "entry.307727203",
+          "email": "entry.1302188399",
+          "phone": "entry.1751717741",
+          "message": "entry.1800868177"
+        }
       }
     },
     {
@@ -67,7 +97,17 @@
       "icon": "/assets/images/chapters/purdue/icon.svg",
       "measurementId": "G-BX0RR1NKQM",
       "latitude": 40.428787,
-      "longitude": -86.914108
+      "longitude": -86.914108,
+      "contactForm": {
+        "formUrl": "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfj7W0pGl81PBl_QEAYQbVGojArN0FJx-PeU3MZFudt3SSdPA/formResponse",
+        "fieldIds": {
+          "firstName": "entry.1475264147",
+          "lastName": "entry.307727203",
+          "email": "entry.1302188399",
+          "phone": "entry.1751717741",
+          "message": "entry.1800868177"
+        }
+      }
     },
     {
       "name": "Rose-Hulman Institute of Technology",
@@ -87,6 +127,16 @@
           "organization": "entry.73474850",
           "location": "entry.1250035965",
           "details": "entry.1182213076"
+        }
+      },
+      "contactForm": {
+        "formUrl": "https://docs.google.com/forms/u/0/d/e/1FAIpQLSe1v16uhPoogZRZ9OpleQaXBrmtuRah-9NY34ttaeax-jdNFw/formResponse",
+        "fieldIds": {
+          "firstName": "entry.1475264147",
+          "lastName": "entry.307727203",
+          "email": "entry.1302188399",
+          "phone": "entry.1751717741",
+          "message": "entry.1800868177"
         }
       }
     }
@@ -111,6 +161,16 @@
           "location": "entry.1600922283",
           "details": "entry.1225728700"
         }
+      },
+      "contactForm": {
+        "formUrl": "https://docs.google.com/forms/u/6/d/e/1FAIpQLSfohnccUTZild_Fvq-aF1QTVnx_FJEOVOJ6OFPzoUEhrWbkXQ/formResponse",
+        "fieldIds": {
+          "firstName": "entry.1475264147",
+          "lastName": "entry.307727203",
+          "email": "entry.1302188399",
+          "phone": "entry.1751717741",
+          "message": "entry.1800868177"
+        }
       }
     },
     {
@@ -120,7 +180,17 @@
       "icon": "/assets/images/chapters/wp/icon.svg",
       "measurementId": "G-6XN6EF8T0G",
       "latitude": 41.8781,
-      "longitude": -87.6298
+      "longitude": -87.6298,
+      "contactForm": {
+        "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdfGiSULR1WoP_qRumaSJ04Oyr3Z9-c2hEUR08pfVsnpI03iQ/formResponse",
+        "fieldIds": {
+          "firstName": "entry.1475264147",
+          "lastName": "entry.307727203",
+          "email": "entry.1302188399",
+          "phone": "entry.1751717741",
+          "message": "entry.1800868177"
+        }
+      }
     }
   ]
 }
