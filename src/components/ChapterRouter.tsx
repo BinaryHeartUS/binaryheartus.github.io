@@ -56,11 +56,17 @@ export default function ChapterRouter() {
   // Capitalize first letter for component filename
   const componentName = pageName.charAt(0).toUpperCase() + pageName.slice(1);
   
-  // Construct the module path
+  // Find the module loader by iterating through known modules instead of constructing a path
+  // This ensures we only ever call loaders from the statically-known pageModules set
   const modulePath = `../pages/${chapterSlug}/${componentName}.tsx`;
+  let moduleLoader: (() => Promise<unknown>) | undefined;
   
-  // Check if the module exists in our glob
-  const moduleLoader = pageModules[modulePath];
+  for (const [key, loader] of Object.entries(pageModules)) {
+    if (key === modulePath) {
+      moduleLoader = loader as () => Promise<unknown>;
+      break;
+    }
+  }
   
   if (!moduleLoader) {
     // Page doesn't exist, redirect to chapter home
