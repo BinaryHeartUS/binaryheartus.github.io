@@ -120,6 +120,7 @@ export default function Contact() {
               {contactFormConfig && (
                 <ContactForm 
                   formUrl={contactFormConfig.formUrl}
+                  fieldIds={contactFormConfig.fieldIds}
                   buttonGradientClass={WALTER_PAYTON_COLORS.GRADIENT_PRIMARY}
                 />
               )}

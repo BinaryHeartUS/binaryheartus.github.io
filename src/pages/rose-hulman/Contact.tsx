@@ -141,6 +141,7 @@ export default function Contact() {
               {contactFormConfig && (
                 <ContactForm 
                   formUrl={contactFormConfig.formUrl}
+                  fieldIds={contactFormConfig.fieldIds}
                   buttonGradientClass={ROSE_HULMAN_COLORS.GRADIENT_PRIMARY}
                 />
               )}

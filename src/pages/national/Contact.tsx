@@ -140,6 +140,7 @@ export default function Contact() {
               {/* Contact Form */}
               <ContactForm 
                 formUrl={contactFormConfig.formUrl}
+                fieldIds={contactFormConfig.fieldIds}
                 buttonGradientClass="from-blue-600 to-indigo-600"
               />
             </div>

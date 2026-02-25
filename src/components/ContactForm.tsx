@@ -2,10 +2,17 @@ import { useState } from 'react';
 
 interface ContactFormProps {
   formUrl: string;
+  fieldIds: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    message: string;
+  };
   buttonGradientClass?: string;
 }
 
-export default function ContactForm({ formUrl, buttonGradientClass = 'from-blue-600 to-indigo-600' }: ContactFormProps) {
+export default function ContactForm({ formUrl, fieldIds, buttonGradientClass = 'from-blue-600 to-indigo-600' }: ContactFormProps) {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -31,11 +38,11 @@ export default function ContactForm({ formUrl, buttonGradientClass = 'from-blue-
 
     try {
       const formBody = new URLSearchParams({
-        'entry.1475264147': formData.firstName,
-        'entry.307727203': formData.lastName,
-        'entry.1302188399': formData.email,
-        'entry.1751717741': formData.phone,
-        'entry.1800868177': formData.message
+        [fieldIds.firstName]: formData.firstName,
+        [fieldIds.lastName]: formData.lastName,
+        [fieldIds.email]: formData.email,
+        [fieldIds.phone]: formData.phone,
+        [fieldIds.message]: formData.message
       });
 
       await fetch(formUrl, {

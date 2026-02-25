@@ -149,6 +149,7 @@ export default function Contact() {
               {contactFormConfig && (
                 <ContactForm 
                   formUrl={contactFormConfig.formUrl}
+                  fieldIds={contactFormConfig.fieldIds}
                   buttonGradientClass={NORTHWESTERN_COLORS.GRADIENT_PRIMARY}
                 />
               )}
