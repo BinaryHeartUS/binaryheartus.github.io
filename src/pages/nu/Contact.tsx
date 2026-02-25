@@ -2,10 +2,11 @@ import BinaryHeartText from '../../components/BinaryHeartText';
 import ContactForm from '../../components/ContactForm';
 import { NORTHWESTERN_COLORS } from '../../utils/brandColors';
 import chaptersData from '../../data/chapters.json';
+import chapterForms from '../../data/chapterForms.json';
 
 export default function Contact() {
   const chapterData = chaptersData.higherEducation.find(ch => ch.shortName === 'NU');
-  const contactFormConfig = chapterData?.contactForm;
+  const contactFormConfig = chapterForms.NU?.contactForm;
 
   return (
     <main className="grow relative z-10">

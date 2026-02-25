@@ -1,9 +1,10 @@
 import BinaryHeartText from '../../components/BinaryHeartText';
 import ContactForm from '../../components/ContactForm';
 import chaptersData from '../../data/chapters.json';
+import chapterForms from '../../data/chapterForms.json';
 
 export default function Contact() {
-  const contactFormConfig = chaptersData.national.contactForm;
+  const contactFormConfig = chapterForms.national.contactForm;
 
   return (
     <main className="grow relative z-10">

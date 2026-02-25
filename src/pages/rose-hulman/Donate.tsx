@@ -1,11 +1,10 @@
 import BinaryHeartText from '../../components/BinaryHeartText';
 import DonateForm from '../../components/DonateForm';
 import { ROSE_HULMAN_COLORS } from '../../utils/brandColors';
-import chaptersData from '../../data/chapters.json';
+import chapterForms from '../../data/chapterForms.json';
 
 export default function Donate() {
-  const chapterData = chaptersData.higherEducation.find(ch => ch.shortName === 'Rose-Hulman');
-  const donateFormConfig = chapterData?.donateForm;
+  const donateFormConfig = chapterForms['Rose-Hulman']?.donateForm;
 
   return (
     <main className="grow relative z-10">

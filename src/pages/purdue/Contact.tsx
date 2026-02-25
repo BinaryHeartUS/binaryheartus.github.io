@@ -2,10 +2,11 @@ import BinaryHeartText from '../../components/BinaryHeartText';
 import ContactForm from '../../components/ContactForm';
 import { PURDUE_COLORS } from '../../utils/brandColors';
 import chaptersData from '../../data/chapters.json';
+import chapterForms from '../../data/chapterForms.json';
 
 export default function Contact() {
   const chapterData = chaptersData.higherEducation.find(ch => ch.shortName === 'Purdue');
-  const contactFormConfig = chapterData?.contactForm;
+  const contactFormConfig = chapterForms.Purdue?.contactForm;
 
   return (
     <main className="grow relative z-10">

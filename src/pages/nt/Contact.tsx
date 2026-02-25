@@ -2,10 +2,11 @@ import BinaryHeartText from '../../components/BinaryHeartText';
 import ContactForm from '../../components/ContactForm';
 import { NEW_TRIER_COLORS } from '../../utils/brandColors';
 import chaptersData from '../../data/chapters.json';
+import chapterForms from '../../data/chapterForms.json';
 
 export default function Contact() {
   const chapterData = chaptersData.highSchool.find(ch => ch.shortName === 'NT');
-  const contactFormConfig = chapterData?.contactForm;
+  const contactFormConfig = chapterForms.NT?.contactForm;
 
   return (
     <main className="grow relative z-10">

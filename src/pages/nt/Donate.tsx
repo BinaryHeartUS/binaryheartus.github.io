@@ -1,11 +1,10 @@
 import BinaryHeartText from '../../components/BinaryHeartText';
 import DonateForm from '../../components/DonateForm';
 import { NEW_TRIER_COLORS } from '../../utils/brandColors';
-import chaptersData from '../../data/chapters.json';
+import chapterForms from '../../data/chapterForms.json';
 
 export default function Donate() {
-  const chapterData = chaptersData.highSchool.find(ch => ch.shortName === 'NT');
-  const donateFormConfig = chapterData?.donateForm;
+  const donateFormConfig = chapterForms.NT?.donateForm;
 
   return (
     <main className="grow relative z-10">

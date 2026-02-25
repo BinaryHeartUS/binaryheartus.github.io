@@ -2,10 +2,11 @@ import BinaryHeartText from '../../components/BinaryHeartText';
 import ContactForm from '../../components/ContactForm';
 import { IU_COLORS } from '../../utils/brandColors';
 import chaptersData from '../../data/chapters.json';
+import chapterForms from '../../data/chapterForms.json';
 
 export default function Contact() {
   const chapterData = chaptersData.higherEducation.find(ch => ch.shortName === 'IU');
-  const contactFormConfig = chapterData?.contactForm;
+  const contactFormConfig = chapterForms.IU?.contactForm;
 
   return (
     <main className="grow relative z-10">

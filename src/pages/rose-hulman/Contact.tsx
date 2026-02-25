@@ -2,10 +2,11 @@ import BinaryHeartText from '../../components/BinaryHeartText';
 import ContactForm from '../../components/ContactForm';
 import { ROSE_HULMAN_COLORS } from '../../utils/brandColors';
 import chaptersData from '../../data/chapters.json';
+import chapterForms from '../../data/chapterForms.json';
 
 export default function Contact() {
   const chapterData = chaptersData.higherEducation.find(ch => ch.shortName === 'Rose-Hulman');
-  const contactFormConfig = chapterData?.contactForm;
+  const contactFormConfig = chapterForms['Rose-Hulman']?.contactForm;
 
   return (
     <main className="grow relative z-10">

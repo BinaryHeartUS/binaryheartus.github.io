@@ -2,10 +2,11 @@ import BinaryHeartText from '../../components/BinaryHeartText';
 import ContactForm from '../../components/ContactForm';
 import { WALTER_PAYTON_COLORS } from '../../utils/brandColors';
 import chaptersData from '../../data/chapters.json';
+import chapterForms from '../../data/chapterForms.json';
 
 export default function Contact() {
   const chapterData = chaptersData.highSchool.find(ch => ch.shortName === 'WP');
-  const contactFormConfig = chapterData?.contactForm;
+  const contactFormConfig = chapterForms.WP?.contactForm;
 
   return (
     <main className="grow relative z-10">

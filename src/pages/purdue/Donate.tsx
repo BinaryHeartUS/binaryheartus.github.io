@@ -1,11 +1,10 @@
 import BinaryHeartText from '../../components/BinaryHeartText';
 import DonateForm from '../../components/DonateForm';
 import { PURDUE_COLORS } from '../../utils/brandColors';
-import chaptersData from '../../data/chapters.json';
+import chapterForms from '../../data/chapterForms.json';
 
 export default function Donate() {
-  const chapterData = chaptersData.higherEducation.find(ch => ch.shortName === 'Purdue');
-  const donateFormConfig = chapterData?.donateForm;
+  const donateFormConfig = chapterForms.Purdue?.donateForm;
 
   return (
     <main className="grow relative z-10">

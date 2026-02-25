@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import chaptersData from '../../data/chapters.json';
+import chapterForms from '../../data/chapterForms.json';
 import type { Chapter } from '../../types/chapters';
 import { 
   getCoordinatesFromZipCode, 
@@ -85,10 +86,11 @@ export default function Request() {
     try {
       // Determine which form to use
       // If nearest chapter has a form, use it; otherwise use national
-      const targetChapter = (nearestChapter?.requestForm) 
-        ? nearestChapter 
-        : chaptersData.national;
-      const formConfig = targetChapter.requestForm;
+      const chapterFormData = nearestChapter ? chapterForms[nearestChapter.shortName as keyof typeof chapterForms] : null;
+      const hasChapterForm = chapterFormData && 'requestForm' in chapterFormData && chapterFormData.requestForm;
+      const formConfig = hasChapterForm
+        ? chapterFormData.requestForm
+        : chapterForms.national.requestForm;
 
       if (!formConfig) {
         throw new Error('No form configuration available');
@@ -246,7 +248,11 @@ export default function Request() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     Routing to {nearestChapter.name}
-                    {!nearestChapter.requestForm && <span className="text-gray-600 ml-1">(via national chapter)</span>}
+                    {(() => {
+                      const chapterFormData = chapterForms[nearestChapter.shortName as keyof typeof chapterForms];
+                      const hasRequestForm = chapterFormData && 'requestForm' in chapterFormData && chapterFormData.requestForm;
+                      return !hasRequestForm && <span className="text-gray-600 ml-1">(via national chapter)</span>;
+                    })()}
                   </p>
                 )}
                 {!isLookingUpZip && zipLookupFailed && (
