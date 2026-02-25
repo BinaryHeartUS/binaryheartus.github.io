@@ -1,5 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BinaryHeartText from '../../components/BinaryHeartText';
+import chaptersData from '../../data/chapters.json';
+import type { Chapter } from '../../types/chapters';
+import { 
+  getCoordinatesFromZipCode, 
+  findNearestChapter, 
+  getChaptersWithLocation 
+} from '../../utils/locationHelpers';
 
 export default function Request() {
   const [formData, setFormData] = useState({
@@ -9,10 +16,58 @@ export default function Request() {
     phone: '',
     organization: '',
     location: '',
-    details: ''
+    details: '',
+    zipCode: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [nearestChapter, setNearestChapter] = useState<Chapter | null>(null);
+  const [isLookingUpZip, setIsLookingUpZip] = useState(false);
+  const [zipLookupFailed, setZipLookupFailed] = useState(false);
+
+  // Look up nearest chapter when zip code changes
+  useEffect(() => {
+    const lookupZipCode = async () => {
+      const zipCode = formData.zipCode.trim();
+      
+      // Reset if zip code is empty or invalid length
+      if (!zipCode || zipCode.length !== 5) {
+        setNearestChapter(null);
+        setZipLookupFailed(false);
+        return;
+      }
+
+      setIsLookingUpZip(true);
+      setZipLookupFailed(false);
+      
+      try {
+        const coords = await getCoordinatesFromZipCode(zipCode);
+        
+        if (coords) {
+          const chapters = getChaptersWithLocation(
+            chaptersData.higherEducation as Chapter[],
+            chaptersData.highSchool as Chapter[]
+          );
+          const nearest = findNearestChapter(coords, chapters);
+          setNearestChapter(nearest);
+          setZipLookupFailed(false);
+        } else {
+          setNearestChapter(null);
+          setZipLookupFailed(true);
+        }
+      } catch (error) {
+        console.error('Error looking up zip code:', error);
+        setNearestChapter(null);
+        setZipLookupFailed(true);
+      } finally {
+        setIsLookingUpZip(false);
+      }
+    };
+
+    // Debounce the lookup
+    const timeoutId = setTimeout(lookupZipCode, 500);
+    return () => clearTimeout(timeoutId);
+  }, [formData.zipCode]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -28,27 +83,35 @@ export default function Request() {
     setSubmitStatus('idle');
 
     try {
+      // Determine which form to use
+      // If nearest chapter has a form, use it; otherwise use national
+      const targetChapter = (nearestChapter?.requestForm) 
+        ? nearestChapter 
+        : chaptersData.national;
+      const formConfig = targetChapter.requestForm;
+
+      if (!formConfig) {
+        throw new Error('No form configuration available');
+      }
+
       const formBody = new URLSearchParams({
-        'entry.1475264147': formData.firstName,
-        'entry.307727203': formData.lastName,
-        'entry.1302188399': formData.email,
-        'entry.1751717741': formData.phone,
-        'entry.1800868177': formData.organization,
-        'entry.2093919836': formData.location,
-        'entry.870310054': formData.details
+        [formConfig.fieldIds.firstName]: formData.firstName,
+        [formConfig.fieldIds.lastName]: formData.lastName,
+        [formConfig.fieldIds.email]: formData.email,
+        [formConfig.fieldIds.phone]: formData.phone,
+        [formConfig.fieldIds.organization]: formData.organization,
+        [formConfig.fieldIds.location]: formData.location,
+        [formConfig.fieldIds.details]: formData.details
       });
 
-      await fetch(
-        'https://docs.google.com/forms/u/6/d/e/1FAIpQLSfM2eXGm1FuBLc6LX4JjaVDTPMbTQiVq2XHerTfZv9RS8zoyQ/formResponse',
-        {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: formBody.toString()
-        }
-      );
+      await fetch(formConfig.formUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formBody.toString()
+      });
 
       setSubmitStatus('success');
       setFormData({
@@ -58,8 +121,10 @@ export default function Request() {
         phone: '',
         organization: '',
         location: '',
-        details: ''
+        details: '',
+        zipCode: ''
       });
+      setNearestChapter(null);
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
@@ -153,6 +218,45 @@ export default function Request() {
                   onChange={handleChange}
                   className="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 px-4 py-2.5"
                 />
+              </div>
+
+              {/* Zip Code */}
+              <div>
+                <label htmlFor="zipCode" className="block text-sm font-medium text-gray-900 mb-2">
+                  Zip Code (helps us route your request)
+                </label>
+                <input
+                  type="text"
+                  id="zipCode"
+                  name="zipCode"
+                  placeholder="60614"
+                  maxLength={5}
+                  value={formData.zipCode}
+                  onChange={handleChange}
+                  className="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 px-4 py-2.5"
+                />
+                {isLookingUpZip && (
+                  <p className="mt-2 text-sm text-gray-600">
+                    Looking up location...
+                  </p>
+                )}
+                {!isLookingUpZip && nearestChapter && (
+                  <p className="mt-2 text-sm text-green-700 flex items-center">
+                    <svg className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Routing to {nearestChapter.name}
+                    {!nearestChapter.requestForm && <span className="text-gray-600 ml-1">(via national form)</span>}
+                  </p>
+                )}
+                {!isLookingUpZip && zipLookupFailed && (
+                  <p className="mt-2 text-sm text-amber-700 flex items-center">
+                    <svg className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                    </svg>
+                    Could not find a chapter, routing to national
+                  </p>
+                )}
               </div>
 
               {/* Organization Name */}
