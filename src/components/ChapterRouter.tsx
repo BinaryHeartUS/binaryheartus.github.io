@@ -1,11 +1,12 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, type ComponentType } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import chaptersData from '../data/chapters.json';
 import type { ChaptersData } from '../types/chapters';
 
 // Eagerly load all chapter page modules using Vite's import.meta.glob
 // This creates a mapping of paths to their lazy-loaded components
-const pageModules = import.meta.glob('../pages/*/*.tsx');
+// Exclude national pages since they're statically imported in App.tsx
+const pageModules = import.meta.glob(['../pages/*/*.tsx', '!../pages/national/*.tsx']);
 
 /**
  * Dynamic router component that loads chapter pages based on URL parameters
@@ -41,17 +42,18 @@ export default function ChapterRouter() {
   // Check if the module exists in our glob
   const moduleLoader = pageModules[modulePath];
   
-  if (!moduleLoader) {
-    // Page doesn't exist, redirect to chapter home
+  if (!moduleLoader || typeof moduleLoader !== 'function') {
+    // Page doesn't exist or invalid module, redirect to chapter home
     console.error(`Page not found: ${chapterSlug}/${componentName}`);
     return <Navigate to={`/${chapterSlug}`} replace />;
   }
   
   // Create a lazy component from the module loader
   const ChapterPage = lazy(() => 
-    moduleLoader().then((module: any) => ({
-      default: module.default
-    }))
+    moduleLoader().then((module: unknown) => {
+      const typedModule = module as { default: ComponentType };
+      return { default: typedModule.default };
+    })
   );
   
   return (
