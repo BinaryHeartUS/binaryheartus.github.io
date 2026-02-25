@@ -8,6 +8,15 @@ import type { ChaptersData } from '../types/chapters';
 // Exclude national pages since they're statically imported in App.tsx
 const pageModules = import.meta.glob(['../pages/*/*.tsx', '!../pages/national/*.tsx']);
 
+// Extract valid chapter slugs from the compiled modules to ensure only known chapters can be loaded
+const validChapterSlugs = new Set(
+  Object.keys(pageModules).map(path => {
+    // Extract chapter slug from paths like '../pages/iu/Home.tsx'
+    const segments = path.split('/');
+    return segments[2]; // The chapter slug is the third segment
+  })
+);
+
 /**
  * Dynamic router component that loads chapter pages based on URL parameters
  * Supports routes like /:chapter/:page where chapter is the slug (e.g., "iu", "nu")
@@ -15,6 +24,11 @@ const pageModules = import.meta.glob(['../pages/*/*.tsx', '!../pages/national/*.
  */
 export default function ChapterRouter() {
   const { chapter: chapterSlug, page } = useParams<{ chapter: string; page?: string }>();
+  
+  // Ensure chapter slug is provided
+  if (!chapterSlug || !validChapterSlugs.has(chapterSlug)) {
+    return <Navigate to="/" replace />;
+  }
   
   // Validate that the chapter exists in chapters.json
   const chapters = chaptersData as ChaptersData;
@@ -28,8 +42,7 @@ export default function ChapterRouter() {
   if (!chapterExists) {
     // Chapter doesn't exist, redirect to national home
     return <Navigate to="/" replace />;
-  }
-  
+  }  
   // Determine which page to load (default to Home if none specified)
   const pageName = page || 'home';
   
@@ -49,8 +62,8 @@ export default function ChapterRouter() {
   // Check if the module exists in our glob
   const moduleLoader = pageModules[modulePath];
   
-  if (!moduleLoader || typeof moduleLoader !== 'function') {
-    // Page doesn't exist or invalid module, redirect to chapter home
+  if (!moduleLoader) {
+    // Page doesn't exist, redirect to chapter home
     console.error(`Page not found: ${chapterSlug}/${componentName}`);
     return <Navigate to={`/${chapterSlug}`} replace />;
   }
