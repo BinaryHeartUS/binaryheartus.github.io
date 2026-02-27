@@ -15,7 +15,7 @@ export default function Join() {
               Join <BinaryHeartText /> at Northwestern
             </h1>
             <p className="text-lg sm:text-xl leading-7 sm:leading-8 text-gray-700">
-              Be part of a community making technnology accessible while gaining valuable hands-on experience.
+              Be part of a community making technology accessible while gaining valuable hands-on experience.
             </p>
           </div>
         </div>

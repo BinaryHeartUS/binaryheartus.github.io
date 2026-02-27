@@ -143,8 +143,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">Olin Hall</p>
-                    <p className="text-sm text-gray-600">Room 231</p>
+                    <p className="text-sm font-semibold text-gray-900">Percopo Classroom</p>
+                    <p className="text-sm text-gray-600">Percopo Basement</p>
                   </div>
                 </div>
               </div>

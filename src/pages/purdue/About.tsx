@@ -29,7 +29,7 @@ export default function About() {
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6">Who We Are</h2>
             <div className="prose prose-lg text-gray-600 space-y-4">
               <p>
-                Founded in 2025,  Binary Heart at Purdue University is part of a nationwide movement to make technology accessible to everyone. As students at a leading research institution, we leverage our technical expertise and passion for service to refurbish and redistribute technology to those in need.
+                Founded in 2025, Binary Heart at Purdue University is part of a nationwide movement to make technology accessible to everyone. As students at a leading research institution, we leverage our technical expertise and passion for service to refurbish and redistribute technology to those in need.
               </p>
               <p>
                 We combine Purdue's spirit of innovation and community engagement with Binary Heart's proven model of student-led service. Our chapter works to ensure that students, families, and community organizations in the Greater Lafayette area and beyond have access to the technology they need to succeed in an increasingly digital world.
