@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <main className="grow relative z-10">
       {/* Hero Section */}
-      <div className="relative isolate overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 py-8 sm:py-20 lg:px-8">
+      <div className="relative isolate overflow-hidden min-h-screen flex items-center">
+        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           {/* Hero Content - Centered */}
           <div className="mx-auto max-w-3xl text-center">
             {/* Badge */}
