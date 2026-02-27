@@ -176,36 +176,51 @@ export default function About() {
                 imageSrc="/assets/images/chapters/rose-hulman/people/TalBelkind.jpg"
                 name="Tal Belkind"
                 role="President"
+                linkedin="https://www.linkedin.com/in/tal-belkind-4a2a752aa/"
+                github="https://github.com/2tmb2"
+                email="talbelkind@binaryheart.org"
               />
 
               <PictureCard
                 imageSrc="/assets/images/chapters/rose-hulman/people/JosephZeru.jpg"
                 name="Joseph Zeru"
                 role="Vice President"
+                linkedin="https://www.linkedin.com/in/joseph-zeru/"
+                github="https://github.com/jose-up"
+                email="zerujb@rose-hulman.edu"
               />
 
               <PictureCard
                 imageSrc="/assets/images/chapters/rose-hulman/people/HunterSnyder.jpg"
                 name="Hunter Snyder"
                 role="Secretary"
+                linkedin="https://www.linkedin.com/in/hunter-snyder-ba834032b/"
+                github="https://github.com/hsnyder342"
+                email="snyderh1@rose-hulman.edu"
               />
 
               <PictureCard
-                imageSrc="/assets/images/chapters/rose-hulman/people/JackLucas.jpg"
-                name="Jack Lucas"
+                imageSrc="/assets/images/chapters/rose-hulman/people/BryceHuey.jpeg"
+                name="Bryce Huey"
                 role="Treasurer"
+                linkedin="https://www.linkedin.com/in/bryce-huey-858ba628b/"
+                email="hueybm@rose-hulman.edu"
               />
 
               <PictureCard
                 imageSrc="/assets/images/chapters/rose-hulman/people/AnthonyFlores.jpg"
                 name="Anthony Flores"
                 role="Director of Internal Affairs"
+                linkedin="https://www.linkedin.com/in/anthony-flores-b5287a332/"
+                email="floresa@rose-hulman.edu"
               />
 
               <PictureCard
                 imageSrc="/assets/images/chapters/rose-hulman/people/KatieCotellesso.jpg"
                 name="Katie Cotellesso"
                 role="Director of Outreach"
+                linkedin="https://www.linkedin.com/in/katie-cotellesso-93a41632a/"
+                email="cotellkl@rose-hulman.edu"
               />
             </PictureCardGrid>
           </div>
