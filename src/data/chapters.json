@@ -3,7 +3,8 @@
     "name": "National/501(c)(3)",
     "url": "https://binaryheart.org",
     "icon": "/assets/images/chapters/national/icon.svg",
-    "measurementId": "G-0NMX89D74W"
+    "measurementId": "G-0NMX89D74W",
+    "email": "contact@binaryheart.org"
   },
   "higherEducation": [
     {
@@ -11,28 +12,40 @@
       "shortName": "NU",
       "url": "https://binaryheart.org/nu",
       "icon": "/assets/images/chapters/nu/icon.svg",
-      "measurementId": "G-T9G5MJG9ED"
+      "measurementId": "G-T9G5MJG9ED",
+      "email": "nu@binaryheart.org",
+      "latitude": 42.0565,
+      "longitude": -87.6753
     },
     {
       "name": "Indiana University",
       "shortName": "IU",
       "url": "https://binaryheart.org/iu",
       "icon": "/assets/images/chapters/iu/icon.svg",
-      "measurementId": "G-4TKS3F7H35"
+      "measurementId": "G-4TKS3F7H35",
+      "email": "iu@binaryheart.org",
+      "latitude": 39.168949,
+      "longitude": -86.522331
     },
     {
       "name": "Purdue University",
       "shortName": "Purdue",
       "url": "https://binaryheart.org/purdue",
       "icon": "/assets/images/chapters/purdue/icon.svg",
-      "measurementId": "G-BX0RR1NKQM"
+      "measurementId": "G-BX0RR1NKQM",
+      "email": "purdue@binaryheart.org",
+      "latitude": 40.428787,
+      "longitude": -86.914108
     },
     {
       "name": "Rose-Hulman Institute of Technology",
       "shortName": "Rose-Hulman",
       "url": "https://binaryheart.org/rose-hulman",
       "icon": "/assets/images/chapters/rose-hulman/icon.svg",
-      "measurementId": "G-GXS59DXDNS"
+      "measurementId": "G-GXS59DXDNS",
+      "email": "rose-hulman@binaryheart.org",
+      "latitude": 39.483627,
+      "longitude": -87.315699
     }
   ],
   "highSchool": [
@@ -41,14 +54,20 @@
       "shortName": "NT",
       "url": "https://binaryheart.org/nt",
       "icon": "/assets/images/chapters/nt/icon.svg",
-      "measurementId": "G-EKEJYNWWFS"
+      "measurementId": "G-EKEJYNWWFS",
+      "email": "nt@binaryheart.org",
+      "latitude": 42.1080,
+      "longitude": -87.7359
     },
     {
       "name": "Walter Payton College Prep",
       "shortName": "WP",
       "url": "https://binaryheart.org/wp",
       "icon": "/assets/images/chapters/wp/icon.svg",
-      "measurementId": "G-6XN6EF8T0G"
+      "measurementId": "G-6XN6EF8T0G",
+      "email": "walterpayton@binaryheart.org",
+      "latitude": 41.8781,
+      "longitude": -87.6298
     }
   ]
 }

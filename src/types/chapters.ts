@@ -1,4 +1,20 @@
 /**
+ * Request form configuration
+ */
+export interface RequestFormConfig {
+  formUrl: string;
+  fieldIds: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    organization: string;
+    location: string;
+    details: string;
+  };
+}
+
+/**
  * Chapter data structure
  */
 export interface Chapter {
@@ -6,6 +22,10 @@ export interface Chapter {
   shortName?: string;
   url: string;
   icon: string;
+  measurementId?: string;
+  latitude?: number;
+  longitude?: number;
+  requestForm?: RequestFormConfig;
 }
 
 /**
