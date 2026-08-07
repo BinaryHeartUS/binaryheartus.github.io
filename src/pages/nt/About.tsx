@@ -153,20 +153,8 @@ export default function About() {
           <div className="mx-auto max-w-6xl">
             <PictureCardGrid>
               <PictureCard
-                imageSrc="/assets/images/chapters/nt/people/lukeTegel.jpeg"
-                name="Luke Tegel"
-                role="Executive Leader"
-              />
-
-              <PictureCard
                 imageSrc="/assets/images/chapters/nt/people/HenryFiely.jpg"
                 name="Henry Fiely"
-                role="Executive Leader"
-              />
-
-              <PictureCard
-                imageSrc="/assets/images/chapters/nt/people/kristianQirko.jpg"
-                name="Kristian Qirko"
                 role="Executive Leader"
               />
 

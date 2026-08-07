@@ -160,18 +160,6 @@ export default function About() {
                 name="Aiste Siupienius"
                 role="Treasurer"
               />
-
-              <PictureCard
-                imageSrc="/assets/images/chapters/nu/people/MichaelGeohas.jpg"
-                name="Michael Geohas"
-                role="Chief Marketing Officer"
-              />
-
-              <PictureCard
-                imageSrc="/assets/images/chapters/nu/people/LuciaMcConnell.png"
-                name="Lucia McConnell"
-                role="Advisor"
-              />
             </PictureCardGrid>
           </div>
         </div>

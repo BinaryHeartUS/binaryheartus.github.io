@@ -2,8 +2,6 @@ import PhotoCarousel from '../../components/PhotoCarousel';
 import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
-import PictureCard from '../../components/PictureCard';
-import PictureCardGrid from '../../components/PictureCardGrid';
 import { IU_COLORS } from '../../utils/brandColors';
 
 export default function About() {
@@ -159,29 +157,13 @@ export default function About() {
       </div>
 
       {/* Leadership Team */}
-      <div className={`py-8 sm:py-12`}>
+      <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Leadership Team</h2>
             <p className="mt-4 text-lg text-gray-600">
               Meet the students leading Binary Heart at IU
             </p>
-          </div>
-
-          <div className="mx-auto max-w-2xl">
-            <PictureCardGrid>
-              <PictureCard
-                imageSrc="/assets/images/chapters/iu/people/JackWilber.jpg"
-                name="Jack Wilber"
-                role="President"
-              />
-
-              <PictureCard
-                imageSrc="/assets/images/chapters/iu/people/MaryDinkha.jpg"
-                name="Mary Dinkha"
-                role="Vice President"
-              />
-            </PictureCardGrid>
           </div>
         </div>
       </div>
