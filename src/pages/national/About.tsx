@@ -349,14 +349,6 @@ export default function About() {
               />
 
               <PictureCard
-                imageSrc="/assets/images/chapters/national/people/SabrinaLin.jpeg"
-                name="Sabrina Lin"
-                role="Director of Education"
-                linkedin="https://www.linkedin.com/in/sabrinaslin/"
-                email="sabrinalin@iu.binaryheart.org"
-              />
-
-              <PictureCard
                 imageSrc="/assets/images/chapters/national/people/AmyKemper.jpeg"
                 name="Amy Kemper"
                 role="Board Member"

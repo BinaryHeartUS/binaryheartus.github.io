@@ -158,11 +158,6 @@ export default function About() {
                 imageSrc="/assets/images/chapters/wp/people/erinchan.jpg"
               />
               <PictureCard
-                name="Sebastian Perez-Bernal"
-                role="Director of Operations"
-                imageSrc="/assets/images/chapters/wp/people/sebastianperezbernal.jpg"
-              />
-              <PictureCard
                 name="Isaac Castelaz"
                 role="Sponsor"
                 imageSrc="/assets/images/chapters/wp/people/isaaccastelaz.jpg"

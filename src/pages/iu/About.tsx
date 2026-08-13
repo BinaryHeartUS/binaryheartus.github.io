@@ -159,7 +159,7 @@ export default function About() {
       </div>
 
       {/* Leadership Team */}
-      <div className={`py-8 sm:py-12`}>
+      <div className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Leadership Team</h2>
@@ -168,18 +168,42 @@ export default function About() {
             </p>
           </div>
 
-          <div className="mx-auto max-w-2xl">
+          <div className="mx-auto max-w-6xl">
             <PictureCardGrid>
               <PictureCard
-                imageSrc="/assets/images/chapters/iu/people/JackWilber.jpg"
-                name="Jack Wilber"
+                imageSrc="/assets/images/chapters/iu/people/chris.jpg"
+                name="Chris Fallidas"
                 role="President"
               />
 
               <PictureCard
-                imageSrc="/assets/images/chapters/iu/people/MaryDinkha.jpg"
-                name="Mary Dinkha"
+                imageSrc="/assets/images/chapters/iu/people/ryanhopkins.jpg"
+                name="Ryan Hopkins"
                 role="Vice President"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/iu/people/johnjo.jpeg"
+                name="John Jo"
+                role="Internal Director"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/iu/people/ryanschorr.jpg"
+                name="Ryan Schorr"
+                role="Inbound Director"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/iu/people/logandahn.jpeg"
+                name="Logan Dahn"
+                role="Outbound Director"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/iu/people/siddharthaMandalapu.jpeg"
+                name="Siddhartha Mandalapu"
+                role="Head Technician"
               />
             </PictureCardGrid>
           </div>
