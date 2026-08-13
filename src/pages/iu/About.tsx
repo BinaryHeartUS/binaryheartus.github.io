@@ -2,6 +2,8 @@ import PhotoCarousel from '../../components/PhotoCarousel';
 import StatsGrid from '../../components/StatsGrid';
 import BinaryHeartText from '../../components/BinaryHeartText';
 import InfoCard from '../../components/InfoCard';
+import PictureCard from '../../components/PictureCard';
+import PictureCardGrid from '../../components/PictureCardGrid';
 import { IU_COLORS } from '../../utils/brandColors';
 
 export default function About() {
@@ -164,6 +166,46 @@ export default function About() {
             <p className="mt-4 text-lg text-gray-600">
               Meet the students leading Binary Heart at IU
             </p>
+          </div>
+
+          <div className="mx-auto max-w-6xl">
+            <PictureCardGrid>
+              <PictureCard
+                imageSrc="/assets/images/chapters/iu/people/chris.jpg"
+                name="Chris Fallidas"
+                role="President"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/iu/people/ryanhopkins.jpg"
+                name="Ryan Hopkins"
+                role="Vice President"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/iu/people/johnjo.jpeg"
+                name="John Jo"
+                role="Internal Director"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/iu/people/ryanschorr.jpg"
+                name="Ryan Schorr"
+                role="Inbound Director"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/iu/people/logandahn.jpeg"
+                name="Logan Dahn"
+                role="Outbound Director"
+              />
+
+              <PictureCard
+                imageSrc="/assets/images/chapters/iu/people/siddharthaMandalapu.jpeg"
+                name="Siddhartha Mandalapu"
+                role="Head Technician"
+              />
+            </PictureCardGrid>
           </div>
         </div>
       </div>
