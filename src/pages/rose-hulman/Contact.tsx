@@ -30,9 +30,9 @@ export default function Contact() {
                 <div className="rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-lg ring-1 ring-gray-900/5">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <img 
-                        src="/assets/images/chapters/rose-hulman/icon.svg" 
-                        alt="Rose-Hulman Binary Heart Logo" 
+                      <img
+                        src="/assets/images/chapters/rose-hulman/icon.svg"
+                        alt="Rose-Hulman Binary Heart Logo"
                         className="h-10 w-10"
                       />
                     </div>
@@ -81,7 +81,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900">Weekly Meetings</p>
-                        <p className="text-gray-600">Fridays at 5:00 PM</p>
+                        <p className="text-gray-600">Wednesday at 5:00 PM</p>
                         <p className="text-gray-600">Percopo Classroom, Percopo Basement</p>
                       </div>
                     </div>
@@ -99,10 +99,10 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-gray-900">Are you a Rose student? Join our community!</p>
-                        <a 
-                          href="https://rosehulman.campusgroups.com/BinaryHeart/club_signup" 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
+                        <a
+                          href="https://rosehulman.campusgroups.com/BinaryHeart/club_signup"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className={`${ROSE_HULMAN_COLORS.TEXT} ${ROSE_HULMAN_COLORS.TEXT_HOVER}`}
                         >
                           Campus Groups
@@ -140,7 +140,7 @@ export default function Contact() {
 
               {/* Contact Form */}
               {contactFormConfig && (
-                <ContactForm 
+                <ContactForm
                   formUrl={contactFormConfig.formUrl}
                   fieldIds={contactFormConfig.fieldIds}
                   buttonGradientClass={ROSE_HULMAN_COLORS.GRADIENT_PRIMARY}

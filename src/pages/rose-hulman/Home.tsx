@@ -80,7 +80,7 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">Every Friday</p>
+                    <p className="text-sm font-semibold text-gray-900">Every Wednesday</p>
                     <p className="text-sm text-gray-600">5:00 PM</p>
                   </div>
                 </div>
