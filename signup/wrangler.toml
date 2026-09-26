@@ -1,0 +1,6 @@
+# Cloudflare Pages project behind join.binaryheart.org. It only redirects to
+# binaryheart.org/nu/signup/ (see redirect/_redirects); it hosts no page or code.
+# Deploy: npx wrangler pages deploy --branch main   (from this signup/ directory)
+name = "binaryheart-nu-join"
+pages_build_output_dir = "redirect"
+compatibility_date = "2026-09-01"

@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join BinaryHeart at Northwestern</title>
+  <meta name="description" content="Join the BinaryHeart Northwestern mailing list in one tap." />
+  <meta name="theme-color" content="#f7f8fb" id="theme-color" />
+  <script>
+    // Light by default; dark only if the visitor turned it on. Runs before paint to avoid a flash.
+    (function () {
+      var t = 'light';
+      try { t = localStorage.getItem('bh-theme') === 'dark' ? 'dark' : 'light'; } catch (e) {}
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <meta name="format-detection" content="telephone=no" />
+  <meta property="og:title" content="Join BinaryHeart at Northwestern" />
+  <meta property="og:description" content="Type your Northwestern email, tap Join. That's it." />
+  <link rel="icon" type="image/svg+xml" href="/nu/signup/icon.svg" />
+  <style>
+    :root {
+      color-scheme: light;
+      /* BinaryHeart brand */
+      --red: #FF0040;
+      --red-from: #ff235a;
+      --red-to: #d70036;
+      --blue: #193961;
+      --heart: #193961;       /* "Heart" wordmark + blue accents */
+      --nu-purple: #4E2A84;   /* Northwestern: chapter label only */
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --ok: #047857;
+      --ok-bg: #ecfdf5;
+      --warn: #b45309;
+      --warn-bg: #fffbeb;
+      --err: #b91c1c;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --heart: #8fb0dc;
+      --nu-purple: #b9a3e3;
+      --ink: #f3f4f6;
+      --muted: #9ca3af;
+      --line: #374151;
+      --bg: #111827;
+      --card: #1f2937;
+      --ok: #6ee7b7;
+      --ok-bg: #0b2a22;
+      --warn: #fcd34d;
+      --warn-bg: #2d2208;
+      --err: #fca5a5;
+    }
+    .theme-toggle {
+      /* Inside each card's top-right corner, so it never covers the card */
+      position: absolute; z-index: 1; top: 16px; right: 16px;
+      width: 38px; height: 38px; border-radius: 50%;
+      display: grid; place-items: center; cursor: pointer;
+      color: var(--heart); background: var(--card);
+      border: 1px solid var(--line);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .theme-toggle svg { width: 20px; height: 20px; }
+    :root[data-theme="dark"] .icon-moon, :root:not([data-theme="dark"]) .icon-sun { display: none; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      /* svh = the screen area between Safari's bars, so the card centers in what you can see */
+      min-height: 100vh;
+      min-height: 100svh;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(50rem 26rem at 0% -10%, rgba(255, 0, 64, .07), transparent 60%),
+        radial-gradient(50rem 26rem at 100% 0%, rgba(25, 57, 97, .08), transparent 60%),
+        var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { width: 100%; max-width: 440px; }
+    .card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 28px 22px 22px;
+      box-shadow: 0 20px 45px -24px rgba(17, 24, 39, .28), 0 0 0 1px var(--line);
+      position: relative; overflow: hidden;
+    }
+    /* Red → blue brand stripe across the top of the card */
+    .card::before {
+      content: ""; position: absolute; inset: 0 0 auto 0; height: 5px;
+      background: linear-gradient(90deg, var(--red), var(--blue));
+    }
+    .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .brand img { width: 44px; height: 44px; }
+    /* The logo's navy half vanishes on the dark card, so give it a white tile */
+    :root[data-theme="dark"] .brand img { background: #fff; border-radius: 12px; padding: 5px; }
+    .brand .wordmark { font-weight: 800; font-size: 17px; letter-spacing: -.01em; line-height: 1.1; }
+    .brand .binary { color: var(--red); }
+    .brand .heart { color: var(--heart); }
+    .brand .chapter { display: block; font-size: 13px; font-weight: 600; color: var(--nu-purple); letter-spacing: .02em; margin-top: 2px; }
+    .brand .chapter-word { color: var(--ink); }
+    h1 { font-size: 26px; line-height: 1.15; margin: 0 0 8px; letter-spacing: -.02em; }
+    .lede { margin: 0 0 22px; color: var(--muted); font-size: 16px; line-height: 1.45; }
+
+    label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; }
+    .field {
+      display: flex; align-items: center;
+      border: 2px solid var(--line); border-radius: 14px;
+      background: var(--card);
+      transition: border-color .15s, box-shadow .15s;
+      overflow: hidden;
+    }
+    .field:focus-within { border-color: var(--heart); box-shadow: 0 0 0 4px rgba(25, 57, 97, .14); }
+    .field.invalid { border-color: var(--err); }
+    input[type="email"] {
+      flex: 1 1 0; width: 1%; min-width: 0;
+      border: 0; outline: 0; background: transparent; color: var(--ink);
+      /* 17px+ keeps iOS Safari from zooming on focus */
+      font-size: 18px; padding: 15px 0 15px 14px;
+      font-family: inherit;
+    }
+    .suffix {
+      flex: 0 0 auto;
+      color: var(--muted); font-size: 16px; padding-right: 14px; white-space: nowrap;
+    }
+    .suffix[hidden] { display: none; }
+    .hint { min-height: 20px; margin: 8px 2px 0; font-size: 14px; color: var(--muted); }
+    .hint.err { color: var(--err); }
+    .hint.ok { color: var(--ok); font-weight: 600; }
+    /* Keep Safari/Chrome AutoFill from painting the field yellow */
+    input[type="email"]:-webkit-autofill,
+    input[type="email"]:-webkit-autofill:hover,
+    input[type="email"]:-webkit-autofill:focus {
+      -webkit-text-fill-color: var(--ink);
+      -webkit-box-shadow: 0 0 0 1000px var(--card) inset;
+      caret-color: var(--ink);
+      transition: background-color 99999s;
+    }
+    .hint button {
+      font: inherit; color: var(--heart); background: none; border: 0; padding: 0;
+      text-decoration: underline; cursor: pointer;
+    }
+
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; margin-top: 14px; padding: 16px 20px;
+      border: 0; border-radius: 14px; cursor: pointer;
+      font-family: inherit; font-size: 18px; font-weight: 700; line-height: 1.2;
+      color: #fff; background: linear-gradient(135deg, var(--red-from), var(--red-to));
+      box-shadow: 0 10px 22px -12px rgba(215, 0, 54, .75);
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform .1s, opacity .15s;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn[disabled] { opacity: .7; cursor: progress; }
+    .btn.secondary {
+      color: var(--heart); background: transparent; box-shadow: none;
+      border: 2px solid var(--line); font-size: 16px; font-weight: 600; padding: 14px 18px;
+    }
+    /* Success screen: each next step gets its own brand color */
+    .btn.purple { background: linear-gradient(135deg, #6a3fad, #4E2A84); box-shadow: 0 10px 22px -12px rgba(78, 42, 132, .75); }
+    .btn.blue { background: linear-gradient(135deg, #2F4A70, #193961); box-shadow: 0 10px 22px -12px rgba(25, 57, 97, .75); font-size: 16px; font-weight: 600; padding: 14px 18px; }
+    .btn.discord { background: linear-gradient(135deg, #6c77f5, #5865F2); box-shadow: 0 10px 22px -12px rgba(88, 101, 242, .75); font-size: 16px; font-weight: 600; padding: 14px 18px; }
+    .btn.red-small { font-size: 16px; font-weight: 600; padding: 14px 18px; }
+    .spinner {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 2.5px solid rgba(255,255,255,.4); border-top-color: #fff;
+      animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .or { display: flex; align-items: center; gap: 12px; margin: 22px 0 4px; color: var(--muted); font-size: 13px; }
+    .or::before, .or::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+    .mailto-help { margin: 8px 2px 0; font-size: 13px; color: var(--muted); line-height: 1.4; text-align: center; }
+    .note { margin: 18px 2px 0; font-size: 13px; color: var(--muted); line-height: 1.45; text-align: center; }
+    .note a { color: inherit; }
+
+    .done { text-align: center; }
+    .brand-outside { justify-content: center; margin-bottom: 16px; }
+    .check {
+      width: 64px; height: 64px; margin: 4px auto 14px; border-radius: 50%;
+      display: grid; place-items: center; background: var(--ok-bg); color: var(--ok);
+    }
+    .check svg { width: 34px; height: 34px; }
+    .done h1 { margin-bottom: 6px; }
+    .done .who { font-weight: 600; word-break: break-all; margin: 0 0 18px; }
+    .banner {
+      margin: 0 0 16px; padding: 12px 14px; border-radius: 12px;
+      background: var(--warn-bg); color: var(--warn); font-size: 14px; line-height: 1.4; text-align: left;
+    }
+    .next { display: grid; gap: 10px; margin-top: 6px; }
+    .next .btn { margin-top: 0; }
+
+    .visually-hidden {
+      position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+      clip: rect(0 0 0 0); white-space: nowrap;
+    }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- Step 1: the form -->
+    <section class="card" id="form-view">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+      </button>
+      <div class="brand">
+        <img src="/nu/signup/icon.svg" alt="" />
+        <div>
+          <span class="wordmark"><span class="binary">Binary</span><span class="heart">Heart</span></span>
+          <span class="chapter">Northwestern <span class="chapter-word">Chapter</span></span>
+        </div>
+      </div>
+      <h1>Join our mailing list</h1>
+      <p class="lede">Get meeting and event updates as we repair and refurbish computers for donation and work on software initiatives like our OpenClaw cluster.</p>
+
+      <form id="signup" novalidate>
+        <label for="email">Northwestern email</label>
+        <div class="field" id="field">
+          <input
+            id="email" name="email" type="email"
+            inputmode="email" autocomplete="email" enterkeyhint="go"
+            autocapitalize="off" autocorrect="off" spellcheck="false"
+            placeholder="firstlast2029" required
+          />
+          <span class="suffix" id="suffix" aria-hidden="true">@u.northwestern.edu</span>
+        </div>
+        <p class="hint" id="hint" aria-live="polite">We need your Northwestern email to add you to Cats on Campus.</p>
+
+        <!-- Honeypot: humans never see or fill this -->
+        <div class="visually-hidden" aria-hidden="true">
+          <label for="website">Leave this empty</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <button class="btn" id="submit" type="submit">
+          <span id="submit-label">Join</span>
+        </button>
+      </form>
+
+      <div class="or">or</div>
+      <a class="btn secondary" id="mailto" href="#">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+        Join by email instead
+      </a>
+      <p class="mailto-help" id="mailto-help">Opens your email app with a join request already written. Just tap Send.</p>
+
+      <p class="note">We only use your email for BinaryHeart updates. Unsubscribe anytime.</p>
+    </section>
+
+    <!-- Step 2: success -->
+    <!-- Branding sits above the success card -->
+    <div class="brand brand-outside" id="done-brand" hidden>
+      <img src="/nu/signup/icon.svg" alt="" />
+      <div>
+        <span class="wordmark"><span class="binary">Binary</span><span class="heart">Heart</span></span>
+        <span class="chapter">Northwestern <span class="chapter-word">Chapter</span></span>
+      </div>
+    </div>
+    <section class="card done" id="done-view" hidden>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+      </button>
+      <div class="check" id="done-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+      </div>
+      <h1 id="done-title">You're on the list!</h1>
+      <p class="who" id="done-email"></p>
+      <p class="banner" id="done-banner" hidden></p>
+
+      <div class="next" id="next">
+        <a class="btn" id="fallback-mailto" href="#" hidden>Join by email</a>
+        <a class="btn purple" id="cats-link" href="#" target="_blank" rel="noopener" hidden>Join us on Cats on Campus</a>
+        <a class="btn blue" href="https://instagram.com/binaryheartatnu" target="_blank" rel="noopener">Follow @binaryheartatnu</a>
+        <a class="btn discord" href="https://discord.gg/66ccvwV7J" target="_blank" rel="noopener">Join BinaryHeart's Discord</a>
+        <button class="btn red-small" id="another" type="button">Sign up another email</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      // ---- Config ---------------------------------------------------------
+      var CHAPTER_EMAIL = 'nu@binaryheart.org';
+      // Must match CONFIG.MAILTO_SUBJECT in apps-script/Code.gs so the inbox
+      // automation can find these emails.
+      var MAILTO_SUBJECT = 'Join the BinaryHeart NU mailing list';
+      // Paste the chapter's Cats on Campus page here to show a "Join us" button after signup.
+      // Apps Script web app (Deploy → Manage deployments). Its URL stays the same across new versions.
+      var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby4E0zi8MbhMewZhH4bXmc-Nu2KlNaJNv6AVY8hXuwS1ht1Liu94FLv_hcWx0gh7pF7pQ/exec';
+      var CATS_ON_CAMPUS_URL = 'https://catsoncampus.northwestern.edu/binaryheart/club_signup';
+      var DEFAULT_DOMAIN = 'u.northwestern.edu';
+      var NU_DOMAINS = ['u.northwestern.edu', 'northwestern.edu'];
+      var TYPO_DOMAINS = {
+        'u.northwestern.com': 'u.northwestern.edu',
+        'u.northwestern.ed': 'u.northwestern.edu',
+        'u.northwestern': 'u.northwestern.edu',
+        'u.nortwestern.edu': 'u.northwestern.edu',
+        'u.northwesten.edu': 'u.northwestern.edu',
+        'u.northwestren.edu': 'u.northwestern.edu',
+        'northwestern.com': 'northwestern.edu',
+        'nortwestern.edu': 'northwestern.edu',
+        'northwesten.edu': 'northwestern.edu',
+        'u.nu.edu': 'u.northwestern.edu',
+        'nu.edu': 'u.northwestern.edu'
+      };
+      var STORAGE_KEY = 'bh-nu-signup-email';
+
+      // ---- URL options ----------------------------------------------------
+      // ?src=flyer|instagram|groupme|tabling|email|website  → recorded with the signup
+      // ?kiosk                                               → shared-device mode for tabling
+      var params = new URLSearchParams(location.search);
+      var source = (params.get('src') || params.get('utm_source') || 'direct').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 40) || 'direct';
+      var kiosk = params.has('kiosk');
+
+      // ---- Elements -------------------------------------------------------
+      var $ = function (id) { return document.getElementById(id); };
+      var form = $('signup'), input = $('email'), field = $('field'), suffix = $('suffix');
+      var hint = $('hint'), submit = $('submit'), submitLabel = $('submit-label');
+      var formView = $('form-view'), doneView = $('done-view');
+      var defaultHint = hint.innerHTML;
+
+      // ---- Light/dark toggle ----------------------------------------------
+      var themeToggles = document.querySelectorAll('.theme-toggle');
+      function applyTheme(t) {
+        document.documentElement.setAttribute('data-theme', t);
+        $('theme-color').setAttribute('content', t === 'dark' ? '#111827' : '#f7f8fb');
+        themeToggles.forEach(function (b) {
+          b.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        });
+      }
+      applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
+      themeToggles.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+          try { localStorage.setItem('bh-theme', next); } catch (e) {}
+        });
+      });
+
+      // ---- Email helpers --------------------------------------------------
+      function normalize(raw) {
+        var v = String(raw || '').trim().toLowerCase().replace(/^mailto:/, '').replace(/\s+/g, '');
+        if (!v) return '';
+        if (v.indexOf('@') === -1) v += '@' + DEFAULT_DOMAIN;
+        return v;
+      }
+      function domainOf(email) { return email.split('@')[1] || ''; }
+      function isValidShape(email) { return /^[a-z0-9._%+'-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email); }
+      function isNU(email) { return isValidShape(email) && NU_DOMAINS.indexOf(domainOf(email)) !== -1; }
+      function typoFix(email) {
+        var fix = TYPO_DOMAINS[domainOf(email)];
+        return fix ? email.split('@')[0] + '@' + fix : null;
+      }
+
+      function mailtoHref(email) {
+        var lines = [
+          'Hi BinaryHeart! Please add me to the Northwestern chapter mailing list.',
+          ''
+        ];
+        if (email) {
+          lines.push('My Northwestern email: ' + email);
+        } else {
+          lines.push("(Just hit send. If this isn't your @u.northwestern.edu account, type your Northwestern email here so we can add you to Cats on Campus: )");
+        }
+        return 'mailto:' + CHAPTER_EMAIL +
+          '?subject=' + encodeURIComponent(MAILTO_SUBJECT) +
+          '&body=' + encodeURIComponent(lines.join('\n'));
+      }
+      $('mailto').href = mailtoHref('');
+      // On a shared tabling device the mail app belongs to whoever is holding it.
+      if (kiosk) { $('mailto').hidden = true; $('mailto-help').hidden = true; document.querySelector('.or').hidden = true; }
+
+      // ---- Live input feedback -------------------------------------------
+      function setHint(html, isError) {
+        hint.innerHTML = html;
+        hint.classList.toggle('err', !!isError);
+        hint.classList.remove('ok');
+        field.classList.toggle('invalid', !!isError);
+      }
+      // Once the keyboard is closed, shrink the text so a long name and the
+      // @u.northwestern.edu suffix both fit. Full size again while typing
+      // (below 16px, iOS zooms the page on focus).
+      function fitField() {
+        input.style.fontSize = '';
+        suffix.style.fontSize = '';
+        if (document.activeElement === input || !input.value) return;
+        for (var size = 17; input.scrollWidth > input.clientWidth && size >= 12; size--) {
+          input.style.fontSize = size + 'px';
+          suffix.style.fontSize = Math.min(16, size) + 'px';
+        }
+      }
+      input.addEventListener('focus', fitField);
+      input.addEventListener('blur', fitField);
+      window.addEventListener('resize', fitField);
+
+      var lastLen = 0;
+      input.addEventListener('input', function () {
+        // A whole address arriving at once means AutoFill or paste.
+        var arrivedAtOnce = input.value.length - lastLen > 3;
+        // The box already shows @u.northwestern.edu, so drop it from what they
+        // entered and keep just the name part in the field.
+        var trimmed = input.value.trim().replace(/@u\.northwestern\.edu$/i, '');
+        if (trimmed !== input.value) input.value = trimmed;
+        lastLen = input.value.length;
+        // Hide the fixed suffix only if they're entering some other domain.
+        suffix.hidden = input.value.indexOf('@') !== -1;
+        // Close the keyboard (and iOS's selection menu) so Join is right there.
+        if (arrivedAtOnce && isNU(normalize(input.value))) {
+          input.blur();
+          fitField();
+          setHint('Looks good. Tap Join.', false);
+          hint.classList.add('ok');
+        } else if (hint.classList.contains('err') || hint.classList.contains('ok')) {
+          setHint(defaultHint, false);
+        }
+      });
+
+      // ---- Submit ---------------------------------------------------------
+      function setBusy(busy) {
+        submit.disabled = busy;
+        submitLabel.textContent = busy ? 'Joining…' : 'Join';
+        var spin = submit.querySelector('.spinner');
+        if (busy && !spin) {
+          spin = document.createElement('span');
+          spin.className = 'spinner';
+          submit.insertBefore(spin, submitLabel);
+        } else if (!busy && spin) {
+          spin.remove();
+        }
+      }
+
+      function showDone(email, opts) {
+        opts = opts || {};
+        $('done-title').textContent = opts.duplicate ? "You're already on the list!" : "You're on the list!";
+        $('done-email').textContent = email;
+        var banner = $('done-banner');
+        banner.hidden = !opts.banner;
+        if (opts.banner) banner.textContent = opts.banner;
+        $('done-check').hidden = !!opts.fallback;
+        var fallback = $('fallback-mailto');
+        fallback.hidden = !opts.fallback;
+        if (opts.fallback) fallback.href = mailtoHref(email);
+        var cats = $('cats-link');
+        cats.hidden = !CATS_ON_CAMPUS_URL;
+        if (CATS_ON_CAMPUS_URL) cats.href = CATS_ON_CAMPUS_URL;
+        var another = $('another');
+        another.hidden = false;
+        another.textContent = kiosk ? 'Next person' : 'Sign up another email';
+        formView.hidden = true;
+        doneView.hidden = false;
+        $('done-brand').hidden = false;
+        // Tabling iPad: clear for the next person, unless something needs attention.
+        if (kiosk && !opts.fallback) setTimeout(reset, 4000);
+      }
+
+      function reset() {
+        form.reset();
+        lastLen = 0;
+        suffix.hidden = false;
+        setHint(defaultHint, false);
+        setBusy(false);
+        doneView.hidden = true;
+        $('done-brand').hidden = true;
+        formView.hidden = false;
+        if (!kiosk) { try { localStorage.removeItem(STORAGE_KEY); } catch (e) {} }
+        input.focus();
+      }
+      $('another').addEventListener('click', reset);
+
+      function remember(email) {
+        if (kiosk) return;
+        try { localStorage.setItem(STORAGE_KEY, email); } catch (e) {}
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = normalize(input.value);
+
+        if (!email) {
+          setHint('Enter your Northwestern email.', true);
+          input.focus();
+          return;
+        }
+        var fixed = typoFix(email);
+        if (fixed) {
+          setHint('Did you mean <button type="button" id="use-fix"></button>?', true);
+          var b = $('use-fix');
+          b.textContent = fixed;
+          b.addEventListener('click', function () { input.value = fixed; suffix.hidden = true; form.requestSubmit ? form.requestSubmit() : submit.click(); });
+          return;
+        }
+        if (!isValidShape(email)) {
+          setHint("That doesn't look like an email address. Try yourname2029@u.northwestern.edu.", true);
+          return;
+        }
+        if (!isNU(email)) {
+          setHint('Please use your <strong>@u.northwestern.edu</strong> email. We need it to add you to Cats on Campus.', true);
+          return;
+        }
+
+        setBusy(true);
+        var controller = 'AbortController' in window ? new AbortController() : null;
+        var timer = controller && setTimeout(function () { controller.abort(); }, 12000);
+
+        // Straight to the Apps Script web app. text/plain keeps this a "simple"
+        // cross-origin request (no preflight), which Apps Script can answer.
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({ email: email, source: kiosk ? 'tabling' : source, website: $('website').value }),
+          signal: controller ? controller.signal : undefined
+        })
+          .then(function (res) { return res.json().catch(function () { return { ok: false }; }).then(function (data) { return { status: res.status, data: data }; }); })
+          .then(function (r) {
+            if (r.data && r.data.ok) {
+              remember(email);
+              showDone(email, { duplicate: r.data.duplicate });
+            } else if (r.data && r.data.error === 'not_northwestern') {
+              setBusy(false);
+              setHint('Please use your <strong>@u.northwestern.edu</strong> email. We need it to add you to Cats on Campus.', true);
+            } else {
+              throw new Error('signup failed');
+            }
+          })
+          .catch(function () {
+            // The web path is down. Fall back to one tap on a pre-filled email
+            // so the signup still reaches the chapter inbox.
+            setBusy(false);
+            showDone(email, {
+              fallback: true,
+              banner: "We couldn't save your signup automatically. Tap Join by email below: it opens your email app with your request already written, so you just tap Send."
+            });
+            $('done-title').textContent = 'Almost there';
+          })
+          .then(function () { if (timer) clearTimeout(timer); });
+      });
+
+      // ---- Returning visitor ---------------------------------------------
+      if (!kiosk) {
+        var saved = null;
+        try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+        if (saved) showDone(saved, { duplicate: true, returning: true });
+      }
+    })();
+  </script>
+</body>
+</html>

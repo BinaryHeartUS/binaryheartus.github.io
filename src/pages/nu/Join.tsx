@@ -5,6 +5,11 @@ import BinaryHeartText from '../../components/BinaryHeartText';
 import { BRAND_COLORS, NORTHWESTERN_COLORS } from '../../utils/brandColors';
 import { firstMeeting, isFirstMeetingUpcoming } from './firstMeeting';
 
+// Standalone signup page deployed from signup/ to Cloudflare Pages
+const NU_SIGNUP_URL = '/nu/signup/';
+const CATS_ON_CAMPUS_URL = 'https://catsoncampus.northwestern.edu/binaryheart/club_signup';
+const DISCORD_URL = 'https://discord.gg/66ccvwV7J'; // national BinaryHeart server
+
 export default function Join() {
   const showFirstMeeting = isFirstMeetingUpcoming();
 
@@ -77,10 +82,8 @@ export default function Join() {
 
               <div className="space-y-6 text-sm sm:text-base text-gray-600">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Workshop Focus</h3>
-                  <p>
-                    Learn computer repair skills to refurbish devices for donation to underserved groups. This hands-on workshop will teach you practical techniques for fixing and upgrading computers while making a positive impact in our community.
-                  </p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">What We'll Cover</h3>
+                  <p>{firstMeeting.description}</p>
                 </div>
 
                 <div>
@@ -103,10 +106,24 @@ export default function Join() {
                     Drop in anytime between {firstMeeting.dropInWindow} on {firstMeeting.displayDate}.
                   </p>
                   <p className="mb-4">No experience necessary. We'll teach you everything you need to know!</p>
-                  <div className="flex flex-col sm:flex-row justify-center gap-3">
+                  <div className="mx-auto grid max-w-lg grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a
+                      href={`${NU_SIGNUP_URL}?src=website`}
+                      className={`inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r ${BRAND_COLORS.BINARY_GRADIENT} px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:opacity-90 transition-all duration-200`}
+                    >
+                      Join our mailing list
+                    </a>
+                    <a
+                      href={CATS_ON_CAMPUS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY} px-5 py-2.5 text-sm font-semibold text-white shadow-md ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_HOVER} transition-all duration-200`}
+                    >
+                      Join on Cats on Campus
+                    </a>
                     <a
                       href={`mailto:${firstMeeting.email}`}
-                      className={`inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY} px-5 py-2.5 text-sm font-semibold text-white shadow-md ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_HOVER} transition-all duration-200`}
+                      className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow-md ring-1 ring-gray-900/10 hover:bg-gray-50 transition-all duration-200"
                     >
                       Email {firstMeeting.email}
                     </a>
@@ -117,6 +134,14 @@ export default function Join() {
                       className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow-md ring-1 ring-gray-900/10 hover:bg-gray-50 transition-all duration-200"
                     >
                       DM @{firstMeeting.instagram}
+                    </a>
+                    <a
+                      href={DISCORD_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-lg bg-[#5865F2] px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-[#4752C4] transition-all duration-200"
+                    >
+                      Join BinaryHeart's Discord
                     </a>
                   </div>
                   <p className="mt-4 text-gray-900 font-medium">We're looking forward to seeing everyone!</p>
@@ -295,6 +320,54 @@ export default function Join() {
             </div>
 
             <div className="space-y-6">
+              {/* Mailing List Signup (hosted separately on Cloudflare Pages, see signup/README.md) */}
+              <div id="mailing-list" className={`relative rounded-2xl bg-gradient-to-br ${BRAND_COLORS.BINARY_GRADIENT} backdrop-blur-sm p-6 sm:p-8 shadow-xl text-white`}>
+                <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
+                      <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-3">
+                      Join Our Mailing List
+                    </h3>
+                    <p className="text-white/90 mb-6 text-sm sm:text-base">
+                      Get meeting and event updates in your inbox.
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                    <a
+                      href={`${NU_SIGNUP_URL}?src=website`}
+                      className="group inline-flex items-center gap-2 rounded-xl bg-white px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-gray-900 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    >
+                      <span>Sign Up</span>
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </a>
+                    <a
+                      href={CATS_ON_CAMPUS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white ring-2 ring-white/70 transition-all duration-300 hover:bg-white/10"
+                    >
+                      Join on Cats on Campus
+                    </a>
+                    <a
+                      href={DISCORD_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white ring-2 ring-white/70 transition-all duration-300 hover:bg-white/10"
+                    >
+                      Join our Discord
+                    </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Instagram Follow */}
               <div className={`relative rounded-2xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_90} backdrop-blur-sm p-6 sm:p-8 shadow-xl text-white`}>
                 <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">

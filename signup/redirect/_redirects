@@ -1,0 +1,7 @@
+# join.binaryheart.org is only a short link for flyers and QR codes.
+# The signup page itself lives on the main site (public/nu/signup/).
+# Query strings like ?src=flyer are kept.
+/nu   https://binaryheart.org/nu/signup/  301
+/nu/  https://binaryheart.org/nu/signup/  301
+/     https://binaryheart.org/nu/signup/  302
+/*    https://binaryheart.org/nu/signup/  302
