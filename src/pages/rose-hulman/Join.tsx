@@ -228,7 +228,7 @@ export default function Join() {
                       Come to a Meeting
                     </h3>
                     <p className="text-sm sm:text-base text-white/90 mb-4">
-                      Sign up on Campus Groups to get notifications about our next meeting and events. We meet Wednesday at 5:00 PM in Olin 231—join Campus Groups to stay updated!
+                      Sign up on Campus Groups to get notifications about our next meeting and events. We meet Wednesday at 5:00 PM in Percopo Classroom—join Campus Groups to stay updated!
                     </p>
                     <ul className="space-y-2 text-xs sm:text-sm text-white/90">
                       <li className="flex items-start gap-2">
