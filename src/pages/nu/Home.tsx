@@ -95,7 +95,7 @@ export default function Home() {
                     {showFirstMeeting ? (
                       <>
                         <p className="text-sm font-semibold text-gray-900">{firstMeeting.displayDate}</p>
-                        <p className="text-sm text-gray-600">Drop in {firstMeeting.dropInWindow}</p>
+                        <p className="text-sm text-gray-600">{firstMeeting.dropInWindow}</p>
                       </>
                     ) : (
                       <>
