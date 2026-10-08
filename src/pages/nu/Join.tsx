@@ -77,10 +77,8 @@ export default function Join() {
 
               <div className="space-y-6 text-sm sm:text-base text-gray-600">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Workshop Focus</h3>
-                  <p>
-                    Learn computer repair skills to refurbish devices for donation to underserved groups. This hands-on workshop will teach you practical techniques for fixing and upgrading computers while making a positive impact in our community.
-                  </p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">What We'll Cover</h3>
+                  <p>{firstMeeting.description}</p>
                 </div>
 
                 <div>
@@ -100,10 +98,16 @@ export default function Join() {
 
                 <div className={`rounded-xl bg-gradient-to-br ${NORTHWESTERN_COLORS.GRADIENT_LIGHT} p-4 sm:p-6 text-center`}>
                   <p className="text-gray-900 font-semibold mb-1">
-                    Drop in anytime between {firstMeeting.dropInWindow} on {firstMeeting.displayDate}.
+                    Join us {firstMeeting.dropInWindow} on {firstMeeting.displayDate}.
                   </p>
                   <p className="mb-4">No experience necessary. We'll teach you everything you need to know!</p>
                   <div className="flex flex-col sm:flex-row justify-center gap-3">
+                    <a
+                      href={firstMeeting.rsvpUrl}
+                      className={`inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r ${BRAND_COLORS.BINARY_GRADIENT} px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:opacity-90 transition-all duration-200`}
+                    >
+                      RSVP
+                    </a>
                     <a
                       href={`mailto:${firstMeeting.email}`}
                       className={`inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY} px-5 py-2.5 text-sm font-semibold text-white shadow-md ${NORTHWESTERN_COLORS.GRADIENT_PRIMARY_HOVER} transition-all duration-200`}

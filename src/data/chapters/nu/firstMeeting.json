@@ -1,13 +1,15 @@
 {
   "title": "First Meeting - Fall 2026",
-  "subtitle": "Computer Repair Workshop",
-  "date": "2026-10-08",
-  "displayDate": "Thursday, October 8th",
-  "time": "11:00 AM - 6:00 PM",
-  "dropInWindow": "11 AM - 6 PM",
+  "subtitle": "Intro Meeting",
+  "description": "Our first official meeting: meet the full team, see what we work on, and find out how to get involved.",
+  "date": "2026-10-16",
+  "displayDate": "Friday, October 16th",
+  "time": "5:00 PM - 7:00 PM",
+  "dropInWindow": "5 PM - 7 PM",
   "locationName": "BinaryHeart Space",
   "address": "1910 Orrington Ave, Evanston",
   "mapUrl": "https://maps.app.goo.gl/7UAMTC36M6UMPhax6",
+  "rsvpUrl": "https://join.binaryheart.org/nu/rsvp?src=website",
   "email": "nu@binaryheart.org",
   "instagram": "binaryheartatnu"
 }
