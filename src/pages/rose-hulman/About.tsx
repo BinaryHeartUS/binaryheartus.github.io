@@ -16,7 +16,8 @@ export default function About() {
     '/assets/images/chapters/rose-hulman/photos/gallery-6.jpg',
     '/assets/images/chapters/rose-hulman/photos/gallery-7.jpg',
     '/assets/images/chapters/rose-hulman/photos/gallery-8.jpg',
-    '/assets/images/chapters/rose-hulman/photos/gallery-9.jpg'
+    '/assets/images/chapters/rose-hulman/photos/gallery-9.jpg',
+    '/assets/images/chapters/rose-hulman/photos/gallery-10.jpg'
   ];
 
   return (
