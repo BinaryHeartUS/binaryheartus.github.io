@@ -116,6 +116,7 @@ export default function Donate() {
                   formUrl={donateFormConfig.formUrl}
                   fieldIds={donateFormConfig.fieldIds}
                   buttonGradientClass={NEW_TRIER_COLORS.GRADIENT_PRIMARY}
+                  salesforce={donateFormConfig.salesforce}
                 />
               )}
             </div>

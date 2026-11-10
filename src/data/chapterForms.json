@@ -182,7 +182,20 @@
         "email": "entry.1302188399",
         "phone": "entry.1751717741",
         "donationContents": "entry.1800868177",
-        "additionalNotes": "entry.659377643"
+        "additionalNotes": "entry.659377643",
+        "heardAbout": "entry.643784675"
+      },
+      "salesforce": {
+        "endpoint": "https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Di80000044X6m",
+        "orgId": "00Di80000044X6m",
+        "chapter": "NT",
+        "fieldIds": {
+          "chapter": "00Ni800000Gdyr9",
+          "donationContents": "00Ni800000GdyrA",
+          "additionalNotes": "00Ni800000Gdyr8",
+          "heardAbout": "00Ni800000GdyrC",
+          "fillSeconds": "00Ni800000GdyrB"
+        }
       }
     }
   },
