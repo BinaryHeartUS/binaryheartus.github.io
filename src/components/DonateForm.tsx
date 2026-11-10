@@ -1,71 +1,99 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { HEARD_ABOUT_OPTIONS } from '../types/heardAboutOptions';
+import type { DonateFormData, DonateFormFieldIds, DonateFormSubmitInfo } from '../types/forms';
+import { submitDonateFormToGoogle } from '../utils/googleForms';
 
 interface DonateFormProps {
   formUrl: string;
-  fieldIds: {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    donationContents: string;
-    additionalNotes: string;
-  };
+  fieldIds: DonateFormFieldIds;
   buttonGradientClass?: string;
+  onSubmit?: (data: DonateFormData, info: DonateFormSubmitInfo) => Promise<void>;
 }
 
-export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'from-blue-600 to-indigo-600' }: DonateFormProps) {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    donationContents: '',
-    additionalNotes: ''
-  });
+const MAX = {
+  firstName: 40,
+  lastName: 80,
+  email: 80,
+  phone: 40,
+  donationContents: 2000,
+  additionalNotes: 2000,
+  heardAboutOther: 150,
+};
+
+const EMPTY_FORM = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  donationContents: '',
+  additionalNotes: '',
+  heardAbout: '',
+  heardAboutOther: '',
+  website: '',
+};
+
+export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'from-blue-600 to-indigo-600', onSubmit }: DonateFormProps) {
+  const [formData, setFormData] = useState(EMPTY_FORM);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const startedAt = useRef(0);
+  const showHeardAbout = Boolean(fieldIds.heardAbout);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const markStarted = () => {
+    if (!startedAt.current) startedAt.current = Date.now();
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    markStarted();
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
 
+  const finish = () => {
+    setSubmitStatus('success');
+    setFormData(EMPTY_FORM);
+    startedAt.current = 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    const trimmed = Object.fromEntries(
+      Object.entries(formData).map(([key, value]) => [key, value.trim()])
+    ) as typeof EMPTY_FORM;
+
+    if (trimmed.website) {
+      finish();
+      return;
+    }
+
+    const data: DonateFormData = {
+      firstName: trimmed.firstName,
+      lastName: trimmed.lastName,
+      email: trimmed.email,
+      phone: trimmed.phone,
+      donationContents: trimmed.donationContents,
+      additionalNotes: trimmed.additionalNotes,
+      heardAbout: trimmed.heardAbout === 'Other' && trimmed.heardAboutOther
+        ? `Other: ${trimmed.heardAboutOther}`
+        : trimmed.heardAbout,
+    };
+    const info: DonateFormSubmitInfo = {
+      secondsToFill: startedAt.current ? Math.round((Date.now() - startedAt.current) / 1000) : 0,
+    };
+
+    setIsSubmitting(true);
     try {
-      const formBody = new URLSearchParams({
-        [fieldIds.firstName]: formData.firstName,
-        [fieldIds.lastName]: formData.lastName,
-        [fieldIds.email]: formData.email,
-        [fieldIds.phone]: formData.phone,
-        [fieldIds.donationContents]: formData.donationContents,
-        [fieldIds.additionalNotes]: formData.additionalNotes
-      });
-
-      await fetch(formUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formBody.toString()
-      });
-
-      setSubmitStatus('success');
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        donationContents: '',
-        additionalNotes: ''
-      });
+      if (onSubmit) {
+        await onSubmit(data, info);
+      } else {
+        await submitDonateFormToGoogle(formUrl, fieldIds, data);
+      }
+      finish();
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
@@ -114,6 +142,7 @@ export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'f
 
       <form 
         onSubmit={handleSubmit}
+        onFocus={markStarted}
         className="space-y-6"
       >
         {/* Name Fields */}
@@ -134,6 +163,8 @@ export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'f
                 id="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
+                maxLength={MAX.firstName}
+                autoComplete="given-name"
                 className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
                 required
               />
@@ -156,6 +187,8 @@ export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'f
                 id="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
+                maxLength={MAX.lastName}
+                autoComplete="family-name"
                 className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
                 required
               />
@@ -180,6 +213,8 @@ export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'f
               id="email"
               value={formData.email}
               onChange={handleChange}
+              maxLength={MAX.email}
+              autoComplete="email"
               className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
               required
             />
@@ -203,6 +238,8 @@ export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'f
               id="phone"
               value={formData.phone}
               onChange={handleChange}
+              maxLength={MAX.phone}
+              autoComplete="tel"
               className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
             />
           </div>
@@ -225,6 +262,7 @@ export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'f
               rows={4}
               value={formData.donationContents}
               onChange={handleChange}
+              maxLength={MAX.donationContents}
               placeholder="e.g., 2 laptops, 1 monitor, keyboard and mouse"
               className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 resize-none"
               required
@@ -249,10 +287,64 @@ export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'f
               rows={3}
               value={formData.additionalNotes}
               onChange={handleChange}
+              maxLength={MAX.additionalNotes}
               placeholder="Special pickup instructions, preferred times, etc."
               className="block w-full rounded-lg border-0 py-3 pl-10 pr-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 resize-none"
             />
           </div>
+        </div>
+
+        {showHeardAbout && (
+          <div>
+            <label htmlFor="heardAbout" className="block text-sm font-semibold text-gray-900 mb-2">
+              How did you hear about us?
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46" />
+                </svg>
+              </div>
+              <select
+                name="heardAbout"
+                id="heardAbout"
+                value={formData.heardAbout}
+                onChange={handleChange}
+                className="block w-full rounded-lg border-0 bg-white py-3 pl-10 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600"
+              >
+                <option value="">Select one (optional)</option>
+                {HEARD_ABOUT_OPTIONS.map(option => (
+                  <option key={option} value={option}>{option}</option>
+                ))}
+              </select>
+            </div>
+            {formData.heardAbout === 'Other' && (
+              <input
+                type="text"
+                name="heardAboutOther"
+                id="heardAboutOther"
+                aria-label="Where did you hear about us?"
+                value={formData.heardAboutOther}
+                onChange={handleChange}
+                maxLength={MAX.heardAboutOther}
+                placeholder="Where did you hear about us?"
+                className="mt-3 block w-full rounded-lg border-0 py-3 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
+              />
+            )}
+          </div>
+        )}
+
+        <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}>
+          <label htmlFor="website">Website</label>
+          <input
+            type="text"
+            name="website"
+            id="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={formData.website}
+            onChange={handleChange}
+          />
         </div>
 
         {/* Submit Button */}
