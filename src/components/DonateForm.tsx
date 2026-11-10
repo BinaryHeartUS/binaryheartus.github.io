@@ -1,47 +1,14 @@
 import { useRef, useState } from 'react';
-
-export interface SalesforceDonateConfig {
-  endpoint: string;
-  orgId: string;
-  chapter: string;
-  fieldIds: {
-    chapter: string;
-    donationContents: string;
-    additionalNotes: string;
-    heardAbout: string;
-    fillSeconds: string;
-  };
-}
+import { HEARD_ABOUT_OPTIONS } from '../data/heardAboutOptions';
+import type { DonateFormData, DonateFormFieldIds, DonateFormSubmitInfo } from '../types/forms';
+import { submitDonateFormToGoogle } from '../utils/googleForms';
 
 interface DonateFormProps {
   formUrl: string;
-  fieldIds: {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    donationContents: string;
-    additionalNotes: string;
-    heardAbout?: string;
-  };
+  fieldIds: DonateFormFieldIds;
   buttonGradientClass?: string;
-  salesforce?: SalesforceDonateConfig;
+  onSubmit?: (data: DonateFormData, info: DonateFormSubmitInfo) => Promise<void>;
 }
-
-const HEARD_ABOUT_OPTIONS = [
-  'Friend or family',
-  'School or teacher',
-  'Instagram',
-  'TikTok',
-  'Facebook',
-  'Nextdoor',
-  'Search engine (Google, etc.)',
-  'Flyer or poster',
-  'News, newsletter or email',
-  'Community or faith organization',
-  "I've donated before",
-  'Other',
-];
 
 const MAX = {
   firstName: 40,
@@ -65,12 +32,12 @@ const EMPTY_FORM = {
   website: '',
 };
 
-export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'from-blue-600 to-indigo-600', salesforce }: DonateFormProps) {
+export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'from-blue-600 to-indigo-600', onSubmit }: DonateFormProps) {
   const [formData, setFormData] = useState(EMPTY_FORM);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const startedAt = useRef(0);
-  const salesforceEnabled = Boolean(salesforce?.endpoint && salesforce.orgId);
+  const showHeardAbout = Boolean(fieldIds.heardAbout);
 
   const markStarted = () => {
     if (!startedAt.current) startedAt.current = Date.now();
@@ -85,90 +52,48 @@ export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'f
     }));
   };
 
-  const heardAboutText = (data: typeof EMPTY_FORM) =>
-    data.heardAbout === 'Other' && data.heardAboutOther
-      ? `Other: ${data.heardAboutOther}`
-      : data.heardAbout;
-
-  const sendToGoogleForm = (data: typeof EMPTY_FORM) => {
-    const formBody = new URLSearchParams({
-      [fieldIds.firstName]: data.firstName,
-      [fieldIds.lastName]: data.lastName,
-      [fieldIds.email]: data.email,
-      [fieldIds.phone]: data.phone,
-      [fieldIds.donationContents]: data.donationContents,
-      [fieldIds.additionalNotes]: data.additionalNotes
-    });
-    if (fieldIds.heardAbout) {
-      formBody.set(fieldIds.heardAbout, heardAboutText(data) || 'Not answered');
-    }
-
-    return fetch(formUrl, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: formBody.toString()
-    });
-  };
-
-  const sendToSalesforce = (data: typeof EMPTY_FORM, sf: SalesforceDonateConfig) => {
-    const heardAbout = heardAboutText(data);
-    const fillSeconds = startedAt.current ? Math.round((Date.now() - startedAt.current) / 1000) : 0;
-
-    const body = new URLSearchParams({
-      oid: sf.orgId,
-      retURL: `${window.location.origin}/`,
-      first_name: data.firstName,
-      last_name: data.lastName,
-      email: data.email,
-      phone: data.phone,
-      company: 'Individual donor',
-      lead_source: 'Web',
-      URL: data.website,
-      [sf.fieldIds.chapter]: sf.chapter,
-      [sf.fieldIds.donationContents]: data.donationContents,
-      [sf.fieldIds.additionalNotes]: data.additionalNotes,
-      [sf.fieldIds.heardAbout]: heardAbout,
-      [sf.fieldIds.fillSeconds]: String(fillSeconds),
-    });
-
-    return fetch(sf.endpoint, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: body.toString(),
-    });
+  const finish = () => {
+    setSubmitStatus('success');
+    setFormData(EMPTY_FORM);
+    startedAt.current = 0;
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitStatus('idle');
 
-    const useSalesforce = salesforceEnabled && salesforce !== undefined;
-    setIsSubmitting(true);
-
-    const data = Object.fromEntries(
+    const trimmed = Object.fromEntries(
       Object.entries(formData).map(([key, value]) => [key, value.trim()])
     ) as typeof EMPTY_FORM;
 
-    try {
-      const results = await Promise.allSettled([
-        sendToGoogleForm(data),
-        ...(useSalesforce ? [sendToSalesforce(data, salesforce)] : []),
-      ]);
-      const delivered = results.some(r => r.status === 'fulfilled');
-      results
-        .filter((r): r is PromiseRejectedResult => r.status === 'rejected')
-        .forEach(r => console.error('Error submitting form:', r.reason));
-      if (!delivered) throw new Error('Submission failed');
+    if (trimmed.website) {
+      finish();
+      return;
+    }
 
-      setSubmitStatus('success');
-      setFormData(EMPTY_FORM);
-      startedAt.current = 0;
+    const data: DonateFormData = {
+      firstName: trimmed.firstName,
+      lastName: trimmed.lastName,
+      email: trimmed.email,
+      phone: trimmed.phone,
+      donationContents: trimmed.donationContents,
+      additionalNotes: trimmed.additionalNotes,
+      heardAbout: trimmed.heardAbout === 'Other' && trimmed.heardAboutOther
+        ? `Other: ${trimmed.heardAboutOther}`
+        : trimmed.heardAbout,
+    };
+    const info: DonateFormSubmitInfo = {
+      secondsToFill: startedAt.current ? Math.round((Date.now() - startedAt.current) / 1000) : 0,
+    };
+
+    setIsSubmitting(true);
+    try {
+      if (onSubmit) {
+        await onSubmit(data, info);
+      } else {
+        await submitDonateFormToGoogle(formUrl, fieldIds, data);
+      }
+      finish();
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
@@ -369,61 +294,58 @@ export default function DonateForm({ formUrl, fieldIds, buttonGradientClass = 'f
           </div>
         </div>
 
-        {salesforceEnabled && (
-          <>
-            <div>
-              <label htmlFor="heardAbout" className="block text-sm font-semibold text-gray-900 mb-2">
-                How did you hear about us?
-              </label>
-              <div className="relative">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                  <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46" />
-                  </svg>
-                </div>
-                <select
-                  name="heardAbout"
-                  id="heardAbout"
-                  value={formData.heardAbout}
-                  onChange={handleChange}
-                  className="block w-full rounded-lg border-0 bg-white py-3 pl-10 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600"
-                >
-                  <option value="">Select one (optional)</option>
-                  {HEARD_ABOUT_OPTIONS.map(option => (
-                    <option key={option} value={option}>{option}</option>
-                  ))}
-                </select>
+        {showHeardAbout && (
+          <div>
+            <label htmlFor="heardAbout" className="block text-sm font-semibold text-gray-900 mb-2">
+              How did you hear about us?
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46" />
+                </svg>
               </div>
-              {formData.heardAbout === 'Other' && (
-                <input
-                  type="text"
-                  name="heardAboutOther"
-                  id="heardAboutOther"
-                  aria-label="Where did you hear about us?"
-                  value={formData.heardAboutOther}
-                  onChange={handleChange}
-                  maxLength={MAX.heardAboutOther}
-                  placeholder="Where did you hear about us?"
-                  className="mt-3 block w-full rounded-lg border-0 py-3 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
-                />
-              )}
+              <select
+                name="heardAbout"
+                id="heardAbout"
+                value={formData.heardAbout}
+                onChange={handleChange}
+                className="block w-full rounded-lg border-0 bg-white py-3 pl-10 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600"
+              >
+                <option value="">Select one (optional)</option>
+                {HEARD_ABOUT_OPTIONS.map(option => (
+                  <option key={option} value={option}>{option}</option>
+                ))}
+              </select>
             </div>
-
-            <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}>
-              <label htmlFor="website">Website</label>
+            {formData.heardAbout === 'Other' && (
               <input
                 type="text"
-                name="website"
-                id="website"
-                tabIndex={-1}
-                autoComplete="off"
-                value={formData.website}
+                name="heardAboutOther"
+                id="heardAboutOther"
+                aria-label="Where did you hear about us?"
+                value={formData.heardAboutOther}
                 onChange={handleChange}
+                maxLength={MAX.heardAboutOther}
+                placeholder="Where did you hear about us?"
+                className="mt-3 block w-full rounded-lg border-0 py-3 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
               />
-            </div>
-
-          </>
+            )}
+          </div>
         )}
+
+        <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}>
+          <label htmlFor="website">Website</label>
+          <input
+            type="text"
+            name="website"
+            id="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={formData.website}
+            onChange={handleChange}
+          />
+        </div>
 
         {/* Submit Button */}
         <div>

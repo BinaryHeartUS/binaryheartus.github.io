@@ -2,6 +2,7 @@ import BinaryHeartText from '../../components/BinaryHeartText';
 import DonateForm from '../../components/DonateForm';
 import { NEW_TRIER_COLORS } from '../../utils/brandColors';
 import chapterForms from '../../data/chapterForms.json';
+import { makeNtDonateSubmit } from './donateSubmit';
 
 export default function Donate() {
   const donateFormConfig = chapterForms.NT?.donateForm;
@@ -116,7 +117,7 @@ export default function Donate() {
                   formUrl={donateFormConfig.formUrl}
                   fieldIds={donateFormConfig.fieldIds}
                   buttonGradientClass={NEW_TRIER_COLORS.GRADIENT_PRIMARY}
-                  salesforce={donateFormConfig.salesforce}
+                  onSubmit={makeNtDonateSubmit(donateFormConfig.formUrl, donateFormConfig.fieldIds)}
                 />
               )}
             </div>
