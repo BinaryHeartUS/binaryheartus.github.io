@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { HEARD_ABOUT_OPTIONS } from '../data/heardAboutOptions';
+import { HEARD_ABOUT_OPTIONS } from '../types/heardAboutOptions';
 import type { DonateFormData, DonateFormFieldIds, DonateFormSubmitInfo } from '../types/forms';
 import { submitDonateFormToGoogle } from '../utils/googleForms';
 
